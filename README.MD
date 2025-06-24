@@ -12,6 +12,7 @@ A collection of sophisticated dark mode background patterns and textures for web
 
 ## Files
 
+- **`light-dark-v1.html`** - ⭐ **LATEST VERSION** - Complete pattern collection with all improvements
 - `dark-mode.html` - Main dark mode interface demo
 - `proposed-light-dark.html` - Comprehensive pattern library
 - `Fine-Striped-Patterns.html` - Original fine striped patterns
@@ -37,7 +38,10 @@ A collection of sophisticated dark mode background patterns and textures for web
 
 ## Usage
 
-Open any HTML file in a modern browser to see the patterns in action.
+**Start Here:** Open `light-dark-v1.html` in a modern browser to see the complete latest pattern collection.
+
+For comparison and development history:
+- Open any HTML file in a modern browser to see the patterns in action.
 
 ## Technical Notes
 

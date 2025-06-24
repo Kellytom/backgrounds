@@ -1,5 +1,7 @@
 # CSS Implementation Guide for Dark Mode Background Patterns
 
+> **📢 LATEST VERSION:** All patterns and improvements shown here are fully implemented in `light-dark-v1.html` - this is the definitive, most up-to-date version with all enhancements.
+
 ## Ready-to-Use CSS Classes
 
 Here's how to implement these patterns in your CSS:
