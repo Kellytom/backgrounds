@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Marble Design Patterns</title>
+    <style>
+        body {
+            background: #2a2a2a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #daa520;
+            text-align: center;
+        }
+        
+        .pattern-sample {
+            width: 300px;
+            height: 100px;
+            margin: 20px;
+            border: 1px solid #444;
+            display: inline-block;
+        }
+        
+        .pattern-title {
+            text-align: center;
+            margin: 10px;
+            font-weight: bold;
+        }
+        
+        /* Original marble patterns with radial gradients (older versions) */
+        .carrara-marble-old {
+            /* Original Carrara marble - pure white with curved gold stripes using radial gradients */
+            background: 
+                radial-gradient(ellipse 100px 20px at 25% 25%, rgba(212, 175, 55, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 80px 15px at 75% 60%, rgba(212, 175, 55, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 120px 25px at 40% 80%, rgba(212, 175, 55, 0.7) 0%, transparent 50%),
+                rgba(245, 245, 245, 0.9);
+        }
+        
+        .calacatta-marble-old {
+            /* Original Calacatta marble - cream white with dramatic curved gold veining using radial gradients */
+            background: 
+                radial-gradient(ellipse 150px 30px at 20% 40%, rgba(218, 165, 32, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 90px 20px at 80% 20%, rgba(218, 165, 32, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 110px 25px at 60% 70%, rgba(218, 165, 32, 0.6) 0%, transparent 55%),
+                rgba(248, 248, 246, 0.9);
+        }
+        
+        .statuario-marble-old {
+            /* Original Statuario marble - sculptor's white with curved bronze accents using radial gradients */
+            background: 
+                radial-gradient(ellipse 70px 15px at 30% 30%, rgba(205, 127, 50, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 100px 20px at 70% 50%, rgba(205, 127, 50, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 85px 18px at 45% 75%, rgba(205, 127, 50, 0.5) 0%, transparent 50%),
+                rgba(250, 250, 250, 0.9);
+        }
+        
+        /* Original parchment patterns with radial gradients (older versions) */
+        .parchment-classic-old {
+            /* Original classic parchment with curved fiber patterns using radial gradients */
+            background: 
+                radial-gradient(ellipse 80px 12px at 35% 25%, rgba(222, 184, 135, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 60px 10px at 65% 55%, rgba(222, 184, 135, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 90px 15px at 20% 75%, rgba(222, 184, 135, 0.6) 0%, transparent 50%),
+                rgba(245, 222, 179, 0.9);
+        }
+        
+        .aged-paper-old {
+            /* Original aged paper with curved fiber structure using radial gradients */
+            background: 
+                radial-gradient(ellipse 95px 18px at 40% 20%, rgba(210, 180, 140, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 75px 14px at 80% 45%, rgba(210, 180, 140, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 85px 16px at 25% 70%, rgba(210, 180, 140, 0.6) 0%, transparent 50%),
+                rgba(244, 228, 188, 0.9);
+        }
+        
+        .antique-paper-old {
+            /* Original antique paper with curved aging patterns using radial gradients */
+            background: 
+                radial-gradient(ellipse 110px 22px at 30% 35%, rgba(205, 133, 63, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 70px 14px at 75% 25%, rgba(205, 133, 63, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 95px 19px at 50% 80%, rgba(205, 133, 63, 0.6) 0%, transparent 50%),
+                rgba(230, 211, 163, 0.9);
+        }
+        
+        /* Original ripple pattern with radial gradients (older version) */
+        .ripple-marble-diagonal-old {
+            /* Original light marble ripples with diagonal spread from corners using radial gradients */
+            background: 
+                radial-gradient(ellipse 140px 25px at 10% 10%, rgba(212, 175, 55, 0.4) 0%, transparent 80%),
+                radial-gradient(ellipse 110px 20px at 90% 90%, rgba(218, 165, 32, 0.35) 0%, transparent 80%),
+                radial-gradient(ellipse 95px 18px at 30% 15%, rgba(212, 175, 55, 0.3) 0%, transparent 80%),
+                radial-gradient(ellipse 85px 16px at 70% 85%, rgba(218, 165, 32, 0.25) 0%, transparent 80%),
+                rgba(245, 245, 245, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <h1>OLD MARBLE DESIGN PATTERNS</h1>
+    <p>These are the original versions of the marble and parchment patterns using radial gradients for curved veining effects. These were replaced with linear gradient versions that had better angle control.</p>
+    
+    <div class="pattern-sample carrara-marble-old"></div>
+    <div class="pattern-title">Carrara Marble (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample calacatta-marble-old"></div>
+    <div class="pattern-title">Calacatta Marble (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample statuario-marble-old"></div>
+    <div class="pattern-title">Statuario Marble (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample parchment-classic-old"></div>
+    <div class="pattern-title">Classic Parchment (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample aged-paper-old"></div>
+    <div class="pattern-title">Aged Paper (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample antique-paper-old"></div>
+    <div class="pattern-title">Antique Paper (Original - Radial Gradients)</div>
+    
+    <div class="pattern-sample ripple-marble-diagonal-old"></div>
+    <div class="pattern-title">Light Marble Ripples (Original - Radial Gradients)</div>
+    
+    <h2>Design Evolution Notes</h2>
+    <p><strong>Original Design (This File):</strong> Used radial gradients positioned at various points to create curved, organic veining patterns that looked natural but didn't have controlled angles.</p>
+    
+    <p><strong>Failed Design (failed-design.html):</strong> Attempted to use linear gradients at specific angles (30-60 degrees) but resulted in harsh, artificial-looking veining that was either too strong or not visible enough.</p>
+    
+    <p><strong>Current Approach:</strong> Focus on striped patterns and other techniques that work better for the intended use cases.</p>
+    
+</body>
+</html>

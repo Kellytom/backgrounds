@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failed Design Patterns</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            text-align: center;
+        }
+        
+        .pattern-sample {
+            width: 300px;
+            height: 100px;
+            margin: 20px;
+            border: 1px solid #444;
+            display: inline-block;
+        }
+        
+        .pattern-title {
+            text-align: center;
+            margin: 10px;
+            font-weight: bold;
+        }
+        
+        /* Failed marble patterns */
+        .carrara-marble {
+            /* Carrara marble - pure white with angled gold veining */
+            background: 
+                linear-gradient(135deg, transparent 0%, transparent 20%, rgba(212, 175, 55, 0.6) 22%, rgba(212, 175, 55, 0.6) 25%, transparent 27%, transparent 100%),
+                linear-gradient(45deg, transparent 0%, transparent 35%, rgba(212, 175, 55, 0.4) 37%, rgba(212, 175, 55, 0.4) 40%, transparent 42%, transparent 100%),
+                linear-gradient(160deg, transparent 0%, transparent 60%, rgba(212, 175, 55, 0.5) 62%, rgba(212, 175, 55, 0.5) 65%, transparent 67%, transparent 100%),
+                rgba(245, 245, 245, 0.9);
+        }
+        
+        .calacatta-marble {
+            /* Calacatta marble - cream white with dramatic angled gold veining */
+            background: 
+                linear-gradient(140deg, transparent 0%, transparent 15%, rgba(218, 165, 32, 0.7) 17%, rgba(218, 165, 32, 0.7) 22%, transparent 24%, transparent 100%),
+                linear-gradient(50deg, transparent 0%, transparent 45%, rgba(218, 165, 32, 0.5) 47%, rgba(218, 165, 32, 0.5) 52%, transparent 54%, transparent 100%),
+                linear-gradient(170deg, transparent 0%, transparent 70%, rgba(218, 165, 32, 0.6) 72%, rgba(218, 165, 32, 0.6) 77%, transparent 79%, transparent 100%),
+                rgba(248, 248, 246, 0.9);
+        }
+        
+        .statuario-marble {
+            /* Statuario marble - pure white with angled bronze veining */
+            background: 
+                linear-gradient(130deg, transparent 0%, transparent 25%, rgba(205, 127, 50, 0.6) 27%, rgba(205, 127, 50, 0.6) 30%, transparent 32%, transparent 100%),
+                linear-gradient(40deg, transparent 0%, transparent 55%, rgba(205, 127, 50, 0.4) 57%, rgba(205, 127, 50, 0.4) 60%, transparent 62%, transparent 100%),
+                linear-gradient(155deg, transparent 0%, transparent 75%, rgba(205, 127, 50, 0.5) 77%, rgba(205, 127, 50, 0.5) 80%, transparent 82%, transparent 100%),
+                rgba(250, 250, 250, 0.9);
+        }
+        
+        /* Failed parchment patterns */
+        .parchment-classic {
+            /* Classic parchment with angled fiber patterns */
+            background: 
+                linear-gradient(145deg, transparent 0%, transparent 30%, rgba(222, 184, 135, 0.6) 32%, rgba(222, 184, 135, 0.6) 35%, transparent 37%, transparent 100%),
+                linear-gradient(55deg, transparent 0%, transparent 60%, rgba(222, 184, 135, 0.4) 62%, rgba(222, 184, 135, 0.4) 65%, transparent 67%, transparent 100%),
+                linear-gradient(175deg, transparent 0%, transparent 80%, rgba(222, 184, 135, 0.5) 82%, rgba(222, 184, 135, 0.5) 85%, transparent 87%, transparent 100%),
+                rgba(245, 222, 179, 0.9);
+        }
+        
+        .aged-paper {
+            /* Aged paper with angled fiber structure */
+            background: 
+                linear-gradient(125deg, transparent 0%, transparent 25%, rgba(210, 180, 140, 0.6) 27%, rgba(210, 180, 140, 0.6) 30%, transparent 32%, transparent 100%),
+                linear-gradient(35deg, transparent 0%, transparent 50%, rgba(210, 180, 140, 0.4) 52%, rgba(210, 180, 140, 0.4) 55%, transparent 57%, transparent 100%),
+                linear-gradient(165deg, transparent 0%, transparent 75%, rgba(210, 180, 140, 0.5) 77%, rgba(210, 180, 140, 0.5) 80%, transparent 82%, transparent 100%),
+                rgba(244, 228, 188, 0.9);
+        }
+        
+        /* Failed ripple pattern */
+        .ripple-marble-diagonal {
+            /* Light marble ripples with subtle angled gold veining */
+            background: 
+                linear-gradient(135deg, transparent 0%, transparent 18%, rgba(212, 175, 55, 0.2) 20%, rgba(212, 175, 55, 0.2) 21%, transparent 23%, transparent 100%),
+                linear-gradient(45deg, transparent 0%, transparent 40%, rgba(218, 165, 32, 0.15) 42%, rgba(218, 165, 32, 0.15) 43%, transparent 45%, transparent 100%),
+                linear-gradient(160deg, transparent 0%, transparent 65%, rgba(212, 175, 55, 0.18) 67%, rgba(212, 175, 55, 0.18) 68%, transparent 70%, transparent 100%),
+                rgba(245, 245, 245, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <h1>FAILED DESIGN PATTERNS</h1>
+    <p>These patterns were removed from the main design file due to issues with veining, opacity, or visual appearance.</p>
+    
+    <div class="pattern-sample carrara-marble"></div>
+    <div class="pattern-title">Carrara Marble (FAILED)</div>
+    
+    <div class="pattern-sample calacatta-marble"></div>
+    <div class="pattern-title">Calacatta Marble (FAILED)</div>
+    
+    <div class="pattern-sample statuario-marble"></div>
+    <div class="pattern-title">Statuario Marble (FAILED)</div>
+    
+    <div class="pattern-sample parchment-classic"></div>
+    <div class="pattern-title">Classic Parchment (FAILED)</div>
+    
+    <div class="pattern-sample aged-paper"></div>
+    <div class="pattern-title">Aged Paper (FAILED)</div>
+    
+    <div class="pattern-sample ripple-marble-diagonal"></div>
+    <div class="pattern-title">Light Marble Ripples (FAILED)</div>
+    
+</body>
+</html>

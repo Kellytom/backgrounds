@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Enhanced color variables for fine striped patterns */
+            --primary-bg: #0A0A0A;
+            --secondary-bg: #1C1C1C;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            
+            /* Fine striped pattern colors - Granite family */
+            --granite-dark-base: #2A2A2A;
+            --granite-dark-accent: #3A3A3A;
+            --granite-warm-base: #3A2A4A; /* More royal purple, less green */
+            --granite-warm-accent: #4A3A5A;
+            
+            /* Marble family - less brown, more neutral */
+            --marble-base: #3A3A3A;
+            --marble-accent: #4A4A4A;
+            --marble-rich-base: #4A4A4A;
+            --marble-rich-accent: #5A5A5A;
+            
+            /* Fabric family - more royal blueish */
+            --fabric-base: #2A2A4A;
+            --fabric-accent: #3A3A5A;
+            --fabric-warm-base: #2A2A4A;
+            --fabric-warm-accent: #3A3A5A;
+            
+            /* Stained glass family */
+            --glass-base: #1A2A4A;
+            --glass-accent: #2A3A5A;
+            --glass-deep-base: #1A2A3A;
+            --glass-deep-accent: #2A3A4A;
+            
+            /* Classical dark patterns */
+            --classical-navy-base: #1A1A3A;
+            --classical-navy-accent: #2A2A4A;
+            --classical-charcoal-base: #2A2A2A;
+            --classical-charcoal-accent: #3A2A2A;
+            --classical-burgundy-base: #3A1A1A;
+            --classical-burgundy-accent: #4A2A1A;
+            
+            /* Light Marble family - authentic marble whites with warm gold accents */
+            /* Based on famous Italian marble varieties: Carrara, Calacatta, Statuario */
+            --carrara-white-base: #F5F5F5; /* Pure Carrara marble white */
+            --carrara-warm-accent: #D4AF37; /* Classic gold accent */
+            --calacatta-white-base: #F8F8F6; /* Calacatta white with slight cream */
+            --calacatta-gold-accent: #DAA520; /* Calacatta's characteristic gold veining */
+            --statuario-white-base: #FAFAFA; /* Statuario pure white for sculptures */
+            --statuario-bronze-accent: #CD7F32; /* Warm bronze accent */
+            
+            /* Parchment/Paper family - authentic tans and light browns */
+            /* Colors inspired by aged parchment, antique paper, and natural browns */
+            --parchment-base: #F5DEB3; /* Classic parchment tan */
+            --parchment-accent: #DEB887; /* Darker parchment accent */
+            --aged-paper-base: #F4E4BC; /* Aged paper cream */
+            --aged-paper-accent: #D2B48C; /* Light brown accent */
+            --antique-base: #E6D3A3; /* Antique paper color */
+            --antique-accent: #CD853F; /* Medium brown accent */
+        }
+        
+        body {
+            background: rgba(25, 15, 20, 0.9); /* Dark brown purple with 90% opacity */
+            color: var(--text-primary);
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4; /* Reduced line height for tighter spacing */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 20px; /* Reduced from 40px */
+            font-size: 2.2rem; /* Slightly smaller */
+            font-weight: bold;
+        }
+        
+        h2 {
+            color: var(--text-primary);
+            margin: 25px 0 12px 0; /* Reduced from 40px 0 20px 0 */
+            font-size: 1.6rem; /* Slightly smaller */
+            font-weight: bold;
+            border-bottom: 2px solid #444;
+            padding-bottom: 8px; /* Reduced from 10px */
+        }
+        
+        h3 {
+            color: var(--text-primary);
+            margin: 20px 0 10px 0; /* Reduced from 30px 0 15px 0 */
+            font-size: 1.3rem; /* Slightly smaller */
+            font-weight: bold;
+        }
+        
+        .problem-solution {
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 15px; /* Reduced from 20px */
+            margin: 12px 0; /* Reduced from 20px 0 */
+            border-left: 4px solid #4A6B7A; /* Muted blue instead of bright #007ACC */
+        }
+        
+        .current-problem {
+            background-color: #2A1A1A;
+            border-left: 4px solid #8A5A5A; /* Muted red instead of bright #CC4444 */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+        }
+        
+        .proposed-solution {
+            background-color: #1A2A1A;
+            border-left: 4px solid #5A7A5A; /* Muted green instead of bright #44CC44 */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+        }
+        
+        /* Apply experimental pattern to implementation sections */
+        .implementation-background {
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(244, 228, 188, 0.7) 0px,
+                    rgba(244, 228, 188, 0.7) 2px,
+                    rgba(220, 204, 164, 0.7) 2px,
+                    rgba(220, 204, 164, 0.7) 3px
+                ),
+                repeating-linear-gradient(
+                    -14.04deg,
+                    rgba(210, 180, 140, 0.4) 0px,
+                    rgba(210, 180, 140, 0.4) 1px,
+                    rgba(190, 160, 120, 0.4) 1px,
+                    rgba(190, 160, 120, 0.4) 7px
+                );
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            color: #333;
+        }
+        
+        .pattern-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px; /* Reduced from 20px */
+            margin: 15px 0; /* Reduced from 20px 0 */
+        }
+        
+        .pattern-card {
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 12px; /* Reduced from 15px */
+            text-align: center;
+        }
+        
+        .pattern-sample {
+            width: 100%;
+            height: 100px; /* Slightly reduced from 120px */
+            border-radius: 4px;
+            margin-bottom: 8px; /* Reduced from 10px */
+            position: relative;
+            border: 1px solid #444;
+        }
+        
+        .pattern-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            /* Clean bold text without shadows for dark patterns */
+            text-shadow: none;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .pattern-title {
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 4px; /* Reduced from 5px */
+        }
+        
+        .pattern-description {
+            color: var(--text-secondary);
+            font-size: 0.85rem; /* Slightly smaller */
+            line-height: 1.3; /* Reduced from 1.4 */
+            font-family: 'Roboto', sans-serif; /* Technical specs in sans-serif */
+        }
+        
+        .tech-specs {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; /* Reduced from 20px */
+            margin: 15px 0; /* Reduced from 20px 0 */
+        }
+        
+        .before-after {
+            background-color: var(--secondary-bg);
+            border-radius: 8px;
+            padding: 12px; /* Reduced from 15px */
+        }
+        
+        .before {
+            border-left: 4px solid #8A5A5A; /* Muted red */
+        }
+        
+        .after {
+            border-left: 4px solid #5A7A5A; /* Muted green */
+        }
+        
+        code {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        /* Proposed anti-aliased patterns */
+        
+        /* Granite family - various slope ratios */
+        .granite-3-4 {
+            /* 3:4 slope ratio (36.87°) - most common anti-aliasing fix */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(42, 42, 42, 0.8) 0px,
+                rgba(42, 42, 42, 0.8) 2px,
+                rgba(58, 58, 58, 0.8) 2px,
+                rgba(58, 58, 58, 0.8) 3px
+            );
+        }
+        
+        .granite-4-3 {
+            /* 4:3 slope ratio (53.13°) - steeper angle with royal purple tones */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 42, 74, 0.8) 0px,
+                rgba(58, 42, 74, 0.8) 2px,
+                rgba(74, 58, 90, 0.8) 2px,
+                rgba(74, 58, 90, 0.8) 3px
+            );
+        }
+        
+        .granite-1-2 {
+            /* 1:2 slope ratio (26.57°) - shallow angle */
+            background: repeating-linear-gradient(
+                26.57deg,
+                rgba(42, 42, 42, 0.8) 0px,
+                rgba(42, 42, 42, 0.8) 1px,
+                rgba(58, 58, 58, 0.8) 1px,
+                rgba(58, 58, 58, 0.8) 2px
+            );
+        }
+        
+        /* Marble family - less brown, more neutral grays */
+        .marble-3-4 {
+            /* Base color with accent stripes every 3rd position */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(58, 58, 58, 0.8) 0px,
+                rgba(58, 58, 58, 0.8) 2px,
+                rgba(74, 74, 74, 0.8) 2px,
+                rgba(74, 74, 74, 0.8) 3px
+            );
+        }
+        
+        .marble-4-3 {
+            /* Rich marble with 4:3 slope */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(74, 74, 74, 0.8) 0px,
+                rgba(74, 74, 74, 0.8) 2px,
+                rgba(90, 90, 90, 0.8) 2px,
+                rgba(90, 90, 90, 0.8) 3px
+            );
+        }
+        
+        .marble-1-3 {
+            /* Subtle marble with 1:3 slope */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(58, 58, 58, 0.8) 0px,
+                rgba(58, 58, 58, 0.8) 2px,
+                rgba(74, 74, 74, 0.8) 2px,
+                rgba(74, 74, 74, 0.8) 3px
+            );
+        }
+        
+        /* Fabric family - more royal blueish */
+        .fabric-1-3 {
+            /* Base fabric with 1:3 slope */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(42, 42, 74, 0.8) 0px,
+                rgba(42, 42, 74, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 3px
+            );
+        }
+        
+        .fabric-2-3 {
+            /* Warm fabric with 2:3 slope */
+            background: repeating-linear-gradient(
+                33.69deg,
+                rgba(42, 42, 74, 0.8) 0px,
+                rgba(42, 42, 74, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 3px
+            );
+        }
+        
+        .fabric-3-4 {
+            /* Professional fabric with 3:4 slope */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(42, 42, 74, 0.8) 0px,
+                rgba(42, 42, 74, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 2px,
+                rgba(58, 58, 90, 0.8) 3px
+            );
+        }
+        
+        /* Stained glass family - deep blues */
+        .glass-2-3 {
+            /* Deep stained glass with 2:3 slope */
+            background: repeating-linear-gradient(
+                33.69deg,
+                rgba(26, 42, 74, 0.8) 0px,
+                rgba(26, 42, 74, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 3px
+            );
+        }
+        
+        .glass-3-4 {
+            /* Rich stained glass with 3:4 slope */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(26, 42, 58, 0.8) 0px,
+                rgba(26, 42, 58, 0.8) 2px,
+                rgba(42, 58, 74, 0.8) 2px,
+                rgba(42, 58, 74, 0.8) 3px
+            );
+        }
+        
+        .glass-1-4 {
+            /* Subtle stained glass with 1:4 slope */
+            background: repeating-linear-gradient(
+                14.04deg,
+                rgba(26, 42, 74, 0.8) 0px,
+                rgba(26, 42, 74, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 3px
+            );
+        }
+        
+        /* Classical dark patterns */
+        .classical-navy {
+            /* Classical navy with 1:4 slope */
+            background: repeating-linear-gradient(
+                14.04deg,
+                rgba(26, 26, 58, 0.8) 0px,
+                rgba(26, 26, 58, 0.8) 2px,
+                rgba(42, 42, 74, 0.8) 2px,
+                rgba(42, 42, 74, 0.8) 3px
+            );
+        }
+        
+        .classical-charcoal {
+            /* Warm charcoal with 3:5 slope */
+            background: repeating-linear-gradient(
+                30.96deg,
+                rgba(42, 42, 42, 0.8) 0px,
+                rgba(42, 42, 42, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 3px
+            );
+        }
+        
+        .classical-burgundy {
+            /* Classical burgundy with 4:3 slope */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 26, 26, 0.8) 0px,
+                rgba(58, 26, 26, 0.8) 2px,
+                rgba(74, 42, 26, 0.8) 2px,
+                rgba(74, 42, 26, 0.8) 3px
+            );
+        }
+        
+        /* Light Marble family - authentic marble whites with curved gold accents */
+        /* NOTE: These use curved patterns with radial gradients to simulate natural marble veining */
+        /* Colors based on famous Italian marble varieties from Carrara region */
+        
+        .carrara-marble {
+            /* Carrara marble - pure white with curved gold stripes */
+            background: 
+                radial-gradient(ellipse 100px 20px at 25% 25%, rgba(212, 175, 55, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 80px 15px at 75% 60%, rgba(212, 175, 55, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 120px 25px at 40% 80%, rgba(212, 175, 55, 0.7) 0%, transparent 50%),
+                rgba(245, 245, 245, 0.9);
+        }
+        
+        .calacatta-marble {
+            /* Calacatta marble - cream white with dramatic curved gold veining */
+            background: 
+                radial-gradient(ellipse 150px 30px at 20% 40%, rgba(218, 165, 32, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 90px 20px at 80% 20%, rgba(218, 165, 32, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 110px 25px at 60% 70%, rgba(218, 165, 32, 0.6) 0%, transparent 55%),
+                rgba(248, 248, 246, 0.9);
+        }
+        
+        .statuario-marble {
+            /* Statuario marble - sculptor's white with curved bronze accents */
+            background: 
+                radial-gradient(ellipse 70px 15px at 30% 30%, rgba(205, 127, 50, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 100px 20px at 70% 50%, rgba(205, 127, 50, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 85px 18px at 45% 75%, rgba(205, 127, 50, 0.5) 0%, transparent 50%),
+                rgba(250, 250, 250, 0.9);
+        }
+        
+        /* Parchment/Paper family - curved patterns to simulate paper fibers */
+        /* Colors inspired by aged documents, antique paper, and natural materials */
+        
+        .parchment-classic {
+            /* Classic parchment with curved fiber patterns */
+            background: 
+                radial-gradient(ellipse 80px 12px at 35% 25%, rgba(222, 184, 135, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 60px 10px at 65% 55%, rgba(222, 184, 135, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 90px 15px at 20% 75%, rgba(222, 184, 135, 0.6) 0%, transparent 50%),
+                rgba(245, 222, 179, 0.9);
+        }
+        
+        .aged-paper {
+            /* Aged paper with curved fiber structure */
+            background: 
+                radial-gradient(ellipse 95px 18px at 40% 20%, rgba(210, 180, 140, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 75px 14px at 80% 45%, rgba(210, 180, 140, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 85px 16px at 25% 70%, rgba(210, 180, 140, 0.6) 0%, transparent 50%),
+                rgba(244, 228, 188, 0.9);
+        }
+        
+        .antique-paper {
+            /* Antique paper with curved aging patterns */
+            background: 
+                radial-gradient(ellipse 110px 22px at 30% 35%, rgba(205, 133, 63, 0.8) 0%, transparent 50%),
+                radial-gradient(ellipse 70px 14px at 75% 25%, rgba(205, 133, 63, 0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 95px 19px at 50% 80%, rgba(205, 133, 63, 0.6) 0%, transparent 50%),
+                rgba(230, 211, 163, 0.9);
+        }
+        
+        /* Experimental combined patterns - multiple angles for visual interest */
+        /* These patterns layer two different striped gradients at different angles */
+        /* to create ripple effects and break up the monotony of single-angle patterns */
+        
+        .expo-1 {
+            /* Experimental granite with dual angles - creates crosshatch effect */
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 42, 42, 0.6) 0px,
+                    rgba(42, 42, 42, 0.6) 2px,
+                    rgba(68, 68, 68, 0.6) 2px,
+                    rgba(68, 68, 68, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -18.43deg,
+                    rgba(58, 58, 58, 0.4) 0px,
+                    rgba(58, 58, 58, 0.4) 1px,
+                    rgba(78, 78, 78, 0.4) 1px,
+                    rgba(78, 78, 78, 0.4) 4px
+                );
+        }
+        
+        .expo-2 {
+            /* Experimental marble with warm secondary ripples */
+            background: 
+                repeating-linear-gradient(
+                    53.13deg,
+                    rgba(58, 58, 58, 0.6) 0px,
+                    rgba(58, 58, 58, 0.6) 2px,
+                    rgba(78, 78, 78, 0.6) 2px,
+                    rgba(78, 78, 78, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    14.04deg,
+                    rgba(88, 72, 58, 0.3) 0px,
+                    rgba(88, 72, 58, 0.3) 1px,
+                    rgba(108, 92, 78, 0.3) 1px,
+                    rgba(108, 92, 78, 0.3) 6px
+                );
+        }
+        
+        .expo-3 {
+            /* Experimental fabric with golden accent ripples */
+            background: 
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(42, 42, 74, 0.6) 0px,
+                    rgba(42, 42, 74, 0.6) 2px,
+                    rgba(58, 58, 90, 0.6) 2px,
+                    rgba(58, 58, 90, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(78, 68, 48, 0.3) 0px,
+                    rgba(78, 68, 48, 0.3) 1px,
+                    rgba(98, 88, 68, 0.3) 1px,
+                    rgba(98, 88, 68, 0.3) 5px
+                );
+        }
+        
+        .expo-4 {
+            /* Experimental parchment with curved crosshatch */
+            background: 
+                radial-gradient(ellipse 80px 12px at 35% 25%, rgba(210, 180, 140, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 60px 10px at 65% 55%, rgba(190, 160, 120, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse 90px 15px at 20% 75%, rgba(210, 180, 140, 0.4) 0%, transparent 50%),
+                rgba(244, 228, 188, 0.7);
+        }
+        
+        .expo-5 {
+            /* Experimental light marble with curved bronze ripples */
+            background: 
+                radial-gradient(ellipse 100px 20px at 25% 30%, rgba(205, 127, 50, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 80px 16px at 70% 60%, rgba(185, 107, 30, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse 120px 24px at 45% 80%, rgba(205, 127, 50, 0.3) 0%, transparent 50%),
+                rgba(248, 248, 246, 0.8);
+        }
+        
+        .expo-6 {
+            /* Experimental deep granite with silver highlights */
+            background: 
+                repeating-linear-gradient(
+                    18.43deg,
+                    rgba(32, 32, 32, 0.7) 0px,
+                    rgba(32, 32, 32, 0.7) 2px,
+                    rgba(52, 52, 52, 0.7) 2px,
+                    rgba(52, 52, 52, 0.7) 3px
+                ),
+                repeating-linear-gradient(
+                    -53.13deg,
+                    rgba(88, 88, 88, 0.2) 0px,
+                    rgba(88, 88, 88, 0.2) 1px,
+                    rgba(108, 108, 108, 0.2) 1px,
+                    rgba(108, 108, 108, 0.2) 9px
+                );
+        }
+        
+        /* High contrast accessibility patterns */
+        .accessible-high-contrast {
+            /* High contrast with 3:4 slope for accessibility */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(20, 20, 20, 0.9) 0px,
+                rgba(20, 20, 20, 0.9) 2px,
+                rgba(60, 60, 60, 0.9) 2px,
+                rgba(60, 60, 60, 0.9) 3px
+            );
+        }
+        
+        .accessible-warm-contrast {
+            /* Warm high contrast with 4:3 slope */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(30, 20, 10, 0.9) 0px,
+                rgba(30, 20, 10, 0.9) 2px,
+                rgba(70, 50, 30, 0.9) 2px,
+                rgba(70, 50, 30, 0.9) 3px
+            );
+        }
+        
+        .note {
+            background-color: #2A2A4A;
+            border-left: 4px solid #5A5A8A; /* Muted blue */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+        
+        .warning {
+            background-color: #4A2A2A;
+            border-left: 4px solid #8A5A5A; /* Muted red */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proposed Dark Mode Improvements</h1>
+        <p style="text-align: center; color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 25px;">
+            Visual examples of anti-aliased fine striped patterns for dark mode backgrounds
+        </p>
+
+        <h2>1. Experimental Multi-Angle Patterns</h2>
+        
+        <div class="proposed-solution">
+            <h4>Breakthrough: Layered Stripe Patterns for Visual Interest</h4>
+            <p>Revolutionary approach combining two different striped gradients at contrasting angles to create dynamic ripple effects and break up the monotony of single-angle patterns. These experimental patterns solve the "boring background" problem by introducing subtle complexity while maintaining professional aesthetics.</p>
+            <!-- Experimental approach: Layer two gradients with different angles, colors, widths, and opacities
+                 - Primary gradient: Main pattern structure
+                 - Secondary gradient: Accent ripples with wider spacing and lower opacity
+                 - Creates visual texture that mimics natural stone and fabric variations -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample expo-1">
+                    <div class="pattern-text">Expo-1: Crosshatch Granite</div>
+                </div>
+                <div class="pattern-title">Expo-1: Enhanced Granite</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 36.87° gray base pattern<br>
+                    <strong class="tech-specs">Secondary:</strong> -18.43° lighter accent ripples<br>
+                    <strong class="tech-specs">Effect:</strong> Crosshatch texture, enhanced depth<br>
+                    <strong class="tech-specs">Use:</strong> Dynamic granite backgrounds with visual interest
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-2">
+                    <div class="pattern-text">Expo-2: Warm Marble Ripples</div>
+                </div>
+                <div class="pattern-title">Expo-2: Marble with Warm Accents</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 53.13° marble base pattern<br>
+                    <strong class="tech-specs">Secondary:</strong> 14.04° warm brown ripples<br>
+                    <strong class="tech-specs">Effect:</strong> Natural stone variation, warm highlights<br>
+                    <strong class="tech-specs">Use:</strong> Sophisticated marble with organic feel
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-3">
+                    <div class="pattern-text">Expo-3: Fabric Gold Ripples</div>
+                </div>
+                <div class="pattern-title">Expo-3: Classical Fabric Enhancement</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 33.69° royal blue fabric base<br>
+                    <strong class="tech-specs">Secondary:</strong> -26.57° golden accent threads<br>
+                    <strong class="tech-specs">Effect:</strong> Woven texture, metallic highlights<br>
+                    <strong class="tech-specs">Use:</strong> Premium fabric simulation with golden threads
+                </div>
+            </div>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample expo-4">
+                    <div class="pattern-text">Expo-4: Parchment Crosshatch</div>
+                </div>
+                <div class="pattern-title">Expo-4: Enhanced Parchment</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> Curved parchment base<br>
+                    <strong class="tech-specs">Secondary:</strong> Curved brown fiber patterns<br>
+                    <strong class="tech-specs">Effect:</strong> Paper fiber texture, curved aging appearance<br>
+                    <strong class="tech-specs">Use:</strong> Document interfaces with authentic curved paper feel
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-5">
+                    <div class="pattern-text">Expo-5: Marble Bronze Veins</div>
+                </div>
+                <div class="pattern-title">Expo-5: Light Marble with Bronze</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> Curved white marble base<br>
+                    <strong class="tech-specs">Secondary:</strong> Curved bronze veining<br>
+                    <strong class="tech-specs">Effect:</strong> Natural curved marble veining, refined appearance<br>
+                    <strong class="tech-specs">Use:</strong> Premium light backgrounds with authentic curved veining
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-6">
+                    <div class="pattern-text">Expo-6: Deep Granite Silver</div>
+                </div>
+                <div class="pattern-title">Expo-6: Deep Granite with Silver</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 18.43° deep gray base<br>
+                    <strong class="tech-specs">Secondary:</strong> -53.13° silver highlights<br>
+                    <strong class="tech-specs">Effect:</strong> Mineral sparkle, depth enhancement<br>
+                    <strong class="tech-specs">Use:</strong> Sophisticated dark backgrounds with metallic accents
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Granite Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
+            <p>Replace single 45° granite pattern with a family of anti-aliased patterns using different slope ratios and 1-2px stripe widths.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample granite-3-4">
+                    <div class="pattern-text">Granite 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Classical Granite (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87° (most common anti-aliasing fix)<br>
+                    <strong class="tech-specs">Colors:</strong> Dark gray base with lighter accent<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Classical backgrounds, classical interfaces
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample granite-4-3">
+                    <div class="pattern-text">Granite 4:3 Slope</div>
+                </div>
+                <div class="pattern-title">Warm Granite (4:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 53.13° (steeper angle)<br>
+                    <strong>Colors:</strong> Warm gray base with yellow tint<br>
+                    <strong>Stripes:</strong> 2px base, 1px accent<br>
+                    <strong>Use:</strong> Warmer interfaces, creative applications
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample granite-1-2">
+                    <div class="pattern-text">Granite 1:2 Slope</div>
+                </div>
+                <div class="pattern-title">Subtle Granite (1:2)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 26.57° (shallow angle)<br>
+                    <strong>Colors:</strong> Dark gray with subtle contrast<br>
+                    <strong>Stripes:</strong> 1px equal width stripes<br>
+                    <strong>Use:</strong> Subtle backgrounds, minimal interfaces
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Marble Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Enhanced Marble Patterns: Warmer, Darker Tones</h4>
+            <p>Sophisticated dark marble patterns using warmer brown tones and anti-aliased slopes, enhanced with the new experimental multi-angle techniques.</p>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="before-after before">
+                <h4>Traditional Single-Angle Marble</h4>
+                <div class="pattern-sample marble-3-4">
+                    <div class="pattern-text">Traditional Marble Pattern</div>
+                </div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Approach:</strong> Single angle, uniform pattern
+                </div>
+            </div>
+            
+            <div class="before-after after">
+                <h4>Enhanced Multi-Angle Marble (Expo-2)</h4>
+                <div class="pattern-sample expo-2">
+                    <div class="pattern-text">Enhanced Marble Pattern</div>
+                </div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Improvements:</strong> Dual angles, warm ripples, natural variation
+                </div>
+            </div>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample marble-3-4">
+                    <div class="pattern-text">Marble 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Rich Marble (3:4)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 36.87°<br>
+                    <strong>Colors:</strong> Rich brown base with warm accent<br>
+                    <strong>Stripes:</strong> Base color with accent every 3rd position<br>
+                    <strong>Use:</strong> Luxury interfaces, premium applications
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample marble-4-3">
+                    <div class="pattern-text">Marble 4:3 Slope</div>
+                </div>
+                <div class="pattern-title">Elegant Marble (4:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 53.13°<br>
+                    <strong>Colors:</strong> Deep brown with golden highlights<br>
+                    <strong>Stripes:</strong> 2px base, 1px accent<br>
+                    <strong>Use:</strong> Sophisticated backgrounds, high-end interfaces
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample marble-1-3">
+                    <div class="pattern-text">Marble 1:3 Slope</div>
+                </div>
+                <div class="pattern-title">Subtle Marble (1:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 18.43°<br>
+                    <strong>Colors:</strong> Muted brown with gentle contrast<br>
+                    <strong>Stripes:</strong> Fine accent stripes<br>
+                    <strong>Use:</strong> Understated elegance, minimal luxury
+                </div>
+            </div>
+        </div>
+
+        <h2>4. Fabric Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Sophisticated Fabric Textures</h4>
+            <p>Refined fabric patterns inspired by classical textiles with various slopes and sophisticated color combinations suitable for dark mode interfaces.</p>
+            <!-- Updated from "Professional" to classical fabric terminology based on authentic textile names:
+                 Damask, Brocade, and Velvet represent traditional classical fabric weaving patterns -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample fabric-1-3">
+                    <div class="pattern-text">Damask 1:3 Slope</div>
+                </div>
+                <div class="pattern-title">Damask Weave (1:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 18.43°<br>
+                    <strong class="tech-specs">Colors:</strong> Royal blueish base with deeper accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Base with thin accent every 3rd<br>
+                    <strong class="tech-specs">Use:</strong> Classical applications, refined interfaces<br>
+                    <!-- Damask: Traditional luxury fabric with intricate woven patterns, often silk -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample fabric-2-3">
+                    <div class="pattern-text">Brocade 2:3 Slope</div>
+                </div>
+                <div class="pattern-title">Brocade Weave (2:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 33.69°<br>
+                    <strong class="tech-specs">Colors:</strong> Royal blueish with elegant accent<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Comfortable interfaces, warm applications<br>
+                    <!-- Brocade: Rich decorative fabric with raised designs, often with metallic threads -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample fabric-3-4">
+                    <div class="pattern-text">Velvet 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Velvet Weave (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep royal blueish with sophisticated accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Classical stripe ratio<br>
+                    <strong class="tech-specs">Use:</strong> Premium dashboards, luxury interfaces<br>
+                    <!-- Velvet: Luxurious fabric with dense, soft pile, historically associated with nobility -->
+                </div>
+            </div>
+        </div>
+
+        <h2>5. Light Marble Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Authentic Italian Marble Whites with Gold Accents</h4>
+            <p>Light marble patterns based on famous Italian marble varieties (Carrara, Calacatta, Statuario) with warm gold and bronze striping. These provide elegant light backgrounds while avoiding problematic blue/red colors.</p>
+            <!-- Based on research of authentic Italian marble varieties from the Carrara region:
+                 - Carrara: Pure white, most famous marble, used since Roman times
+                 - Calacatta: White with dramatic gold veining, luxury marble
+                 - Statuario: Pure white used for sculptures, high-grade marble
+                 All combined with warm gold/bronze accents instead of blue/red -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample carrara-marble">
+                    <div class="pattern-text" style="color: #333;">Carrara Marble</div>
+                </div>
+                <div class="pattern-title">Carrara White (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Pure Carrara white with classic gold curved veining<br>
+                    <strong class="tech-specs">Effect:</strong> Natural marble veining simulation<br>
+                    <strong class="tech-specs">Use:</strong> Elegant light backgrounds, refined interfaces<br>
+                    <!-- Carrara marble: Most famous white marble, quarried since Roman times -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample calacatta-marble">
+                    <div class="pattern-text" style="color: #333;">Calacatta Marble</div>
+                </div>
+                <div class="pattern-title">Calacatta Gold (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Calacatta cream-white with dramatic gold veining<br>
+                    <strong class="tech-specs">Effect:</strong> Natural marble veining with curved patterns<br>
+                    <strong class="tech-specs">Use:</strong> Premium light themes, sophisticated applications<br>
+                    <!-- Calacatta: Premium marble with characteristic gold veining patterns -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample statuario-marble">
+                    <div class="pattern-text" style="color: #333;">Statuario Marble</div>
+                </div>
+                <div class="pattern-title">Statuario Bronze (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Pure Statuario white with warm bronze curved accents<br>
+                    <strong class="tech-specs">Effect:</strong> Subtle curved veining for artistic applications<br>
+                    <strong class="tech-specs">Use:</strong> Artistic applications, sculptor-grade elegance<br>
+                    <!-- Statuario: Highest grade white marble, traditionally used for sculpture -->
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Parchment & Paper Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Authentic Tans and Light Browns</h4>
+            <p>Warm parchment and paper patterns using authentic tan and light brown colors. These provide comfortable, readable backgrounds inspired by aged documents and natural materials, avoiding blue/red for large background areas.</p>
+            <!-- Colors inspired by:
+                 - Classic parchment: Traditional writing material color
+                 - Aged paper: Natural aging process of documents
+                 - Antique paper: Historical document colors
+                 All chosen to be warm, comfortable, and avoiding blue/red per requirements -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample parchment-classic">
+                    <div class="pattern-text" style="color: #333;">Classic Parchment</div>
+                </div>
+                <div class="pattern-title">Classic Parchment (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Traditional parchment tan with curved fiber patterns<br>
+                    <strong class="tech-specs">Effect:</strong> Natural paper fiber simulation<br>
+                    <strong class="tech-specs">Use:</strong> Document interfaces, reading applications<br>
+                    <!-- Classic parchment color used for traditional writing materials -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample aged-paper">
+                    <div class="pattern-text" style="color: #333;">Aged Paper</div>
+                </div>
+                <div class="pattern-title">Aged Paper (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Aged paper cream with curved fiber structure<br>
+                    <strong class="tech-specs">Effect:</strong> Natural paper aging simulation<br>
+                    <strong class="tech-specs">Use:</strong> Text editors, document viewers, scholarly apps<br>
+                    <!-- Natural aging color of paper documents over time -->
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample antique-paper">
+                    <div class="pattern-text" style="color: #333;">Antique Paper</div>
+                </div>
+                <div class="pattern-title">Antique Paper (Curved)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Pattern:</strong> Curved radial gradients<br>
+                    <strong class="tech-specs">Colors:</strong> Antique tan with curved aging patterns<br>
+                    <strong class="tech-specs">Effect:</strong> Historical document texture simulation<br>
+                    <strong class="tech-specs">Use:</strong> Historical interfaces, archive applications<br>
+                    <!-- Antique paper colors from historical documents and manuscripts -->
+                </div>
+            </div>
+        </div>
+
+        <h2>7. Stained Glass Pattern Family</h2>
+        
+        <div class="proposed-solution">
+            <h4>Deep Stained Glass Effects</h4>
+            <p>Rich, deep blue stained glass patterns that maintain the aesthetic while being suitable for dark mode backgrounds. Blue is used here only for accent/framing, not large background areas.</p>
+            <!-- Note: Blue colors are intentionally reserved for stained glass accents and framing only,
+                 per requirements to avoid blue/red for large implementation backgrounds -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample glass-2-3">
+                    <div class="pattern-text">Stained Glass 2:3</div>
+                </div>
+                <div class="pattern-title">Deep Stained Glass (2:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 33.69°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep navy with rich blue accent<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Artistic applications, creative interfaces (accent only)<br>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample glass-3-4">
+                    <div class="pattern-text">Stained Glass 3:4</div>
+                </div>
+                <div class="pattern-title">Rich Stained Glass (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep blue-gray with blue accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Professional ratio<br>
+                    <strong class="tech-specs">Use:</strong> Sophisticated backgrounds, premium themes (accent only)<br>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample glass-1-4">
+                    <div class="pattern-text">Stained Glass 1:4</div>
+                </div>
+                <div class="pattern-title">Subtle Stained Glass (1:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 14.04°<br>
+                    <strong class="tech-specs">Colors:</strong> Muted deep blue with subtle accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Thin accent stripes<br>
+                    <strong class="tech-specs">Use:</strong> Subtle backgrounds, understated elegance (accent only)<br>
+                </div>
+            </div>
+        </div>
+
+        <h2>8. Classical Dark Patterns</h2>
+        
+        <div class="proposed-solution">
+            <h4>New Classical Pattern Category</h4>
+            <p>Classical patterns specifically designed for classical dark mode interfaces with sophisticated color combinations.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample classical-navy">
+                    <div class="pattern-text">Classical Navy</div>
+                </div>
+                <div class="pattern-title">Classical Navy (1:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 14.04°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep navy with blue accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Subtle classical pattern<br>
+                    <strong class="tech-specs">Use:</strong> Classical dashboards, business applications
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample classical-charcoal">
+                    <div class="pattern-text">Classical Charcoal</div>
+                </div>
+                <div class="pattern-title">Warm Charcoal (3:5)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 30.96°<br>
+                    <strong class="tech-specs">Colors:</strong> Charcoal with warm brown hints<br>
+                    <strong class="tech-specs">Stripes:</strong> Classical stripe ratio<br>
+                    <strong class="tech-specs">Use:</strong> Executive interfaces, premium classical tools
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample classical-burgundy">
+                    <div class="pattern-text">Classical Burgundy</div>
+                </div>
+                <div class="pattern-title">Classical Burgundy (4:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 53.13°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep burgundy with gold accent<br>
+                    <strong class="tech-specs">Stripes:</strong> Bold classical pattern<br>
+                    <strong class="tech-specs">Use:</strong> High-impact classical interfaces, luxury business apps
+                </div>
+            </div>
+        </div>
+
+        <h2>9. High-Contrast Accessibility Patterns</h2>
+        
+        <div class="proposed-solution">
+            <h4>Accessibility-Focused Patterns</h4>
+            <p>High-contrast patterns designed for accessibility while maintaining visual appeal and text readability.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample accessible-high-contrast">
+                    <div class="pattern-text">High Contrast Accessible</div>
+                </div>
+                <div class="pattern-title">High Contrast (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> High contrast black and gray<br>
+                    <strong class="tech-specs">Stripes:</strong> Maximum contrast for accessibility<br>
+                    <strong class="tech-specs">Use:</strong> Accessibility-compliant interfaces, high-visibility applications
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample accessible-warm-contrast">
+                    <div class="pattern-text">Warm High Contrast</div>
+                </div>
+                <div class="pattern-title">Warm High Contrast (4:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 53.13°<br>
+                    <strong class="tech-specs">Colors:</strong> Warm brown with high contrast<br>
+                    <strong class="tech-specs">Stripes:</strong> Accessible contrast ratios<br>
+                    <strong class="tech-specs">Use:</strong> Warm accessible interfaces, comfortable high-contrast themes
+                </div>
+            </div>
+        </div>
+
+        <h2>10. Implementation Guidelines</h2>
+        
+        <div class="note">
+            <h4>Anti-Aliasing Strategy</h4>
+            <p>All patterns use slope ratios other than 1:1 (45°) to prevent aliasing:</p>
+            <ul>
+                <li><strong>3:4 (36.87°)</strong> - Most common, excellent for professional interfaces</li>
+                <li><strong>4:3 (53.13°)</strong> - Steeper angle, good for variety</li>
+                <li><strong>1:2 (26.57°)</strong> - Shallow angle, subtle effect</li>
+                <li><strong>1:3 (18.43°)</strong> - Very subtle, minimal visual impact</li>
+                <li><strong>2:3 (33.69°)</strong> - Balanced angle, good for artistic applications</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h4>Color Strategy & Restrictions</h4>
+            <p><strong>Important:</strong> Blue and red colors are reserved for accents and framing only, NOT for large background areas like implementation guidelines or migration notes.</p>
+            <ul>
+                <li><strong>Blue Usage:</strong> Limited to stained glass patterns, accent borders, and small UI elements</li>
+                <li><strong>Red Usage:</strong> Limited to error states, warnings, and small accent elements</li>
+                <li><strong>Large Backgrounds:</strong> Use granite, marble, fabric, parchment, or classical patterns only</li>
+                <li><strong>Implementation Areas:</strong> Avoid blue/red for documentation, guidelines, and migration sections</li>
+                <li><strong>Accent/Framing:</strong> Blue and red are appropriate for borders, highlights, and small decorative elements</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h4>Color Harmony Principles</h4>
+            <ul>
+                <li><strong>Darker, Warmer Backgrounds:</strong> All patterns use darker base colors appropriate for dark mode</li>
+                <li><strong>Authentic Color Sources:</strong> Marble colors based on real Italian marble varieties</li>
+                <li><strong>Fabric Authenticity:</strong> Fabric patterns named after real luxury textiles (Damask, Brocade, Velvet)</li>
+                <li><strong>Complementary Accents:</strong> Accent colors are chosen to complement base colors</li>
+                <li><strong>Consistent Opacity:</strong> Dark patterns use 0.8 opacity, light patterns use 0.9 opacity</li>
+                <li><strong>Classical Color Palettes:</strong> Colors chosen for classical, business environments</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h4>Stripe Width Strategy</h4>
+            <ul>
+                <li><strong>1px Stripes:</strong> For subtle effects and equal-width patterns</li>
+                <li><strong>2px Base + 1px Accent:</strong> Most common ratio for base-accent patterns</li>
+                <li><strong>Base Every 3rd Position:</strong> Creates sophisticated rhythm in patterns</li>
+                <li><strong>No Subpixel Widths:</strong> All measurements are whole pixels for crisp rendering</li>
+            </ul>
+        </div>
+
+        <h2>11. CSS Implementation Example</h2>
+        
+        <div class="proposed-solution">
+            <h4>Ready-to-Use CSS Classes</h4>
+            <p>Here's how to implement these patterns in your CSS:</p>
+            
+            <pre><code>/* Enhanced CSS Variables */
+:root {
+    /* Traditional granite and marble */
+    --granite-base: rgba(42, 42, 42, 0.8);
+    --granite-accent: rgba(58, 58, 58, 0.8);
+    --marble-base: rgba(74, 58, 42, 0.8);
+    --marble-accent: rgba(90, 74, 58, 0.8);
+    
+    /* Light marble - authentic Italian varieties */
+    --carrara-white: rgba(245, 245, 245, 0.9);
+    --carrara-gold: rgba(212, 175, 55, 0.9);
+    --calacatta-white: rgba(248, 248, 246, 0.9);
+    --calacatta-gold: rgba(218, 165, 32, 0.9);
+    
+    /* Parchment and paper */
+    --parchment-base: rgba(245, 222, 179, 0.9);
+    --parchment-accent: rgba(222, 184, 135, 0.9);
+    
+    /* Luxury fabrics */
+    --damask-base: rgba(42, 42, 74, 0.8);
+    --brocade-base: rgba(42, 42, 74, 0.8);
+    --velvet-base: rgba(42, 42, 74, 0.8);
+}
+
+/* Anti-aliased Granite Pattern */
+.texture-granite-new {
+    background: repeating-linear-gradient(
+        36.87deg,  /* 3:4 slope ratio */
+        var(--granite-base) 0px,
+        var(--granite-base) 2px,
+        var(--granite-accent) 2px,
+        var(--granite-accent) 3px
+    );
+}
+
+/* Light Marble Pattern */
+.texture-carrara-marble {
+    background: repeating-linear-gradient(
+        36.87deg,
+        var(--carrara-white) 0px,
+        var(--carrara-white) 2px,
+        var(--carrara-gold) 2px,
+        var(--carrara-gold) 3px
+    );
+}
+
+/* Parchment Pattern */
+.texture-parchment {
+    background: repeating-linear-gradient(
+        33.69deg,  /* 2:3 slope ratio */
+        var(--parchment-base) 0px,
+        var(--parchment-base) 2px,
+        var(--parchment-accent) 2px,
+        var(--parchment-accent) 3px
+    );
+}
+
+/* Luxury Fabric Pattern */
+.texture-damask {
+    background: repeating-linear-gradient(
+        18.43deg,  /* 1:3 slope ratio */
+        var(--damask-base) 0px,
+        var(--damask-base) 2px,
+        rgba(58, 58, 90, 0.8) 2px,
+        rgba(58, 58, 90, 0.8) 3px
+    );
+}</code></pre>
+        </div>
+
+        <div class="warning">
+            <h4>Migration Notes</h4>
+            <p><strong>Important:</strong> Avoid using blue or red colors for large background areas in implementation or migration documentation. These colors are reserved for accents and framing only.</p>
+            <ul>
+                <li><strong>Gradual Replacement:</strong> Replace existing patterns one at a time</li>
+                <li><strong>Test Across Devices:</strong> Verify patterns render correctly on different screens</li>
+                <li><strong>Accessibility Testing:</strong> Ensure text remains readable on all patterns</li>
+                <li><strong>Performance Monitoring:</strong> Check that new patterns don't impact rendering performance</li>
+                <li><strong>Color Compliance:</strong> Use granite, marble, fabric, or parchment patterns for large areas</li>
+                <li><strong>Documentation Styling:</strong> Apply warm, neutral patterns to implementation guides</li>
+            </ul>
+        </div>
+
+        <h2>12. Next Steps</h2>
+        
+        <div class="implementation-background">
+            <h4>Implementation Phases</h4>
+            <p><strong>Note:</strong> Using Expo-4 experimental parchment pattern for this implementation section to demonstrate practical application of multi-angle patterns instead of green highlighting.</p>
+            <ol>
+                <li><strong>Phase 1:</strong> Implement experimental multi-angle patterns (Expo-1 through Expo-6)</li>
+                <li><strong>Phase 2:</strong> Replace existing 4 texture classes with enhanced anti-aliased versions</li>
+                <li><strong>Phase 3:</strong> Add new Light Marble and Parchment/Paper pattern families</li>
+                <li><strong>Phase 4:</strong> Implement classical fabric patterns (Damask, Brocade, Velvet)</li>
+                <li><strong>Phase 5:</strong> Add classical and accessibility pattern families</li>
+                <li><strong>Phase 6:</strong> Implement systematic color variables and documentation</li>
+                <li><strong>Phase 7:</strong> Add responsive optimizations and performance improvements</li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 40px; padding: 15px; color: var(--text-secondary);">
+            <h4>Summary</h4>
+            <p>This enhanced proposal demonstrates comprehensive improvements to fine striped patterns with anti-aliased slopes, authentic color sources, and classical fabric terminology. The new Light Marble and Parchment/Paper families provide elegant alternatives while maintaining professional aesthetics and accessibility standards. Blue and red colors are strategically reserved for accents and framing only, never for large background areas.</p>
+            
+            <p><strong>Key Improvements:</strong></p>
+            <ul style="margin-top: 10px;">
+                <li>✓ Experimental multi-angle patterns with visual interest and curved marble/parchment veining</li>
+                <li>✓ Authentic Italian marble varieties (Carrara, Calacatta, Statuario) with natural curved patterns</li>
+                <li>✓ Classical fabric terminology (Damask, Brocade, Velvet)</li>
+                <li>✓ Natural parchment and paper color families with curved fiber simulation</li>
+                <li>✓ Strategic blue/red color restrictions</li>
+                <li>✓ Anti-aliased slope ratios for smooth rendering</li>
+                <li>✓ Comprehensive documentation and rationale</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
