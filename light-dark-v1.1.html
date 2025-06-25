@@ -2070,230 +2070,193 @@
     </div>
 
     <script>
-        // CORRECT GRAY CALCULATION WITH PERC_G
-        function calculateGrayScore(r, g, b) {
-            // STEP 1: Calculate average
-            const avg_g = (r + g + b) / 3;
-            
-            // STEP 2: Calculate variance from gray
-            const var_g = Math.abs(r - avg_g) + Math.abs(g - avg_g) + Math.abs(b - avg_g);
-            
-            // STEP 3: Calculate percentage distance from gray (0-100%)
-            const perc_g = 100 * (var_g / 384);
-            
-            return {
-                var_g: var_g,
-                perc_g: Math.round(perc_g * 100) / 100, // Round to 2 decimal places
-                grayScore: Math.round(100 - perc_g) // For compatibility, but we'll use perc_g
-            };
-        }
-        
-        // Extract RGB values from CSS
-        function getRGBValues(cssText) {
-            const pattern = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/g;
-            const colors = [];
-            let match;
-            while ((match = pattern.exec(cssText)) !== null) {
-                colors.push({
-                    r: parseInt(match[1]),
-                    g: parseInt(match[2]),
-                    b: parseInt(match[3])
-                });
+        /**
+         * Clean, simplified Pattern Analyzer class
+         * Eliminates hardcoded arrays, brittle ID mappings, and global pollution
+         */
+        class PatternAnalyzer {
+            constructor() {
+                this.GRAY_THRESHOLD = 5; // 5% threshold for text use recommendations
+                this.results = new Map(); // Store results privately
             }
-            return colors;
-        }
-        
-        // Calculate average perc_g for a pattern
-        function calculatePatternScore(name, css) {
-            const colors = getRGBValues(css);
-            let totalPercG = 0;
-            const colorDetails = [];
-            
-            colors.forEach((color, i) => {
-                const result = calculateGrayScore(color.r, color.g, color.b);
-                totalPercG += result.perc_g;
-                colorDetails.push({
-                    rgb: `${color.r},${color.g},${color.b}`,
-                    var_g: result.var_g,
-                    perc_g: result.perc_g
-                });
-            });
-            
-            const averagePercG = totalPercG / colors.length;
-            
-            return {
-                perc_g: Math.round(averagePercG * 100) / 100,
-                grayScore: Math.round(100 - averagePercG), // For display compatibility
-                colorDetails: colorDetails
-            };
-        }
-        
-        // ARRAY TO STORE PERC_G VALUES FOR ALL PATTERNS
-        const patternPercGValues = {};
-        
-        // GO/NO-GO TEXT ARRAY FOR EACH TEXTURE - Will be populated dynamically
-        const Go_no_Go_Text = [];
-        
-        // 5% THRESHOLD RULE FOR TEXT AREAS
-        // Patterns with <5% distance from gray are too close to pure gray for large text backgrounds
-        // This conservative threshold ensures good readability and visual interest
-        
-        // COMPLETE PATTERN DATA WITH CORRECT CSS VALUES
-        const patterns = [
-            // Expo patterns
-            { name: 'Expo-1', css: 'rgba(42, 42, 42, 0.8) rgba(58, 58, 58, 0.8)', index: 0 },
-            { name: 'Expo-2', css: 'rgba(58, 58, 58, 0.7) rgba(74, 74, 74, 0.7)', index: 1 },
-            { name: 'Expo-3', css: 'rgba(42, 42, 74, 0.6) rgba(58, 58, 90, 0.6)', index: 2 },
-            { name: 'Expo-4', css: 'rgba(245, 222, 179, 0.8) rgba(222, 184, 135, 0.8)', index: 3 },
-            { name: 'Expo-5', css: 'rgba(245, 245, 245, 0.9) rgba(212, 175, 55, 0.3)', index: 4 },
-            { name: 'Expo-6', css: 'rgba(42, 42, 42, 0.8) rgba(96, 96, 96, 0.6)', index: 5 },
-            
-            // Granite patterns
-            { name: 'Gran-1', css: 'rgba(42, 42, 42, 0.8) rgba(58, 58, 58, 0.8)', index: 6 },
-            { name: 'Gran-2', css: 'rgba(58, 42, 74, 0.8) rgba(74, 58, 90, 0.8)', index: 7 },
-            { name: 'Gran-3', css: 'rgba(42, 42, 42, 0.5) rgba(58, 58, 58, 0.5)', index: 8 },
-            
-            // Marble patterns  
-            { name: 'Marb-1', css: 'rgba(58, 58, 58, 0.8) rgba(74, 74, 74, 0.8)', index: 9 },
-            { name: 'Marb-2', css: 'rgba(74, 74, 74, 0.8) rgba(90, 90, 90, 0.8)', index: 10 },
-            { name: 'Marb-3', css: 'rgba(58, 58, 58, 0.6) rgba(74, 74, 74, 0.6)', index: 11 },
-            
-            // Fabric patterns
-            { name: 'Fabr-1', css: 'rgba(42, 42, 74, 0.6) rgba(58, 58, 90, 0.6)', index: 12 },
-            { name: 'Fabr-2', css: 'rgba(42, 42, 74, 0.7) rgba(58, 58, 90, 0.7)', index: 13 },
-            { name: 'Fabr-3', css: 'rgba(42, 42, 74, 0.8) rgba(58, 58, 90, 0.8)', index: 14 },
-            
-            // Stained Glass patterns
-            { name: 'Glas-1', css: 'rgba(26, 42, 74, 0.8) rgba(42, 58, 90, 0.8)', index: 15 },
-            { name: 'Glas-2', css: 'rgba(26, 42, 74, 0.8) rgba(42, 58, 90, 0.8)', index: 16 },
-            { name: 'Glas-3', css: 'rgba(26, 42, 74, 0.8) rgba(42, 58, 90, 0.8)', index: 17 },
-            
-            // Classical patterns - INCLUDING CLASSICAL CHARCOAL!
-            { name: 'Clas-1', css: 'rgba(26, 26, 58, 0.8) rgba(42, 42, 74, 0.8)', index: 18 },
-            { name: 'Clas-2', css: 'rgba(42, 42, 42, 0.8) rgba(58, 42, 42, 0.8)', index: 19 }, // CLASSICAL CHARCOAL
-            { name: 'Clas-3', css: 'rgba(58, 26, 26, 0.8) rgba(74, 42, 26, 0.8)', index: 20 },
-            
-            // High Contrast patterns
-            { name: 'Cont-1', css: 'rgba(26, 26, 26, 0.9) rgba(74, 74, 74, 0.9)', index: 21 },
-            { name: 'Cont-2', css: 'rgba(42, 26, 26, 0.9) rgba(90, 74, 74, 0.9)', index: 22 },
-            
-            // Ripple patterns
-            { name: 'Ripple-1', css: 'rgba(58, 58, 58, 0.6) rgba(42, 42, 42, 0.7) rgba(58, 58, 58, 0.7)', index: 23 },
-            { name: 'Ripple-2', css: 'rgba(78, 68, 48, 0.4) rgba(42, 42, 74, 0.6) rgba(58, 58, 90, 0.6)', index: 24 },
-            { name: 'Ripple-3', css: 'rgba(205, 127, 50, 0.3) rgba(245, 222, 179, 0.7) rgba(222, 184, 135, 0.7)', index: 25 },
-            
-            // Test patterns
-            { name: 'Test-1', css: 'rgba(60, 60, 60, 0.15) rgba(80, 80, 80, 0.12)', index: 26 },
-            { name: 'Test-2', css: 'rgba(70, 60, 50, 0.12) rgba(90, 80, 70, 0.10)', index: 27 },
-            { name: 'Test-3', css: 'rgba(42, 42, 42, 0.25) rgba(96, 96, 96, 0.2)', index: 28 },
-            { name: 'Test-4', css: 'rgba(42, 42, 74, 0.25) rgba(58, 58, 90, 0.2)', index: 29 },
-            
-            // Soft patterns
-            { name: 'Soft-1', css: 'rgba(52, 52, 52, 0.08) rgba(68, 68, 68, 0.1)', index: 30 },
-            { name: 'Soft-2', css: 'rgba(65, 55, 45, 0.12) rgba(85, 75, 65, 0.15)', index: 31 },
-            { name: 'Soft-3', css: 'rgba(52, 52, 52, 0.1) rgba(86, 86, 86, 0.12)', index: 32 },
-            { name: 'Soft-4', css: 'rgba(52, 52, 82, 0.15) rgba(68, 68, 98, 0.18)', index: 33 }
-        ];
-        
-        // RUN CALCULATIONS AND UPDATE HTML
-        document.addEventListener('DOMContentLoaded', function() {
-            patterns.forEach(pattern => {
-                const result = calculatePatternScore(pattern.name, pattern.css);
+
+            /**
+             * Calculate gray score using the specified distance-from-gray formula
+             */
+            calculateGrayScore(r, g, b) {
+                const avg_g = (r + g + b) / 3;
+                const var_g = Math.abs(r - avg_g) + Math.abs(g - avg_g) + Math.abs(b - avg_g);
+                const perc_g = 100 * (var_g / 384);
                 
-                // STORE PERC_G VALUE IN ARRAY
-                patternPercGValues[pattern.name] = result.perc_g;
+                return {
+                    var_g: Math.round(var_g * 100) / 100,
+                    perc_g: Math.round(perc_g * 100) / 100
+                };
+            }
+
+            /**
+             * Extract RGB colors from CSS background-image style
+             */
+            extractColorsFromElement(patternElement) {
+                const computedStyle = window.getComputedStyle(patternElement);
+                const backgroundImage = computedStyle.backgroundImage;
                 
-                // POPULATE GO/NO-GO TEXT BASED ON CALCULATION
-                if (result.perc_g >= 5) {
-                    Go_no_Go_Text[pattern.index] = `Text Use: OK - Safe for large text areas (${result.perc_g}% >= 5% from gray)`;
-                } else {
-                    Go_no_Go_Text[pattern.index] = `Text Use: DO NOT USE - Too close to gray for large text areas (${result.perc_g}% < 5% from gray)`;
-                }
+                // Extract rgba/rgb values from computed style
+                const rgbaPattern = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*[\d.]+)?\s*\)/g;
+                const colors = [];
+                let match;
                 
-                // ADD CALCULATION DETAILS FOR ALL PATTERNS
-                const calcElementId = pattern.name.toLowerCase().replace('-', '-');
-                let calcElement = document.getElementById(`${calcElementId}-calc`);
-                
-                // Handle specific ID mappings for special cases
-                if (!calcElement) {
-                    const idMappings = {
-                        'expo-1': 'expo1-calc',
-                        'expo-2': 'expo2-calc', 
-                        'expo-3': 'expo3-calc',
-                        'expo-4': 'expo-4-calc',
-                        'expo-5': 'expo-5-calc',
-                        'expo-6': 'expo-6-calc',
-                        'gran-1': 'gran-1-calc',
-                        'gran-2': 'gran-2-calc',
-                        'gran-3': 'gran-3-calc',
-                        'marb-1': 'marb-1-calc',
-                        'marb-2': 'marb-2-calc', 
-                        'marb-3': 'marb-3-calc',
-                        'fabr-1': 'fabr-1-calc',
-                        'fabr-2': 'fabr-2-calc',
-                        'fabr-3': 'fabr-3-calc',
-                        'glas-1': 'glas-1-calc',
-                        'glas-2': 'glas-2-calc',
-                        'glas-3': 'glas-3-calc',
-                        'clas-1': 'clas-1-calc',
-                        'clas-2': 'clas-2-calc',
-                        'clas-3': 'clas-3-calc',
-                        'cont-1': 'cont-1-calc',
-                        'cont-2': 'cont-2-calc',
-                        'ripple-1': 'ripple-1-calc',
-                        'ripple-2': 'ripple-2-calc',
-                        'ripple-3': 'ripple3-calc'
-                    };
-                    const actualId = idMappings[calcElementId] || `${calcElementId}-calc`;
-                    calcElement = document.getElementById(actualId);
-                }
-                
-                if (calcElement) {
-                    let calcText = `<strong>Colors:</strong> ${pattern.css}<br><br>`;
-                    calcText += `<strong>Individual Color Analysis:</strong><br>`;
-                    result.colorDetails.forEach((color, i) => {
-                        calcText += `Color ${i+1}: RGB(${color.rgb})<br>`;
-                        calcText += `&nbsp;&nbsp;• Variance: ${color.var_g.toFixed(2)}<br>`;
-                        calcText += `&nbsp;&nbsp;• Distance from gray: ${color.perc_g.toFixed(2)}%<br>`;
+                while ((match = rgbaPattern.exec(backgroundImage)) !== null) {
+                    colors.push({
+                        r: parseInt(match[1]),
+                        g: parseInt(match[2]),
+                        b: parseInt(match[3])
                     });
-                    calcText += `<br><strong>Pattern Average:</strong> ${result.perc_g}% distance from gray<br>`;
-                    calcText += `${Go_no_Go_Text[pattern.index] || `Text Use: ${result.perc_g >= 5 ? 'OK - Safe for large text areas' : 'DO NOT USE - Too close to gray for large text areas'} (${result.perc_g}% ${result.perc_g >= 5 ? '>=' : '<'} 5% from gray)`}`;
-                    calcElement.innerHTML = calcText;
                 }
                 
-                // GET THE HTML ELEMENT AND UPDATE IT
-                const elements = document.querySelectorAll('.pattern-description');
-                if (elements[pattern.index]) {
-                    let html = elements[pattern.index].innerHTML;
+                return colors;
+            }
+
+            /**
+             * Calculate pattern score from extracted colors
+             */
+            calculatePatternScore(colors) {
+                if (colors.length === 0) return { perc_g: 0, colorDetails: [] };
+                
+                let totalPercG = 0;
+                const colorDetails = [];
+                
+                colors.forEach(color => {
+                    const result = this.calculateGrayScore(color.r, color.g, color.b);
+                    totalPercG += result.perc_g;
+                    colorDetails.push({
+                        rgb: `${color.r},${color.g},${color.b}`,
+                        var_g: result.var_g,
+                        perc_g: result.perc_g
+                    });
+                });
+                
+                return {
+                    perc_g: Math.round((totalPercG / colors.length) * 100) / 100,
+                    colorDetails: colorDetails
+                };
+            }
+
+            /**
+             * Generate text use recommendation
+             */
+            getTextUseRecommendation(perc_g) {
+                return perc_g >= this.GRAY_THRESHOLD 
+                    ? `OK - Safe for large text areas (${perc_g}% >= ${this.GRAY_THRESHOLD}% from gray)`
+                    : `DO NOT USE - Too close to gray for large text areas (${perc_g}% < ${this.GRAY_THRESHOLD}% from gray)`;
+            }
+
+            /**
+             * Find calculation element within a pattern card
+             */
+            findCalculationElement(patternCard) {
+                return patternCard.querySelector('.calculation-details div[id$="-calc"]');
+            }
+
+            /**
+             * Update calculation details display
+             */
+            updateCalculationDetails(calcElement, colors, result) {
+                if (!calcElement) return;
+                
+                let calcText = `<strong>Colors extracted from computed style:</strong><br><br>`;
+                calcText += `<strong>Individual Color Analysis:</strong><br>`;
+                
+                result.colorDetails.forEach((color, i) => {
+                    calcText += `Color ${i+1}: RGB(${color.rgb})<br>`;
+                    calcText += `&nbsp;&nbsp;• Variance: ${color.var_g}<br>`;
+                    calcText += `&nbsp;&nbsp;• Distance from gray: ${color.perc_g}%<br>`;
+                });
+                
+                calcText += `<br><strong>Pattern Average:</strong> ${result.perc_g}% distance from gray<br>`;
+                calcText += `<strong>Text Use:</strong> ${this.getTextUseRecommendation(result.perc_g)}`;
+                
+                calcElement.innerHTML = calcText;
+            }
+
+            /**
+             * Update pattern description with calculated values
+             */
+            updatePatternDescription(descriptionElement, result) {
+                if (!descriptionElement) return;
+                
+                let html = descriptionElement.innerHTML;
+                
+                // Update Gray Score
+                const grayScoreText = `${result.perc_g}% distance from gray (REAL VALUE)`;
+                if (html.includes('Gray Score:')) {
+                    html = html.replace(/(<strong[^>]*>Gray Score:<\/strong>)[^<]*(<br>)/gi, `$1 ${grayScoreText}$2`);
+                }
+                
+                // Update Text Use recommendation
+                const textUseText = this.getTextUseRecommendation(result.perc_g);
+                if (html.includes('Text Use:')) {
+                    html = html.replace(/(<strong[^>]*>Text Use:<\/strong>)[^<]*(<br>)/gi, `$1 ${textUseText}$2`);
+                }
+                
+                descriptionElement.innerHTML = html;
+            }
+
+            /**
+             * Analyze a single pattern card
+             */
+            analyzePatternCard(patternCard, index) {
+                try {
+                    const patternSample = patternCard.querySelector('.pattern-sample');
+                    const patternDescription = patternCard.querySelector('.pattern-description');
+                    const calcElement = this.findCalculationElement(patternCard);
                     
-                    // UPDATE WITH PERC_G VALUE (distance from gray)
-                    const percGText = `${result.perc_g}% distance from gray (REAL VALUE)`;
-                    if (html.includes('Gray Score:')) {
-                        html = html.replace(/(<strong[^>]*>Gray Score:<\/strong>)[^<]*(<br>)/gi, `$1 ${percGText}$2`);
-                    } else {
-                        html += `<br><strong class="tech-specs">Gray Score:</strong> ${percGText}`;
-                    }
+                    if (!patternSample) return;
                     
-                    // UPDATE TEXT USE BASED ON PERC_G (5% THRESHOLD FOR LARGE TEXT AREAS)
-                    let textUse = '';
-                    if (result.perc_g >= 5) { 
-                        textUse = `OK - Safe for large text areas (${result.perc_g}% >= 5% from gray)`;
-                    } else {
-                        textUse = `DO NOT USE - Too close to gray for large text areas (${result.perc_g}% < 5% from gray)`;
-                    }
+                    const colors = this.extractColorsFromElement(patternSample);
+                    const result = this.calculatePatternScore(colors);
                     
-                    if (html.includes('Text Use:')) {
-                        html = html.replace(/(<strong[^>]*>Text Use:<\/strong>)[^<]*(<br>)/gi, `$1 ${textUse}$2`);
-                    } else {
-                        html += `<br><strong class="tech-specs">Text Use:</strong> ${textUse}`;
-                    }
+                    // Store result
+                    this.results.set(index, result);
                     
-                    elements[pattern.index].innerHTML = html;
-                } 
-            });
+                    // Update UI elements
+                    this.updateCalculationDetails(calcElement, colors, result);
+                    this.updatePatternDescription(patternDescription, result);
+                    
+                } catch (error) {
+                    console.warn(`Error analyzing pattern card ${index}:`, error);
+                }
+            }
+
+            /**
+             * Analyze all pattern cards in the document
+             */
+            analyzeAllPatterns() {
+                const patternCards = document.querySelectorAll('.pattern-card');
+                patternCards.forEach((card, index) => {
+                    this.analyzePatternCard(card, index);
+                });
+                
+                console.log(`Analyzed ${patternCards.length} patterns`);
+                return this.results;
+            }
+
+            /**
+             * Get results for debugging (replaces global patternPercGValues)
+             */
+            getResults() {
+                return this.results;
+            }
+        }
+
+        // Initialize analyzer when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const analyzer = new PatternAnalyzer();
+            const results = analyzer.analyzeAllPatterns();
             
-            // MAKE PERC_G VALUES AVAILABLE GLOBALLY FOR DEBUGGING
-            window.patternPercGValues = patternPercGValues;
+            // Make results available for debugging (replaces window.patternPercGValues)
+            window.patternAnalyzer = analyzer;
+            window.getPatternResults = () => analyzer.getResults();
         });
     </script>
 </body>
@@ -2493,312 +2456,6 @@
                 return results;
             }
         }
-        
-        // LEGACY CODE COMMENTED OUT - Complex implementation that references missing GrayScoreCalculator class
-        /*
-        // Initialize the calculator
-        const grayCalculator = new GrayScoreCalculator();
-        
-        // Automatically analyze and update pattern scores on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Gray Score Calculator running automatic analysis...');
-            
-            // Define all patterns with their CSS and element selectors
-            const patternMappings = [
-                // Expo patterns
-                {
-                    name: 'Expo-1',
-                    css: `repeating-linear-gradient(36.87deg, rgba(42, 42, 42, 0.8) 0px, rgba(42, 42, 42, 0.8) 2px, rgba(58, 58, 58, 0.8) 2px, rgba(58, 58, 58, 0.8) 3px)`,
-                    index: 0
-                },
-                {
-                    name: 'Expo-2', 
-                    css: `repeating-linear-gradient(36.87deg, rgba(58, 58, 58, 0.7) 0px, rgba(58, 58, 58, 0.7) 2px, rgba(74, 74, 74, 0.7) 2px, rgba(74, 74, 74, 0.7) 3px)`,
-                    index: 1
-                },
-                {
-                    name: 'Expo-3',
-                    css: `repeating-linear-gradient(33.69deg, rgba(42, 42, 74, 0.6) 0px, rgba(42, 42, 74, 0.6) 2px, rgba(58, 58, 90, 0.6) 2px, rgba(58, 58, 90, 0.6) 3px)`,
-                    index: 2
-                },
-                {
-                    name: 'Expo-4',
-                    css: `repeating-linear-gradient(36.87deg, rgba(245, 222, 179, 0.8) 0px, rgba(245, 222, 179, 0.8) 2px, rgba(222, 184, 135, 0.8) 2px, rgba(222, 184, 135, 0.8) 3px)`,
-                    index: 3
-                },
-                {
-                    name: 'Expo-5',
-                    css: `repeating-linear-gradient(36.87deg, rgba(245, 245, 245, 0.9) 0px, rgba(245, 245, 245, 0.9) 2px, rgba(212, 175, 55, 0.3) 2px, rgba(212, 175, 55, 0.3) 3px)`,
-                    index: 4
-                },
-                {
-                    name: 'Expo-6',
-                    css: `repeating-linear-gradient(36.87deg, rgba(42, 42, 42, 0.8) 0px, rgba(42, 42, 42, 0.8) 2px, rgba(96, 96, 96, 0.6) 2px, rgba(96, 96, 96, 0.6) 3px)`,
-                    index: 5
-                },
-                // Granite patterns
-                {
-                    name: 'Gran-1',
-                    css: `repeating-linear-gradient(36.87deg, rgba(42, 42, 42, 0.8) 0px, rgba(42, 42, 42, 0.8) 2px, rgba(58, 58, 58, 0.8) 2px, rgba(58, 58, 58, 0.8) 3px)`,
-                    index: 6
-                },
-                {
-                    name: 'Gran-2', 
-                    css: `repeating-linear-gradient(53.13deg, rgba(58, 42, 74, 0.8) 0px, rgba(58, 42, 74, 0.8) 2px, rgba(74, 58, 90, 0.8) 2px, rgba(74, 58, 90, 0.8) 3px)`,
-                    index: 7
-                },
-                {
-                    name: 'Gran-3',
-                    css: `repeating-linear-gradient(26.57deg, rgba(42, 42, 42, 0.5) 0px, rgba(42, 42, 42, 0.5) 2px, rgba(58, 58, 58, 0.5) 2px, rgba(58, 58, 58, 0.5) 3px)`,
-                    index: 8
-                },
-                // Marble patterns
-                {
-                    name: 'Marb-1',
-                    css: `repeating-linear-gradient(36.87deg, rgba(58, 58, 58, 0.8) 0px, rgba(58, 58, 58, 0.8) 2px, rgba(74, 74, 74, 0.8) 2px, rgba(74, 74, 74, 0.8) 3px)`,
-                    index: 10
-                },
-                {
-                    name: 'Marb-2',
-                    css: `repeating-linear-gradient(53.13deg, rgba(74, 74, 74, 0.8) 0px, rgba(74, 74, 74, 0.8) 2px, rgba(90, 90, 90, 0.8) 2px, rgba(90, 90, 90, 0.8) 3px)`,
-                    index: 11
-                },
-                {
-                    name: 'Marb-3',
-                    css: `repeating-linear-gradient(18.43deg, rgba(58, 58, 58, 0.6) 0px, rgba(58, 58, 58, 0.6) 2px, rgba(74, 74, 74, 0.6) 2px, rgba(74, 74, 74, 0.6) 3px)`,
-                    index: 12
-                },
-                // Fabric patterns  
-                {
-                    name: 'Fabr-1',
-                    css: `repeating-linear-gradient(18.43deg, rgba(42, 42, 74, 0.6) 0px, rgba(42, 42, 74, 0.6) 2px, rgba(58, 58, 90, 0.6) 2px, rgba(58, 58, 90, 0.6) 3px)`,
-                    index: 13
-                },
-                {
-                    name: 'Fabr-2',
-                    css: `repeating-linear-gradient(33.69deg, rgba(42, 42, 74, 0.7) 0px, rgba(42, 42, 74, 0.7) 2px, rgba(58, 58, 90, 0.7) 2px, rgba(58, 58, 90, 0.7) 3px)`,
-                    index: 14
-                },
-                {
-                    name: 'Fabr-3',
-                    css: `repeating-linear-gradient(36.87deg, rgba(42, 42, 74, 0.8) 0px, rgba(42, 42, 74, 0.8) 2px, rgba(58, 58, 90, 0.8) 2px, rgba(58, 58, 90, 0.8) 3px)`,
-                    index: 15
-                },
-                // Stained Glass patterns
-                {
-                    name: 'Glas-1',
-                    css: `repeating-linear-gradient(33.69deg, rgba(26, 42, 74, 0.8) 0px, rgba(26, 42, 74, 0.8) 2px, rgba(42, 58, 90, 0.8) 2px, rgba(42, 58, 90, 0.8) 3px)`,
-                    index: 16
-                },
-                {
-                    name: 'Glas-2',
-                    css: `repeating-linear-gradient(36.87deg, rgba(26, 42, 74, 0.8) 0px, rgba(26, 42, 74, 0.8) 2px, rgba(42, 58, 90, 0.8) 2px, rgba(42, 58, 90, 0.8) 3px)`,
-                    index: 17
-                },
-                {
-                    name: 'Glas-3',
-                    css: `repeating-linear-gradient(14.04deg, rgba(26, 42, 74, 0.8) 0px, rgba(26, 42, 74, 0.8) 2px, rgba(42, 58, 90, 0.8) 2px, rgba(42, 58, 90, 0.8) 3px)`,
-                    index: 18
-                },
-                // Classical patterns
-                {
-                    name: 'Clas-1',
-                    css: `repeating-linear-gradient(14.04deg, rgba(26, 26, 58, 0.8) 0px, rgba(26, 26, 58, 0.8) 2px, rgba(42, 42, 74, 0.8) 2px, rgba(42, 42, 74, 0.8) 3px)`,
-                    index: 19
-                },
-                {
-                    name: 'Clas-2',
-                    css: `repeating-linear-gradient(30.96deg, rgba(42, 42, 42, 0.8) 0px, rgba(42, 42, 42, 0.8) 2px, rgba(58, 42, 42, 0.8) 2px, rgba(58, 42, 42, 0.8) 3px)`,
-                    index: 20
-                },
-                {
-                    name: 'Clas-3',
-                    css: `repeating-linear-gradient(53.13deg, rgba(58, 26, 26, 0.8) 0px, rgba(58, 26, 26, 0.8) 2px, rgba(74, 42, 26, 0.8) 2px, rgba(74, 42, 26, 0.8) 3px)`,
-                    index: 21
-                },
-                // High Contrast patterns
-                {
-                    name: 'Cont-1',
-                    css: `repeating-linear-gradient(36.87deg, rgba(26, 26, 26, 0.9) 0px, rgba(26, 26, 26, 0.9) 2px, rgba(74, 74, 74, 0.9) 2px, rgba(74, 74, 74, 0.9) 3px)`,
-                    index: 22
-                },
-                {
-                    name: 'Cont-2',
-                    css: `repeating-linear-gradient(53.13deg, rgba(42, 26, 26, 0.9) 0px, rgba(42, 26, 26, 0.9) 2px, rgba(90, 74, 74, 0.9) 2px, rgba(90, 74, 74, 0.9) 3px)`,
-                    index: 23
-                },
-                // Ripple patterns
-                {
-                    name: 'Ripple-1',
-                    css: `radial-gradient(ellipse 120px 30px at 80% 20%, rgba(58, 58, 58, 0.6) 0%, transparent 70%), repeating-linear-gradient(36.87deg, rgba(42, 42, 42, 0.7) 0px, rgba(42, 42, 42, 0.7) 2px, rgba(58, 58, 58, 0.7) 2px, rgba(58, 58, 58, 0.7) 3px)`,
-                    index: 24
-                },
-                {
-                    name: 'Ripple-2',
-                    css: `radial-gradient(ellipse 100px 25px at 60% 40%, rgba(78, 68, 48, 0.4) 0%, transparent 70%), repeating-linear-gradient(33.69deg, rgba(42, 42, 74, 0.6) 0px, rgba(42, 42, 74, 0.6) 2px, rgba(58, 58, 90, 0.6) 2px, rgba(58, 58, 90, 0.6) 3px)`,
-                    index: 25
-                },
-                {
-                    name: 'Ripple-3',
-                    css: `radial-gradient(ellipse 80px 20px at 25% 75%, rgba(205, 127, 50, 0.3) 0%, transparent 70%), repeating-linear-gradient(36.87deg, rgba(245, 222, 179, 0.7) 0px, rgba(245, 222, 179, 0.7) 2px, rgba(222, 184, 135, 0.7) 2px, rgba(222, 184, 135, 0.7) 3px)`,
-                    index: 26
-                },
-                // Test patterns
-                {
-                    name: 'Test-1',
-                    css: `repeating-linear-gradient(-18.43deg, rgba(60, 60, 60, 0.15) 0px, rgba(60, 60, 60, 0.15) 2px, rgba(80, 80, 80, 0.12) 2px, rgba(80, 80, 80, 0.12) 8px)`,
-                    index: 27
-                },
-                {
-                    name: 'Test-2',
-                    css: `repeating-linear-gradient(-18.43deg, rgba(70, 60, 50, 0.12) 0px, rgba(70, 60, 50, 0.12) 2px, rgba(90, 80, 70, 0.10) 2px, rgba(90, 80, 70, 0.10) 8px)`,
-                    index: 28
-                },
-                {
-                    name: 'Test-3',
-                    css: `repeating-linear-gradient(18.43deg, rgba(42, 42, 42, 0.25) 0px, rgba(42, 42, 42, 0.25) 2px, rgba(96, 96, 96, 0.2) 2px, rgba(96, 96, 96, 0.2) 8px)`,
-                    index: 29
-                },
-                {
-                    name: 'Test-4',
-                    css: `repeating-linear-gradient(-45deg, rgba(42, 42, 74, 0.25) 0px, rgba(42, 42, 74, 0.25) 2px, rgba(58, 58, 90, 0.2) 2px, rgba(58, 58, 90, 0.2) 8px)`,
-                    index: 30
-                },
-                // Soft patterns
-                {
-                    name: 'Soft-1',
-                    css: `repeating-linear-gradient(36.87deg, rgba(52, 52, 52, 0.08) 0px, rgba(52, 52, 52, 0.08) 0.5px, rgba(68, 68, 68, 0.1) 1px, rgba(68, 68, 68, 0.1) 20px)`,
-                    index: 31
-                },
-                {
-                    name: 'Soft-2',
-                    css: `repeating-linear-gradient(33.69deg, rgba(65, 55, 45, 0.12) 0px, rgba(65, 55, 45, 0.12) 0.5px, rgba(85, 75, 65, 0.15) 1px, rgba(85, 75, 65, 0.15) 15px)`,
-                    index: 32
-                },
-                {
-                    name: 'Soft-3',
-                    css: `repeating-linear-gradient(18.43deg, rgba(52, 52, 52, 0.1) 0px, rgba(52, 52, 52, 0.1) 0.5px, rgba(86, 86, 86, 0.12) 1px, rgba(86, 86, 86, 0.12) 25px)`,
-                    index: 33
-                },
-                {
-                    name: 'Soft-4',
-                    css: `repeating-linear-gradient(45deg, rgba(52, 52, 82, 0.15) 0px, rgba(52, 52, 82, 0.15) 0.5px, rgba(68, 68, 98, 0.18) 1px, rgba(68, 68, 98, 0.18) 20px)`,
-                    index: 34
-                }
-            ];
-            
-            // Update pattern descriptions with calculated scores
-            patternMappings.forEach(pattern => {
-                const result = grayCalculator.calculatePatternGrayScore(pattern.name, pattern.css);
-                let finalScore = result.score;
-                
-                // Manual overrides for patterns that should be near 100% gray
-                const grayOverrides = {
-                    // Pure gray patterns (100%)
-                    'Marb-3': 100, // Pure gray (58,58,58) and (74,74,74)
-                    'Gran-1': 100, // Pure gray (42,42,42) and (58,58,58) 
-                    'Gran-3': 100, // Pure gray (42,42,42) and (58,58,58)
-                    'Marb-1': 100, // Pure gray (58,58,58) and (74,74,74)
-                    'Marb-2': 100, // Pure gray (74,74,74) and (90,90,90)
-                    'Expo-1': 100, // Pure gray (42,42,42) and (58,58,58)
-                    'Expo-2': 100, // Pure gray (58,58,58) and (74,74,74)
-                    'Cont-1': 98,  // High contrast grays (26,26,26) and (74,74,74)
-                    'Test-1': 100, // Ultra-soft gray (60,60,60) and (80,80,80)
-                    'Test-3': 98,  // Gray with silver (42,42,42) and (96,96,96)
-                    'Soft-1': 100, // Gradual gray transitions (52,52,52) and (68,68,68)
-                    'Soft-3': 100, // Micro-increment gray (52,52,52) and (86,86,86)
-                    
-                    // High gray patterns (85-95%)
-                    'Expo-6': 95,  // Mixed gray with silver (42,42,42) and (96,96,96)
-                    'Ripple-1': 90, // Granite base with gray ripples
-                    
-                    // Moderate gray with color tints (60-80%)
-                    'Gran-2': 70,  // Purple-tinted granite (58,42,74) and (74,58,90)
-                    'Clas-2': 75,  // Warm charcoal with brown tint (42,42,42) and (58,42,42)
-                    'Cont-2': 65,  // Warm high contrast with red tint
-                    'Test-2': 70,  // Marble with brown tints (70,60,50) and (90,80,70)
-                    'Soft-2': 60,  // Brown-tinted soft marble (65,55,45) and (85,75,65)
-                    
-                    // Colored patterns (20-50%)
-                    'Expo-3': 25,  // Blue fabric (42,42,74) and (58,58,90)
-                    'Fabr-1': 30,  // Damask blue (42,42,74) and (58,58,90)
-                    'Fabr-2': 28,  // Navy brocade (42,42,74) and (58,58,90)
-                    'Fabr-3': 25,  // Velvet blue (42,42,74) and (58,58,90)
-                    'Glas-1': 20,  // Deep stained glass blue (26,42,74) and (42,58,90)
-                    'Glas-2': 22,  // Rich stained glass blue (26,42,74) and (42,58,90)
-                    'Glas-3': 24,  // Subtle stained glass blue (26,42,74) and (42,58,90)
-                    'Clas-1': 35,  // Classical navy (26,26,58) and (42,42,74)
-                    'Clas-3': 30,  // Classical burgundy (58,26,26) and (74,42,26)
-                    'Ripple-2': 35, // Fabric with gold ripples
-                    'Test-4': 40,  // Fabric crosshatch blue (42,42,74) and (58,58,90)
-                    'Soft-4': 30,  // Feathered fabric blue (52,52,82) and (68,68,98)
-                    
-                    // Light/parchment patterns (10-20%)
-                    'Expo-4': 15,  // Enhanced parchment (245,222,179) and (222,184,135)
-                    'Expo-5': 20,  // Light marble with bronze (245,245,245) and (212,175,55)
-                    'Ripple-3': 10 // Parchment with bronze ripples (245,222,179) with (205,127,50)
-                };
-                
-                if (grayOverrides[pattern.name]) {
-                    finalScore = grayOverrides[pattern.name];
-                    console.log(`${pattern.name}: Override applied -> ${finalScore}% (was ${result.score}%)`);
-                } else {
-                    console.log(`${pattern.name}: ${result.score}% gray score`);
-                }
-                
-                // NOW ACTUALLY UPDATE THE VISIBLE TEXT WITH THE CALCULATED SCORES
-                const elements = document.querySelectorAll('.pattern-description');
-                
-                if (elements[pattern.index]) {
-                    const element = elements[pattern.index];
-                    let currentHTML = element.innerHTML;
-                    
-                    // Replace existing Gray Score line with calculated score
-                    if (currentHTML.includes('Gray Score:')) {
-                        currentHTML = currentHTML.replace(
-                            /(<strong[^>]*>Gray Score:<\/strong>)[^<]*(<br>)/gi,
-                            `$1 ${finalScore}% (calculated)$2`
-                        );
-                    } else {
-                        // Add calculated score if not present
-                        currentHTML += `<br><strong class="tech-specs">Gray Score:</strong> ${finalScore}% (calculated)`;
-                    }
-                    
-                    // Update Text Use recommendations based on calculated score
-                    let textUseRecommendation = '';
-                    if (finalScore >= 85) {
-                        textUseRecommendation = '❌ DO NOT USE - High gray content, avoid for large text areas';
-                    } else if (finalScore >= 60) {
-                        textUseRecommendation = '⚠️ MODERATE - Use carefully, getting too gray for large text areas';
-                    } else {
-                        textUseRecommendation = '✅ EXCELLENT - Perfect for large text areas';
-                    }
-                    
-                    // Replace Text Use line with calculated recommendation
-                    if (currentHTML.includes('Text Use:')) {
-                        currentHTML = currentHTML.replace(
-                            /(<strong[^>]*>Text Use:<\/strong>)[^<]*(<br>)/gi,
-                            `$1 ${textUseRecommendation}$2`
-                        );
-                    } else {
-                        // Add text use recommendation if not present
-                        currentHTML += `<br><strong class="tech-specs">Text Use:</strong> ${textUseRecommendation}`;
-                    }
-                    
-                    // Update the element with the new HTML containing calculated values
-                    element.innerHTML = currentHTML;
-                    
-                    console.log(`Updated ${pattern.name} with calculated score: ${finalScore}%`);
-                }
-            });
-            
-            console.log('Automatic gray score analysis complete!');
-        });
-        
-        // Make it available globally for manual testing
-        window.grayCalculator = grayCalculator;
-        */  
-        // END LEGACY CODE - Above code references missing GrayScoreCalculator class
         
     </script>
 </body>
