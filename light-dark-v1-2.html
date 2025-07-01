@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -545,6 +544,7 @@
                     rgba(20, 20, 20, 0.9) 0px,      /* Dark base */
                     rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
                     rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(40, 40, 40, 0.94) 4px,     /* Peak */
                     rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
@@ -1190,6 +1190,7 @@
                     rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
                     rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
                     rgba(35, 35, 35, 0.93) 3px,     /* Continue */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(40, 40, 40, 0.94) 4px,     /* Peak */
                     rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
                     rgba(20, 20, 20, 0.9) 6px       /* Return */
@@ -1222,66 +1223,107 @@
                     rgba(25, 25, 45, 0.85) 6px      /* Return */
                 );
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Dark Mode Background Patterns v1.0 - Complete Collection</h1>
-        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 25px;">
-             <strong>Latest Version:</strong> Comprehensive collection of anti-aliased fine striped patterns for dark mode backgrounds with all improvements and optimizations
-        </p>
+       
 
-        <h2>1. Experimental Multi-Angle Patterns</h2>
+        /* Proposed anti-aliased patterns */
+                /* Deep-Stained-Glass-Effects: 3:4 slope ratio (36.87°) - GREENISH Stained Glass with crosshatch effect */
+        .Deep-Stained-Glass-Effects {
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 52, 40, 0.6) 0px,
+                    rgba(42, 52, 40, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(58, 68, 56, 0.4) 0px,
+                    rgba(58, 68, 56, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 4px
+                );
+        }
+        /* Granite family - various slope ratios */
+        .granite-3-4 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - most common anti-aliasing fix - BASE TEXTURE */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 3px
+            );
+        }
         
-        <div class="experimental-background">
-            <h4 style="color: #bfc3e6;">Breakthrough: Layered Stripe Patterns for Visual Interest</h4>
-            <p>Revolutionary approach combining two different striped gradients at contrasting angles to create dynamic ripple effects and break up the monotony of single-angle patterns. These experimental patterns solve the "boring background" problem by introducing subtle complexity while maintaining professional aesthetics.</p>
-            <!-- Experimental approach: Layer two gradients with different angles, colors, widths, and opacities
-                 - Primary gradient: Main pattern structure
-                 - Secondary gradient: Accent ripples with wider spacing and lower opacity
-                 - Creates visual texture that mimics natural stone and fabric variations -->
-        </div>
-
-        <div class="pattern-showcase">
-            <div class="pattern-card">
-                <div class="pattern-sample expo-1">
-                    <div class="pattern-text">Expo-1: Crosshatch Granite</div>
-                </div>
-                <div class="pattern-title">Expo-1: Enhanced Granite</div>
-                <div class="pattern-description">
-                    <strong class="tech-specs">Primary:</strong> 36.87° gray base pattern<br>
-                    <strong class="tech-specs">Secondary:</strong> -18.43° lighter accent ripples<br>
-                    <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 42,42,42 and 58,58,58)<br>
-                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
-                    <strong class="tech-specs">Effect:</strong> Crosshatch texture, enhanced depth<br>
-                    <strong class="tech-specs">Use:</strong> Accent areas only - never for large text backgrounds
-                </div>
-                
-                <!-- EXPO-1 CALCULATION DETAILS -->
-                <div class="calculation-details">
-                    <h4>Calculation Details</h4>
-                    <div id="expo1-calc">Calculating...</div>
-                </div>
-            </div>
-            
-            <div class="pattern-card">
-                <div class="pattern-sample expo-2">
-                    <div class="pattern-text">Expo-2: Warm Marble Ripples</div>
-                </div>
-                <div class="pattern-title">Expo-2: Marble with Warm Accents</div>
-                <div class="pattern-description">
-                    <strong class="tech-specs">Primary:</strong> 53.13° marble base pattern<br>
-                    <strong class="tech-specs">Secondary:</strong> 14.04° warm brown ripples<br>
-                    <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 58,58,58 and 74,74,74)<br>
-                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
-                    <strong class="tech-specs">Effect:</strong> Natural stone variation, warm highlights<br>
-                    <strong class="tech-specs">Use:</strong> Accent areas only - never for large text backgrounds
-                </div>
-                
-                <!-- EXPO-2 CALCULATION DETAILS -->
-                <div class="calculation-details">
-                    <h4>Calculation Details</h4>
-                    <div id="expo2-calc">Calculating...</div>
+        .granite-4-3 {
+            /* 4:3 slope ratio (53.13°) - steeper angle, less vibrant, more muted purple-gray */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 50, 66, 0.65) 0px,
+                rgba(58, 50, 66, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 3px
+            );
+        }
+        
+        .granite-1-2 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - standard angle */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 1px,
+                rgba(66, 58, 50, 0.8) 1px,
+                rgba(66, 58, 50, 0.8) 2px
+            );
+        }
+        
+        .granite-2-3 {
+            /* 3:4 slope ratio (36.87°) - GREENISH GRANITE with crosshatch effect */
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 52, 40, 0.6) 0px,
+                    rgba(42, 52, 40, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(58, 68, 56, 0.4) 0px,
+                    rgba(58, 68, 56, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 4px
+                );
+        }
+        
+        .muted-damask {
+            /* Muted damask for content backgrounds - subtle blue-gray tones */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(48, 52, 58, 0.8) 0px,
+                rgba(48, 52, 58, 0.8) 2px,
+                rgba(58, 62, 68, 0.8) 2px,
+                rgba(58, 62, 68, 0.8) 5px
+            );
+        }
+        
+        .muted-velvet {
+            /* Muted velvet - soft purple-gray for elegant content */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(52, 48, 58, 0.7) 0px,
+                rgba(52, 48, 58, 0.7) 2px,
+                rgba(62, 58, 68, 0.7) 2px,
+                rgba(62, 58, 68, 0.7) 3px
+            );
+        }
+        
+        .muted-burgundy {
+            /* Muted burgundy - warm wine tones for rich content */
+            background: repeating-linear-gradient(
+                33.69deg,
+                rgba(58, 45, 48, 0.7) 0px,
                 </div>
             </div>
             
@@ -1301,7 +1343,7 @@
                 
                 <!-- EXPO-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1324,7 +1366,7 @@
                 
                 <!-- EXPO-4 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-4-calc">Calculating...</div>
                 </div>
             </div>
@@ -1345,7 +1387,7 @@
                 
                 <!-- EXPO-5 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-5-calc">Calculating...</div>
                 </div>
             </div>
@@ -1366,7 +1408,7 @@
                 
                 <!-- EXPO-6 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-6-calc">Calculating...</div>
                 </div>
             </div>
@@ -1375,7 +1417,7 @@
         <h2>2. Granite Pattern Family</h2>
         
         <div class="solution-highlight">
-            <h4 style="color: #e2e6f6;">Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
+            <h4 class="header-shadow" style="color: #e2e6f6;">Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
             <p>Replace single 45° granite pattern with a family of anti-aliased patterns using different slope ratios and 1-2px stripe widths.</p>
         </div>
 
@@ -1396,7 +1438,7 @@
                 
                 <!-- GRAN-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-1-calc">Calculating...</div>
                 </div>
             </div>
@@ -1417,7 +1459,7 @@
                 
                 <!-- GRAN-2 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-2-calc">Calculating...</div>
                 </div>
             </div>
@@ -1438,7 +1480,7 @@
                 
                 <!-- GRAN-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1468,13 +1510,13 @@
         <h2>3. Marble Pattern Family</h2>
         
         <div class="solution-highlight">
-            <h4 style="color: #f2e6e0;">Enhanced Marble Patterns: Warmer, Darker Tones</h4>
+            <h4 class="header-shadow" style="color: #f2e6e0;">Enhanced Marble Patterns: Warmer, Darker Tones</h4>
             <p>Premium dark marble patterns using warmer brown tones and anti-aliased slopes, enhanced with the new experimental multi-angle techniques.</p>
         </div>
 
         <div class="comparison-grid">
             <div class="before-after before">
-                <h4>Traditional Single-Angle Wood</h4>
+                <h4 class="header-shadow">Traditional Single-Angle Wood</h4>
                 <div class="pattern-sample Wood-3-4">
                     <div class="pattern-text">Traditional Wood Pattern</div>
                 </div>
@@ -1484,8 +1526,8 @@
             </div>
             
             <div class="before-after after">
-                <h4 style="color: #e0cfc0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
-            <h4 style="color: #f2e6e0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+                <h4 class="header-shadow" style="color: #e0cfc0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+            <h4 class="header-shadow" style="color: #f2e6e0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
                 <div class="pattern-sample expo-2">
                     <div class="pattern-text">Enhanced Marble Pattern</div>
                 </div>
@@ -1512,7 +1554,7 @@
                 
                 <!-- MARB-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-1-calc">Calculating...</div>
                 </div>
             </div>
@@ -1533,7 +1575,7 @@
                 
                 <!-- MARB-2 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-2-calc">Calculating...</div>
                 </div>
             </div>
@@ -1554,7 +1596,7 @@
                 
                 <!-- MARB-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1563,7 +1605,7 @@
         <h2>4. Fabric Pattern Family</h2>
         
         <div class="technical-background">
-            <h4 style="color: #e0e6f2;">Refined Fabric Textures</h4>
+            <h4 class="header-shadow" style="color: #e0e6f2;">Refined Fabric Textures</h4>
             <p>Refined fabric patterns inspired by classical textiles with various slopes and elegant color combinations suitable for dark mode interfaces.</p>
             <!-- Updated from "Professional" to classical fabric terminology based on authentic textile names:
                  Damask, Brocade, and Velvet represent traditional classical fabric weaving patterns -->
@@ -1587,7 +1629,7 @@
                 
                 <!-- FABR-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="fabr-1-calc">Calculating...</div>
                 </div>
             </div>                <div class="pattern-card">
