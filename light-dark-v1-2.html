@@ -1279,9 +1279,27 @@
 </head>
 <body>
     <div class="container">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
         <style>
         .header-shadow {
             text-shadow: 0 3px 6px #000, 0 0px 3px #000, 2px 2px 3px #000;
+        }
+        p {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 300;
+        }
+        .calculation-details, .calculation-details *,
+        .pattern-desc-plain-bg, .pattern-desc-plain-bg *,
+        .desc-color-mute, .desc-color-mute *,
+        .desc-color-exp-1, .desc-color-exp-1 *,
+        .desc-color-exp-5, .desc-color-exp-5 *,
+        .desc-color-exp-6, .desc-color-exp-6 *,
+        .desc-color-exp-7, .desc-color-exp-7 *,
+        .desc-color-d-marble, .desc-color-d-marble *,
+        .desc-color-glass, .desc-color-glass *,
+        .desc-color-contrast, .desc-color-contrast * {
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-weight: 300 !important;
         }
         </style>
         <h1>Dark Mode Background Patterns v1.0 - Complete Collection</h1>
@@ -1307,7 +1325,7 @@
                     <div class="pattern-text">Expo-1: Crosshatch Granite</div>
                 </div>
                 <div class="header-shadow pattern-title">Expo-1: Enhanced Granite</div>
-                <div class="pattern-description">
+                <div class="pattern-description pattern-desc-plain-bg desc-color-mute">
                     <strong class="tech-specs">Primary:</strong> 36.87° gray base pattern<br>
                     <strong class="tech-specs">Secondary:</strong> -18.43° lighter accent ripples<br>
                     <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 42,42,42 and 58,58,58)<br>
@@ -1328,7 +1346,7 @@
                     <div class="pattern-text">Expo-2: Warm Marble Ripples</div>
                 </div>
                 <div class="pattern-title">Expo-2: Marble with Warm Accents</div>
-                <div class="pattern-description">
+                <div class="pattern-description pattern-desc-plain-bg desc-color-mute">
                     <strong class="tech-specs">Primary:</strong> 53.13° marble base pattern<br>
                     <strong class="tech-specs">Secondary:</strong> 14.04° warm brown ripples<br>
                     <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 58,58,58 and 74,74,74)<br>
@@ -1349,7 +1367,7 @@
                     <div class="pattern-text">Expo-3: Fabric Gold Ripples</div>
                 </div>
                 <div class="pattern-title">Expo-3: Classical Fabric Enhancement</div>
-                <div class="pattern-description">
+                <div class="pattern-description pattern-desc-plain-bg desc-color-mute">
                     <strong class="tech-specs">Primary:</strong> 33.69° royal blue fabric base<br>
                     <strong class="tech-specs">Secondary:</strong> -26.57° golden accent threads<br>
                     <strong class="tech-specs">Gray Score:</strong> 25% (low gray, rich blue/gold)<br>
@@ -2107,12 +2125,12 @@
                 <p><strong>Important:</strong> Blue and red colors are reserved for accents and framing only, NOT for large background areas like implementation guidelines or migration notes.</p>
             </div>
             <ul>
-                <li><strong>Blue Usage:</strong> Limited to stained glass patterns, accent borders, and small UI elements</li>
-                <li><strong>Red Usage:</strong> Limited to error states, warnings, and small accent elements</li>
-                <li><strong>Gray Backgrounds:</strong> Do not use gray backgrounds for large areas of text - use pattern-based backgrounds instead</li>
-                <li><strong>Large Backgrounds:</strong> Use granite, marble, fabric, parchment, or classical patterns only</li>
-                <li><strong>Implementation Areas:</strong> Avoid blue/red/green for documentation, guidelines, and migration sections</li>
-                <li><strong>Accent/Framing:</strong> Blue and red are appropriate for borders, highlights, and small decorative elements</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Blue Usage:</strong> Limited to stained glass patterns, accent borders, and small UI elements</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Red Usage:</strong> Limited to error states, warnings, and small accent elements</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Gray Backgrounds:</strong> Do not use gray backgrounds for large areas of text - use pattern-based backgrounds instead</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Large Backgrounds:</strong> Use granite, marble, fabric, parchment, or classical patterns only</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Implementation Areas:</strong> Avoid blue/red/green for documentation, guidelines, and migration sections</li>
+                <li class="pattern-desc-plain-bg desc-color-mute"><strong>Accent/Framing:</strong> Blue and red are appropriate for borders, highlights, and small decorative elements</li>
             </ul>
         </div>
         
