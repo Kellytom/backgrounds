@@ -1284,22 +1284,63 @@
         .header-shadow {
             text-shadow: 0 3px 6px #000, 0 0px 3px #000, 2px 2px 3px #000;
         }
-        p {
-            font-family: 'Roboto', Arial, sans-serif;
-            font-weight: 300;
-        }
-        .calculation-details, .calculation-details *,
-        .pattern-desc-plain-bg, .pattern-desc-plain-bg *,
-        .desc-color-mute, .desc-color-mute *,
-        .desc-color-exp-1, .desc-color-exp-1 *,
-        .desc-color-exp-5, .desc-color-exp-5 *,
-        .desc-color-exp-6, .desc-color-exp-6 *,
-        .desc-color-exp-7, .desc-color-exp-7 *,
-        .desc-color-d-marble, .desc-color-d-marble *,
-        .desc-color-glass, .desc-color-glass *,
-        .desc-color-contrast, .desc-color-contrast * {
+        /* Use Roboto Light for all readable content and technical overlays */
+        p,
+        .pattern-desc-plain-bg,
+        .pattern-desc-plain-bg *,
+        .desc-color-mute,
+        .desc-color-mute *,
+        .desc-color-exp-1,
+        .desc-color-exp-1 *,
+        .desc-color-exp-5,
+        .desc-color-exp-5 *,
+        .desc-color-exp-6,
+        .desc-color-exp-6 *,
+        .desc-color-exp-7,
+        .desc-color-exp-7 *,
+        .desc-color-d-marble,
+        .desc-color-d-marble *,
+        .desc-color-glass,
+        .desc-color-glass *,
+        .desc-color-contrast,
+        .desc-color-contrast *,
+        .calculation-details,
+        .calculation-details *,
+        .pattern-description,
+        .pattern-description *,
+        .solution-highlight,
+        .solution-highlight *,
+        .solution,
+        .solution *,
+        .muted-burgundy,
+        .muted-burgundy *,
+        .muted-damask,
+        .muted-damask *,
+        .implementation-background,
+        .implementation-background *,
+        .problem-highlight,
+        .problem-highlight *,
+        .solution-background,
+        .solution-background *,
+        .technical-background,
+        .technical-background * {
             font-family: 'Roboto', Arial, sans-serif !important;
             font-weight: 300 !important;
+        }
+
+        /* Remove inline font-family from <p> tags if present */
+        p[style*="font-family"] {
+            font-family: 'Roboto', Arial, sans-serif !important;
+            font-weight: 300 !important;
+        }
+
+        /* Ensure body and headings use their intended fonts */
+        body {
+            font-family: 'Century Schoolbook', serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Century Schoolbook', serif;
+            font-weight: bold;
         }
         </style>
         <h1>Dark Mode Background Patterns v1.0 - Complete Collection</h1>
