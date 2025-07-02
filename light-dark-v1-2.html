@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -545,6 +544,7 @@
                     rgba(20, 20, 20, 0.9) 0px,      /* Dark base */
                     rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
                     rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(40, 40, 40, 0.94) 4px,     /* Peak */
                     rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
@@ -1190,6 +1190,7 @@
                     rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
                     rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
                     rgba(35, 35, 35, 0.93) 3px,     /* Continue */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
                     rgba(40, 40, 40, 0.94) 4px,     /* Peak */
                     rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
                     rgba(20, 20, 20, 0.9) 6px       /* Return */
@@ -1222,10 +1223,67 @@
                     rgba(25, 25, 45, 0.85) 6px      /* Return */
                 );
         }
+               
+        .pattern-desc-plain-bg {
+            margin: 10px 0 14px 0;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 1.01em;
+        }
+        .desc-color-exp-1 {
+            background: rgba(33, 33, 36, .5); /* matches the 4th value in the first repeating-linear-gradient of .experimental-background */
+            color: #fff;
+        }
+       /* Example for Expo-1: base color rgb(42,42,42) */
+
+/* Expo-2: base color rgb(58,58,58) */
+.desc-color-d-marble {
+  background: rgba(49, 37, 47, 0.4); /* 58-9, 58-9, 58-31 */
+}
+
+/* Expo-3: base color rgb(51,51,105) */
+.desc-color-glass {
+  background: rgba(42, 42, 44, 0.4); /* 51-9, 51-9, 105-31 */
+}
+
+/* Granite-4-3: base color rgb(74,58,90) */
+.desc-color-contrast {
+  background: rgba(15, 19, 29, 0.4); /* 74-9, 58-9, 90-31 */
+}
+
+/* Fabric-1-3: base color rgb(30,30,60) */
+.desc-color-exp-5 {
+  background: rgba(21, 21, 29, 0.4); /* 30-9, 30-9, 60-31 */
+}
+
+/* Fabric-2-3: base color rgb(28,28,70) */
+.desc-color-exp-6 {
+  background: rgba(19, 19, 39, 0.4); /* 28-9, 28-9, 70-31 */
+}
+
+/* Fabric-3-4: base color rgb(40,30,80) */
+.desc-color-exp-7 {
+  background: rgba(31, 21, 49, 0.4); /* 40-9, 30-9, 80-31 */
+}
+
+/* Muted Damask: base color rgb(60,65,80) */
+.desc-color-mute {
+  background: rgba(31, 36, 29, 0.4); /* 60-9, 65-9, 80-31 */
+}
+
+/* Muted Velvet: base color rgb(70,60,90) */
+.desc-color-exp-9 {
+  background: rgba(61, 51, 59, 0.4); /* 70-9, 60-9, 90-31 */
+}
     </style>
 </head>
 <body>
     <div class="container">
+        <style>
+        .header-shadow {
+            text-shadow: 0 3px 6px #000, 0 0px 3px #000, 2px 2px 3px #000;
+        }
+        </style>
         <h1>Dark Mode Background Patterns v1.0 - Complete Collection</h1>
         <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 25px;">
              <strong>Latest Version:</strong> Comprehensive collection of anti-aliased fine striped patterns for dark mode backgrounds with all improvements and optimizations
@@ -1234,8 +1292,9 @@
         <h2>1. Experimental Multi-Angle Patterns</h2>
         
         <div class="experimental-background">
-            <h4 style="color: #bfc3e6;">Breakthrough: Layered Stripe Patterns for Visual Interest</h4>
-            <p>Revolutionary approach combining two different striped gradients at contrasting angles to create dynamic ripple effects and break up the monotony of single-angle patterns. These experimental patterns solve the "boring background" problem by introducing subtle complexity while maintaining professional aesthetics.</p>
+            <h4 class="header-shadow" style="color: #bfc3e6;">Breakthrough: Layered Stripe Patterns for Visual Interest</h4>
+            <p class="pattern-desc-plain-bg desc-color-exp-1" style="font-family: 'Roboto', Arial, sans-serif;">Revolutionary approach combining two different striped gradients at contrasting angles to create dynamic ripple effects and break up the monotony of single-angle patterns. These experimental patterns solve the \"boring background\" problem by introducing subtle complexity while maintaining professional aesthetics.</p>
+
             <!-- Experimental approach: Layer two gradients with different angles, colors, widths, and opacities
                  - Primary gradient: Main pattern structure
                  - Secondary gradient: Accent ripples with wider spacing and lower opacity
@@ -1247,7 +1306,7 @@
                 <div class="pattern-sample expo-1">
                     <div class="pattern-text">Expo-1: Crosshatch Granite</div>
                 </div>
-                <div class="pattern-title">Expo-1: Enhanced Granite</div>
+                <div class="header-shadow pattern-title">Expo-1: Enhanced Granite</div>
                 <div class="pattern-description">
                     <strong class="tech-specs">Primary:</strong> 36.87° gray base pattern<br>
                     <strong class="tech-specs">Secondary:</strong> -18.43° lighter accent ripples<br>
@@ -1259,7 +1318,7 @@
                 
                 <!-- EXPO-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo1-calc">Calculating...</div>
                 </div>
             </div>
@@ -1280,7 +1339,7 @@
                 
                 <!-- EXPO-2 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo2-calc">Calculating...</div>
                 </div>
             </div>
@@ -1301,7 +1360,7 @@
                 
                 <!-- EXPO-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1324,7 +1383,7 @@
                 
                 <!-- EXPO-4 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-4-calc">Calculating...</div>
                 </div>
             </div>
@@ -1345,7 +1404,7 @@
                 
                 <!-- EXPO-5 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-5-calc">Calculating...</div>
                 </div>
             </div>
@@ -1366,7 +1425,7 @@
                 
                 <!-- EXPO-6 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="expo-6-calc">Calculating...</div>
                 </div>
             </div>
@@ -1375,8 +1434,8 @@
         <h2>2. Granite Pattern Family</h2>
         
         <div class="solution-highlight">
-            <h4 style="color: #e2e6f6;">Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
-            <p>Replace single 45° granite pattern with a family of anti-aliased patterns using different slope ratios and 1-2px stripe widths.</p>
+            <h4 class="header-shadow" style="color: #e2e6f6;">Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
+            <p class="desc-color-exp-1 pattern-desc-plain-bg">Replace single 45° granite pattern with a family of anti-aliased patterns using different slope ratios and 1-2px stripe widths.</p>
         </div>
 
         <div class="pattern-showcase">
@@ -1396,7 +1455,7 @@
                 
                 <!-- GRAN-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-1-calc">Calculating...</div>
                 </div>
             </div>
@@ -1417,7 +1476,7 @@
                 
                 <!-- GRAN-2 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-2-calc">Calculating...</div>
                 </div>
             </div>
@@ -1438,7 +1497,7 @@
                 
                 <!-- GRAN-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="gran-3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1468,13 +1527,13 @@
         <h2>3. Marble Pattern Family</h2>
         
         <div class="solution-highlight">
-            <h4 style="color: #f2e6e0;">Enhanced Marble Patterns: Warmer, Darker Tones</h4>
-            <p>Premium dark marble patterns using warmer brown tones and anti-aliased slopes, enhanced with the new experimental multi-angle techniques.</p>
+            <h4 class="header-shadow" style="color: #f2e6e0;">Enhanced Marble Patterns: Warmer, Darker Tones</h4>
+            <p class="desc-color-d-marble pattern-desc-plain-bg">Premium dark marble patterns using warmer brown tones and anti-aliased slopes, enhanced with the new experimental multi-angle techniques.</p>
         </div>
 
         <div class="comparison-grid">
             <div class="before-after before">
-                <h4>Traditional Single-Angle Wood</h4>
+                <h4 class="header-shadow">Traditional Single-Angle Wood</h4>
                 <div class="pattern-sample Wood-3-4">
                     <div class="pattern-text">Traditional Wood Pattern</div>
                 </div>
@@ -1484,8 +1543,8 @@
             </div>
             
             <div class="before-after after">
-                <h4 style="color: #e0cfc0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
-            <h4 style="color: #f2e6e0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+                <h4 class="header-shadow" style="color: #e0cfc0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+            <h4 class="header-shadow" style="color: #f2e6e0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
                 <div class="pattern-sample expo-2">
                     <div class="pattern-text">Enhanced Marble Pattern</div>
                 </div>
@@ -1512,7 +1571,7 @@
                 
                 <!-- MARB-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-1-calc">Calculating...</div>
                 </div>
             </div>
@@ -1533,7 +1592,7 @@
                 
                 <!-- MARB-2 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-2-calc">Calculating...</div>
                 </div>
             </div>
@@ -1554,7 +1613,7 @@
                 
                 <!-- MARB-3 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="marb-3-calc">Calculating...</div>
                 </div>
             </div>
@@ -1563,8 +1622,8 @@
         <h2>4. Fabric Pattern Family</h2>
         
         <div class="technical-background">
-            <h4 style="color: #e0e6f2;">Refined Fabric Textures</h4>
-            <p>Refined fabric patterns inspired by classical textiles with various slopes and elegant color combinations suitable for dark mode interfaces.</p>
+            <h4 class="header-shadow" style="color: #e0e6f2;">Refined Fabric Textures</h4>
+            <p class="desc-color-exp-5 pattern-desc-plain-bg">Refined fabric patterns inspired by classical textiles with various slopes and elegant color combinations suitable for dark mode interfaces.</p>
             <!-- Updated from "Professional" to classical fabric terminology based on authentic textile names:
                  Damask, Brocade, and Velvet represent traditional classical fabric weaving patterns -->
         </div>
@@ -1587,7 +1646,7 @@
                 
                 <!-- FABR-1 CALCULATION DETAILS -->
                 <div class="calculation-details">
-                    <h4>Calculation Details</h4>
+                    <h4 class="header-shadow">Calculation Details</h4>
                     <div id="fabr-1-calc">Calculating...</div>
                 </div>
             </div>                <div class="pattern-card">
@@ -1640,7 +1699,7 @@
         
         <div class="solution Deep-Stained-Glass-Effects">
             <h4 style="color: #e0e6f2;">Deep Stained Glass Effects</h4>
-            <p>Rich, deep blue stained glass patterns that maintain the aesthetic while being suitable for dark mode backgrounds. Blue is used here only for accent/framing, not large background areas.</p>
+            <p class="desc-color-glass pattern-desc-plain-bg">Rich, deep stained glass patterns that maintain the aesthetic while being suitable for dark mode backgrounds. Blue is used here only for accent/framing, not large background areas.</p>
             <!-- Note: Blue colors are intentionally reserved for stained glass accents and framing only,
                  per requirements to avoid blue/red/green for large implementation backgrounds -->
         </div>
@@ -1714,7 +1773,7 @@
         
         <div class="solution-background">
             <h4 style="color: #f2e6e0;">New Classical Pattern Category</h4>
-            <p>Classical patterns specifically designed for classical dark mode interfaces with elegant color combinations.</p>
+            <p class="desc-color-exp-7 pattern-desc-plain-bg">Classical patterns specifically designed for classical dark mode interfaces with elegant color combinations.</p>
         </div>
 
         <div class="pattern-showcase">
@@ -1786,7 +1845,7 @@
         
         <div class="solution-highlight">
             <h4>Accessibility-Focused Patterns</h4>
-            <p>High-contrast patterns designed for accessibility while maintaining visual appeal and text readability.</p>
+            <p class="desc-color-contrast pattern-desc-plain-bg">High-contrast patterns designed for accessibility while maintaining visual appeal and text readability.</p>
         </div>
 
         <div class="pattern-showcase">
@@ -1837,7 +1896,7 @@
         
         <div class="solution-highlight">
             <h4 style="color: #e2e6f6;">Dynamic Corner-Based Ripple Patterns</h4>
-            <p>Advanced ripple effects that start from two corners and spread diagonally across the background. These patterns create natural-looking variations while maintaining professional aesthetics. <strong>Note:</strong> Higher computational cost due to multiple radial gradient calculations.</p>
+            <p class="desc-color-exp-6 pattern-desc-plain-bg">Advanced ripple effects that start from two corners and spread diagonally across the background. These patterns create natural-looking variations while maintaining professional aesthetics. <strong>Note:</strong> Higher computational cost due to multiple radial gradient calculations.</p>
         </div>
 
         <div class="pattern-showcase">
@@ -1917,7 +1976,7 @@
         
         <div class="solution-highlight">
             <h4 style="color: #e2e6f6;">Muted Pattern Collection - For Large Text Areas</h4>
-            <p>Subtle, readable background patterns designed specifically for content sections with extensive text. All patterns use reduced opacity and muted color tones to ensure excellent readability while adding visual interest.</p>
+            <p class="desc-color-mute pattern-desc-plain-bg">Subtle, readable background patterns designed specifically for content sections with extensive text. All patterns use reduced opacity and muted color tones to ensure excellent readability while adding visual interest.</p>
         </div>
 
         <div class="pattern-showcase">
@@ -2030,7 +2089,9 @@
         
         <div class="solution muted-burgundy">
             <h4>Anti-Aliasing Strategy</h4>
-            <p>All patterns use slope ratios other than 1:1 (45°) to prevent aliasing:</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p>All patterns use slope ratios other than 1:1 (45°) to prevent aliasing:</p>
+            </div>
             <ul>
                 <li><strong>3:4 (36.87°)</strong> - Most common, excellent for professional interfaces</li>
                 <li><strong>4:3 (53.13°)</strong> - Steeper angle, good for variety</li>
@@ -2042,7 +2103,9 @@
         
         <div class="solution muted-damask">
             <h4>Color Strategy & Restrictions</h4>
-            <p><strong>Important:</strong> Blue and red colors are reserved for accents and framing only, NOT for large background areas like implementation guidelines or migration notes.</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Important:</strong> Blue and red colors are reserved for accents and framing only, NOT for large background areas like implementation guidelines or migration notes.</p>
+            </div>
             <ul>
                 <li><strong>Blue Usage:</strong> Limited to stained glass patterns, accent borders, and small UI elements</li>
                 <li><strong>Red Usage:</strong> Limited to error states, warnings, and small accent elements</li>
@@ -2055,7 +2118,9 @@
         
         <div class="muted-burgundy">
             <h4>5% Gray Score Threshold Rule</h4>
-            <p><strong>Critical Rule:</strong> Patterns with less than 5% distance from gray should NOT be used for large text areas.</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Critical Rule:</strong> Patterns with less than 5% distance from gray should NOT be used for large text areas.</p>
+            </div>
             <ul>
                 <li><strong>5% Threshold:</strong> Minimum distance from pure gray required for readability</li>
                 <li><strong>✅ Safe (≥5%):</strong> Patterns have enough color variation for large text backgrounds</li>
@@ -2068,8 +2133,10 @@
         
        <div class="muted-damask">
             <h4>Color Harmony Principles</h4>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Darker, Warmer Backgrounds:</strong> All patterns use darker base colors appropriate for dark mode</p>
+            </div>
             <ul>
-                <li><strong>Darker, Warmer Backgrounds:</strong> All patterns use darker base colors appropriate for dark mode</li>
                 <li><strong>Authentic Color Sources:</strong> Marble colors based on real Italian marble varieties</li>
                 <li><strong>Fabric Authenticity:</strong> Fabric patterns named after real luxury textiles (Damask, Brocade, Velvet)</li>
                 <li><strong>Complementary Accents:</strong> Accent colors are chosen to complement base colors</li>
@@ -2080,6 +2147,9 @@
         
          <div class=" muted-burgundy">
             <h4>Stripe Width Strategy</h4>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p>All stripe widths are chosen for maximum clarity and anti-aliasing, with no subpixel widths for crisp rendering.</p>
+            </div>
             <ul>
                 <li><strong>1px Stripes:</strong> For subtle effects and equal-width patterns</li>
                 <li><strong>2px Base + 1px Accent:</strong> Most common ratio for base-accent patterns</li>
@@ -2092,7 +2162,9 @@
         
         <div class="implementation-background">
             <h4>Implementation Phases</h4>
-            <p><strong>Note:</strong> Using granite base pattern for this implementation section to demonstrate practical application of our created patterns instead of prohibited color backgrounds.</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Note:</strong> Using granite base pattern for this implementation section to demonstrate practical application of our created patterns instead of prohibited color backgrounds.</p>
+            </div>
             <ol>
                 <li><strong>Phase 1:</strong> Implement experimental multi-angle patterns (Expo-1 through Expo-6)</li>
                 <li><strong>Phase 2:</strong> Replace existing 4 texture classes with enhanced anti-aliased versions</li>
@@ -2106,9 +2178,12 @@
 
         <div class="muted-burgundy" style="margin-top: 40px; padding: 15px; color: var(--text-secondary);">
             <h4>Summary</h4>
-            <p>This enhanced proposal demonstrates comprehensive improvements to fine striped patterns with anti-aliased slopes, authentic color sources, and classical fabric terminology. The new Light Marble, Parchment/Paper, and Ripple Background families provide elegant alternatives while maintaining professional aesthetics and accessibility standards. Blue, red, and green colors are strategically reserved for accents and framing only, never for large background areas.</p>
-            
-            <p><strong>Key Improvements:</strong></p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p>This enhanced proposal demonstrates comprehensive improvements to fine striped patterns with anti-aliased slopes, authentic color sources, and classical fabric terminology. The new Light Marble, Parchment/Paper, and Ripple Background families provide elegant alternatives while maintaining professional aesthetics and accessibility standards. Blue, red, and green colors are strategically reserved for accents and framing only, never for large background areas.</p>
+            </div>
+            <div class="pattern-desc-plain-bg desc-color-mute" style="margin-top: 10px;">
+                <p><strong>Key Improvements:</strong></p>
+            </div>
             <ul style="margin-top: 10px;">
                 <li>✓ 5% Gray Score Threshold for safe large text area usage</li>
                 <li>✓ Real-time calculation of gray distance using perc_g formula</li>
@@ -2126,32 +2201,32 @@
 
         <div class="granite-2-3" style="margin-top: 30px; padding: 20px; color: var(--text-primary);">
             <h4>🏁 Conclusion</h4>
-            <p><strong>Mission Accomplished:</strong> This comprehensive dark mode background pattern system successfully transforms bland, gray backgrounds into rich, textured experiences while maintaining excellent readability and accessibility standards.</p>
-            
-            <p><strong>Key Achievements:</strong></p>
-            <ul>
-                <li>🎨 <strong>Visual Richness:</strong> 40+ unique patterns with authentic colors and textures</li>
-                <li>📊 <strong>Scientific Approach:</strong> Real-time gray score calculations with 5% threshold</li>
-                <li>🔧 <strong>Technical Excellence:</strong> Anti-aliased slopes, crosshatch effects, and optimized rendering</li>
-                <li>♿ <strong>Accessibility First:</strong> Every pattern tested for large text area readability</li>
-                <li>🎭 <strong>Authentic Design:</strong> Real marble varieties, classical fabric names, natural textures</li>
-                <li>💎 <strong>Innovation:</strong> Muted content backgrounds, ripple effects, and experimental patterns</li>
-            </ul>
-            
-            <p><strong>The Future is Textured:</strong> Dark mode interfaces no longer need to be monotonous. This pattern system proves that beautiful, readable, and accessible backgrounds are not only possible—they're essential for engaging user experiences.</p>
-            
-            <p style="text-align: center; margin-top: 20px; font-style: italic; color: #90EE90;">
-                "From gray monotony to textured elegance—<br>
-                Every pixel now tells a story."
-            </p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Mission Accomplished:</strong> This comprehensive dark mode background pattern system successfully transforms bland, gray backgrounds into rich, textured experiences while maintaining excellent readability and accessibility standards.</p>
+                <p style="margin-top: 10px;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>🎨 <strong>Visual Richness:</strong> 40+ unique patterns with authentic colors and textures</li>
+                    <li>📊 <strong>Scientific Approach:</strong> Real-time gray score calculations with 5% threshold</li>
+                    <li>🔧 <strong>Technical Excellence:</strong> Anti-aliased slopes, crosshatch effects, and optimized rendering</li>
+                    <li>♿ <strong>Accessibility First:</strong> Every pattern tested for large text area readability</li>
+                    <li>🎭 <strong>Authentic Design:</strong> Real marble varieties, classical fabric names, natural textures</li>
+                    <li>💎 <strong>Innovation:</strong> Muted content backgrounds, ripple effects, and experimental patterns</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>The Future is Textured:</strong> Dark mode interfaces no longer need to be monotonous. This pattern system proves that beautiful, readable, and accessible backgrounds are not only possible—they're essential for engaging user experiences.</p>
+                <div style="margin-top: 20px; text-align: center; font-style: italic; color: #90EE90;">
+                    "From gray monotony to textured elegance—<br>
+                    Every pixel now tells a story."
+                </div>
+            </div>
         </div>
 
         <h2>14. Testing Section - Enhanced Crosshatch Visibility</h2>
         
         <div class="implementation-background">
             <h4>Ultra-Softened Multi-Angle Pattern Testing</h4>
-            <p><strong>Final Update:</strong> Testing patterns with doubled size and ultra-low opacity for whisper-soft, barely-perceptible crosshatch effects with maximum elegance.</p>
-            
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Final Update:</strong> Testing patterns with doubled size and ultra-low opacity for whisper-soft, barely-perceptible crosshatch effects with maximum elegance.</p>
+            </div>
             <div class="highlight">
                 <h4>⚠️ DESIGN DECISION: Enhanced Crosshatch Usage Restriction</h4>
                 <p><strong>Do not use enhanced crosshatch patterns from this section for large areas of text.</strong> These patterns are experimental and designed for testing visibility effects only. The enhanced crosshatch creates visual interference that can strain readers' eyes when applied to extensive text regions.</p>
@@ -2230,7 +2305,9 @@
 
         <div class="implementation-background" style="margin-top: 30px;">
             <h4>🆕 Soft Gradient Experiments - Exploring Gentler Transitions</h4>
-            <p><strong>New Approach:</strong> Testing ultra-soft gradients with intermediate color stops, micro-increments, and extended transparent areas for more natural, gradual transitions.</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>New Approach:</strong> Testing ultra-soft gradients with intermediate color stops, micro-increments, and extended transparent areas for more natural, gradual transitions.</p>
+            </div>
         </div>
 
         <div class="pattern-showcase">
@@ -2297,44 +2374,45 @@
 
         <div class="implementation-background muted-slate" style="margin-top: 20px;">
             <h4>Soft Gradient Analysis</h4>
-            <p><strong>Softening Techniques Tested:</strong></p>
-            <ul>
-                <li><strong>Intermediate Color Stops:</strong> Adding 0.5px and 1px micro-steps for smoother transitions</li>
-                <li><strong>Ultra-Low Opacity:</strong> Reducing crosshatch opacity to 0.08-0.2 range for whisper-soft effects</li>
-                <li><strong>Extended Transparent Areas:</strong> Large gaps (8px-20px) between pattern repeats</li>
-                <li><strong>Micro-Incremental Base Layers:</strong> 0.01-0.02 opacity steps instead of large jumps</li>
-                <li><strong>Fade-In/Fade-Out Curves:</strong> Gradual rise and fall instead of sharp transitions</li>
-            </ul>
-            
-            <p><strong>Comparison with Original Test Patterns:</strong></p>
-            <ul>
-                <li><strong>Original Tests:</strong> High contrast (0.3-0.4 opacity), sharp transitions, bold visibility</li>
-                <li><strong>Soft Tests:</strong> Low contrast (0.08-0.25 opacity), gradual transitions, subtle presence</li>
-                <li><strong>Use Cases:</strong> Soft patterns ideal for subtle backgrounds, original tests for accent areas</li>
-            </ul>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Softening Techniques Tested:</strong></p>
+                <ul>
+                    <li><strong>Intermediate Color Stops:</strong> Adding 0.5px and 1px micro-steps for smoother transitions</li>
+                    <li><strong>Ultra-Low Opacity:</strong> Reducing crosshatch opacity to 0.08-0.2 range for whisper-soft effects</li>
+                    <li><strong>Extended Transparent Areas:</strong> Large gaps (8px-20px) between pattern repeats</li>
+                    <li><strong>Micro-Incremental Base Layers:</strong> 0.01-0.02 opacity steps instead of large jumps</li>
+                    <li><strong>Fade-In/Fade-Out Curves:</strong> Gradual rise and fall instead of sharp transitions</li>
+                </ul>
+                <p><strong>Comparison with Original Test Patterns:</strong></p>
+                <ul>
+                    <li><strong>Original Tests:</strong> High contrast (0.3-0.4 opacity), sharp transitions, bold visibility</li>
+                    <li><strong>Soft Tests:</strong> Low contrast (0.08-0.25 opacity), gradual transitions, subtle presence</li>
+                    <li><strong>Use Cases:</strong> Soft patterns ideal for subtle backgrounds, original tests for accent areas</li>
+                </ul>
+            </div>
         </div>
 
         <div class="implementation-background" style="margin-top: 30px;">
             <h4>Testing Results & Observations</h4>
-            <p><strong>Softened Visibility Modifications:</strong></p>
-            <ul>
-                <li><strong>Size Doubling:</strong> All stripe widths doubled (2px→4px, 1px→2px, etc.)</li>
-                <li><strong>Moderate Opacity Layering:</strong> Base layer moderate (0.8), crosshatch soft (0.2-0.25)</li>
-                <li><strong>Layer Order:</strong> Soft crosshatch ON TOP, moderate base underneath</li>
-                <li><strong>Pattern Height:</strong> Increased to 120px for better visibility</li>
-                <li><strong>Text Enhancement:</strong> White text with shadow for clear visibility</li>
-                <li><strong>Crosshatch Balance:</strong> Refined visibility through transparency</li>
-            </ul>
-            
-            <p><strong>Crosshatch Effect Analysis (Softened Opacity):</strong></p>
-            <ul>
-                <li><strong>Test-1:</strong> Base 36.87° (0.8 opacity) + Crosshatch -18.43° (0.2-0.25 opacity) = Refined diagonal crosshatch</li>
-                <li><strong>Test-2:</strong> Base 33.69° (0.8 opacity) + Crosshatch -26.57° (0.2-0.25 opacity) = Gentle marble crosshatch</li>
-                <li><strong>Test-6:</strong> Base 18.43° (0.8 opacity) + Silver -53.13° (0.2-0.25 opacity) = Refined silver highlights</li>
-                <li><strong>Test-4:</strong> Base 45° (0.8 opacity) + Crosshatch -45° (0.2-0.25 opacity) = Balanced 90° grid pattern</li>
-            </ul>
-            
-            <p><strong>Key Improvement:</strong> The crosshatch layer is now properly softened so you can see the base pattern underneath while maintaining elegant texture effects!</p>
+            <div class="pattern-desc-plain-bg desc-color-mute">
+                <p><strong>Softened Visibility Modifications:</strong></p>
+                <ul>
+                    <li><strong>Size Doubling:</strong> All stripe widths doubled (2px→4px, 1px→2px, etc.)</li>
+                    <li><strong>Moderate Opacity Layering:</strong> Base layer moderate (0.8), crosshatch soft (0.2-0.25)</li>
+                    <li><strong>Layer Order:</strong> Soft crosshatch ON TOP, moderate base underneath</li>
+                    <li><strong>Pattern Height:</strong> Increased to 120px for better visibility</li>
+                    <li><strong>Text Enhancement:</strong> White text with shadow for clear visibility</li>
+                    <li><strong>Crosshatch Balance:</strong> Refined visibility through transparency</li>
+                </ul>
+                <p><strong>Crosshatch Effect Analysis (Softened Opacity):</strong></p>
+                <ul>
+                    <li><strong>Test-1:</strong> Base 36.87° (0.8 opacity) + Crosshatch -18.43° (0.2-0.25 opacity) = Refined diagonal crosshatch</li>
+                    <li><strong>Test-2:</strong> Base 33.69° (0.8 opacity) + Crosshatch -26.57° (0.2-0.25 opacity) = Gentle marble crosshatch</li>
+                    <li><strong>Test-6:</strong> Base 18.43° (0.8 opacity) + Silver -53.13° (0.2-0.25 opacity) = Refined silver highlights</li>
+                    <li><strong>Test-4:</strong> Base 45° (0.8 opacity) + Crosshatch -45° (0.2-0.25 opacity) = Balanced 90° grid pattern</li>
+                </ul>
+                <p><strong>Key Improvement:</strong> The crosshatch layer is now properly softened so you can see the base pattern underneath while maintaining elegant texture effects!</p>
+            </div>
         </div>
         
         <!-- 

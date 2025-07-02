@@ -1,4 +1,11 @@
 # Dark Mode Backgrounds
+Files: 
+Bulma-test.html
+light-dark-v1.1.html
+
+High codespace CPU (100%) utilization detected. Consider stopping some processes for the best experience.
+
+a soft pastel (e.g., #e3fcec for light, #20403a for dark)
 
 A collection of sophisticated dark mode background patterns and textures for web applications.
 
@@ -12,7 +19,7 @@ A collection of sophisticated dark mode background patterns and textures for web
 
 ## Files
 
-- **`light-dark-v1.html`** - ⭐ **LATEST VERSION** - Complete pattern collection with all improvements
+- **`light-dark-v1.html`** -  **LATEST VERSION** - Complete pattern collection with all improvements
 - `dark-mode.html` - Main dark mode interface demo
 - `proposed-light-dark.html` - Comprehensive pattern library
 - `Fine-Striped-Patterns.html` - Original fine striped patterns
@@ -48,3 +55,20 @@ For comparison and development history:
 - Patterns use `repeating-linear-gradient` for optimal performance
 - Angles calculated using precise mathematical ratios (3:4, 4:3, 1:2, etc.)
 - Anti-aliasing optimized to prevent pattern breakdown at fine levels
+
+```css
+background: repeating-linear-gradient-d(
+  135deg,
+  #23272e, /* dark mode base */
+  #23272e 10px,
+  #2d323b 10px,
+  #2d323b 20px
+);
+```
+background: repeating-linear-gradient-l(
+  135deg,
+  #f5f7fa, /* light mode base */
+  #f5f7fa 10px,
+  #e3e8ee 10px,
+  #e3e8ee 20px
+);
