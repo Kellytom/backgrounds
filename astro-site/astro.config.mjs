@@ -18,7 +18,17 @@ export default defineConfig({
 				},
 				{
 					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					items: [
+						{ label: 'Example Reference', slug: 'reference/example' },
+					],
+				},
+				{
+					label: 'Showcases',
+					items: [
+						{ label: 'Starlight Showcase', slug: 'starlight-showcase' },
+						{ label: 'DaisyUI Showcase', slug: 'daisyui-showcase' },
+						{ label: 'CSS Guide', slug: 'starlight-css-guide' },
+					],
 				},
 			],
 		}),
