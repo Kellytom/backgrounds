@@ -1,0 +1,445 @@
+---
+title: Starlight CSS Guide
+description: Complete guide to customizing Starlight with CSS, including theme variables, component styling, and advanced customization techniques.
+---
+
+# Starlight CSS Customization Guide
+
+This comprehensive guide covers how to customize **Starlight** with CSS, including theme variables, component overrides, and advanced styling techniques used in the **Hacker1** project.
+
+## CSS Architecture
+
+Starlight uses a layered CSS architecture that allows for flexible customization:
+
+```
+1. Base Starlight Styles (Framework)
+2. Theme Variables (Colors, fonts, spacing)
+3. Component Overrides (Custom styling)
+4. Global Customizations (Site-wide changes)
+```
+
+## Theme Variables
+
+Starlight uses CSS custom properties for theming. Here are the key variables you can customize:
+
+### Color Variables
+
+```css
+:root {
+  /* Primary brand colors */
+  --sl-color-accent: hsl(136, 58%, 40%);
+  --sl-color-accent-low: hsl(136, 54%, 15%);
+  --sl-color-accent-high: hsl(136, 58%, 90%);
+  
+  /* Text colors */
+  --sl-color-text: hsl(224, 9%, 86%);
+  --sl-color-text-invert: hsl(224, 13%, 12%);
+  --sl-color-text-accent: hsl(136, 58%, 55%);
+  
+  /* Background colors */
+  --sl-color-bg: hsl(224, 13%, 12%);
+  --sl-color-bg-nav: hsl(224, 13%, 10%);
+  --sl-color-bg-sidebar: hsl(224, 13%, 10%);
+  
+  /* Border colors */
+  --sl-color-gray-1: hsl(224, 7%, 25%);
+  --sl-color-gray-2: hsl(224, 9%, 31%);
+  --sl-color-gray-3: hsl(224, 9%, 42%);
+  --sl-color-gray-4: hsl(224, 9%, 56%);
+  --sl-color-gray-5: hsl(224, 9%, 73%);
+  --sl-color-gray-6: hsl(224, 10%, 88%);
+}
+
+/* Light theme overrides */
+[data-theme='light'] {
+  --sl-color-bg: hsl(0, 0%, 100%);
+  --sl-color-bg-nav: hsl(224, 13%, 97%);
+  --sl-color-text: hsl(224, 13%, 12%);
+  --sl-color-text-invert: hsl(224, 9%, 86%);
+}
+```
+
+### Typography Variables
+
+```css
+:root {
+  /* Font families */
+  --sl-font: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: "JetBrains Mono", Consolas, Monaco, monospace;
+  
+  /* Font sizes */
+  --sl-text-xs: 0.8125rem;
+  --sl-text-sm: 0.875rem;
+  --sl-text-base: 1rem;
+  --sl-text-lg: 1.125rem;
+  --sl-text-xl: 1.25rem;
+  --sl-text-2xl: 1.5rem;
+  --sl-text-3xl: 1.875rem;
+  --sl-text-4xl: 2.25rem;
+  --sl-text-5xl: 3rem;
+  
+  /* Line heights */
+  --sl-line-height: 1.8;
+  --sl-line-height-headings: 1.2;
+}
+```
+
+### Layout Variables
+
+```css
+:root {
+  /* Spacing scale */
+  --sl-spacing-xs: 0.5rem;
+  --sl-spacing-sm: 0.75rem;
+  --sl-spacing-base: 1rem;
+  --sl-spacing-lg: 1.5rem;
+  --sl-spacing-xl: 2rem;
+  --sl-spacing-2xl: 3rem;
+  --sl-spacing-3xl: 4rem;
+  
+  /* Content width */
+  --sl-content-width: 45rem;
+  --sl-sidebar-width: 20rem;
+  
+  /* Border radius */
+  --sl-border-radius: 0.5rem;
+  
+  /* Shadows */
+  --sl-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sl-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --sl-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+```
+
+## Component Styling
+
+### Custom Navbar (Hacker1 Example)
+
+Our custom navbar overrides the default Starlight header:
+
+```css
+/* Custom navbar styling */
+.custom-navbar {
+  background: #1a1a1a;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+/* Hide default Starlight header */
+:global(.header) {
+  display: none;
+}
+```
+
+### Search Component Customization
+
+Override Starlight's search styling:
+
+```css
+/* Search component overrides */
+.search-container :global(.search) {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #666;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1001;
+}
+
+.search-container :global(.search input) {
+  background: transparent;
+  color: #fff;
+  border: none;
+}
+
+.search-container :global(.search input::placeholder) {
+  color: #bbb;
+}
+
+/* Search results dropdown */
+.search-container :global(.search-results) {
+  background: var(--sl-color-bg-nav);
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: var(--sl-border-radius);
+  box-shadow: var(--sl-shadow-lg);
+}
+```
+
+### Content Area Styling
+
+```css
+/* Main content area */
+.content {
+  max-width: var(--sl-content-width);
+  margin: 0 auto;
+  padding: var(--sl-spacing-lg);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sl-font);
+  line-height: var(--sl-line-height-headings);
+  color: var(--sl-color-text);
+  margin-bottom: var(--sl-spacing-base);
+}
+
+/* Code blocks */
+pre {
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-gray-2);
+  border-radius: var(--sl-border-radius);
+  padding: var(--sl-spacing-base);
+  overflow-x: auto;
+}
+
+code {
+  font-family: var(--sl-font-mono);
+  background: var(--sl-color-gray-1);
+  padding: 0.125em 0.25em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+```
+
+## Advanced Customization
+
+### Custom Starlight Components
+
+Override specific Starlight components by creating files in `src/components/`:
+
+```astro
+---
+// src/components/Header.astro
+import Navbar from './Navbar.astro';
+---
+
+<!-- Replace default header with custom navbar -->
+<Navbar />
+
+<style>
+/* Additional header styling */
+</style>
+```
+
+### Theme-Specific Styling
+
+Create styles that respond to theme changes:
+
+```css
+/* Base styles */
+.my-component {
+  color: var(--sl-color-text);
+  background: var(--sl-color-bg);
+}
+
+/* Dark theme specific */
+[data-theme='dark'] .my-component {
+  border-color: var(--sl-color-gray-2);
+}
+
+/* Light theme specific */
+[data-theme='light'] .my-component {
+  border-color: var(--sl-color-gray-4);
+  box-shadow: var(--sl-shadow-sm);
+}
+```
+
+### Responsive Design
+
+Starlight includes responsive breakpoints:
+
+```css
+/* Starlight breakpoints */
+@media (min-width: 50rem) {
+  /* Tablet and up */
+  .responsive-component {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+@media (min-width: 72rem) {
+  /* Desktop and up */
+  .responsive-component {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+```
+
+## Global Styling
+
+### Site-wide CSS
+
+Add global styles to your Astro layout or component:
+
+```css
+/* Global font loading */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Global resets and improvements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+}
+```
+
+### Custom Properties for Consistency
+
+Define your own custom properties for project-specific values:
+
+```css
+:root {
+  /* Hacker1-specific variables */
+  --hacker1-primary: #1a1a1a;
+  --hacker1-secondary: #333;
+  --hacker1-accent: #666;
+  --hacker1-text: #fff;
+  --hacker1-text-muted: #ccc;
+  
+  /* Animation variables */
+  --hacker1-transition: 0.3s ease;
+  --hacker1-transition-fast: 0.15s ease;
+  
+  /* Z-index scale */
+  --hacker1-z-navbar: 1000;
+  --hacker1-z-dropdown: 1001;
+  --hacker1-z-modal: 1002;
+  --hacker1-z-tooltip: 1003;
+}
+```
+
+## Performance Optimization
+
+### CSS Organization
+
+Organize your CSS for better maintainability:
+
+```css
+/* 1. Variables and tokens */
+:root { /* custom properties */ }
+
+/* 2. Base and reset styles */
+*, *::before, *::after { /* reset */ }
+
+/* 3. Component styles */
+.component { /* component-specific */ }
+
+/* 4. Utility classes */
+.sr-only { /* utilities */ }
+
+/* 5. Theme overrides */
+[data-theme="dark"] { /* theme-specific */ }
+
+/* 6. Media queries */
+@media (min-width: 50rem) { /* responsive */ }
+```
+
+### Critical CSS
+
+Inline critical CSS for above-the-fold content:
+
+```astro
+---
+// In your layout file
+---
+
+<style is:inline>
+/* Critical styles for immediate rendering */
+.custom-navbar {
+  background: #1a1a1a;
+  /* ... other critical navbar styles */
+}
+</style>
+
+<style>
+/* Non-critical styles */
+.search-container :global(.search-results) {
+  /* ... dropdown styles that aren't immediately visible */
+}
+</style>
+```
+
+## Debugging CSS
+
+### CSS Custom Property Inspection
+
+Use browser dev tools to inspect custom properties:
+
+```css
+/* Add temporary debugging styles */
+.debug-theme {
+  --debug-bg: var(--sl-color-bg);
+  --debug-text: var(--sl-color-text);
+  --debug-accent: var(--sl-color-accent);
+}
+
+.debug-theme::before {
+  content: "BG: " var(--debug-bg) " | Text: " var(--debug-text) " | Accent: " var(--debug-accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  color: white;
+  padding: 1rem;
+  z-index: 9999;
+}
+```
+
+### Starlight Component Classes
+
+Common Starlight classes you can target:
+
+```css
+/* Starlight component selectors */
+.header { /* Main header */ }
+.sidebar { /* Sidebar navigation */ }
+.content { /* Main content area */ }
+.pagination { /* Page navigation */ }
+.breadcrumbs { /* Breadcrumb navigation */ }
+.edit-page { /* Edit page link */ }
+.theme-toggle { /* Theme switcher */ }
+.search { /* Search component */ }
+.toc { /* Table of contents */ }
+```
+
+## Best Practices
+
+1. **Use CSS Custom Properties**: Always prefer custom properties over hardcoded values
+2. **Scope Styles**: Use component-scoped styles to avoid conflicts
+3. **Follow Starlight Patterns**: Maintain consistency with Starlight's design system
+4. **Test Themes**: Always test custom styles in both light and dark themes
+5. **Performance**: Use efficient selectors and minimize CSS bundle size
+6. **Accessibility**: Ensure custom styles don't break accessibility features
+
+---
+
+This CSS guide provides the foundation for creating beautiful, consistent, and maintainable styles in your Starlight documentation site. The **Hacker1** project demonstrates these techniques in practice!

@@ -1,0 +1,64 @@
+---
+// No frontmatter needed for static HTML
+---
+<title>Hacker1 - Bulma Showcase</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    html {
+        font-size: 18px;
+        /* NOTE: This base font size is optimized for Windows desktop. You may want to adjust it for other screens or platforms. */
+    }
+    .section { padding-top: 3rem; padding-bottom: 3rem; }
+    body { background-color: rgba(245, 245, 245, 0.95); color: rgba(54, 54, 54, 0.85); }
+    .title, .subtitle, .label, .content, .card-header-title { color: rgba(54, 54, 54, 0.9); }
+    .box, .card, .footer, .menu-list a, .tabs a { background-color: rgba(255, 255, 255, 0.8); color: rgba(54, 54, 54, 0.85); }
+    .input, .textarea { font-family: 'EB Garamond', Garamond, serif; background-color: rgba(255, 255, 255, 0.9); border-color: rgba(219, 219, 219, 0.7); color: rgba(54, 54, 54, 0.9); }
+    .table, .table th, .table td { background-color: transparent; color: inherit; }
+    .table thead th { color: rgba(54, 54, 54, 0.9); }
+    .table tbody tr:nth-child(even) { background-color: rgba(240, 240, 240, 0.5); }
+    .menu-list a:hover, .tabs a:hover { background-color: rgba(230, 230, 230, 0.7); }
+    .tabs li.is-active a { color: #3273dc; border-bottom-color: #3273dc; }
+    .notification.is-info { background-color: rgba(210, 180, 140, 0.7); color: rgba(80, 60, 40, 0.9); }
+    html.dark-mode body { background-color: rgba(26, 26, 26, 0.95); color: rgba(245, 245, 245, 0.85); }
+    html.dark-mode .title, html.dark-mode .subtitle, html.dark-mode .label, html.dark-mode .content, html.dark-mode .card-header-title, html.dark-mode .menu-label { color: rgba(245, 245, 245, 0.9); }
+    html.dark-mode .box, html.dark-mode .card, html.dark-mode .footer, html.dark-mode .menu-list a, html.dark-mode .tabs a { background-color: rgba(44, 44, 44, 0.8); }
+    html.dark-mode .input, html.dark-mode .textarea { background-color: rgba(54, 54, 54, 0.8); border-color: rgba(74, 74, 74, 0.7); color: rgba(245, 245, 245, 0.9); }
+    html.dark-mode .input::placeholder, html.dark-mode .textarea::placeholder { color: rgba(153, 153, 153, 0.7); }
+    html.dark-mode .button.is-light { background-color: rgba(74, 74, 74, 0.8); border-color: transparent; color: rgba(245, 245, 245, 0.9); }
+    html.dark-mode .button.is-light:hover { background-color: rgba(90, 90, 90, 0.8); }
+    html.dark-mode .notification.is-info { background-color: rgba(180, 120, 80, 0.55); color: rgba(230, 210, 180, 0.92); }
+    html.dark-mode .notification.is-danger { background-color: rgba(240, 128, 128, 0.7); color: rgba(255, 255, 255, 0.95); }
+    html.dark-mode .hero.is-primary { background-color: rgba(0, 64, 128, 0.85); }
+    html.dark-mode .hero.is-primary .title, html.dark-mode .hero.is-primary .subtitle { color: rgba(255, 255, 255, 0.95); }
+    html.dark-mode a { color: rgba(173, 216, 230, 0.9); }
+    html.dark-mode .card-footer-item, html.dark-mode .media-content .subtitle { color: rgba(187, 187, 187, 0.8); }
+    html.dark-mode .menu-label { font-size: 1.2rem; }
+    html.dark-mode .menu-list a:hover, html.dark-mode .tabs a:hover { background-color: rgba(60, 60, 60, 0.7); }
+    html.dark-mode .tabs li.is-active a { background-color: rgba(44, 44, 44, 0.8); color: rgba(173, 216, 230, 0.9); border-bottom-color: rgba(173, 216, 230, 0.9); }
+    html.dark-mode .table, html.dark-mode .table th, html.dark-mode .table td { color: inherit; }
+    html.dark-mode .table thead th { color: rgba(245, 245, 245, 0.9); }
+    html.dark-mode .table.is-striped tbody tr:not(.is-selected):nth-child(even) { background-color: rgba(50, 50, 50, 0.5); }
+    html.dark-mode strong, html.dark-mode b, html.dark-mode .has-text-weight-bold { color: #ffe066; }
+    html.dark-mode .footer, html.dark-mode .footer strong, html.dark-mode .footer a { color: #ffe066; }
+    #theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; background-color: #b5b5b5; border: 3px solid #4a4a4a; color: #4a4a4a; text-shadow: none; transition: transform 0.2s ease-in-out; opacity: 0.85; backdrop-filter: blur(2px); }
+    html.dark-mode #theme-toggle { background-color: #7a7a7a; border-color: #363636; color: #f5f5f5; opacity: 0.85; backdrop-filter: blur(2px); }
+    .content ul li strong { color: #fff; font-weight: bold; }
+    html.dark-mode .content ul li strong { color: #fff; }
+    .button.is-archive { background-color: #b86b3c; color: #fff; border: none; }
+    .button.is-archive:hover { background-color: #a05a2c; color: #fff; }
+    html.dark-mode .button.is-archive { background-color: #a05a2c; color: #fff; }
+    html.dark-mode .button.is-archive:hover { background-color: #b86b3c; color: #fff; }
+    .content, .notification, .card-content, .tab-content, .menu, .footer, .table, .label, .title, .subtitle, .card-header-title { font-family: 'EB Garamond', Garamond, serif !important; }
+    .button { font-size: 0.8em; }
+    .sample-gradient-btn { background-image: linear-gradient(135deg, rgba(50,115,220,0.18) 0%, rgba(255,224,102,0.22) 100%) !important; box-shadow: 0 2px 8px rgba(50,50,50,0.08); transition: background 0.2s, box-shadow 0.2s; }
+    .sample-gradient-btn:hover, .sample-gradient-btn:focus { background-image: linear-gradient(135deg, rgba(50,115,220,0.28) 0%, rgba(255,224,102,0.32) 100%) !important; box-shadow: 0 4px 12px rgba(50,50,50,0.16); }
+    html.dark-mode .sample-gradient-btn { background-image: linear-gradient(135deg, rgba(74,74,74,0.38) 0%, rgba(126,217,87,0.22) 100%) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+    html.dark-mode .sample-gradient-btn:hover, html.dark-mode .sample-gradient-btn:focus { background-image: linear-gradient(135deg, rgba(74,74,74,0.48) 0%, rgba(255,179,71,0.32) 100%) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.28); }
+    .svg-gradient-bg { background-image: linear-gradient(135deg, rgba(50,115,220,0.18) 0%, rgba(255,224,102,0.22) 100%); border-radius: 12px; padding: 0.5rem; box-shadow: 0 2px 8px rgba(50,50,50,0.08); transition: background 0.2s, box-shadow 0.2s; }
+    html.dark-mode .svg-gradient-bg { background-image: linear-gradient(135deg, rgba(74,74,74,0.38) 0%, rgba(126,217,87,0.22) 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+</style>
+
+<!-- Main content from <body> -->
+<button id="theme-toggle" class="button sample-gradient-btn">mode</button>
+<!-- ...rest of the HTML content from <body>...</body> goes here... -->
