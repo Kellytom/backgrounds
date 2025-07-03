@@ -1,5 +1,5 @@
 {
-  "name": "astro-site",
+  "name": "hacker1",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.34.4",
     "astro": "^5.6.1",
+    "marked": "^16.0.0",
     "sharp": "^0.34.2"
   }
 }

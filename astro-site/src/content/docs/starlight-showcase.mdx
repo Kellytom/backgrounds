@@ -1,0 +1,208 @@
+---
+title: Starlight Showcase
+description: Discover all the amazing components and features that Starlight offers for documentation sites.
+---
+
+import { Card, CardGrid, Tabs, TabItem, Badge, Icon, LinkCard, Aside, Code, FileTree } from '@astrojs/starlight/components';
+
+# Starlight Component Showcase
+
+Welcome to the **Hacker1 Starlight Showcase**! This page demonstrates the powerful components and features available in Starlight for creating beautiful documentation sites.
+
+## Cards and Grids
+
+Starlight provides flexible card components for organizing content:
+
+<CardGrid>
+  <Card title="🚀 Getting Started" icon="rocket">
+    Quick setup guides to get you up and running fast with your project.
+  </Card>
+  <Card title="📚 Documentation" icon="document">
+    Comprehensive guides and API references for all features.
+  </Card>
+  <Card title="🎨 Theming" icon="setting">
+    Customize the look and feel to match your brand perfectly.
+  </Card>
+  <Card title="🔍 Search" icon="magnifier">
+    Built-in search functionality to help users find what they need.
+  </Card>
+</CardGrid>
+
+## Link Cards
+
+Create attractive links to external resources:
+
+<CardGrid>
+  <LinkCard 
+    title="Hacker1 Backgrounds" 
+    description="Explore our collection of dark mode background patterns and designs."
+    href="/backgrounds" 
+  />
+  <LinkCard 
+    title="Bulma Framework Demo" 
+    description="See how the Bulma CSS framework integrates with our design system."
+    href="/bulma" 
+  />
+  <LinkCard 
+    title="Official Starlight Docs" 
+    description="Learn more about Starlight's features and capabilities."
+    href="https://starlight.astro.build" 
+  />
+</CardGrid>
+
+## Tabs
+
+Organize related content with clean tabbed interfaces:
+
+<Tabs>
+  <TabItem label="JavaScript">
+    ```js
+    // Hacker1 theme initialization
+    function initTheme() {
+      const theme = localStorage.getItem('starlight-theme') || 'auto';
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    ```
+  </TabItem>
+  <TabItem label="TypeScript">
+    ```ts
+    // Type-safe theme management
+    type Theme = 'auto' | 'light' | 'dark';
+    
+    function setTheme(theme: Theme): void {
+      localStorage.setItem('starlight-theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    ```
+  </TabItem>
+  <TabItem label="CSS">
+    ```css
+    /* Hacker1 custom navbar styles */
+    .custom-navbar {
+      background: #1a1a1a;
+      padding: 1rem 0;
+      border-bottom: 1px solid #333;
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Badges and Icons
+
+Add visual flair with badges and icons:
+
+- <Badge text="New" variant="tip" /> Latest features
+- <Badge text="Experimental" variant="caution" /> Beta functionality  
+- <Badge text="Deprecated" variant="danger" /> Legacy code
+- <Badge text="Stable" variant="success" /> Production ready
+
+Icons can be used inline: <Icon name="github" size="1.2em" /> GitHub integration available
+
+## Asides and Callouts
+
+Draw attention to important information:
+
+<Aside>
+**Pro Tip:** Use the search functionality in the navbar to quickly find any component or feature documentation.
+</Aside>
+
+<Aside type="tip" title="Hacker1 Navigation">
+Our custom navbar combines Starlight's search with our own theme selector for the best user experience.
+</Aside>
+
+<Aside type="caution" title="Theme Switching">
+The custom theme dropdown saves your preference locally and works across all pages in the site.
+</Aside>
+
+<Aside type="danger" title="Important">
+Always test theme changes across different pages to ensure consistency.
+</Aside>
+
+## File Tree Structure
+
+Show project organization clearly:
+
+<FileTree>
+- astro-site/
+  - src/
+    - components/
+      - **Navbar.astro** Custom navigation component
+      - **Header.astro** Starlight header override
+    - content/
+      - docs/
+        - **index.mdx** Welcome page
+        - **starlight-showcase.mdx** This showcase page
+        - guides/
+          - example.md
+        - reference/
+          - example.md
+    - pages/
+      - **backgrounds.astro** Pattern showcase
+      - **bulma.astro** Framework demo
+      - **markdown-demo.astro** Markdown features
+  - **astro.config.mjs** Main configuration
+  - **package.json** Dependencies
+</FileTree>
+
+## Code Blocks
+
+Starlight provides excellent syntax highlighting:
+
+```astro title="components/Navbar.astro" {3,8-12}
+---
+// Enhanced navbar with search and custom theme toggle
+import Search from '@astrojs/starlight/components/Search.astro';
+---
+
+<nav class="custom-navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a href="/">Hacker1</a>
+    </div>
+    <div class="navbar-center">
+      <div class="navbar-menu">
+        <a href="/">Home</a>
+        <a href="/bulma">Bulma Demo</a>
+        <a href="/backgrounds">Backgrounds</a>
+        <a href="/starlight-showcase">Starlight Showcase</a>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+## Features Summary
+
+<CardGrid>
+  <Card title="🎯 Custom Navigation" icon="bars">
+    Our enhanced navbar integrates seamlessly with Starlight while adding custom functionality.
+  </Card>
+  <Card title="🔍 Powerful Search" icon="magnifier">
+    Built-in search across all documentation with instant results.
+  </Card>
+  <Card title="🌙 Theme Control" icon="moon">
+    Custom theme selector with auto, light, and dark modes.
+  </Card>
+  <Card title="📱 Responsive Design" icon="laptop">
+    Mobile-friendly layouts that work perfectly on all devices.
+  </Card>
+  <Card title="⚡ Fast Performance" icon="rocket">
+    Astro's island architecture ensures lightning-fast page loads.
+  </Card>
+  <Card title="♿ Accessibility" icon="approve-check">
+    Built-in accessibility features for inclusive documentation.
+  </Card>
+</CardGrid>
+
+---
+
+## Next Steps
+
+Ready to explore more? Check out these sections:
+
+- **[Backgrounds](/backgrounds)** - See our pattern and design showcase
+- **[Bulma Demo](/bulma)** - Explore CSS framework integration  
+- **[Markdown Demo](/markdown-demo)** - Learn about Markdown capabilities
+- **[Home](/)** - Return to the main welcome page
+
+*This showcase demonstrates just a fraction of what's possible with Starlight. The combination of powerful components, excellent performance, and beautiful design makes it perfect for any documentation project.*
