@@ -1,10 +1,4 @@
-    <style>
-      .roboto-thin {
-        font-family: 'Roboto', 'Arial', sans-serif;
-        font-weight: 100;
-        letter-spacing: 0.01em;
-      }
-    </style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +68,12 @@
             --antique-accent: #CD853F; /* Medium brown accent */
         }
         
+      .roboto-thin {
+        font-family: 'Roboto', 'Arial', sans-serif;
+        font-weight: 100;
+        letter-spacing: 0.01em;
+      }
+   
         body {
             background: rgba(25, 15, 20, 0.9); /* Dark brown purple with 90% opacity */
             color: var(--text-primary);
@@ -1230,56 +1230,56 @@
                     rgba(25, 25, 45, 0.85) 6px      /* Return */
                 );
         }
-               
-        .pattern-desc-plain-bg {
-            margin: 10px 0 14px 0;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 1.01em;
+       
+
+        /* Proposed anti-aliased patterns */
+                /* Deep-Stained-Glass-Effects: 3:4 slope ratio (36.87°) - GREENISH Stained Glass with crosshatch effect */
+        .Deep-Stained-Glass-Effects {
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 52, 40, 0.6) 0px,
+                    rgba(42, 52, 40, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(58, 68, 56, 0.4) 0px,
+                    rgba(58, 68, 56, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 4px
+                );
         }
-        .desc-color-exp-1 {
-            background: rgba(33, 33, 36, .5); /* matches the 4th value in the first repeating-linear-gradient of .experimental-background */
-            color: #fff;
+        /* Granite family - various slope ratios */
+        .granite-3-4 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - most common anti-aliasing fix - BASE TEXTURE */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 3px
+            );
         }
-       /* Example for Expo-1: base color rgb(42,42,42) */
-
-/* Expo-2: base color rgb(58,58,58) */
-.desc-color-d-marble {
-  background: rgba(49, 37, 47, 0.4); /* 58-9, 58-9, 58-31 */
-}
-
-/* Expo-3: base color rgb(51,51,105) */
-.desc-color-glass {
-  background: rgba(42, 42, 44, 0.4); /* 51-9, 51-9, 105-31 */
-}
-
-/* Granite-4-3: base color rgb(74,58,90) */
-.desc-color-contrast {
-  background: rgba(15, 19, 29, 0.4); /* 74-9, 58-9, 90-31 */
-}
-
-/* Fabric-1-3: base color rgb(30,30,60) */
-.desc-color-exp-5 {
-  background: rgba(21, 21, 29, 0.4); /* 30-9, 30-9, 60-31 */
-}
-
-/* Fabric-2-3: base color rgb(28,28,70) */
-.desc-color-exp-6 {
-  background: rgba(19, 19, 39, 0.4); /* 28-9, 28-9, 70-31 */
-}
-
-/* Fabric-3-4: base color rgb(40,30,80) */
-.desc-color-exp-7 {
-  background: rgba(31, 21, 49, 0.4); /* 40-9, 30-9, 80-31 */
-}
-
-/* Muted Damask: base color rgb(60,65,80) */
-.desc-color-mute {
-  background: rgba(31, 36, 29, 0.4); /* 60-9, 65-9, 80-31 */
-}
-
-/* Muted Velvet: base color rgb(70,60,90) */
-.desc-color-exp-9 {
+        
+        .granite-4-3 {
+            /* 4:3 slope ratio (53.13°) - steeper angle, less vibrant, more muted purple-gray */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 50, 66, 0.65) 0px,
+                rgba(58, 50, 66, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 3px
+            );
+        }
+        
+        .granite-1-2 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - standard angle */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 1px,
   background: rgba(61, 51, 59, 0.4); /* 70-9, 60-9, 90-31 */
 }
     </style>
