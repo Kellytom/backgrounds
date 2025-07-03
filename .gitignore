@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # macOS
 .DS_Store
 .DS_Store?
@@ -18,3 +19,26 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+=======
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+>>>>>>> 9fdf0f387fce6a4cd3e524d880511196ef63e6ef
