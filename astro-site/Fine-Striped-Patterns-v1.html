@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Striped Patterns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            text-align: center;
+        }
+        .card-pattern {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .pattern-text {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            font-family: Garamond, serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: black;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+        .pattern-text-dark {
+            color: white;
+            /* Remove text-shadow for clean bold appearance on dark backgrounds */
+            text-shadow: none;
+        }
+        .card-title {
+            font-family: Garamond, serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 5px 0;
+            color: black;
+        }
+        .card-title-dark {
+            color: white;
+            /* Clean bold text without shadow or outline for better readability */
+            text-shadow: none;
+        }
+        .card-description {
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 2.5px;
+        }
+        hr {
+            margin: 40px 0;
+            border: 1px solid #ccc;
+        }
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 7.5px;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .card-description {
+                font-size: 0.8rem;
+            }
+            .pattern-text {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fine Striped Patterns</h1>
+        <div class="grid">
+            <div class="card">
+                <!-- Diagonal slope ratio 1:2 (26.57 degrees) to avoid aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(26.57deg, rgba(191, 224, 233, 0.5) 0px, rgba(191, 224, 233, 0.5) 1px, rgba(255, 228, 204, 0.5) 1px, rgba(255, 228, 204, 0.5) 2px);">
+                    <div class="pattern-text">Light Blue & Light Orange - Diagonal 1:2</div>
+                </div>
+                <div class="card-title">Light Blue & Light Orange - Diagonal 1:2</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:2 (26.57°) for anti-aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 1:3 (18.43 degrees) to avoid aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(18.43deg, rgba(255, 215, 220, 0.5) 0px, rgba(255, 215, 220, 0.5) 1px, rgba(196, 250, 196, 0.5) 1px, rgba(196, 250, 196, 0.5) 2px);">
+                    <div class="pattern-text">Light Red & Light Green - Diagonal 1:3</div>
+                </div>
+                <div class="card-title">Light Red & Light Green - Diagonal 1:3</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:3 (18.43°) for anti-aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Changed from 1:1 to 3:4 diagonal slope ratio (36.87 degrees) to fix aliasing problems -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(231, 255, 189, 0.5) 0px, rgba(231, 255, 189, 0.5) 1px, rgba(218, 191, 255, 0.5) 1px, rgba(218, 191, 255, 0.5) 2px);">
+                    <div class="pattern-text">Light Green-Yellow & Light Purple - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Green-Yellow & Light Purple - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Changed from 1:1 to 3:4 diagonal slope ratio (negative 36.87 degrees) to fix aliasing problems -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-36.87deg, rgba(255, 235, 209, 0.5) 0px, rgba(255, 235, 209, 0.5) 1px, rgba(200, 210, 232, 0.5) 1px, rgba(200, 210, 232, 0.5) 2px);">
+                    <div class="pattern-text">Light Yellow-Orange & Light Blue-Violet - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Yellow-Orange & Light Blue-Violet - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (-36.87°) - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 1:4 (14.04 degrees) to avoid aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(14.04deg, rgba(255, 248, 230, 0.5) 0px, rgba(255, 248, 230, 0.5) 1px, rgba(195, 210, 229, 0.5) 1px, rgba(195, 210, 229, 0.5) 2px);">
+                    <div class="pattern-text">Light Yellow & Light Blue-Violet - Diagonal 1:4</div>
+                </div>
+                <div class="card-title">Light Yellow & Light Blue-Violet - Diagonal 1:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:4 (14.04°) for anti-aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 1:5 (11.31 degrees) to avoid aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-11.31deg, rgba(255, 216, 223, 0.5) 0px, rgba(255, 216, 223, 0.5) 1px, rgba(192, 245, 192, 0.5) 1px, rgba(192, 245, 192, 0.5) 2px);">
+                    <div class="pattern-text">Light Magenta & Light Green - Diagonal 1:5</div>
+                </div>
+                <div class="card-title">Light Magenta & Light Green - Diagonal 1:5</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:5 (-11.31°) for anti-aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Changed from 1:1 to 3:4 diagonal slope ratio (36.87 degrees) to fix aliasing problems -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(255, 238, 209, 0.5) 0px, rgba(255, 238, 209, 0.5) 1px, rgba(195, 230, 234, 0.5) 1px, rgba(195, 230, 234, 0.5) 2px);">
+                    <div class="pattern-text">Light Orange-Yellow & Light Blue - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Orange-Yellow & Light Blue - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Changed from 1:1 to 3:4 diagonal slope ratio (negative 36.87 degrees) to fix aliasing problems -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-36.87deg, rgba(200, 245, 245, 0.5) 0px, rgba(200, 245, 245, 0.5) 1px, rgba(255, 214, 214, 0.5) 1px, rgba(255, 214, 214, 0.5) 2px);">
+                    <div class="pattern-text">Light Green-Cyan & Light Red - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Green-Cyan & Light Red - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (-36.87°) - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 4:3 (53.13 degrees) for better visual balance -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(53.13deg, rgba(249, 219, 219, 0.5) 0px, rgba(249, 219, 219, 0.5) 1px, rgba(239, 255, 128, 0.5) 1px, rgba(239, 255, 128, 0.5) 2px);">
+                    <div class="pattern-text">Light Red-Violet & Light Yellow-Green - Diagonal 4:3</div>
+                </div>
+                <div class="card-title">Light Red-Violet & Light Yellow-Green - Diagonal 4:3</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 4:3 (53.13°) for visual balance.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 3:4 (36.87 degrees) for visual balance -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(200, 245, 245, 0.5) 0px, rgba(200, 245, 245, 0.5) 1px, rgba(255, 227, 204, 0.5) 1px, rgba(255, 227, 204, 0.5) 2px);">
+                    <div class="pattern-text">Light Blue-Green & Light Orange-Red - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Blue-Green & Light Orange-Red - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) for visual balance.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 2:3 with cooler violet (more blue-purple) and violet twice as wide as yellow -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(33.69deg, rgba(210, 205, 245, 0.5) 0px, rgba(210, 205, 245, 0.5) 2px, rgba(255, 255, 240, 0.5) 2px, rgba(255, 255, 240, 0.5) 3px);">
+                    <div class="pattern-text">Light Violet & Light Yellow - Diagonal 2:3</div>
+                </div>
+                <div class="card-title">Light Violet & Light Yellow - Diagonal 2:3</div>
+                <div class="card-description">Violet stripe (2px) twice as wide as yellow stripe (1px), diagonal 2:3 slope with cooler blue-violet tone.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 3:4 (36.87 degrees) with swapped colors - tan first, then cyan-blue -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(236, 212, 196, 0.5) 0px, rgba(236, 212, 196, 0.5) 1px, rgba(200, 236, 236, 0.5) 1px, rgba(200, 236, 236, 0.5) 2px);">
+                    <div class="pattern-text">Light Tan & Light Cyan-Blue - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Tan & Light Cyan-Blue - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) with tan and cyan-blue swapped.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 3:4 (36.87 degrees) for better visual balance with muted red-purple -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(248, 255, 248, 0.5) 0px, rgba(248, 255, 248, 0.5) 1px, rgba(225, 195, 205, 0.5) 1px, rgba(225, 195, 205, 0.5) 2px);">
+                    <div class="pattern-text">Light Green-Yellow & Light Red-Purple - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Green-Yellow & Light Red-Purple - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) with muted red-purple.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 3:4 (36.87 degrees) for better visual balance with rust brown color -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(237, 255, 255, 0.5) 0px, rgba(237, 255, 255, 0.5) 1px, rgba(165, 105, 85, 0.5) 1px, rgba(165, 105, 85, 0.5) 2px);">
+                    <div class="pattern-text">Light Cyan-Blue & Light Rust Brown - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Cyan-Blue & Light Rust Brown - Diagonal 3:4</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 3:4 (36.87°) with rust brown accent.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 5:3 (59.04 degrees) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-59.04deg, rgba(255, 233, 206, 0.5) 0px, rgba(255, 233, 206, 0.5) 1px, rgba(191, 224, 233, 0.5) 1px, rgba(191, 224, 233, 0.5) 2px);">
+                    <div class="pattern-text">Light Orange & Light Blue - Diagonal 5:3</div>
+                </div>
+                <div class="card-title">Light Orange & Light Blue - Diagonal 5:3</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 5:3 (-59.04°) for variety.</div>
+            </div>
+            <div class="card">
+                <!-- Diagonal slope ratio 3:4 with teal twice as wide as pink (corrected stripe widths) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(255, 226, 232, 0.5) 0px, rgba(255, 226, 232, 0.5) 1px, rgba(198, 236, 233, 0.5) 1px, rgba(198, 236, 233, 0.5) 2px);">
+                    <div class="pattern-text">Light Pink & Light Teal - Diagonal 3:4</div>
+                </div>
+                <div class="card-title">Light Pink & Light Teal - Diagonal 3:4</div>
+                <div class="card-description">Pink stripe (1px) and teal stripe (2px) with teal twice as wide, diagonal 3:4 slope (36.87°).</div>
+            </div>
+        </div>
+        <hr style="margin: 40px 0; border: 1px solid #ccc;">
+        <div class="grid">
+            <div class="card">
+                <!-- Keep this pattern unique - convert to diagonal slope ratio 1:2 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(26.57deg, rgba(40, 25, 10, 0.8) 0px, rgba(40, 25, 10, 0.8) 1px, rgba(60, 30, 0, 0.8) 1px, rgba(60, 30, 0, 0.8) 2px);">
+                    <div class="pattern-text pattern-text-dark">Dark Blue & Dark Orange - Diagonal 1:2</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Blue & Dark Orange - Diagonal 1:2</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:2 (26.57°) - unique pattern.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(18.43deg, rgba(45, 25, 25, 0.8) 0px, rgba(45, 25, 25, 0.8) 2px, rgba(25, 35, 25, 0.8) 2px, rgba(25, 35, 25, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Red & Dark Green - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Red & Dark Green - Base Pattern</div>
+                <div class="card-description">Base red (2px) with thin green stripe (1px) every 3rd position, diagonal 1:3 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - changed from 1:1 to 3:4 diagonal slope to fix aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(40, 45, 20, 0.8) 0px, rgba(40, 45, 20, 0.8) 2px, rgba(40, 20, 55, 0.8) 2px, rgba(40, 20, 55, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Green-Yellow & Dark Purple - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Green-Yellow & Dark Purple - Base Pattern</div>
+                <div class="card-description">Base green-yellow (2px) with thin purple stripe (1px) every 3rd position, diagonal 3:4 slope - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - changed from 1:1 to 3:4 diagonal slope to fix aliasing -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-36.87deg, rgba(60, 40, 15, 0.8) 0px, rgba(60, 40, 15, 0.8) 2px, rgba(25, 35, 55, 0.8) 2px, rgba(25, 35, 55, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Yellow-Orange & Dark Blue-Violet - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Yellow-Orange & Dark Blue-Violet - Base Pattern</div>
+                <div class="card-description">Base yellow-orange (2px) with thin blue-violet stripe (1px) every 3rd position, diagonal 3:4 slope - changed from 1:1 to avoid aliasing.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(14.04deg, rgba(50, 45, 20, 0.8) 0px, rgba(50, 45, 20, 0.8) 2px, rgba(30, 30, 45, 0.8) 2px, rgba(30, 30, 45, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Yellow & Dark Blue-Violet - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Yellow & Dark Blue-Violet - Base Pattern</div>
+                <div class="card-description">Base yellow (2px) with thin blue-violet stripe (1px) every 3rd position, diagonal 1:4 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-11.31deg, rgba(50, 20, 50, 0.8) 0px, rgba(50, 20, 50, 0.8) 2px, rgba(25, 40, 25, 0.8) 2px, rgba(25, 40, 25, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Magenta & Dark Green - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Magenta & Dark Green - Base Pattern</div>
+                <div class="card-description">Base magenta (2px) with thin green stripe (1px) every 3rd position, diagonal 1:5 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(30.96deg, rgba(60, 25, 15, 0.8) 0px, rgba(60, 25, 15, 0.8) 2px, rgba(20, 35, 45, 0.8) 2px, rgba(20, 35, 45, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Orange-Yellow & Dark Blue - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Orange-Yellow & Dark Blue - Base Pattern</div>
+                <div class="card-description">Base orange-yellow (2px) with thin blue stripe (1px) every 3rd position, diagonal 3:5 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(-59.04deg, rgba(20, 45, 45, 0.8) 0px, rgba(20, 45, 45, 0.8) 2px, rgba(50, 25, 20, 0.8) 2px, rgba(50, 25, 20, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Green-Cyan & Dark Red - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Green-Cyan & Dark Red - Base Pattern</div>
+                <div class="card-description">Base green-cyan (2px) with thin red stripe (1px) every 3rd position, diagonal 5:3 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - diagonal slope ratio 3:4 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(45, 35, 20, 0.8) 0px, rgba(45, 35, 20, 0.8) 2px, rgba(40, 45, 25, 0.8) 2px, rgba(40, 45, 25, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Red-Violet & Dark Yellow-Green - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Red-Violet & Dark Yellow-Green - Base Pattern</div>
+                <div class="card-description">Base red-violet (2px) with thin yellow-green stripe (1px) every 3rd position, diagonal 3:4 slope (36.87°).</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - diagonal slope ratio 4:3 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(53.13deg, rgba(25, 40, 40, 0.8) 0px, rgba(25, 40, 40, 0.8) 2px, rgba(60, 30, 15, 0.8) 2px, rgba(60, 30, 15, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Blue-Green & Dark Orange-Red - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Blue-Green & Dark Orange-Red - Base Pattern</div>
+                <div class="card-description">Base blue-green (2px) with thin orange-red stripe (1px) every 3rd position, diagonal 4:3 slope (53.13°).</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(33.69deg, rgba(40, 20, 55, 0.8) 0px, rgba(40, 20, 55, 0.8) 2px, rgba(50, 45, 20, 0.8) 2px, rgba(50, 45, 20, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Violet & Dark Yellow - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Violet & Dark Yellow - Base Pattern</div>
+                <div class="card-description">Base violet (2px) with thin yellow stripe (1px) every 3rd position, diagonal 2:3 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Keep this pattern unique - convert to diagonal slope ratio 1:3 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(18.43deg, rgba(50, 20, 35, 0.8) 0px, rgba(50, 20, 35, 0.8) 1px, rgba(40, 25, 20, 0.8) 1px, rgba(40, 25, 20, 0.8) 2px);">
+                    <div class="pattern-text pattern-text-dark">Dark Red-Purple & Dark Yellow-Orange - Diagonal 1:3</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Red-Purple & Dark Yellow-Orange - Diagonal 1:3</div>
+                <div class="card-description">Stripes of 1px width per color, diagonal slope ratio 1:3 (18.43°) - unique pattern.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - diagonal slope ratio 4:3 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(53.13deg, rgba(40, 50, 25, 0.8) 0px, rgba(40, 50, 25, 0.8) 2px, rgba(50, 25, 20, 0.8) 2px, rgba(50, 25, 20, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Green-Yellow & Dark Red - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Green-Yellow & Dark Red - Base Pattern</div>
+                <div class="card-description">Base green-yellow (2px) with thin red stripe (1px) every 3rd position, diagonal 4:3 slope (53.13°).</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - diagonal slope ratio 4:3 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(53.13deg, rgba(25, 40, 30, 0.8) 0px, rgba(25, 40, 30, 0.8) 2px, rgba(55, 30, 20, 0.8) 2px, rgba(55, 30, 20, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Green-Cyan & Dark Red-Orange - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Green-Cyan & Dark Red-Orange - Base Pattern</div>
+                <div class="card-description">Base green-cyan (2px) with thin red-orange stripe (1px) every 3rd position, diagonal 4:3 slope (53.13°).</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(6.34deg, rgba(60, 30, 15, 0.8) 0px, rgba(60, 30, 15, 0.8) 2px, rgba(25, 40, 40, 0.8) 2px, rgba(25, 40, 40, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Orange-Red & Dark Blue-Green - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Orange-Red & Dark Blue-Green - Base Pattern</div>
+                <div class="card-description">Base orange-red (2px) with thin blue-green stripe (1px) every 3rd position, diagonal 1:9 slope.</div>
+            </div>
+            <div class="card">
+                <!-- Base color with thin stripes every 3rd position (1:2 base-to-stripe ratio) - diagonal slope ratio 3:4 -->
+                <div class="card-pattern" style="background: repeating-linear-gradient(36.87deg, rgba(45, 25, 35, 0.8) 0px, rgba(45, 25, 35, 0.8) 2px, rgba(25, 45, 45, 0.8) 2px, rgba(25, 45, 45, 0.8) 3px);">
+                    <div class="pattern-text pattern-text-dark">Dark Pink & Dark Teal - Base Pattern</div>
+                </div>
+                <div class="card-title card-title-dark">Dark Pink & Dark Teal - Base Pattern</div>
+                <div class="card-description">Base pink (2px) with thin teal stripe (1px) every 3rd position, diagonal 3:4 slope (36.87°).</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
