@@ -1,0 +1,91 @@
+/* Custom Starlight styling */
+
+/* Style for the custom navbar */
+.custom-navbar {
+  width: 100%;
+  background-color: var(--sl-color-bg);
+  border-bottom: 1px solid var(--sl-color-hairline);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--sl-content-width);
+  margin: 0 auto;
+  padding: 0.25rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.navbar-brand a {
+  color: var(--sl-color-text);
+  text-decoration: none;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu a {
+  color: var(--sl-color-text);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.navbar-menu a:hover {
+  color: var(--sl-color-text-accent);
+}
+
+.navbar-menu a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--sl-color-text-accent);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  width: 200px;
+}
+
+/* Adjustments to Starlight styles when using custom header */
+.sl-sidebar {
+  top: var(--sl-nav-height) !important; /* Adjust sidebar to account for navbar height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 50em) {
+  .navbar-menu {
+    display: none;
+  }
+  
+  /* Show mobile menu instead */
+  .navbar-mobile-menu {
+    display: block;
+  }
+  
+  .search-container {
+    width: 150px;
+  }
+}

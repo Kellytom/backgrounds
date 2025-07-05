@@ -1,244 +1,215 @@
 ---
 // Custom header that replaces the default Starlight header
 // This version integrates Starlight's search with our custom navbar
-import Navbar from './Navbar.astro';
+import { Icon } from '@astrojs/starlight/components';
 import Search from '@astrojs/starlight/components/Search.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+
+// Define dropdown menus
+const mainDropdown = [
+  { text: 'Starlight Showcase', href: '/starlight-showcase/' },
+  { text: 'DaisyUI Showcase', href: '/daisyui-showcase/' },
+  { text: 'CSS Guide', href: '/starlight-css-guide/' },
+];
+
+const guideDropdown = [
+  { text: 'Example Guide', href: '/guides/example/' },
+];
+
+const demoDropdown = [
+  { text: 'Backgrounds', href: '/backgrounds' },
+  { text: 'Bulma Demo', href: '/bulma' },
+  { text: 'Markdown Demo', href: '/markdown-demo' },
+];
 ---
 
 <!-- Navbar with Starlight search integration -->
 <nav class="custom-navbar">
   <div class="navbar-container">
     <div class="navbar-brand">
-      <a href="/">Hacker1</a>
+      <a href="/">
+        <Icon name="star" size="1.2em" />
+        <span>Hacker1</span>
+      </a>
     </div>
     <div class="navbar-center">
       <div class="navbar-menu">
-        <a href="/">Home</a>
-        <a href="/bulma">Bulma Demo</a>
-        <a href="/backgrounds">Backgrounds</a>
-        <a href="/markdown-demo">Markdown Demo</a>
+        <!-- Main Documentation Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Documentation</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {mainDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Guides Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Guides</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {guideDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Demo Pages Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Demo Pages</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {demoDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/reference/example/">Reference</a>
       </div>
     </div>
     <div class="navbar-actions">
       <div class="search-container">
         <Search />
       </div>
-      <div class="theme-container">
-        <span class="theme-icon">🌙</span>
-        <div class="theme-dropdown">
-          <select id="theme-select" class="theme-select">
-            <option value="auto">Auto</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-        </div>
-      </div>
+      <ThemeSelect />
     </div>
   </div>
 </nav>
 
-<script>
-  // Theme switching functionality
-  const themeSelect = document.getElementById('theme-select');
-  
-  const getCurrentTheme = () => {
-    return localStorage.getItem('starlight-theme') || 'auto';
-  };
-  
-  const setTheme = (theme: string) => {
-    localStorage.setItem('starlight-theme', theme);
-    
-    if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-  };
-  
-  const initTheme = () => {
-    const currentTheme = getCurrentTheme();
-    if (themeSelect) {
-      (themeSelect as HTMLSelectElement).value = currentTheme;
-    }
-    setTheme(currentTheme);
-  };
-  
-  if (themeSelect) {
-    themeSelect.addEventListener('change', (e) => {
-      const target = e.target as HTMLSelectElement;
-      if (target) {
-        setTheme(target.value);
-      }
-    });
-  }
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTheme);
-  } else {
-    initTheme();
-  }
-</script>
-
 <style>
-/* Hide the default Starlight header since we're replacing it completely */
-:global(.header) {
-  display: none;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-.custom-navbar {
-  background: #1a1a1a;
-  padding: 1rem 0;
-  border-bottom: 1px solid #333;
-  position: relative;
-  z-index: 1000;
-}
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--sl-color-text);
+    font-size: var(--sl-text-base);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
 
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  gap: 2rem;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-.navbar-brand a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--sl-color-bg);
+    min-width: 180px;
+    box-shadow: var(--sl-shadow-md);
+    z-index: 1000;
+    border-radius: 0.25rem;
+    border: 1px solid var(--sl-color-hairline);
+  }
 
-.navbar-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
+  .dropdown-content a {
+    color: var(--sl-color-text);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
 
-.navbar-menu {
-  display: flex;
-  gap: 2rem;
-}
+  .dropdown-content a:hover {
+    background-color: var(--sl-color-gray-2);
+    color: var(--sl-color-text-accent);
+  }
 
-.navbar-menu a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+  /* Navbar container styling */
+  .custom-navbar {
+    position: relative;
+    z-index: 1000;
+    border-bottom: 1px solid var(--sl-color-hairline);
+  }
 
-.navbar-menu a:hover {
-  color: #fff;
-}
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 2rem;
+  }
 
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  z-index: 1001;
-}
+  .navbar-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
 
-.search-container {
-  min-width: 200px;
-  position: relative;
-  z-index: 1001;
-}
+  .navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
 
-.theme-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-  z-index: 1001;
-  pointer-events: auto;
-}
+  .navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
 
-.theme-icon {
-  font-size: 1.2rem;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
+  .navbar-menu a {
+    color: var(--sl-color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 0.25rem 0.5rem;
+  }
 
-.theme-container:hover .theme-icon {
-  opacity: 1;
-}
+  .navbar-menu a:hover {
+    color: var(--sl-color-text-accent);
+  }
 
-/* Style the theme dropdown */
-.theme-dropdown {
-  position: relative;
-  overflow: visible;
-}
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.theme-select {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #666;
-  border-radius: 4px;
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-}
+  .search-container {
+    min-width: 200px;
+  }
 
-.theme-select:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #777;
-}
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-center {
+      display: none;
+    }
+    
+    .navbar-container {
+      justify-content: space-between;
+    }
+  }
 
-.theme-select:focus {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #888;
-}
-
-.theme-select option {
-  background: #2a2a2a;
-  color: #fff;
-}
-
-/* Override Starlight search styles to fit our navbar */
-.search-container :global(.search) {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid #666;
-  border-radius: 6px;
-  position: relative;
-  z-index: 1001;
-}
-
-.search-container :global(.search input) {
-  background: transparent;
-  color: #fff;
-  border: none;
-}
-
-.search-container :global(.search input::placeholder) {
-  color: #bbb;
-}
-
-/* Make search box even lighter on hover/focus */
-.search-container :global(.search:hover) {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: #777;
-}
-
-.search-container :global(.search:focus-within) {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: #888;
-}
-
-/* Dark mode improvements for search */
-:global([data-theme="dark"]) .search-container :global(.search) {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #555;
-}
-
-:global([data-theme="dark"]) .search-container :global(.search:hover) {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #666;
-}
-
-:global([data-theme="dark"]) .search-container :global(.search input::placeholder) {
-  color: #999;
-}
+  /* Override Starlight search styles to fit our navbar */
+  :global(.search-container .search) {
+    position: relative;
+    z-index: 1001;
+  }
+  
+  :global(.search-container .search input) {
+    border: none;
+  }
 </style>
