@@ -1,0 +1,64 @@
+---
+import Navbar from '../components/Navbar.astro';
+const title = "Hacker1 - Markdown Demo";
+import { marked } from 'marked';
+const markdownContent = [
+  '# Astro Markdown Demo',
+  '',
+  'This page demonstrates **Markdown rendering** inside an `.astro` file.',
+  '',
+  '- Astro frontmatter',
+  '- HTML and CSS',
+  '- Astro components',
+  '- Markdown content',
+  '',
+  '## Features',
+  '',
+  '- Headings, lists, code, tables, etc.',
+  '- _Italics_ and **bold**',
+  '- [Links](https://astro.build)',
+  '',
+  '````js',
+  '// Code blocks are supported',
+  "console.log('Hello, Astro!');",
+  '````',
+  '',
+  '| Feature     | Supported   |',
+  '|-------------|-------------|',
+  '| Markdown    | [x]         |',
+  '| HTML        | [x]         |',
+  '| CSS         | [x]         |',
+  '| Components  | [x]         |',
+].join('\n');
+const html = marked(markdownContent);
+
+---
+
+<Navbar />
+
+<div set:html={html}></div>
+
+<!--
+  Astro file with full Markdown support via the marked package.
+  - Supports frontmatter variables
+  - Supports HTML, CSS, and Astro components
+  - Markdown content is rendered using marked and set:html
+  - Add your own components or slots as needed
+-->
+
+
+
+<!-- Example HTML below -->
+<div class="info-box">You can mix HTML and Markdown in Astro files.</div>
+
+<style>
+.info-box {
+  background: #222a;
+  color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px #0002;
+}
+</style>
