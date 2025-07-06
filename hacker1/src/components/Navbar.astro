@@ -1,6 +1,6 @@
 ---
-// Enhanced navbar using astro-navbar with Starlight search and theme toggle
-import Search from '@astrojs/starlight/components/Search.astro';
+// Enhanced navbar using astro-navbar 
+// import Search from '@astrojs/starlight/components/Search.astro';
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
 ---
 
@@ -38,7 +38,8 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
       <!-- Right side actions -->
       <div class="navbar-actions">
         <div class="search-container">
-          <Search />
+          <!-- Search temporarily disabled -->
+          <input type="search" placeholder="Search..." class="search-input" />
         </div>
         <div class="theme-container">
           <span class="theme-icon">🌙</span>
