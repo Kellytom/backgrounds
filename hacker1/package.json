@@ -1,13 +1,30 @@
 {
+  "name": "hacker1",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Hacker1 v1.0 - A complex web site with satellite sites for Design, Engineering, Production, and Finished Work",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "process-data": "python scripts/processData.py"
+  },
   "dependencies": {
-<<<<<<< HEAD
-    "@astrojs/starlight": "^0.34.4",
-    "astro": "^5.6.1",
-    "astro-navbar": "^2.4.0",
-    "marked": "^16.0.0",
-    "sharp": "^0.34.2"
-=======
-    "marked": "^16.0.0"
->>>>>>> b012d1c93a5275bec518a98230a37fef7e3a0a3c
+    "@astrojs/react": "^3.6.3",
+    "astro": "^5.10.2",
+    "bulma": "^0.9.4",
+    "d3": "^7.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.160.1"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.160.0",
+    "typescript": "^5.8.3"
   }
 }
