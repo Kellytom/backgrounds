@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sacred_geometry_circle",
+    "title": "Sacred Circle",
+    "description": "A perfect circle representing unity and infinity",
+    "svgPath": "/assets/svgs/sacred-circle.svg",
+    "category": "sacred-geometry",
+    "tags": ["circle", "unity", "sacred"],
+    "colors": ["#D4AF37", "#2A2A4A"],
+    "generated_from": "mathematical-constants"
+  },
+  {
+    "id": "fibonacci_spiral",
+    "title": "Fibonacci Spiral",
+    "description": "The golden spiral found throughout nature",
+    "svgPath": "/assets/svgs/fibonacci-spiral.svg",
+    "category": "mathematical",
+    "tags": ["fibonacci", "golden-ratio", "nature"],
+    "colors": ["#8A5A5A", "#3A3A5A"],
+    "generated_from": "fibonacci-sequence"
+  },
+  {
+    "id": "tree_of_life",
+    "title": "Tree of Life",
+    "description": "Stylized tree representing growth and connection",
+    "svgPath": "/assets/svgs/tree-of-life.svg",
+    "category": "symbolic",
+    "tags": ["tree", "life", "growth"],
+    "colors": ["#5A7A5A", "#2A2A2A"],
+    "generated_from": "branching-algorithm"
+  },
+  {
+    "id": "mandala_pattern",
+    "title": "Mandala Pattern",
+    "description": "Geometric mandala with 8-fold symmetry",
+    "svgPath": "/assets/svgs/mandala-8fold.svg",
+    "category": "sacred-geometry",
+    "tags": ["mandala", "symmetry", "meditation"],
+    "colors": ["#7A5A7A", "#4A3A5A"],
+    "generated_from": "polar-coordinates"
+  },
+  {
+    "id": "celtic_knot",
+    "title": "Celtic Trinity Knot",
+    "description": "Traditional Celtic triquetra symbol",
+    "svgPath": "/assets/svgs/celtic-trinity.svg",
+    "category": "symbolic",
+    "tags": ["celtic", "trinity", "eternal"],
+    "colors": ["#8A8A8A", "#3A2A4A"],
+    "generated_from": "bezier-curves"
+  },
+  {
+    "id": "wave_pattern",
+    "title": "Harmonic Waves",
+    "description": "Sine wave harmonics visualization",
+    "svgPath": "/assets/svgs/harmonic-waves.svg",
+    "category": "mathematical",
+    "tags": ["waves", "harmonics", "frequency"],
+    "colors": ["#5A7A8A", "#2A3A4A"],
+    "generated_from": "sine-functions"
+  }
+]

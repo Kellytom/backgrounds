@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sacred_geometry_cube",
+    "title": "Sacred Cube",
+    "vertices": [
+      {"x": -1, "y": -1, "z": -1},
+      {"x": 1, "y": -1, "z": -1},
+      {"x": 1, "y": 1, "z": -1},
+      {"x": -1, "y": 1, "z": -1},
+      {"x": -1, "y": -1, "z": 1},
+      {"x": 1, "y": -1, "z": 1},
+      {"x": 1, "y": 1, "z": 1},
+      {"x": -1, "y": 1, "z": 1}
+    ],
+    "faces": [
+      [0, 1, 2, 3], [4, 7, 6, 5], [0, 4, 5, 1],
+      [2, 6, 7, 3], [0, 3, 7, 4], [1, 5, 6, 2]
+    ],
+    "description": "Perfect cube representing earth element in sacred geometry",
+    "category": "sacred-geometry",
+    "material": "gold"
+  },
+  {
+    "id": "platonic_tetrahedron", 
+    "title": "Tetrahedron (Fire)",
+    "vertices": [
+      {"x": 1, "y": 1, "z": 1},
+      {"x": 1, "y": -1, "z": -1},
+      {"x": -1, "y": 1, "z": -1},
+      {"x": -1, "y": -1, "z": 1}
+    ],
+    "faces": [
+      [0, 1, 2], [1, 3, 2], [0, 2, 3], [0, 3, 1]
+    ],
+    "description": "Tetrahedron representing fire element",
+    "category": "sacred-geometry",
+    "material": "ruby"
+  },
+  {
+    "id": "molecular_structure",
+    "title": "Water Molecule (H2O)",
+    "atoms": [
+      {"element": "O", "x": 0, "y": 0, "z": 0, "radius": 0.66},
+      {"element": "H", "x": 0.757, "y": 0.587, "z": 0, "radius": 0.31},
+      {"element": "H", "x": -0.757, "y": 0.587, "z": 0, "radius": 0.31}
+    ],
+    "bonds": [
+      {"from": 0, "to": 1, "type": "single"},
+      {"from": 0, "to": 2, "type": "single"}
+    ],
+    "description": "3D representation of water molecule structure",
+    "category": "molecular",
+    "material": "glass"
+  },
+  {
+    "id": "fibonacci_sphere",
+    "title": "Fibonacci Sphere",
+    "points": [
+      {"x": 0, "y": 1, "z": 0, "index": 0},
+      {"x": 0.525, "y": 0.851, "z": 0, "index": 1},
+      {"x": -0.851, "y": 0.525, "z": 0, "index": 2},
+      {"x": 0.851, "y": -0.525, "z": 0, "index": 3},
+      {"x": -0.525, "y": -0.851, "z": 0, "index": 4},
+      {"x": 0, "y": 0, "z": 1, "index": 5},
+      {"x": 0, "y": 0, "z": -1, "index": 6}
+    ],
+    "description": "Points distributed on sphere using Fibonacci sequence",
+    "category": "mathematical",
+    "material": "bronze"
+  },
+  {
+    "id": "dna_helix",
+    "title": "DNA Double Helix",
+    "backbone1": [
+      {"x": 1, "y": 0, "z": 0, "angle": 0},
+      {"x": 0.707, "y": 0.707, "z": 0.5, "angle": 45},
+      {"x": 0, "y": 1, "z": 1, "angle": 90},
+      {"x": -0.707, "y": 0.707, "z": 1.5, "angle": 135},
+      {"x": -1, "y": 0, "z": 2, "angle": 180}
+    ],
+    "backbone2": [
+      {"x": -1, "y": 0, "z": 0, "angle": 180},
+      {"x": -0.707, "y": -0.707, "z": 0.5, "angle": 225},
+      {"x": 0, "y": -1, "z": 1, "angle": 270},
+      {"x": 0.707, "y": -0.707, "z": 1.5, "angle": 315},
+      {"x": 1, "y": 0, "z": 2, "angle": 360}
+    ],
+    "description": "Double helix structure of DNA",
+    "category": "biological",
+    "material": "crystal"
+  }
+]

@@ -1,0 +1,95 @@
+---
+export interface Props {
+  title: string;
+  content: string;
+  source?: string;
+  category?: string;
+  tags?: string[];
+}
+
+const { title, content, source, category, tags } = Astro.props;
+---
+
+<article class="written-content">
+  <header class="content-header">
+    <h3 class="title is-4">{title}</h3>
+    {category && (
+      <span class="tag is-info">{category}</span>
+    )}
+  </header>
+  
+  <div class="content-body">
+    <div class="content-text">
+      {content.split('\n').map(paragraph => (
+        paragraph.trim() && <p>{paragraph}</p>
+      ))}
+    </div>
+    
+    {source && (
+      <footer class="content-footer">
+        <cite class="source">— {source}</cite>
+      </footer>
+    )}
+    
+    {tags && tags.length > 0 && (
+      <div class="tags-section">
+        <strong>Tags:</strong>
+        {tags.map(tag => (
+          <span class="tag is-light">{tag}</span>
+        ))}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .written-content {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid #D4AF37;
+  }
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .content-text {
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .content-text p {
+    margin-bottom: 1rem;
+  }
+
+  .content-footer {
+    margin-top: 1.5rem;
+    text-align: right;
+  }
+
+  .source {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .tags-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tags-section .tag {
+    margin-left: 0.5rem;
+  }
+
+  .title {
+    text-align: left;
+    color: var(--text-primary);
+  }
+</style>

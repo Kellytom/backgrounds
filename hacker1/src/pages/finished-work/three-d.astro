@@ -1,0 +1,190 @@
+---
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three-D Models | Hacker1 v1.0 - Three.js Visualizations</title>
+    <meta name="description" content="Three-dimensional models and scientific visualizations using Three.js for immersive experiences." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode three-d-background">
+    <div class="three-d-site">
+      <header class="hero three-d-hero">
+        <div class="hero-body">
+          <div class="container">
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/finished-work">Finished Work</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Three-D</a></li>
+              </ul>
+            </nav>
+            
+            <h1 class="title is-3">Three-D Models</h1>
+            <h2 class="subtitle is-5">Three.js Scientific Visualizations</h2>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="section">
+          <div class="content-showcase">
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div class="three-d-showcase">
+                  <h3>Immersive 3D Experiences</h3>
+                  <div class="content three-d-sample">
+                    <div class="model-preview">
+                      <h4>Featured 3D Models</h4>
+                      <div class="model-grid">
+                        <div class="model-item">
+                          <div class="model-placeholder">
+                            <span>DNA Helix</span>
+                          </div>
+                          <p>Animated double helix structure</p>
+                        </div>
+                        <div class="model-item">
+                          <div class="model-placeholder">
+                            <span>Platonic Solids</span>
+                          </div>
+                          <p>Interactive sacred geometry</p>
+                        </div>
+                        <div class="model-item">
+                          <div class="model-placeholder">
+                            <span>Molecular Structures</span>
+                          </div>
+                          <p>Scientific visualization models</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p>
+                      This collection features Three.js-powered 3D models and scientific visualizations 
+                      that bring complex concepts to life. Each model combines accurate scientific 
+                      representation with interactive exploration, making abstract concepts tangible 
+                      and engaging.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-one-third">
+                <div class="navigation-panel">
+                  <h3>Navigation</h3>
+                  <div class="buttons is-vertical">
+                    <a href="/finished-work/three-d-ch1" class="button is-primary">Chapter 1</a>
+                    <a href="/finished-work" class="button is-light">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .three-d-site {
+    min-height: 100vh;
+  }
+
+  .three-d-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .three-d-background {
+    background: repeating-linear-gradient(
+      72deg,
+      #2A1A3A 0px,
+      #2A1A3A 2px,
+      #3A2A4A 2px,
+      #3A2A4A 3px
+    );
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .content-showcase {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .navigation-panel {
+    background: rgba(50, 50, 50, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-panel h3 {
+    color: #e8d5b7;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #8e6b8e;
+    padding-bottom: 0.5rem;
+  }
+
+  .three-d-showcase h3 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #8e6b8e;
+    padding-bottom: 0.5rem;
+  }
+
+  .three-d-sample {
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .model-item {
+    text-align: center;
+  }
+
+  .model-placeholder {
+    width: 140px;
+    height: 140px;
+    background: rgba(142, 107, 142, 0.2);
+    border: 2px solid #8e6b8e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem auto;
+    color: #8e6b8e;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .three-d-sample h4 {
+    color: #e8d5b7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .three-d-sample p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+</style>

@@ -1,0 +1,201 @@
+---
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Action Experiences | Hacker1 v1.0 - Interactive Games</title>
+    <meta name="description" content="Interactive game-like experiences combining Three.js with engaging user interactions and gameplay." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode action-background">
+    <div class="action-site">
+      <header class="hero action-hero">
+        <div class="hero-body">
+          <div class="container">
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/finished-work">Finished Work</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Action</a></li>
+              </ul>
+            </nav>
+            
+            <h1 class="title is-3">Action Experiences</h1>
+            <h2 class="subtitle is-5">Interactive Game-like Interfaces</h2>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="section">
+          <div class="content-showcase">
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div class="action-showcase">
+                  <h3>Interactive Gaming Experiences</h3>
+                  <div class="content action-sample">
+                    <div class="game-preview">
+                      <h4>Featured Interactive Experiences</h4>
+                      <div class="game-grid">
+                        <div class="game-item">
+                          <div class="game-placeholder">
+                            <span>Sacred Geometry Puzzle</span>
+                          </div>
+                          <p>Interactive pattern building</p>
+                        </div>
+                        <div class="game-item">
+                          <div class="game-placeholder">
+                            <span>Scripture Explorer</span>
+                          </div>
+                          <p>3D text navigation</p>
+                        </div>
+                        <div class="game-item">
+                          <div class="game-placeholder">
+                            <span>Mathematical Garden</span>
+                          </div>
+                          <p>Growing algorithmic art</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p>
+                      This collection features interactive game-like experiences that combine 
+                      educational content with engaging gameplay mechanics. Each experience uses 
+                      Three.js to create immersive environments where users can explore, learn, 
+                      and interact with meaningful concepts through play.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-one-third">
+                <div class="navigation-panel">
+                  <h3>Navigation</h3>
+                  <div class="buttons is-vertical">
+                    <a href="/finished-work/action-ch1" class="button is-primary">Chapter 1</a>
+                    <a href="/finished-work" class="button is-light">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .action-site {
+    min-height: 100vh;
+  }
+
+  .action-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .action-background {
+    background: repeating-linear-gradient(
+      45deg,
+      #3A1A1A 0px,
+      #3A1A1A 2px,
+      #4A2A1A 2px,
+      #4A2A1A 3px
+    );
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .content-showcase {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .navigation-panel {
+    background: rgba(50, 50, 50, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-panel h3 {
+    color: #e8d5b7;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #a0756b;
+    padding-bottom: 0.5rem;
+  }
+
+  .action-showcase h3 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #a0756b;
+    padding-bottom: 0.5rem;
+  }
+
+  .action-sample {
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .game-item {
+    text-align: center;
+  }
+
+  .game-placeholder {
+    width: 160px;
+    height: 100px;
+    background: rgba(160, 117, 107, 0.2);
+    border: 2px solid #a0756b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem auto;
+    color: #a0756b;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .game-placeholder::before {
+    content: "▶";
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+  }
+
+  .action-sample h4 {
+    color: #e8d5b7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .action-sample p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+</style>

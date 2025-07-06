@@ -1,0 +1,50 @@
+[
+  {
+    "id": "psalm23",
+    "title": "The Lord is My Shepherd",
+    "content": "The Lord is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+    "source": "Psalm 23:1-4 (KJV)",
+    "category": "scripture",
+    "tags": ["comfort", "guidance", "faith"]
+  },
+  {
+    "id": "ecclesiastes3",
+    "title": "A Time for Everything",
+    "content": "To every thing there is a season, and a time to every purpose under the heaven: A time to be born, and a time to die; a time to plant, and a time to pluck up that which is planted; A time to kill, and a time to heal; a time to break down, and a time to build up; A time to weep, and a time to laugh; a time to mourn, and a time to dance.",
+    "source": "Ecclesiastes 3:1-4 (KJV)",
+    "category": "scripture", 
+    "tags": ["time", "seasons", "purpose"]
+  },
+  {
+    "id": "hamlet_soliloquy",
+    "title": "To Be or Not to Be",
+    "content": "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles And by opposing end them. To die—to sleep, No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to: 'tis a consummation Devoutly to be wish'd.",
+    "source": "Hamlet, Act 3, Scene 1 - William Shakespeare",
+    "category": "classics",
+    "tags": ["philosophy", "mortality", "choice"]
+  },
+  {
+    "id": "dante_inferno",
+    "title": "The Dark Wood",
+    "content": "In the middle of the journey of our life I found myself in a dark wood, where the straight way was lost. Ah, how to describe what this wood was, so savage and dense and harsh that the memory renews my fear! Death is little worse. But to treat of the good that I found there, I will speak also of the other things I saw.",
+    "source": "Inferno, Canto I - Dante Alighieri",
+    "category": "classics",
+    "tags": ["journey", "guidance", "transformation"]
+  },
+  {
+    "id": "proverbs31",
+    "title": "The Excellent Wife",
+    "content": "Who can find a virtuous woman? for her price is far above rubies. The heart of her husband doth safely trust in her, so that he shall have no need of spoil. She will do him good and not evil all the days of her life. She seeketh wool, and flax, and worketh willingly with her hands.",
+    "source": "Proverbs 31:10-13 (KJV)",
+    "category": "scripture",
+    "tags": ["virtue", "work", "excellence"]
+  },
+  {
+    "id": "dickens_tale",
+    "title": "The Best of Times",
+    "content": "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+    "source": "A Tale of Two Cities - Charles Dickens",
+    "category": "classics",
+    "tags": ["paradox", "time", "human nature"]
+  }
+]

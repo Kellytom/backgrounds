@@ -1,0 +1,122 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  chapterLink?: string;
+}
+
+const { name, description, chapterLink } = Astro.props;
+---
+
+<div class="satellite-site">
+  <header class="hero satellite-hero">
+    <div class="hero-body">
+      <div class="container">
+        <nav class="breadcrumb">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li class="is-active"><a href="#" aria-current="page">{name}</a></li>
+          </ul>
+        </nav>
+        
+        <h1 class="title is-1">{name}</h1>
+        <h2 class="subtitle is-3">{description}</h2>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="content implementation-background">
+        <h2>Welcome to {name}</h2>
+        <p>
+          This section focuses on the {description.toLowerCase()} aspects of our development process.
+          Navigate through the chapters to explore detailed information and resources.
+        </p>
+        
+        {chapterLink && (
+          <div class="buttons">
+            <a href={chapterLink} class="button is-primary is-large">
+              Start with Chapter 1
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content solution-background">
+              <h3 class="title is-4">Resources</h3>
+              <p>Tools, documentation, and reference materials for {name.toLowerCase()}.</p>
+              <a href="#" class="button is-link">View Resources</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content experimental-background">
+              <h3 class="title is-4">Latest Updates</h3>
+              <p>Recent changes, improvements, and announcements for this section.</p>
+              <a href="#" class="button is-info">View Updates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section">
+    <div class="container">
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <a href="/" class="button">← Back to Central Site</a>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            {chapterLink && (
+              <a href={chapterLink} class="button is-primary">Chapter 1 →</a>
+            )}
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<style>
+  .satellite-site {
+    min-height: 100vh;
+  }
+
+  .satellite-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .breadcrumb {
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .card {
+    height: 100%;
+  }
+
+  .level {
+    padding: 2rem 0;
+  }
+</style>

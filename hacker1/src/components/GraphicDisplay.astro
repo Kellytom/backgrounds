@@ -1,0 +1,204 @@
+---
+export interface Props {
+  title: string;
+  svgPath: string;
+  description?: string;
+  category?: string;
+  colors?: string[];
+  generated_from?: string;
+}
+
+const { title, svgPath, description, category, colors, generated_from } = Astro.props;
+---
+
+<div class="graphic-display">
+  <div class="graphic-header">
+    <h3 class="title is-4">{title}</h3>
+    {category && (
+      <span class="tag is-info">{category}</span>
+    )}
+  </div>
+  
+  <div class="graphic-container">
+    <!-- SVG Placeholder - In production this would load the actual SVG -->
+    <div class="svg-placeholder">
+      <div class="svg-content">
+        <!-- Sacred Circle SVG -->
+        {title === "Sacred Circle" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#D4AF37" stroke-width="3" opacity="0.8"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="#8A5A5A" stroke-width="2" opacity="0.6"/>
+            <circle cx="100" cy="100" r="40" fill="none" stroke="#5A7A5A" stroke-width="2" opacity="0.6"/>
+            <circle cx="100" cy="100" r="20" fill="none" stroke="#7A5A7A" stroke-width="2" opacity="0.6"/>
+            <text x="100" y="105" text-anchor="middle" fill="#E0E0E0" font-size="12">∞</text>
+          </svg>
+        )}
+        
+        <!-- Fibonacci Spiral SVG -->
+        {title === "Fibonacci Spiral" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <path d="M 100 100 Q 110 90 120 100 Q 130 120 110 130 Q 80 140 70 120 Q 60 80 90 70 Q 140 60 150 90 Q 160 150 120 160" 
+                  fill="none" stroke="#8A5A5A" stroke-width="3" opacity="0.8"/>
+            <text x="100" y="105" text-anchor="middle" fill="#E0E0E0" font-size="10">φ = 1.618</text>
+          </svg>
+        )}
+        
+        <!-- Tree of Life SVG -->
+        {title === "Tree of Life" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <rect x="95" y="120" width="10" height="60" fill="#5A7A5A"/>
+            <ellipse cx="100" cy="80" rx="30" ry="40" fill="none" stroke="#5A7A5A" stroke-width="2"/>
+            <ellipse cx="85" cy="60" rx="15" ry="20" fill="none" stroke="#5A7A5A" stroke-width="1.5"/>
+            <ellipse cx="115" cy="60" rx="15" ry="20" fill="none" stroke="#5A7A5A" stroke-width="1.5"/>
+            <ellipse cx="100" cy="40" rx="20" ry="25" fill="none" stroke="#5A7A5A" stroke-width="2"/>
+          </svg>
+        )}
+        
+        <!-- Mandala Pattern SVG -->
+        {title === "Mandala Pattern" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <g transform="translate(100,100)">
+              {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => (
+                <g transform={`rotate(${angle})`}>
+                  <ellipse cx="0" cy="0" rx="60" ry="20" fill="none" stroke="#7A5A7A" stroke-width="1.5" opacity="0.7"/>
+                </g>
+              ))}
+              <circle cx="0" cy="0" r="15" fill="none" stroke="#7A5A7A" stroke-width="2"/>
+            </g>
+          </svg>
+        )}
+        
+        <!-- Celtic Trinity Knot SVG -->
+        {title === "Celtic Trinity Knot" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <g transform="translate(100,100)">
+              <path d="M -30,-20 Q 0,-40 30,-20 Q 20,0 0,20 Q -20,0 -30,-20" 
+                    fill="none" stroke="#8A8A8A" stroke-width="3"/>
+              <path d="M 30,-20 Q 40,10 10,30 Q -10,20 -20,0 Q 0,-20 30,-20" 
+                    fill="none" stroke="#8A8A8A" stroke-width="3"/>
+              <path d="M 10,30 Q -20,40 -30,10 Q -20,-10 0,0 Q 20,20 10,30" 
+                    fill="none" stroke="#8A8A8A" stroke-width="3"/>
+            </g>
+          </svg>
+        )}
+        
+        <!-- Harmonic Waves SVG -->
+        {title === "Harmonic Waves" && (
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <path d="M 10 100 Q 35 70 60 100 Q 85 130 110 100 Q 135 70 160 100 Q 185 130 190 100" 
+                  fill="none" stroke="#5A7A8A" stroke-width="2" opacity="0.8"/>
+            <path d="M 10 100 Q 60 50 110 100 Q 160 150 190 100" 
+                  fill="none" stroke="#5A7A8A" stroke-width="2" opacity="0.6"/>
+            <path d="M 10 100 Q 100 80 190 100" 
+                  fill="none" stroke="#5A7A8A" stroke-width="2" opacity="0.4"/>
+          </svg>
+        )}
+        
+        <!-- Default fallback -->
+        {!["Sacred Circle", "Fibonacci Spiral", "Tree of Life", "Mandala Pattern", "Celtic Trinity Knot", "Harmonic Waves"].includes(title) && (
+          <div style="width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed #666;">
+            <span style="color: #888; font-size: 12px; text-align: center;">SVG<br/>{title}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+  
+  {description && (
+    <div class="graphic-description">
+      <p>{description}</p>
+    </div>
+  )}
+  
+  <div class="graphic-meta">
+    {generated_from && (
+      <div class="meta-item">
+        <strong>Generated from:</strong> {generated_from}
+      </div>
+    )}
+    
+    {colors && colors.length > 0 && (
+      <div class="meta-item">
+        <strong>Color palette:</strong>
+        <div class="color-swatches">
+          {colors.map(color => (
+            <span class="color-swatch" style={`background-color: ${color}`}></span>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .graphic-display {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid #8A5A5A;
+  }
+
+  .graphic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .graphic-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  .svg-placeholder {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .svg-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .graphic-description {
+    text-align: left;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .graphic-meta {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .meta-item {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .color-swatches {
+    display: inline-flex;
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+  }
+
+  .color-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+  }
+
+  .title {
+    text-align: left;
+    color: var(--text-primary);
+  }
+</style>
