@@ -14,7 +14,7 @@ const { name, description, chapterLink } = Astro.props;
       <div class="container">
         <nav class="breadcrumb">
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/" with-base>Home</a></li>
             <li class="is-active"><a href="#" aria-current="page">{name}</a></li>
           </ul>
         </nav>
@@ -36,7 +36,7 @@ const { name, description, chapterLink } = Astro.props;
         
         {chapterLink && (
           <div class="buttons">
-            <a href={chapterLink} class="button is-primary is-large">
+            <a href={chapterLink} with-base class="button is-primary is-large">
               Start with Chapter 1
             </a>
           </div>
@@ -74,13 +74,13 @@ const { name, description, chapterLink } = Astro.props;
       <nav class="level">
         <div class="level-left">
           <div class="level-item">
-            <a href="/" class="button">← Back to Central Site</a>
+            <a href="/" with-base class="button">← Back to Central Site</a>
           </div>
         </div>
         <div class="level-right">
           <div class="level-item">
             {chapterLink && (
-              <a href={chapterLink} class="button is-primary">Chapter 1 →</a>
+              <a href={chapterLink} with-base class="button is-primary">Chapter 1 →</a>
             )}
           </div>
         </div>

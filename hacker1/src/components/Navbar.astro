@@ -9,12 +9,12 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
     <Astronav closeOnClick>
       <!-- Left side navigation -->
       <div class="navbar-brand">
-        <a href="/" class="brand-link">Hacker1</a>
+        <a href="/" with-base class="brand-link">Hacker1</a>
       </div>
       
       <MenuItems class="navbar-menu-horizontal">
         <div class="menu-items-wrapper">
-          <a href="/" class="nav-item">Home</a>
+          <a href="/" with-base class="nav-item">Home</a>
           
           <Dropdown class="dropdown">
             <button class="dropdown-toggle">
@@ -22,16 +22,16 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
             </button>
             <DropdownItems class="dropdown-menu">
               <div class="dropdown-content">
-                <a href="/bulma" class="dropdown-item">Bulma Demo</a>
-                <a href="/markdown-demo" class="dropdown-item">Markdown Demo</a>
+                <a href="/bulma" with-base class="dropdown-item">Bulma Demo</a>
+                <a href="/markdown-demo" with-base class="dropdown-item">Markdown Demo</a>
               </div>
             </DropdownItems>
           </Dropdown>
           
-          <a href="/backgrounds" class="nav-item">Backgrounds</a>
-          <a href="/starlight-showcase" class="nav-item">Starlight</a>
-          <a href="/daisyui-showcase" class="nav-item">DaisyUI</a>
-          <a href="/starlight-css-guide" class="nav-item">CSS Guide</a>
+          <a href="/backgrounds" with-base class="nav-item">Backgrounds</a>
+          <a href="/starlight-showcase" with-base class="nav-item">Starlight</a>
+          <a href="/daisyui-showcase" with-base class="nav-item">DaisyUI</a>
+          <a href="/starlight-css-guide" with-base class="nav-item">CSS Guide</a>
         </div>
       </MenuItems>
       

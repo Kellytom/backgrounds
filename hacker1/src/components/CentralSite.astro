@@ -51,7 +51,7 @@ const categories = [
       <div class="finished-work-showcase">
         <div class="showcase-header">
           <h2 class="showcase-title">Finished Work Gallery</h2>
-          <a href="/finished-work" class="button is-primary view-all-button">View All →</a>
+          <a href="/finished-work" with-base class="button is-primary view-all-button">View All →</a>
         </div>
         <p class="showcase-description">
           Explore our completed projects across five distinct categories
@@ -60,7 +60,7 @@ const categories = [
           <div class="column is-one-fifth">
             <div class="card finished-work-preview written-preview">
               <div class="card-content">
-                <a href="/finished-work/written" class="button is-small is-light">View Written</a>
+                <a href="/finished-work/written" with-base class="button is-small is-light">View Written</a>
                 <h4 class="title is-6">Written</h4>
                 <p>Scripture, classics, and literary content</p>
               </div>
@@ -69,7 +69,7 @@ const categories = [
           <div class="column is-one-fifth">
             <div class="card finished-work-preview graphic-preview">
               <div class="card-content">
-                <a href="/finished-work/graphic" class="button is-small is-light">View Graphics</a>
+                <a href="/finished-work/graphic" with-base class="button is-small is-light">View Graphics</a>
                 <h4 class="title is-6">Graphic</h4>
                 <p>SVGs from mathematical and spiritual concepts</p>
               </div>
@@ -78,7 +78,7 @@ const categories = [
           <div class="column is-one-fifth">
             <div class="card finished-work-preview two-d-preview">
               <div class="card-content">
-                <a href="/finished-work/two-d" class="button is-small is-light">View 2D</a>
+                <a href="/finished-work/two-d" with-base class="button is-small is-light">View 2D</a>
                 <h4 class="title is-6">Two-D</h4>
                 <p>D3.js visualizations and data representations</p>
               </div>
@@ -87,7 +87,7 @@ const categories = [
           <div class="column is-one-fifth">
             <div class="card finished-work-preview three-d-preview">
               <div class="card-content">
-                <a href="/finished-work/three-d" class="button is-small is-light">View 3D</a>
+                <a href="/finished-work/three-d" with-base class="button is-small is-light">View 3D</a>
                 <h4 class="title is-6">Three-D</h4>
                 <p>Three.js 3D models and scientific visualizations</p>
               </div>
@@ -96,7 +96,7 @@ const categories = [
           <div class="column is-one-fifth">
             <div class="card finished-work-preview action-preview">
               <div class="card-content">
-                <a href="/finished-work/action" class="button is-small is-light">Play Action</a>
+                <a href="/finished-work/action" with-base class="button is-small is-light">Play Action</a>
                 <h4 class="title is-6">Action</h4>
                 <p>Interactive game-like experiences</p>
               </div>
@@ -117,10 +117,10 @@ const categories = [
                 <h3 class="title is-4">{category.name}</h3>
                 <p class="content">{category.description}</p>
                 <div class="buttons">
-                  <a href={category.link} class="button is-primary">
+                  <a href={category.link} with-base class="button is-primary">
                     Enter {category.name}
                   </a>
-                  <a href={`${category.link.replace('/', '/').replace('finished-work', 'finished-work/written')}-ch1`} class="button is-light">
+                  <a href={`${category.link.replace('/', '/').replace('finished-work', 'finished-work/written')}-ch1`} with-base class="button is-light">
                     Chapter 1
                   </a>
                 </div>
