@@ -6,8 +6,8 @@ import react from '@astrojs/react';
 export default defineConfig({
 	integrations: [react()],
 	output: 'static',
-	site: 'https://backgrounds.github.io', // Update this to your actual GitHub Pages URL
-	base: '/backgrounds', // Update this to your repository name
+	site: 'https://kellytom.github.io/backgrounds/', //  actual GitHub Pages URL
+	base: '/backgrounds', //  repository name
 	build: {
 		assets: 'assets'
 	}
