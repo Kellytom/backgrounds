@@ -53,7 +53,7 @@ const { name, description, chapterLink } = Astro.props;
             <div class="card-content solution-background">
               <h3 class="title is-4">Resources</h3>
               <p>Tools, documentation, and reference materials for {name.toLowerCase()}.</p>
-              <a href="#" class="button is-link">View Resources</a>
+              <a href={`${import.meta.env.BASE_URL}${name.toLowerCase().replace('-', '-')}/resources`} class="button is-link">View Resources</a>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const { name, description, chapterLink } = Astro.props;
             <div class="card-content experimental-background">
               <h3 class="title is-4">Latest Updates</h3>
               <p>Recent changes, improvements, and announcements for this section.</p>
-              <a href="#" class="button is-info">View Updates</a>
+              <a href={`${import.meta.env.BASE_URL}${name.toLowerCase().replace('-', '-')}/updates`} class="button is-info">View Updates</a>
             </div>
           </div>
         </div>

@@ -1,0 +1,333 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Design Resources | Hacker1 v1.0</title>
+    <meta name="description" content="Design resources, tools, and documentation for web development planning and UX design." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode site-design-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → 
+        <a href={`${import.meta.env.BASE_URL}site-design`}>Site Design</a> → 
+        Resources
+      </nav>
+      
+      <h1>Site Design Resources</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>Design Tools & Software</h2>
+        <p>
+          "Every good and perfect gift is from above..." - James 1:17. The tools we use for design 
+          are gifts that enable us to create beautiful, functional experiences that serve others.
+        </p>
+        
+        <div class="resource-grid">
+          <div class="resource-item">
+            <h4>Figma</h4>
+            <p>Collaborative interface design tool for wireframes, prototypes, and design systems.</p>
+            <a href="https://figma.com" target="_blank" class="button is-small is-primary">Visit Tool</a>
+          </div>
+          
+          <div class="resource-item">
+            <h4>Adobe XD</h4>
+            <p>User experience design platform for creating prototypes and design specifications.</p>
+            <a href="https://adobe.com/products/xd.html" target="_blank" class="button is-small is-primary">Visit Tool</a>
+          </div>
+          
+          <div class="resource-item">
+            <h4>Sketch</h4>
+            <p>Digital design toolkit for creating interfaces, websites, and icons.</p>
+            <a href="https://sketch.com" target="_blank" class="button is-small is-primary">Visit Tool</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>Design Principles & Guidelines</h2>
+        <p>
+          Biblical wisdom applied to modern design thinking, creating experiences that honor 
+          both user needs and eternal values.
+        </p>
+        
+        <div class="principles-list">
+          <div class="principle-item">
+            <h4>Accessibility First</h4>
+            <p>"The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart." - 1 Samuel 16:7</p>
+            <p>Design for all users, regardless of their abilities or limitations.</p>
+          </div>
+          
+          <div class="principle-item">
+            <h4>Clarity Over Cleverness</h4>
+            <p>"Let your 'Yes' be 'Yes,' and your 'No,' 'No.'" - Matthew 5:37</p>
+            <p>Clear, honest communication serves users better than confusing creativity.</p>
+          </div>
+          
+          <div class="principle-item">
+            <h4>Performance as Love</h4>
+            <p>"In everything I did, I showed you that by this kind of hard work we must help the weak..." - Acts 20:35</p>
+            <p>Fast, efficient designs respect users' time and resources.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Color & Typography Resources</h2>
+        <p>
+          Sacred color palettes and typography choices that reflect both aesthetic beauty 
+          and spiritual significance.
+        </p>
+        
+        <div class="resource-grid">
+          <div class="resource-item">
+            <h4>Google Fonts</h4>
+            <p>Open source font library with web-safe typography options.</p>
+            <a href="https://fonts.google.com" target="_blank" class="button is-small is-info">Explore Fonts</a>
+          </div>
+          
+          <div class="resource-item">
+            <h4>Coolors</h4>
+            <p>Color palette generator for creating harmonious color schemes.</p>
+            <a href="https://coolors.co" target="_blank" class="button is-small is-info">Generate Palettes</a>
+          </div>
+          
+          <div class="resource-item">
+            <h4>Color Hunt</h4>
+            <p>Curated collection of beautiful color palettes for design inspiration.</p>
+            <a href="https://colorhunt.co" target="_blank" class="button is-small is-info">Browse Colors</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section implementation-background">
+        <h2>Learning Resources</h2>
+        <p>
+          "Give instruction to a wise man, and he will be still wiser; teach a righteous man, 
+          and he will increase in learning." - Proverbs 9:9
+        </p>
+        
+        <div class="learning-resources">
+          <div class="resource-category">
+            <h4>UX Design Fundamentals</h4>
+            <ul>
+              <li><a href="https://uxdesign.cc" target="_blank">UX Design Community Articles</a></li>
+              <li><a href="https://nngroup.com" target="_blank">Nielsen Norman Group Research</a></li>
+              <li><a href="https://smashingmagazine.com" target="_blank">Smashing Magazine Tutorials</a></li>
+            </ul>
+          </div>
+          
+          <div class="resource-category">
+            <h4>Web Accessibility</h4>
+            <ul>
+              <li><a href="https://webaim.org" target="_blank">WebAIM Accessibility Guidelines</a></li>
+              <li><a href="https://a11y.coffee" target="_blank">A11Y Coffee Accessibility Tips</a></li>
+              <li><a href="https://web.dev/accessibility" target="_blank">Web.dev Accessibility Guide</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-section">
+        <div class="nav-buttons">
+          <a href={`${import.meta.env.BASE_URL}site-design`} class="button is-light">← Back to Site Design</a>
+          <a href={`${import.meta.env.BASE_URL}site-design/updates`} class="button is-primary">View Updates →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  h1 {
+    color: #e8d5b7;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+
+  .content-section h2 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .content-section h4 {
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .resource-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+  }
+
+  .principles-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .principle-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #d4af37;
+  }
+
+  .learning-resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .resource-category {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+  }
+
+  .resource-category ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  .resource-category li {
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-category a {
+    color: #d4af37;
+    text-decoration: none;
+  }
+
+  .resource-category a:hover {
+    color: #e8d5b7;
+    text-decoration: underline;
+  }
+
+  .navigation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .button.is-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-primary {
+    background: #8b7355;
+    color: white;
+    border: 1px solid #8b7355;
+  }
+
+  .button.is-primary:hover {
+    background: #a0845f;
+  }
+
+  .button.is-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .button.is-info {
+    background: #5a7a8a;
+    color: white;
+    border: 1px solid #5a7a8a;
+  }
+
+  .button.is-info:hover {
+    background: #6b8a9a;
+  }
+
+  /* Add padding to body to prevent navbar overlap */
+  body {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+
+    .resource-grid, .learning-resources {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
