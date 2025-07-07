@@ -1,0 +1,313 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two-D Visualizations - Chapter 1 | Hacker1 v1.0</title>
+    <meta name="description" content="Chapter 1: Data as Revelation - Foundation principles of D3.js visualizations and meaningful data representation." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode two-d-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work/two-d`}>Two-D</a> → 
+        Chapter 1
+      </nav>
+      
+      <h1>Two-D Visualizations - Chapter 1: Data as Revelation</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>The Divine Order in Data</h2>
+        <p>
+          "For since the creation of the world God's invisible qualities—his eternal power and divine nature—have been clearly seen, being understood from what has been made." - Romans 1:20
+        </p>
+        <p>
+          Data visualization is the modern art of revealing hidden patterns and divine order 
+          within information. Through D3.js and mathematical representation, we transform 
+          raw data into meaningful insights that reflect the logical beauty of creation.
+        </p>
+        
+        <blockquote class="highlight">
+          "The heavens declare the glory of God; the skies proclaim the work of his hands." - Psalm 19:1
+        </blockquote>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>D3.js as Digital Canvas</h2>
+        <p>
+          Just as Michelangelo saw David within the marble, we use D3.js to reveal the 
+          stories hidden within datasets. Each visualization is both functional analysis 
+          and artistic expression, combining technical precision with aesthetic beauty.
+        </p>
+        
+        <h3>Core Visualization Principles:</h3>
+        <ul>
+          <li>Clarity over complexity in design</li>
+          <li>Truthful representation of data relationships</li>
+          <li>Interactive exploration enabling discovery</li>
+          <li>Aesthetic beauty serving functional purpose</li>
+        </ul>
+
+        <h3>Featured Visualization Types:</h3>
+        <div class="viz-showcase">
+          <div class="viz-item">
+            <div class="viz-demo">
+              <svg width="200" height="150" viewBox="0 0 200 150">
+                <!-- Bar Chart Demo -->
+                <rect x="20" y="70" width="15" height="60" fill="#D4AF37" opacity="0.8"/>
+                <rect x="40" y="50" width="15" height="80" fill="#8A5A5A" opacity="0.8"/>
+                <rect x="60" y="40" width="15" height="90" fill="#5A7A5A" opacity="0.8"/>
+                <rect x="80" y="60" width="15" height="70" fill="#7A5A7A" opacity="0.8"/>
+                <rect x="100" y="30" width="15" height="100" fill="#D4AF37" opacity="0.8"/>
+                <rect x="120" y="80" width="15" height="50" fill="#8A5A5A" opacity="0.8"/>
+                <rect x="140" y="45" width="15" height="85" fill="#5A7A5A" opacity="0.8"/>
+                <text x="100" y="145" text-anchor="middle" fill="#f0f0f0" font-size="12">Scripture Reading Patterns</text>
+              </svg>
+            </div>
+            <h4>Bar Charts</h4>
+            <p>Comparing categorical data with clarity and visual hierarchy.</p>
+          </div>
+          
+          <div class="viz-item">
+            <div class="viz-demo">
+              <svg width="200" height="150" viewBox="0 0 200 150">
+                <!-- Line Chart Demo -->
+                <polyline points="20,100 40,80 60,70 80,85 100,60 120,75 140,50 160,65 180,45" 
+                         fill="none" stroke="#D4AF37" stroke-width="3" opacity="0.8"/>
+                <circle cx="20" cy="100" r="3" fill="#D4AF37"/>
+                <circle cx="40" cy="80" r="3" fill="#D4AF37"/>
+                <circle cx="60" cy="70" r="3" fill="#D4AF37"/>
+                <circle cx="80" cy="85" r="3" fill="#D4AF37"/>
+                <circle cx="100" cy="60" r="3" fill="#D4AF37"/>
+                <circle cx="120" cy="75" r="3" fill="#D4AF37"/>
+                <circle cx="140" cy="50" r="3" fill="#D4AF37"/>
+                <circle cx="160" cy="65" r="3" fill="#D4AF37"/>
+                <circle cx="180" cy="45" r="3" fill="#D4AF37"/>
+                <text x="100" y="130" text-anchor="middle" fill="#f0f0f0" font-size="12">Spiritual Growth Timeline</text>
+              </svg>
+            </div>
+            <h4>Line Charts</h4>
+            <p>Tracking change over time with graceful curves and meaningful trends.</p>
+          </div>
+          
+          <div class="viz-item">
+            <div class="viz-demo">
+              <svg width="200" height="150" viewBox="0 0 200 150">
+                <!-- Scatter Plot Demo -->
+                <circle cx="40" cy="80" r="4" fill="#D4AF37" opacity="0.7"/>
+                <circle cx="60" cy="60" r="6" fill="#8A5A5A" opacity="0.7"/>
+                <circle cx="80" cy="70" r="5" fill="#5A7A5A" opacity="0.7"/>
+                <circle cx="100" cy="50" r="7" fill="#7A5A7A" opacity="0.7"/>
+                <circle cx="120" cy="65" r="4" fill="#D4AF37" opacity="0.7"/>
+                <circle cx="140" cy="45" r="6" fill="#8A5A5A" opacity="0.7"/>
+                <circle cx="160" cy="75" r="5" fill="#5A7A5A" opacity="0.7"/>
+                <text x="100" y="130" text-anchor="middle" fill="#f0f0f0" font-size="12">Prayer vs. Peace Correlation</text>
+              </svg>
+            </div>
+            <h4>Scatter Plots</h4>
+            <p>Revealing relationships and correlations between spiritual practices.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Interactive Storytelling</h2>
+        <p>
+          Like the parables of Jesus, effective data visualization tells stories that 
+          reveal deeper truths. Interactive elements allow users to explore data 
+          personally, discovering insights through guided investigation.
+        </p>
+        
+        <h3>Interaction Design Principles:</h3>
+        <div class="interaction-principles">
+          <div class="principle-item">
+            <h4>Progressive Disclosure</h4>
+            <p>Start with overview, then provide details on demand - like scripture study moving from general themes to specific verses.</p>
+          </div>
+          <div class="principle-item">
+            <h4>Contextual Guidance</h4>
+            <p>Provide helpful hints and explanations, guiding users like a shepherd leads his flock.</p>
+          </div>
+          <div class="principle-item">
+            <h4>Meaningful Animation</h4>
+            <p>Use transitions that enhance understanding, not distract - smooth and purposeful like divine orchestration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-section">
+        <div class="nav-buttons">
+          <a href={`${import.meta.env.BASE_URL}finished-work/graphic-ch1`} class="button is-light">← Previous: Graphic Chapter 1</a>
+          <a href={`${import.meta.env.BASE_URL}finished-work/three-d-ch1`} class="button is-primary">Next: Three-D Chapter 1 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  h1 {
+    color: #e8d5b7;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+
+  .content-section h2 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .content-section h3 {
+    color: #d4af37;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h4 {
+    color: #e8d5b7;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .highlight {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #d4af37;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .viz-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .viz-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+    text-align: center;
+  }
+
+  .viz-demo {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .interaction-principles {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .principle-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+  }
+
+  .navigation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .button.is-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-primary {
+    background: #8b7355;
+    color: white;
+    border: 1px solid #8b7355;
+  }
+
+  .button.is-primary:hover {
+    background: #a0845f;
+  }
+
+  /* Add padding to body to prevent navbar overlap */
+  body {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+
+    .viz-showcase {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
