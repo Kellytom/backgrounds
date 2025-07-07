@@ -68,7 +68,7 @@ const sampleGraphics = [
     <div class="container">
       <nav class="breadcrumb">
         <ul>
-          <li><a href="/" with-base>Home</a></li>
+          <li><a href={`${import.meta.env.BASE_URL}`}>Home</a></li>
           <li class="is-active"><a href="#" aria-current="page">Finished Work</a></li>
         </ul>
       </nav>
@@ -143,7 +143,7 @@ const sampleGraphics = [
                   <cite>— {item.source}</cite>
                 </div>
               ))}
-              <a href="/finished-work/written" with-base class="button is-link">View All Written Works</a>
+              <a href={`${import.meta.env.BASE_URL}finished-work/written`} class="button is-link">View All Written Works</a>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@ const sampleGraphics = [
                   </div>
                 </div>
               ))}
-              <a href="/finished-work/graphic" with-base class="button is-info">View All Graphics</a>
+              <a href={`${import.meta.env.BASE_URL}finished-work/graphic`} class="button is-info">View All Graphics</a>
             </div>
           </div>
         </div>
@@ -196,12 +196,12 @@ const sampleGraphics = [
       <nav class="level">
         <div class="level-left">
           <div class="level-item">
-            <a href="/" with-base class="button">← Back to Central Site</a>
+            <a href={`${import.meta.env.BASE_URL}`} class="button">← Back to Central Site</a>
           </div>
         </div>
         <div class="level-right">
           <div class="level-item">
-            <a href="/finished-work/written" with-base class="button is-primary">Start with Written Works →</a>
+            <a href={`${import.meta.env.BASE_URL}finished-work/written`} class="button is-primary">Start with Written Works →</a>
           </div>
         </div>
       </nav>

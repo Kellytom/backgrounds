@@ -12,7 +12,7 @@ import '../styles/main.css';
   <body class="dark-mode site-engineering-background">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="/" with-base>Home</a> → <a href="/site-engineering" with-base>Site Engineering</a> → Chapter 1
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → <a href={`${import.meta.env.BASE_URL}site-engineering`}>Site Engineering</a> → Chapter 1
       </nav>
       
       <h1>Site Engineering - Chapter 1: Technical Foundations</h1>
@@ -70,7 +70,7 @@ import '../styles/main.css';
       </div>
 
       <footer>
-        <a href="/site-engineering" with-base class="back-link">← Back to Site Engineering</a>
+        <a href={`${import.meta.env.BASE_URL}site-engineering`} class="back-link">← Back to Site Engineering</a>
       </footer>
     </div>
   </body>

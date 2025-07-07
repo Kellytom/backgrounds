@@ -12,7 +12,7 @@ import '../styles/main.css';
   <body class="dark-mode in-production-background">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="/" with-base>Home</a> → <a href="/in-production" with-base>In Production</a> → Chapter 1
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → <a href={`${import.meta.env.BASE_URL}in-production`}>In Production</a> → Chapter 1
       </nav>
       
       <h1>In Production - Chapter 1: Deployment & Maintenance</h1>
@@ -73,7 +73,7 @@ import '../styles/main.css';
       </div>
 
       <footer>
-        <a href="/in-production" with-base class="back-link">← Back to In Production</a>
+        <a href={`${import.meta.env.BASE_URL}in-production`} class="back-link">← Back to In Production</a>
       </footer>
     </div>
   </body>

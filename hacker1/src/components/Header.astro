@@ -27,7 +27,7 @@ const demoDropdown = [
 <nav class="custom-navbar">
   <div class="navbar-container">
     <div class="navbar-brand">
-      <a href="/" with-base>
+      <a href={`${import.meta.env.BASE_URL}`}>
         <Icon name="star" size="1.2em" />
         <span>Hacker1</span>
       </a>
@@ -73,7 +73,7 @@ const demoDropdown = [
           </div>
         </div>
 
-        <a href="/reference/example/" with-base>Reference</a>
+        <a href={`${import.meta.env.BASE_URL}reference/example/`}>Reference</a>
       </div>
     </div>
     <div class="navbar-actions">
