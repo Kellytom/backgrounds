@@ -1,4 +1,6 @@
 ---
+import Navbar from './Navbar.astro';
+
 export interface Props {
   name: string;
   description: string;
@@ -88,6 +90,9 @@ const { name, description, chapterLink } = Astro.props;
     </div>
   </footer>
 </div>
+
+<!-- Add the custom floating bottom navbar -->
+<Navbar />
 
 <style>
   .satellite-site {
