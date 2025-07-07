@@ -7,19 +7,19 @@ import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
 
 // Define dropdown menus
 const mainDropdown = [
-  { text: 'Starlight Showcase', href: '/starlight-showcase/' },
-  { text: 'DaisyUI Showcase', href: '/daisyui-showcase/' },
-  { text: 'CSS Guide', href: '/starlight-css-guide/' },
+  { text: 'Starlight Showcase', href: `${import.meta.env.BASE_URL}starlight-showcase/` },
+  { text: 'DaisyUI Showcase', href: `${import.meta.env.BASE_URL}daisyui-showcase/` },
+  { text: 'CSS Guide', href: `${import.meta.env.BASE_URL}starlight-css-guide/` },
 ];
 
 const guideDropdown = [
-  { text: 'Example Guide', href: '/guides/example/' },
+  { text: 'Example Guide', href: `${import.meta.env.BASE_URL}guides/example/` },
 ];
 
 const demoDropdown = [
-  { text: 'Backgrounds', href: '/backgrounds' },
-  { text: 'Bulma Demo', href: '/bulma' },
-  { text: 'Markdown Demo', href: '/markdown-demo' },
+  { text: 'Backgrounds', href: `${import.meta.env.BASE_URL}backgrounds` },
+  { text: 'Bulma Demo', href: `${import.meta.env.BASE_URL}bulma` },
+  { text: 'Markdown Demo', href: `${import.meta.env.BASE_URL}markdown-demo` },
 ];
 ---
 

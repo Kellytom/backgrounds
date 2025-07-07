@@ -6,31 +6,31 @@ const subcategories = [
   {
     name: 'Written',
     description: 'Text content including scripture, classics, and literary works',
-    link: '/finished-work/written',
+    link: `${import.meta.env.BASE_URL}finished-work/written`,
     icon: '📜'
   },
   {
     name: 'Graphic',
     description: 'SVG graphics generated from mathematical and spiritual concepts',
-    link: '/finished-work/graphic',
+    link: `${import.meta.env.BASE_URL}finished-work/graphic`,
     icon: '🎨'
   },
   {
     name: 'Two-D',
     description: 'D3.js visualizations and two-dimensional data representations',
-    link: '/finished-work/two-d',
+    link: `${import.meta.env.BASE_URL}finished-work/two-d`,
     icon: '📊'
   },
   {
     name: 'Three-D',
     description: 'Three.js 3D models and scientific visualizations',
-    link: '/finished-work/three-d',
+    link: `${import.meta.env.BASE_URL}finished-work/three-d`,
     icon: '🧊'
   },
   {
     name: 'Action',
     description: 'Interactive game-like experiences and animations',
-    link: '/finished-work/action',
+    link: `${import.meta.env.BASE_URL}finished-work/action`,
     icon: '🎮'
   }
 ];
@@ -52,12 +52,12 @@ const sampleWritten = [
 const sampleGraphics = [
   {
     title: "Sacred Circle",
-    svgPath: "/assets/svgs/sacred-circle.svg",
+    svgPath: `${import.meta.env.BASE_URL}assets/svgs/sacred-circle.svg`,
     description: "A perfect circle representing unity and infinity"
   },
   {
     title: "Fibonacci Spiral",
-    svgPath: "/assets/svgs/fibonacci-spiral.svg", 
+    svgPath: `${import.meta.env.BASE_URL}assets/svgs/fibonacci-spiral.svg`, 
     description: "The golden spiral found throughout nature"
   }
 ];
