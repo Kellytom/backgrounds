@@ -1,0 +1,402 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three-D Models - Chapter 1 | Hacker1 v1.0</title>
+    <meta name="description" content="Chapter 1: Dimensional Reality - Foundation principles of Three.js 3D modeling and scientific visualization." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode three-d-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work/three-d`}>Three-D</a> → 
+        Chapter 1
+      </nav>
+      
+      <h1>Three-D Models - Chapter 1: Dimensional Reality</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>The Architecture of Creation</h2>
+        <p>
+          "By faith we understand that the universe was formed at God's command, so that what is seen was not made out of what was visible." - Hebrews 11:3
+        </p>
+        <p>
+          Three-dimensional modeling allows us to explore the spatial reality of God's creation, 
+          from molecular structures to celestial mechanics. Through Three.js, we build digital 
+          temples of understanding that reveal the architectural beauty of the physical universe.
+        </p>
+        
+        <blockquote class="highlight">
+          "The Lord by wisdom founded the earth; by understanding he established the heavens." - Proverbs 3:19
+        </blockquote>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>Three.js as Digital Sculpting</h2>
+        <p>
+          Like God breathing life into clay, we use Three.js to breathe digital life into 
+          geometric forms. Each 3D model is both scientific instrument and artistic expression, 
+          revealing truths about structure, form, and dimensional relationships.
+        </p>
+        
+        <h3>Core 3D Principles:</h3>
+        <ul>
+          <li>Geometric accuracy reflecting divine precision</li>
+          <li>Lighting that reveals form and depth</li>
+          <li>Interactive exploration enabling understanding</li>
+          <li>Scientific accuracy in modeling natural phenomena</li>
+        </ul>
+
+        <h3>Featured 3D Categories:</h3>
+        <div class="model-showcase">
+          <div class="model-item">
+            <div class="model-demo">
+              <div class="placeholder-3d">
+                <div class="cube">
+                  <div class="face front"></div>
+                  <div class="face back"></div>
+                  <div class="face right"></div>
+                  <div class="face left"></div>
+                  <div class="face top"></div>
+                  <div class="face bottom"></div>
+                </div>
+              </div>
+            </div>
+            <h4>Geometric Solids</h4>
+            <p>Platonic solids and sacred geometry in three-dimensional space.</p>
+          </div>
+          
+          <div class="model-item">
+            <div class="model-demo">
+              <div class="placeholder-3d">
+                <div class="sphere-system">
+                  <div class="sphere large"></div>
+                  <div class="sphere medium"></div>
+                  <div class="sphere small"></div>
+                </div>
+              </div>
+            </div>
+            <h4>Molecular Models</h4>
+            <p>Atomic and molecular structures revealing the building blocks of creation.</p>
+          </div>
+          
+          <div class="model-item">
+            <div class="model-demo">
+              <div class="placeholder-3d">
+                <div class="spiral-model">
+                  <div class="spiral-path"></div>
+                </div>
+              </div>
+            </div>
+            <h4>Astronomical Models</h4>
+            <p>Planetary motion and celestial mechanics displaying cosmic order.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Interactive 3D Experiences</h2>
+        <p>
+          "When I consider your heavens, the work of your fingers, the moon and the stars, 
+          which you have set in place..." - Psalm 8:3. Interactive 3D models allow us to 
+          examine creation from impossible perspectives, rotating, zooming, and exploring 
+          the intricate details of God's handiwork.
+        </p>
+        
+        <h3>Interaction Features:</h3>
+        <div class="interaction-features">
+          <div class="feature-item">
+            <h4>Orbital Controls</h4>
+            <p>Mouse and touch controls for examining models from every angle, like walking around a sculpture in a gallery.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Dynamic Lighting</h4>
+            <p>Adjustable lighting to reveal surface details and create dramatic shadows that enhance understanding.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Animation Systems</h4>
+            <p>Time-based animations showing processes like molecular bonding or planetary orbits.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Cross-Sections</h4>
+            <p>Cut-away views revealing internal structures, from crystal lattices to anatomical details.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-section">
+        <div class="nav-buttons">
+          <a href={`${import.meta.env.BASE_URL}finished-work/two-d-ch1`} class="button is-light">← Previous: Two-D Chapter 1</a>
+          <a href={`${import.meta.env.BASE_URL}finished-work/action-ch1`} class="button is-primary">Next: Action Chapter 1 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  h1 {
+    color: #e8d5b7;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+
+  .content-section h2 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .content-section h3 {
+    color: #d4af37;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h4 {
+    color: #e8d5b7;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .highlight {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #d4af37;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .model-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .model-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+    text-align: center;
+  }
+
+  .model-demo {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    align-items: center;
+  }
+
+  .placeholder-3d {
+    perspective: 600px;
+  }
+
+  .cube {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 4s infinite linear;
+  }
+
+  .face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #D4AF37;
+    opacity: 0.7;
+  }
+
+  .front { transform: rotateY(0deg) translateZ(30px); background: rgba(212, 175, 55, 0.1); }
+  .back { transform: rotateY(180deg) translateZ(30px); background: rgba(138, 90, 90, 0.1); }
+  .right { transform: rotateY(90deg) translateZ(30px); background: rgba(90, 122, 90, 0.1); }
+  .left { transform: rotateY(-90deg) translateZ(30px); background: rgba(122, 90, 122, 0.1); }
+  .top { transform: rotateX(90deg) translateZ(30px); background: rgba(212, 175, 55, 0.2); }
+  .bottom { transform: rotateX(-90deg) translateZ(30px); background: rgba(138, 90, 90, 0.2); }
+
+  .sphere-system {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .sphere {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #8A5A5A;
+    animation: orbit 3s infinite linear;
+  }
+
+  .sphere.large {
+    width: 30px;
+    height: 30px;
+    background: rgba(212, 175, 55, 0.3);
+    top: 25px;
+    left: 25px;
+  }
+
+  .sphere.medium {
+    width: 20px;
+    height: 20px;
+    background: rgba(138, 90, 90, 0.3);
+    top: 5px;
+    left: 30px;
+    animation-duration: 2s;
+  }
+
+  .sphere.small {
+    width: 10px;
+    height: 10px;
+    background: rgba(90, 122, 90, 0.3);
+    top: 35px;
+    left: 5px;
+    animation-duration: 1.5s;
+  }
+
+  .spiral-model {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #7A5A7A;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 5s infinite linear;
+  }
+
+  .spiral-path {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 8px;
+    left: 8px;
+    border: 2px solid #D4AF37;
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .interaction-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .feature-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+  }
+
+  .navigation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .button.is-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-primary {
+    background: #8b7355;
+    color: white;
+    border: 1px solid #8b7355;
+  }
+
+  .button.is-primary:hover {
+    background: #a0845f;
+  }
+
+  @keyframes rotate {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+  }
+
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+  }
+
+  /* Add padding to body to prevent navbar overlap */
+  body {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+
+    .model-showcase, .interaction-features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

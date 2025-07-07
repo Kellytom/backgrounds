@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="deferred.css" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      --primary-bg: #0A0A0A;
+      --secondary-bg: #1C1C1C;
+      --chartres-blue: #003366;
+      --chartres-dark-blue: #001122;
+      --chartres-red: #CC0000;
+      --chartres-yellow: #FFD700;
+      --chartres-green: #006600;
+      --chartres-purple: #663399;
+      --chartres-band: #000A1A;
+      --burnt-sienna: #8A4B08;
+      --french-raw-umber: #826644;
+      --burnt-umber: #80461B;
+      --dark-royal-purple: #3B006B;
+      --dark-royal-purple-rgba: rgba(59, 0, 107, 0.7);
+      --coral: #FF5C5C;
+      --naples-yellow: #FADA5E;
+      --burnt-umber-band: #4A270F;
+      --dark-brown: #2A1708;
+      --text-primary: #FFFFFF;
+      --text-small: #E0E0E0;
+      --text-dark: #333333;
+      /* Colors for fabric-like patterns */
+      --granite-gray-1: #4A4A4A;
+      --granite-gray-2: #6B6B6B;
+      --marble-brown-1: #D2B48C;
+      --marble-brown-2: #C4A484;
+      --fabric-beige-1: #F5F5DC;
+      --fabric-beige-2: #E6D7B9;
+      --stained-glass-blue-1: #003366;
+      --stained-glass-blue-2: #004488;
+    }
+    body {
+      background-color: var(--primary-bg);
+      color: var(--text-primary);
+      font-family: 'EB Garamond', serif;
+      margin: 1px 2rem;
+      padding-bottom: 4rem;
+    }
+    .menu-bar {
+      background: linear-gradient(90deg, var(--chartres-blue) 20%, var(--chartres-purple) 50%, var(--chartres-dark-blue) 80%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      margin: 1px 0;
+    }
+    .menu-bar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: var(--chartres-band);
+    }
+    .menu-bar h1 {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      opacity: 0.9;
+      margin: 1px 0;
+    }
+    .menu-bar a span {
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin: 1px 0;
+    }
+    .bottom-bar {
+      background: linear-gradient(90deg, var(--burnt-sienna) 20%, var(--french-raw-umber) 50%, var(--burnt-umber) 80%);
+      box-shadow: 0 -4px 8px var(--dark-royal-purple-rgba);
+      padding: 0.5rem 1rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      margin: 1px 0;
+    }
+    .bottom-bar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: var(--burnt-umber-band);
+    }
+    .bottom-bar a {
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+      margin: 1px 0;
+    }
+    .bottom-bar a:hover {
+      color: var(--naples-yellow);
+    }
+    .bottom-bar svg {
+      fill: var(--burnt-umber);
+      width: 16px;
+      height: 16px;
+      margin-right: 0.5rem;
+      transition: fill 0.3s ease;
+    }
+    .bottom-bar a:hover svg {
+      fill: var(--naples-yellow);
+    }
+    .version-label {
+      font-size: 0.6rem;
+      color: var(--text-primary);
+      opacity: 0.7;
+      margin: 1px 0;
+    }
+    .card {
+      background: rgba(28, 28, 28, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      border-left: 1px solid var(--chartres-blue);
+      border-bottom: 1px solid var(--chartres-blue);
+      position: relative;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      padding: 0.5rem;
+      margin: 1px 0;
+    }
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+      border-left: 1px solid var(--chartres-red);
+      border-bottom: 1px solid var(--chartres-red);
+    }
+    .card:hover h3,
+    .card:hover p {
+      color: var(--text-dark);
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, rgba(0, 51, 102, 0.7));
+      z-index: -1;
+    }
+    .card-v1 {
+      background: rgba(28, 28, 28, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(128, 70, 27, 0.6), 0 8px 16px var(--dark-royal-purple-rgba);
+      border-left: 1px solid var(--dark-royal-purple);
+      border-bottom: 1px solid var(--dark-royal-purple);
+      position: relative;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      padding: 0.5rem;
+      margin: 1px 0;
+    }
+    .card-v1:hover {
+      box-shadow: 0 6px 12px rgba(128, 70, 27, 0.7), 0 10px 20px var(--dark-royal-purple-rgba);
+      border-left: 1px solid var(--coral);
+      border-bottom: 1px solid var(--coral);
+    }
+    .card-v1:hover h3,
+    .card-v1:hover p {
+      color: var(--text-dark);
+    }
+    .card-v1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, rgba(128, 70, 27, 0.7));
+      z-index: -1;
+    }
+    .card-v2 {
+      background: rgba(28, 28, 28, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 8px rgba(130, 102, 68, 0.6), 0 8px 16px var(--dark-royal-purple-rgba);
+      border-left: 1px solid var(--french-raw-umber);
+      border-bottom: 1px solid var(--french-raw-umber);
+      position: relative;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      padding: 0.5rem;
+      margin: 1px 0;
+    }
+    .card-v2:hover {
+      box-shadow: 0 6px 12px rgba(130, 102, 68, 0.7), 0 10px 20px var(--dark-royal-purple-rgba);
+      border-left: 1px solid var(--chartres-yellow);
+      border-bottom: 1px solid var(--chartres-yellow);
+    }
+    .card-v2:hover h3,
+    .card-v2:hover p {
+      color: var(--text-dark);
+    }
+    .card-v2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, rgba(130, 102, 68, 0.7));
+      z-index: -1;
+    }
+    .card p,
+    .card-v1 p,
+    .card-v2 p {
+      color: var(--text-small);
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+      margin: 1px 0;
+    }
+    .svg-icon {
+      fill: var(--chartres-blue);
+      opacity: 0.7;
+      transition: fill 0.3s ease, opacity 0.3s ease;
+    }
+    .svg-icon:hover {
+      fill: var(--chartres-red);
+      opacity: 1;
+    }
+    .svg-icon-v1 {
+      fill: var(--burnt-umber);
+      opacity: 0.7;
+      transition: fill 0.3s ease, opacity 0.3s ease;
+    }
+    .svg-icon-v1:hover {
+      fill: var(--naples-yellow);
+      opacity: 1;
+    }
+    .svg-icon-v2 {
+      fill: var(--french-raw-umber);
+      opacity: 0.7;
+      transition: fill 0.3s ease, opacity 0.3s ease;
+    }
+    .svg-icon-v2:hover {
+      fill: var(--chartres-yellow);
+      opacity: 1;
+    }
+    .large-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      opacity: 0.85;
+      letter-spacing: 0.05em;
+      margin: 1px 0;
+    }
+    .medium-text {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin: 1px 0;
+    }
+    .small-text {
+      font-size: 0.9rem;
+      margin: 1px 0;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.02);
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      margin: 1px 0;
+    }
+    section > div.max-w-5xl {
+      margin: 1px 2rem;
+    }
+    .article-container {
+      background: linear-gradient(135deg, var(--chartres-blue), var(--dark-brown));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-left: 1px solid var(--chartres-blue);
+      border-bottom: 1px solid var(--chartres-blue);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      position: relative;
+      margin: 1px 2rem;
+    }
+    .article-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, rgba(0, 51, 102, 0.7));
+      z-index: -1;
+    }
+    h2, h3, h4, p, li {
+      margin: 1px 0;
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+      .card, .card-v1, .card-v2, .article-container {
+        background: rgba(28, 28, 28, 0.5);
+      }
+    }
+    /* Texture styles for fabric-like patterns */
+    .texture-granite {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--granite-gray-1),
+        var(--granite-gray-1) 10px,
+        var(--granite-gray-2) 10px,
+        var(--granite-gray-2) 20px
+      );
+      background-color: var(--chartres-blue); /* Fallback */
+      background-blend-mode: overlay;
+      opacity: 0.9;
+    }
+    .texture-marble {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--marble-brown-1),
+        var(--marble-brown-1) 10px,
+        var(--marble-brown-2) 10px,
+        var(--marble-brown-2) 20px
+      );
+      background-color: var(--burnt-umber); /* Fallback */
+      background-blend-mode: overlay;
+      opacity: 0.9;
+    }
+    .texture-fabric {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--fabric-beige-1),
+        var(--fabric-beige-1) 10px,
+        var(--fabric-beige-2) 10px,
+        var(--fabric-beige-2) 20px
+      );
+      background-color: var(--french-raw-umber); /* Fallback */
+      background-blend-mode: overlay;
+      opacity: 0.9;
+    }
+    .texture-stained-glass {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--stained-glass-blue-1),
+        var(--stained-glass-blue-1) 10px,
+        var(--stained-glass-blue-2) 10px,
+        var(--stained-glass-blue-2) 20px
+      );
+      background-color: var(--chartres-blue); /* Fallback */
+      background-blend-mode: overlay;
+      opacity: 0.9;
+    }
+    /* Demo-specific text opacity */
+    .live-demo-text-1,
+    .live-demo-text-2,
+    .live-demo-text-3,
+    .live-demo-text-4,
+    .live-demo-text-5,
+    .live-demo-text-6,
+    .live-demo-text-7,
+    .live-demo-text-8,
+    .live-demo-text-9,
+    .live-demo-text-10 {
+      opacity: 0.85; /* Semi-opaque for gradient visibility */
+      color: var(--text-small);
+      transition: opacity 0.3s ease;
+    }
+    .live-demo-1:hover .live-demo-text-1,
+    .live-demo-2:hover .live-demo-text-2,
+    .live-demo-3:hover .live-demo-text-3,
+    .live-demo-4:hover .live-demo-text-4,
+    .live-demo-5:hover .live-demo-text-5,
+    .live-demo-6:hover .live-demo-text-6,
+    .live-demo-7:hover .live-demo-text-7,
+    .live-demo-8:hover .live-demo-text-8,
+    .live-demo-9:hover .live-demo-text-9,
+    .live-demo-10:hover .live-demo-text-10 {
+      opacity: 1; /* Full opacity on hover for clarity */
+    }
+  </style>
+</head>
+<body>
+  <!-- Version 1.7.4: Embedded texture styles with CSS fabric-like patterns, adjusted demo text opacity to 0.85, updated to v1.7.4 -->
+  <nav class="menu-bar">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <h1 class="text-lg font-bold">Dark Mode</h1>
+      <div class="flex space-x-6">
+        <a href="#home" class="flex items-center">
+          <svg class="svg-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            <path stroke="var(--chartres-purple)" stroke-width="1" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+          <span class="small-text">Home</span>
+        </a>
+        <a href="#features" class="flex items-center">
+          <svg class="svg-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            <path stroke="var(--chartres-purple)" stroke-width="1" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span class="small-text">Features</span>
+        </a>
+        <a href="#more-features" class="flex items-center">
+          <svg class="svg-icon w-5 h-5 mr-2" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            <path stroke="var(--chartres-purple)" stroke-width="1" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <span class="small-text">More Features</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="flex flex-col justify-center text-left">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">Elegant Dark Mode Design</h2>
+      <p class="medium-text max-w-2xl">Experience a refined interface inspired by Chartres stained glass, with vibrant colors and delicate typography.</p>
+    </div>
+  </section>
+
+  <section id="features" class="bg-[var(--secondary-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">Our Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--chartres-blue)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path stroke="var(--chartres-purple)" stroke-width="1" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Vibrant Colors</h3>
+          </div>
+          <p class="small-text">Rich Chartres-inspired colors create a vivid, stained glass-like experience.</p>
+        </div>
+        <div class="card rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--chartres-blue)" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+              <path stroke="var(--chartres-purple)" stroke-width="1" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Refined Typography</h3>
+          </div>
+          <p class="small-text">EB Garamond font with semi-opaque text enhances readability and elegance.</p>
+        </div>
+        <div class="card rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--chartres-blue)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <path stroke="var(--chartres-purple)" stroke-width="1" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Glass-like Effects</h3>
+          </div>
+          <p class="small-text">Translucent cards mimic the luminous quality of stained glass windows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more-features" class="bg-[var(--primary-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">More Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-v1 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v1 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--burnt-umber)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path stroke="var(--dark-royal-purple)" stroke-width="1" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Warm Shadows</h3>
+          </div>
+          <p class="small-text">Classical still life-inspired shadows add depth and realism.</p>
+        </div>
+        <div class="card-v1 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v1 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--burnt-umber)" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+              <path stroke="var(--dark-royal-purple)" stroke-width="1" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Earthy Tones</h3>
+          </div>
+          <p class="small-text">Burnt Sienna and Umber hues evoke a natural, timeless aesthetic.</p>
+        </div>
+        <div class="card-v1 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v1 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--burnt-umber)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <path stroke="var(--dark-royal-purple)" stroke-width="1" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Warm Accents</h3>
+          </div>
+          <p class="small-text">Coral and yellow highlights add warmth and vibrancy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="additional-features" class="bg-[var(--secondary-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">Additional Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-v2 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v2 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--french-raw-umber)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path stroke="var(--chartres-green)" stroke-width="1" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Earthy Depth</h3>
+          </div>
+          <p class="small-text">French Raw Umber tones add a grounded, classical aesthetic.</p>
+        </div>
+        <div class="card-v2 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v2 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--french-raw-umber)" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+              <path stroke="var(--chartres-green)" stroke-width="1" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Rich Shadows</h3>
+          </div>
+          <p class="small-text">Dark Royal Purple shadows enhance depth and elegance.</p>
+        </div>
+        <div class="card-v2 rounded-xl hover-scale">
+          <div class="flex items-center">
+            <svg class="svg-icon-v2 w-6 h-6 mr-3" viewBox="0 0 24 24">
+              <path fill="var(--french-raw-umber)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <path stroke="var(--chartres-green)" stroke-width="1" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <h3 class="text-lg font-semibold opacity-0.9">Subtle Accents</h3>
+          </div>
+          <p class="small-text">Green and yellow accents add vibrancy without overwhelming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depth-suggestions" class="bg-[var(--primary-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">Enhancing Design Depth</h2>
+      <div class="article-container" data-lazy>
+        <article>
+          <h3 class="text-lg font-semibold opacity-0.9">Suggestions for Adding Depth to Dark Mode Design</h3>
+          <p class="medium-text">This section outlines ten suggestions to enhance the depth of the Dark Mode web application, tailored to its Chartres stained glass and classical still life aesthetics.</p>
+          <ol class="list-decimal pl-6">
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Layered Card Shadows with Offset</h4>
+              <p class="small-text">Add multiple, offset shadows to cards to simulate stacked glass panes.</p>
+              <p class="small-text"><strong>Implementation:</strong> Update CSS: <code>box-shadow</code> with multiple layers.</p>
+              <p class="small-text"><strong>Impact:</strong> Creates a 3D effect, enhancing card prominence.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-1 {
+                    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6),
+                                -2px 2px 6px rgba(0, 0, 0, 0.4),
+                                0 8px 16px rgba(0, 0, 0, 0.3);
+                    background: rgba(28, 28, 28, 0.3);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    transition: box-shadow 0.3s ease;
+                  }
+                  .live-demo-1:hover {
+                    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7),
+                                -4px 4px 8px rgba(0, 0, 0, 3);
+                    background: rgba(28, 28, 28, 0.3);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    transition: box-shadow 0.3s ease;
+                  }
+                  .live-demo-1:hover {
+                    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7),
+                                -4px 4px 8px rgba(0, 0, 0, 0.5),
+                                0 10px 20px rgba(0, 0, 0, 0.4);
+                  }
+                </style>
+                <div class="live-demo-1">
+                  <p class="live-demo-text-1">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Beveled Card Edges</h4>
+              <p class="small-text">Apply a gradient border to simulate beveled glass edges.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>border-image</code> with gradient.</p>
+              <p class="small-text"><strong>Impact:</strong> Adds tactile depth.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-2 {
+                    border-width: 2px;
+                    border-style: solid;
+                    border-image: linear-gradient(45deg, #003366, #663399) 1;
+                    background: rgba(28, 28, 28, 0.3);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                  }
+                </style>
+                <div class="live-demo-2">
+                  <p class="live-demo-text-2">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~15ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Dynamic Light Source Gradient</h4>
+              <p class="small-text">Add a radial gradient to mimic light through stained glass.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>radial-gradient</code> with Chartres colors.</p>
+              <p class="small-text"><strong>Impact:</strong> Enhances luminosity.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-3 {
+                    background: radial-gradient(circle at 10% 20%, rgba(0, 51, 102, 0.2), rgba(28, 28, 28, 0.3));
+                    backdrop-filter: blur(10px);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                  }
+                </style>
+                <div class="live-demo-3">
+                  <p class="live-demo-text-3">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Medium, Load Time: ~20ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Text Embossing</h4>
+              <p class="small-text">Apply <code>text-shadow</code> for an embossed effect.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use dual shadows, remove on hover.</p>
+              <p class="small-text"><strong>Impact:</strong> Adds tactile depth to typography.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-4 {
+                    background: rgba(28, 28, 28, 0.3);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                  }
+                  .live-demo-text-4 {
+                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), -1px -1px 1px rgba(255, 255, 255, 0.2);
+                    transition: text-shadow 0.3s ease;
+                  }
+                  .live-demo-4:hover .live-demo-text-4 {
+                    text-shadow: none;
+                  }
+                </style>
+                <div class="live-demo-4">
+                  <p class="live-demo-text-4">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Granite Background Texture</h4>
+              <p class="small-text">Apply a granite-like CSS pattern with alternating grays.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>repeating-linear-gradient</code> from embedded styles.</p>
+              <p class="small-text"><strong>Impact:</strong> Creates a tactile, stone-like feel.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-5 {
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    background-color: var(--chartres-blue);
+                  }
+                </style>
+                <div class="live-demo-5 texture-granite">
+                  <p class="live-demo-text-5">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Marble Background Texture</h4>
+              <p class="small-text">Apply a marble-like CSS pattern with alternating light browns.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>repeating-linear-gradient</code> from embedded styles.</p>
+              <p class="small-text"><strong>Impact:</strong> Adds elegance and depth.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-6 {
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    background-color: var(--burnt-umber);
+                  }
+                </style>
+                <div class="live-demo-6 texture-marble">
+                  <p class="live-demo-text-6">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Inset Shadows for Navigation Bars</h4>
+              <p class="small-text">Add enhanced inset shadows for a recessed effect.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>box-shadow: inset</code> with Chartres colors.</p>
+              <p class="small-text"><strong>Impact:</strong> Enhances bar depth.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-7 {
+                    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 -4px 8px rgba(0, 51, 102, 0.3);
+                    background: linear-gradient(90deg, #003366, #663399);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                  }
+                </style>
+                <div class="live-demo-7">
+                  <p class="live-demo-text-7">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Subtle Grain Texture Overlay</h4>
+              <p class="small-text">Apply a canvas-like grain texture to cards.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>background-image</code> with blend mode.</p>
+              <p class="small-text"><strong>Impact:</strong> Adds tactile realism.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-8 {
+                    background: rgba(28, 28, 28, 0.3);
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                  }
+                </style>
+                <div class="live-demo-8">
+                  <p class="live-demo-text-8">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Medium, Load Time: ~25ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Fabric Background Texture</h4>
+              <p class="small-text">Apply a fabric-like CSS pattern with alternating beiges.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>repeating-linear-gradient</code> from embedded styles.</p>
+              <p class="small-text"><strong>Impact:</strong> Adds tactile softness.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-9 {
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    background-color: var(--french-raw-umber);
+                  }
+                </style>
+                <div class="live-demo-9 texture-fabric">
+                  <p class="live-demo-text-9">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Low, Load Time: ~10ms.</p>
+            </li>
+            <li>
+              <h4 class="text-base font-semibold opacity-0.9">Stained Glass Background Texture</h4>
+              <p class="small-text">Apply a stained glass-like CSS pattern with alternating blues.</p>
+              <p class="small-text"><strong>Implementation:</strong> Use <code>repeating-linear-gradient</code> from embedded styles.</p>
+              <p class="small-text"><strong>Impact:</strong> Enhances stained glass realism.</p>
+              <div class="code-example" data-lazy>
+                <style>
+                  .live-demo-10 {
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    backdrop-filter: blur(10px);
+                    background-color: var(--chartres-blue);
+                  }
+                </style>
+                <div class="live-demo-10 texture-stained-glass">
+                  <p class="live-demo-text-10">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <p class="small-text italic">Resource Intensity: Medium, Load Time: ~15ms.</p>
+            </li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="flex flex-col justify-center text-left">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="large-text">About Our Design</h2>
+      <p class="medium-text max-w-2xl">Inspired by Chartres stained glass and classical still life, our interface blends vibrant colors, glass-like elements, and elegant typography.</p>
+    </div>
+  </section>
+
+  <footer class="bottom-bar">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <div class="flex space-x-6">
+        <a href="#about" class="flex items-center small-text">
+          <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path fill="var(--burnt-umber)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+          </svg>
+          About
+        </a>
+        <a href="#contact" class="flex items-center small-text">
+          <svg
+
+ class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path fill="var(--burnt-umber)" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Contact
+        </a>
+        <a href="#privacy" class="flex items-center small-text">
+          <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path fill="var(--burnt-umber)" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg>
+          Privacy
+        </a>
+        <a href="#terms" class="flex items-center small-text">
+          <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path fill="var(--burnt-umber)" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+          </svg>
+          Terms
+        </a>
+      </div>
+      <span class="version-label">v1.7.4</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lazyElements = document.querySelectorAll('[data-lazy]');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('loaded');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '100px' });
+      lazyElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

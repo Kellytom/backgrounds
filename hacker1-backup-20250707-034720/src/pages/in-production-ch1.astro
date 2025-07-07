@@ -1,0 +1,80 @@
+---
+import '../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In Production - Chapter 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode in-production-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → <a href={`${import.meta.env.BASE_URL}in-production`}>In Production</a> → Chapter 1
+      </nav>
+      
+      <h1>In Production - Chapter 1: Deployment & Maintenance</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>The Live Environment</h2>
+        <p>
+          "By failing to prepare, you are preparing to fail." - Benjamin Franklin
+        </p>
+        
+        <blockquote class="highlight">
+          "The plans of the diligent lead to profit as surely as haste leads to poverty." - Proverbs 21:5
+        </blockquote>
+        
+        <p>
+          Production deployment is where theory meets reality. Every decision made in design 
+          and engineering is tested against real users, real data, and real constraints.
+        </p>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>Deployment Strategy</h2>
+        <h3>Production Checklist:</h3>
+        <ul>
+          <li>Performance optimization and compression</li>
+          <li>SSL certificate configuration</li>
+          <li>CDN setup for global distribution</li>
+          <li>Error monitoring and logging</li>
+          <li>Backup and recovery procedures</li>
+          <li>Security hardening and audits</li>
+        </ul>
+        
+        <p>
+          "Measure twice, cut once" applies doubly to production deployments. 
+          Every change should be tested, staged, and verified before reaching users.
+        </p>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Monitoring & Analytics</h2>
+        <p>
+          "What gets measured gets managed." - Peter Drucker
+        </p>
+        
+        <h3>Key Metrics:</h3>
+        <ul>
+          <li>Core Web Vitals (LCP, FID, CLS)</li>
+          <li>Error rates and stack traces</li>
+          <li>User flow completion rates</li>
+          <li>API response times</li>
+          <li>Resource utilization</li>
+        </ul>
+        
+        <p>
+          Like a ship's captain reading the stars, we must constantly monitor 
+          our digital vessels to ensure they stay on course.
+        </p>
+      </div>
+
+      <footer>
+        <a href={`${import.meta.env.BASE_URL}in-production`} class="back-link">← Back to In Production</a>
+      </footer>
+    </div>
+  </body>
+</html>

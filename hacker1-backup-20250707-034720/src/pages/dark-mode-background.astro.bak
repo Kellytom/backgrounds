@@ -1,0 +1,16 @@
+
+---
+import Navbar from '../components/Navbar.astro';
+const title = "Dark Mode Backgrounds v1.0";
+---
+
+<Navbar />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap');
+[full CSS from <style> tags in light-dark-v1-3.html goes here]
+</style>
+
+<div class="container">
+[full HTML from <body> of light-dark-v1-3.html, excluding <body> and <html> tags, goes here]
+</div>

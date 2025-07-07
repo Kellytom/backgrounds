@@ -1,0 +1,22 @@
+---
+import SatelliteSite from '../components/SatelliteSite.astro';
+import '../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Design | Hacker1 v1.0 - Planning & UX Design</title>
+    <meta name="description" content="Site Design satellite - Planning, wireframes, and UX design for the Hacker1 development ecosystem." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode site-design-background">
+    <SatelliteSite 
+      name="Site-Design" 
+      description="Planning and design phase for web development projects"
+      chapterLink={`${import.meta.env.BASE_URL}site-design-ch1`}
+    />
+  </body>
+</html>

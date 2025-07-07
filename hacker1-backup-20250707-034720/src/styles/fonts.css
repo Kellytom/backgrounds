@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RobotoVariable';
+  src: url('/fonts/Roboto-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Example for Century Schoolbook if you have it:
+@font-face {
+  font-family: 'Century Schoolbook';
+  src: url('/fonts/CenturySchoolbook.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/

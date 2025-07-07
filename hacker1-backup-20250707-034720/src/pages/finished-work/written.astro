@@ -1,0 +1,157 @@
+---
+import WrittenContent from '../../components/WrittenContent.astro';
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Written Content | Hacker1 v1.0 - Scripture & Literature</title>
+    <meta name="description" content="Written content featuring scripture verses, classical literature, and theological themes." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode written-background">
+    <div class="written-site">
+      <header class="hero written-hero">
+        <div class="hero-body">
+          <div class="container">
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href={`${import.meta.env.BASE_URL}`}>Home</a></li>
+                <li><a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Written</a></li>
+              </ul>
+            </nav>
+            
+            <h1 class="title is-3">Written Content</h1>
+            <h2 class="subtitle is-5">Scripture, Classics, and Literary Wisdom</h2>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="section">
+          <div class="content-showcase">
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div class="written-showcase">
+                  <h3>Scripture & Literature Collection</h3>
+                  <div class="content written-sample">
+                    <h4>"In the beginning was the Word..."</h4>
+                    <p>
+                      "In the beginning was the Word, and the Word was with God, and the Word was God. 
+                      He was with God in the beginning. Through him all things were made; without him 
+                      nothing was made that has been made." - John 1:1-3
+                    </p>
+                    
+                    <h4>Classical Wisdom</h4>
+                    <p>
+                      "Whatever you do, work at it with all your heart, as working for the Lord, 
+                      not for human masters." - Colossians 3:23
+                    </p>
+                    
+                    <p>
+                      This collection features carefully curated scripture passages, classical literature 
+                      excerpts, and theological reflections that inspire both technical excellence and 
+                      spiritual growth in our development work.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-one-third">
+                <div class="navigation-panel">
+                  <h3>Navigation</h3>
+                  <div class="buttons is-vertical">
+                    <a href={`${import.meta.env.BASE_URL}finished-work/written-ch1`} class="button is-primary">Chapter 1</a>
+                    <a href={`${import.meta.env.BASE_URL}finished-work`} class="button is-light">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .written-site {
+    min-height: 100vh;
+  }
+
+  .written-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .written-background {
+    background: repeating-linear-gradient(
+      45deg,
+      #2A2A2A 0px,
+      #2A2A2A 2px,
+      #3A2A2A 2px,
+      #3A2A2A 3px
+    );
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .content-showcase {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .navigation-panel {
+    background: rgba(50, 50, 50, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-panel h3 {
+    color: #e8d5b7;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .written-showcase h3 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .written-sample {
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .written-sample h4 {
+    color: #e8d5b7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .written-sample p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+</style>

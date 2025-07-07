@@ -1,0 +1,77 @@
+---
+import '../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Engineering - Chapter 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode site-engineering-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → <a href={`${import.meta.env.BASE_URL}site-engineering`}>Site Engineering</a> → Chapter 1
+      </nav>
+      
+      <h1>Site Engineering - Chapter 1: Technical Foundations</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>Code as Craft</h2>
+        <p>
+          "The best programs are written so that computing machines can perform them quickly 
+          and so that human beings can understand them clearly." - Donald Knuth
+        </p>
+        
+        <blockquote class="highlight">
+          "Whatever you do, work at it with all your heart, as working for the Lord, 
+          not for human masters." - Colossians 3:23
+        </blockquote>
+        
+        <p>
+          Engineering is not merely about making things work—it's about creating systems 
+          that are maintainable, scalable, and elegant. Like the cathedrals of old, 
+          our code should inspire both in its function and its form.
+        </p>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>Modern Development Stack</h2>
+        <h3>Our Technology Choices:</h3>
+        <ul>
+          <li><strong>Astro.js</strong> - For static site generation and component architecture</li>
+          <li><strong>React</strong> - For interactive components and state management</li>
+          <li><strong>Three.js</strong> - For 3D visualizations and animations</li>
+          <li><strong>D3.js</strong> - For data visualization and SVG manipulation</li>
+          <li><strong>TypeScript</strong> - For type safety and developer experience</li>
+          <li><strong>Bulma</strong> - For responsive CSS framework</li>
+        </ul>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Architecture Patterns</h2>
+        <p>
+          "Simplicity is the ultimate sophistication." - Leonardo da Vinci
+        </p>
+        <p>
+          We follow the principle of progressive enhancement, building solid foundations 
+          before adding complexity. Each layer should gracefully degrade, ensuring 
+          accessibility across all devices and capabilities.
+        </p>
+        
+        <h3>Component Strategy:</h3>
+        <ul>
+          <li>Atomic design methodology</li>
+          <li>Props-driven configuration</li>
+          <li>Semantic HTML structure</li>
+          <li>CSS custom properties for theming</li>
+        </ul>
+      </div>
+
+      <footer>
+        <a href={`${import.meta.env.BASE_URL}site-engineering`} class="back-link">← Back to Site Engineering</a>
+      </footer>
+    </div>
+  </body>
+</html>

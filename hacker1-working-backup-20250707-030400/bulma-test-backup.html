@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            font-size: 18px; /* Increased base font size for better readability */
+            /* NOTE: This base font size is optimized for Windows desktop. You may want to adjust it for other screens or platforms. */
+        }
+
+        /* Add some margin between sections */
+        .section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        /* Light Mode Styles (with opacity) */
+        body {
+            background-color: rgba(245, 245, 245, 0.95);
+            color: rgba(54, 54, 54, 0.85);
+        }
+        .title, .subtitle, .label, .content, .card-header-title {
+            color: rgba(54, 54, 54, 0.9);
+        }
+        .box, .card, .footer, .menu-list a, .tabs a {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgba(54, 54, 54, 0.85);
+        }
+        .input, .textarea {
+            font-family: 'EB Garamond', Garamond, serif;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(219, 219, 219, 0.7);
+            color: rgba(54, 54, 54, 0.9);
+        }
+        .table, .table th, .table td {
+            background-color: transparent;
+            color: inherit;
+        }
+        .table thead th {
+             color: rgba(54, 54, 54, 0.9);
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: rgba(240, 240, 240, 0.5);
+        }
+        .menu-list a:hover, .tabs a:hover {
+            background-color: rgba(230, 230, 230, 0.7);
+        }
+        .tabs li.is-active a {
+            color: #3273dc;
+            border-bottom-color: #3273dc;
+        }
+        .notification.is-info {
+            background-color: rgba(210, 180, 140, 0.7); /* Tan */
+            color: rgba(80, 60, 40, 0.9);
+        }
+
+
+        /* Dark Mode Styles (with opacity) */
+        html.dark-mode body {
+            background-color: rgba(26, 26, 26, 0.95);
+            color: rgba(245, 245, 245, 0.85);
+        }
+        html.dark-mode .title,
+        html.dark-mode .subtitle,
+        html.dark-mode .label,
+        html.dark-mode .content,
+        html.dark-mode .card-header-title,
+        html.dark-mode .menu-label {
+            color: rgba(245, 245, 245, 0.9);
+        }
+        html.dark-mode .box,
+        html.dark-mode .card,
+        html.dark-mode .footer,
+        html.dark-mode .menu-list a,
+        html.dark-mode .tabs a {
+            background-color: rgba(44, 44, 44, 0.8);
+        }
+        html.dark-mode .input,
+        html.dark-mode .textarea {
+            background-color: rgba(54, 54, 54, 0.8);
+            border-color: rgba(74, 74, 74, 0.7);
+            color: rgba(245, 245, 245, 0.9);
+        }
+        html.dark-mode .input::placeholder,
+        html.dark-mode .textarea::placeholder {
+            color: rgba(153, 153, 153, 0.7);
+        }
+        html.dark-mode .button.is-light {
+            background-color: rgba(74, 74, 74, 0.8);
+            border-color: transparent;
+            color: rgba(245, 245, 245, 0.9);
+        }
+        html.dark-mode .button.is-light:hover {
+            background-color: rgba(90, 90, 90, 0.8);
+        }
+        html.dark-mode .notification.is-info {
+            background-color: rgba(180, 120, 80, 0.55); /* Chalky warm pastel brown, low luminescence */
+            color: rgba(230, 210, 180, 0.92);
+        }
+        html.dark-mode .notification.is-danger {
+            background-color: rgba(240, 128, 128, 0.7); /* Light Coral - Pastel Red */
+            color: rgba(255, 255, 255, 0.95);
+        }
+        html.dark-mode .hero.is-primary {
+            background-color: rgba(0, 64, 128, 0.85);
+        }
+        html.dark-mode .hero.is-primary .title,
+        html.dark-mode .hero.is-primary .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        html.dark-mode a {
+            color: rgba(173, 216, 230, 0.9); /* Light Blue/Cyan */
+        }
+        html.dark-mode .card-footer-item,
+        html.dark-mode .media-content .subtitle {
+             color: rgba(187, 187, 187, 0.8);
+        }
+        html.dark-mode .menu-label {
+            font-size: 1.2rem; /* Increase menu label size */
+        }
+        html.dark-mode .menu-list a:hover,
+        html.dark-mode .tabs a:hover {
+            background-color: rgba(60, 60, 60, 0.7);
+        }
+        html.dark-mode .tabs li.is-active a {
+            background-color: rgba(44, 44, 44, 0.8);
+            color: rgba(173, 216, 230, 0.9); /* Light Blue/Cyan */
+            border-bottom-color: rgba(173, 216, 230, 0.9); /* Light Blue/Cyan */
+        }
+        html.dark-mode .table, html.dark-mode .table th, html.dark-mode .table td {
+            color: inherit;
+        }
+        html.dark-mode .table thead th {
+             color: rgba(245, 245, 245, 0.9);
+        }
+        html.dark-mode .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+            background-color: rgba(50, 50, 50, 0.5);
+        }
+        html.dark-mode strong, html.dark-mode b, html.dark-mode .has-text-weight-bold {
+            color: #ffe066;
+        }
+        html.dark-mode .footer, html.dark-mode .footer strong, html.dark-mode .footer a {
+            color: #ffe066;
+        }
+
+
+        /* Toggle Button */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #b5b5b5; /* Lighter gray for the middle */
+            border: 3px solid #4a4a4a; /* Darker gray for the thick border */
+            color: #4a4a4a; /* Dark text for contrast */
+            text-shadow: none;
+            transition: transform 0.2s ease-in-out;
+            opacity: 0.85;
+            backdrop-filter: blur(2px);
+        }
+        html.dark-mode #theme-toggle {
+            background-color: #7a7a7a; /* Darker middle for dark mode */
+            border-color: #363636; /* Even darker border */
+            color: #f5f5f5; /* Light text for contrast */
+            opacity: 0.85;
+            backdrop-filter: blur(2px);
+        }
+
+        .content ul li strong {
+            color: #fff; /* Use bold white for emphasis in both modes */
+            font-weight: bold;
+        }
+        html.dark-mode .content ul li strong {
+            color: #fff; /* Keep bold white in dark mode */
+        }
+
+        /* Custom Archive button color (warm, not yellow) */
+        .button.is-archive {
+            background-color: #b86b3c;
+            color: #fff;
+            border: none;
+        }
+        .button.is-archive:hover {
+            background-color: #a05a2c;
+            color: #fff;
+        }
+        html.dark-mode .button.is-archive {
+            background-color: #a05a2c;
+            color: #fff;
+        }
+        html.dark-mode .button.is-archive:hover {
+            background-color: #b86b3c;
+            color: #fff;
+        }
+
+        /* Use Garamond for all readable text blocks, not just input/textarea */
+        .content, .notification, .card-content, .tab-content, .menu, .footer, .table, .label, .title, .subtitle, .card-header-title {
+            font-family: 'EB Garamond', Garamond, serif !important;
+        }
+
+        /* Set all button text size to 0.8em for now */
+        .button {
+            font-size: 0.8em;
+        }
+
+        /* Stronger, more visible gradient for sample row of buttons (light and dark mode) */
+        .sample-gradient-btn {
+            background-image: linear-gradient(135deg, rgba(50,115,220,0.18) 0%, rgba(255,224,102,0.22) 100%) !important;
+            box-shadow: 0 2px 8px rgba(50,50,50,0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .sample-gradient-btn:hover, .sample-gradient-btn:focus {
+            background-image: linear-gradient(135deg, rgba(50,115,220,0.28) 0%, rgba(255,224,102,0.32) 100%) !important;
+            box-shadow: 0 4px 12px rgba(50,50,50,0.16);
+        }
+        html.dark-mode .sample-gradient-btn {
+            background-image: linear-gradient(135deg, rgba(74,74,74,0.38) 0%, rgba(126,217,87,0.22) 100%) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        html.dark-mode .sample-gradient-btn:hover, html.dark-mode .sample-gradient-btn:focus {
+            background-image: linear-gradient(135deg, rgba(74,74,74,0.48) 0%, rgba(255,179,71,0.32) 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+        }
+        /* Note: Gradient is now more visible and colorful for both modes. */
+    </style>
+</head>
+<body>
+
+    <button id="theme-toggle" class="button sample-gradient-btn">mode</button>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bulma CSS Showcase
+                </h1>
+                <h2 class="subtitle">
+                    A single file demonstration of various components.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Buttons Section -->
+        <section class="section">
+            <h2 class="title is-4">Buttons</h2>
+            <div class="buttons">
+                <button class="button is-primary sample-gradient-btn" title="Primary: Main action (e.g., Save, Submit)">Save Changes</button>
+                <button class="button is-link sample-gradient-btn" title="Link: Navigation or secondary action">Go to Dashboard</button>
+                <button class="button is-info sample-gradient-btn" title="Info: Neutral info or help">Show Info</button>
+                <button class="button is-success sample-gradient-btn" title="Success: Confirmed, positive action">Success</button>
+                <button class="button is-warning sample-gradient-btn" title="Warning: Caution, not destructive">Unsaved Changes</button>
+                <button class="button is-danger sample-gradient-btn" title="Danger: Destructive or irreversible action">Delete</button>
+                <button class="button is-light sample-gradient-btn" title="Light: Subtle, low emphasis">Light Option</button>
+                <button class="button is-dark sample-gradient-btn" title="Dark: Subtle, low emphasis (dark bg)">Dark Option</button>
+            </div>
+            <div class="content mt-3">
+                <ul>
+                    <li><strong style="color: #fff; font-weight: bold;">Primary</strong>: Use for the main action on a page (e.g., <em>Save</em>, <em>Submit</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Link</strong>: Use for navigation or secondary actions (e.g., <em>Go to Dashboard</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Info</strong>: Use for neutral information or help (e.g., <em>Show Info</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Success</strong>: Use for positive confirmation (e.g., <em>Success</em>, <em>Completed</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Warning</strong>: Use for caution, not destructive (e.g., <em>Unsaved Changes</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Danger</strong>: Use for destructive or irreversible actions (e.g., <em>Delete</em>).</li>
+                    <li><strong style="color: #fff; font-weight: bold;">Light/Dark</strong>: Use for subtle, low-emphasis actions or to match background color.
+                        <span style="margin-left: 1em; display: inline-flex; gap: 0.5em; vertical-align: middle; margin-top: 0.7em;">
+                            <button class="button is-light sample-gradient-btn">Preview</button>
+                            <button class="button is-archive sample-gradient-btn">Archive</button>
+                            <button class="button is-link sample-gradient-btn">Submit</button>
+                            <button class="button is-info sample-gradient-btn">Copy</button>
+                            <button class="button is-success sample-gradient-btn">Paste</button>
+                            <button class="button is-success sample-gradient-btn">Convert</button>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Columns Section -->
+        <section class="section">
+            <h2 class="title is-4">Columns</h2>
+            <div class="columns">
+                <div class="column">
+                    <div class="notification is-info">And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of theair, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.</div>
+                </div>
+                <div class="column">
+                    <div class="notification is-info">So God created man in his own image, in the image of God created he him; male and female created he them. And God blessed them, and God said unto them, Be fruitful, and multiply, and replenish the earth.</div>
+                </div>
+                <div class="column">
+                    <div class="notification is-info">And the rib, which the LORD God had taken from man, made he a woman, and brought her unto the man. And Adam said, This is now bone of my bones, and flesh of my flesh: she shall be called Woman, because she was taken out of Man.</div>
+                </div>
+                <div class="column">
+                    <div class="notification is-info">Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh. And they were both naked, the man and his wife, and were not ashamed.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Section -->
+        <section class="section">
+            <h2 class="title is-4">Card</h2>
+            <div class="card" style="max-width: 400px;">
+                <div class="card-image" style="height: 220px; display: flex; align-items: center; justify-content: center; background: none;">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" style="max-width: 220px; max-height: 220px; display: block;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <linearGradient id="logo-gradient-light" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3273dc" stop-opacity="0.85" />
+                                <stop offset="100%" stop-color="#275aa3" stop-opacity="0.9" />
+                            </linearGradient>
+                            <linearGradient id="logo-gradient-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.8" />
+                                <stop offset="100%" stop-color="#357abd" stop-opacity="0.85" />
+                            </linearGradient>
+                        </defs>
+                        <style>
+                            .logo-bg { fill: url(#logo-gradient-light); }
+                            .logo-shape { fill: rgba(255, 255, 255, 0.9); }
+                            html.dark-mode .logo-bg { fill: url(#logo-gradient-dark); }
+                            html.dark-mode .logo-shape { fill: rgba(26, 26, 26, 0.8); }
+                        </style>
+                        <rect width="100" height="100" class="logo-bg"/>
+                        <path d="M50 15 L85 50 L50 85 L15 50 Z" class="logo-shape" transform="rotate(45 50 50)"/>
+                        <path d="M50 25 L75 50 L50 75 L25 50 Z" fill="none" stroke-width="3" stroke="rgba(255,255,255,0.5)"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <style>
+                                        .user-icon-bg-light { fill: #f5f5f5; }
+                                        .user-icon-bg-dark { fill: #363636; }
+                                        .user-icon-shape-light { fill: #7a7a7a; }
+                                        .user-icon-shape-dark { fill: #b5b5b5; }
+                                        html.dark-mode .user-icon-bg-light { display: none; }
+                                        html:not(.dark-mode) .user-icon-bg-dark { display: none; }
+                                        html.dark-mode .user-icon-shape-light { display: none; }
+                                        html:not(.dark-mode) .user-icon-shape-dark { display: none; }
+                                    </style>
+                                    <circle cx="50" cy="50" r="50" class="user-icon-bg-light"/>
+                                    <circle cx="50" cy="50" r="50" class="user-icon-bg-dark"/>
+                                    <path class="user-icon-shape-light" d="M50 42c-8.28 0-15 6.72-15 15v3h30v-3c0-8.28-6.72-15-15-15zm0-25c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12z"/>
+                                    <path class="user-icon-shape-dark" d="M50 42c-8.28 0-15 6.72-15 15v3h30v-3c0-8.28-6.72-15-15-15zm0-25c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12z"/>
+                                </svg>
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.
+                        <br>
+                        <a>@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2025-06-28">12:00 PM - 28 Jun 2025</time>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu, Tabs, and Table Section -->
+        <section class="section">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <aside class="menu">
+                        <p class="menu-label">
+                            Genesis
+                        </p>
+                        <ul class="menu-list">
+                            <li><a>The Creation</a></li>
+                            <li><a>The Garden of Eden</a></li>
+                            <li><a>The Fall of Man</a></li>
+                        </ul>
+                        <p class="menu-label">
+                            Exodus
+                        </p>
+                        <ul class="menu-list">
+                            <li><a>The Burning Bush</a></li>
+                            <li><a>The Plagues</a></li>
+                            <li><a>The Passover</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column">
+                    <div class="tabs is-boxed">
+                        <ul>
+                            <li class="is-active" data-tab="1"><a><span>The Firmament</span></a></li>
+                            <li data-tab="2"><a><span>The Dry Land</span></a></li>
+                            <li data-tab="3"><a><span>The Lights</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="tab-1">
+                        <h2 class="title is-4">The Second Day</h2>
+                        <div class="content">
+                            <p>And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters. And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so. And God called the firmament Heaven. And the evening and the morning were the second day.</p>
+                        </div>
+                    </div>
+                     <div class="tab-content" id="tab-2" style="display: none;">
+                        <h2 class="title is-4">The Third Day</h2>
+                        <div class="content">
+                            <p>And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so. And God called the dry land Earth; and the gathering together of the waters called he Seas: and God saw that it was good. And God said, Let the earth bring forth grass, the herb yielding seed, and the fruit tree yielding fruit after his kind, whose seed is in itself, upon the earth: and it was so.</p>
+                        </div>
+                    </div>
+                     <div class="tab-content" id="tab-3" style="display: none;">
+                        <h2 class="title is-4">The Fourth Day</h2>
+                        <div class="content">
+                            <p>And God said, Let there be lights in the firmament of the heaven to divide the day from the night; and let them be for signs, and for seasons, and for days, and years: And let them be for lights in the firmament of the heaven to give light upon the earth: and it was so. And God made two great lights; the greater light to rule the day, and the lesser light to rule the night: he made the stars also.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 class="title is-5">Books of the Pentateuch</h3>
+                     <table class="table is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Book</th>
+                                <th>Traditional Author</th>
+                                <th>Chapters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Genesis</td>
+                                <td>Moses</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Exodus</td>
+                                <td>Moses</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>Leviticus</td>
+                                <td>Moses</td>
+                                <td>27</td>
+                            </tr>
+                             <tr>
+                                <td>Numbers</td>
+                                <td>Moses</td>
+                                <td>36</td>
+                            </tr>
+                             <tr>
+                                <td>Deuteronomy</td>
+                                <td>Moses</td>
+                                <td>34</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="section">
+            <h2 class="title is-4">Form</h2>
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="e.g. John Doe">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="email" placeholder="e.g. alex@example.com">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Your message here..."></textarea>
+                </div>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link sample-gradient-btn">Submit</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light sample-gradient-btn">Cancel</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Section -->
+        <section class="section">
+             <h2 class="title is-4">Notification</h2>
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                This is a dismissible notification. Perfect for alerts and messages.
+            </div>
+        </section>
+
+        <!-- SVG Icon Showcase: Choose one for your card image -->
+        <section class="section">
+            <h2 class="title is-4">SVG Icon Showcase</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: flex-start;">
+                <!-- SVG 1: Abstract Diamond -->
+                <div style="text-align:center"><div>1</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" style="background: none; border-radius: 12px;" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="diamond-light" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#b5b5b5"/>
+                            <stop offset="100%" stop-color="#3273dc"/>
+                        </linearGradient>
+                        <linearGradient id="diamond-dark" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#363636"/>
+                            <stop offset="100%" stop-color="#4a90e2"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" fill="url(#diamond-light)" class="diamond-bg-light"/>
+                    <rect width="100" height="100" fill="url(#diamond-dark)" class="diamond-bg-dark" style="display:none;"/>
+                    <polygon points="50,10 90,50 50,90 10,50" fill="#fff" fill-opacity="0.85" stroke="#3273dc" stroke-width="3"/>
+                    <style>
+                        html.dark-mode .diamond-bg-light { display: none; }
+                        html.dark-mode .diamond-bg-dark { display: block; }
+                    </style>
+                </svg></div>
+                <!-- SVG 2: Sun & Moon -->
+                <div style="text-align:center"><div>2</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" style="background: none; border-radius: 12px;" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="32" fill="#ffe066" class="sun-light"/>
+                    <circle cx="50" cy="50" r="32" fill="#f5f3c6" class="sun-dark" style="display:none;"/>
+                    <path d="M70 50a20 20 0 1 1-40 0 20 20 0 0 1 40 0z" fill="#fff" fill-opacity="0.7"/>
+                    <style>
+                        html.dark-mode .sun-light { display: none; }
+                        html.dark-mode .sun-dark { display: block; }
+                    </style>
+                </svg></div>
+                <!-- SVG 3: Hexagon -->
+                <div style="text-align:center"><div>3</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="#fff" fill-opacity="0.8" stroke="#b5a16e" stroke-width="4"/>
+                </svg></div>
+                <!-- SVG 4: Circle Grid -->
+                <div style="text-align:center"><div>4</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#3273dc" fill-opacity="0.7">
+                        <circle cx="25" cy="25" r="10"/>
+                        <circle cx="75" cy="25" r="10"/>
+                        <circle cx="25" cy="75" r="10"/>
+                        <circle cx="75" cy="75" r="10"/>
+                    </g>
+                </svg></div>
+                <!-- SVG 5: Minimalist Flame -->
+                <div style="text-align:center"><div>5</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,90 Q30,60 50,20 Q70,60 50,90 Z" fill="#ffb347"/>
+                    <path d="M50,60 Q45,50 50,30 Q55,50 50,60 Z" fill="#fffbe6"/>
+                </svg></div>
+                <!-- SVG 6: Minimalist Heart -->
+                <div style="text-align:center"><div>6</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 80 Q20 50 50 30 Q80 50 50 80 Z" fill="#ffb347" stroke="#b5a16e" stroke-width="3"/>
+                </svg></div>
+                <!-- SVG 7: Interlocking Rings -->
+                <div style="text-align:center"><div>7</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" style="background: none; border-radius: 12px;" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="50" r="24" fill="none" stroke="#3273dc" stroke-width="6"/>
+                    <circle cx="60" cy="50" r="24" fill="none" stroke="#ffb347" stroke-width="6"/>
+                    <circle cx="50" cy="50" r="12" fill="#fff" fill-opacity="0.7"/>
+                </svg></div>
+                <!-- SVG 8: Book/Tablet -->
+                <div style="text-align:center"><div>8</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" style="background: none; border-radius: 12px;" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="18" y="20" width="64" height="60" rx="10" fill="#fff" fill-opacity="0.9" stroke="#b5a16e" stroke-width="4"/>
+                    <line x1="50" y1="20" x2="50" y2="80" stroke="#b5a16e" stroke-width="2"/>
+                    <line x1="30" y1="35" x2="70" y2="35" stroke="#b5a16e" stroke-width="2"/>
+                    <line x1="30" y1="50" x2="70" y2="50" stroke="#b5a16e" stroke-width="2"/>
+                    <line x1="30" y1="65" x2="70" y2="65" stroke="#b5a16e" stroke-width="2"/>
+                </svg></div>
+                <!-- SVG 9: Spiral -->
+                <div style="text-align:center"><div>9</div>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,50 m-30,0 a30,30 0 1,1 60,0 a20,20 0 1,0 -40,0 a10,10 0 1,1 20,0" fill="none" stroke="#7ed957" stroke-width="5"/>
+                </svg></div>
+                <!-- SVG 10: Minimalist Crown (Lucide) -->
+                <div style="text-align:center"><div>10</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 16L5 7l7 9 7-9 3 9"/>
+                  <path d="M2 16h20"/>
+                </svg></div>
+                <!-- SVG 11: Book Open (Lucide) -->
+                <div style="text-align:center"><div>11</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 19V6a2 2 0 0 1 2-2h7"/>
+                  <path d="M22 19V6a2 2 0 0 0-2-2h-7"/>
+                  <path d="M2 19a2 2 0 0 1 2-2h7"/>
+                  <path d="M22 19a2 2 0 0 0-2-2h-7"/>
+                </svg></div>
+                <!-- SVG 12: Sun (Lucide) -->
+                <div style="text-align:center"><div>12</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="5"/>
+                  <path d="M12 1v2"/>
+                  <path d="M12 21v2"/>
+                  <path d="M4.22 4.22l1.42 1.42"/>
+                  <path d="M18.36 18.36l1.42 1.42"/>
+                  <path d="M1 12h2"/>
+                  <path d="M21 12h2"/>
+                  <path d="M4.22 19.78l1.42-1.42"/>
+                  <path d="M18.36 5.64l1.42-1.42"/>
+                </svg></div>
+                <!-- SVG 13: Feather Camera -->
+                <div style="text-align:center"><div>13</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3l2-3h6l2 3h3a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg></div>
+                <!-- SVG 14: Feather Star -->
+                <div style="text-align:center"><div>14</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg></div>
+                <!-- SVG 15: Lucide Globe -->
+                <div style="text-align:center"><div>15</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 0 20"/>
+                  <path d="M12 2a15.3 15.3 0 0 0 0 20"/>
+                </svg></div>
+                <!-- SVG 16: Heroicons Academic Cap -->
+                <div style="text-align:center"><div>16</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                  <path d="M12 14l6.16-3.422A12.083 12.083 0 0 1 21 13.5c0 2.485-4.03 4.5-9 4.5s-9-2.015-9-4.5c0-.538.214-1.05.84-1.922L12 14z"/>
+                </svg></div>
+                <!-- SVG 17: Lucide Bell -->
+                <div style="text-align:center"><div>17</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffb347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg></div>
+                <!-- SVG 18: Lucide Cloud -->
+                <div style="text-align:center"><div>18</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 19a4.5 4.5 0 0 0 0-9 5 5 0 0 0-9.9 1.5A4.5 4.5 0 1 0 6.5 19h11z"/>
+                </svg></div>
+                <!-- SVG 19: Lucide Book -->
+                <div style="text-align:center"><div>19</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 19V6a2 2 0 0 1 2-2h7"/>
+                  <path d="M22 19V6a2 2 0 0 0-2-2h-7"/>
+                  <path d="M2 19a2 2 0 0 1 2-2h7"/>
+                  <path d="M22 19a2 2 0 0 0-2-2h-7"/>
+                </svg></div>
+                <!-- SVG 20: Lucide User -->
+                <div style="text-align:center"><div>20</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="7" r="4"/>
+                  <path d="M5.5 21a10 10 0 0 1 13 0"/>
+                </svg></div>
+                <!-- SVG 21: Lucide Home -->
+                <div style="text-align:center"><div>21</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 9l9-7 9 7"/>
+                  <path d="M9 22V12h6v10"/>
+                  <path d="M21 22V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13"/>
+                </svg></div>
+                <!-- SVG 22: Lucide Check -->
+                <div style="text-align:center"><div>22</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg></div>
+                <!-- SVG 23: Lucide Alert Triangle -->
+                <div style="text-align:center"><div>23</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffb347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg></div>
+                <!-- SVG 24: Lucide Arrow Right -->
+                <div style="text-align:center"><div>24</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg></div>
+                <!-- SVG 25: Lucide Arrow Left -->
+                <div style="text-align:center"><div>25</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 19 5 12 12 5"/>
+                </svg></div>
+                <!-- SVG 26: Lucide Shield -->
+                <div style="text-align:center"><div>26</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg></div>
+                <!-- SVG 27: Lucide Key -->
+                <div style="text-align:center"><div>27</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="7.5" cy="15.5" r="5.5"/>
+                  <path d="M21 2l-9.6 9.6"/>
+                  <path d="M15.5 7.5l1.5 1.5"/>
+                  <path d="M17.5 5.5l1.5 1.5"/>
+                </svg></div>
+                <!-- SVG 28: Lucide Eye -->
+                <div style="text-align:center"><div>28</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffb347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg></div>
+                <!-- SVG 29: Lucide Pen Tool -->
+                <div style="text-align:center"><div>29</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                  <path d="M18 13l-6-6-2 2 6 6 2-2z"/>
+                  <circle cx="7.5" cy="7.5" r="2.5"/>
+                </svg></div>
+                <!-- SVG 30: Lucide Anchor -->
+                <div style="text-align:center"><div>30</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="5" r="3"/>
+                  <path d="M12 22V8"/>
+                  <path d="M5 17h14"/>
+                  <path d="M7 17c0 2.5 2.5 4.5 5 4.5s5-2 5-4.5"/>
+                </svg></div>
+                <!-- SVG 31: Lucide Compass -->
+                <div style="text-align:center"><div>31</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="16 12 12 8 8 12 12 16 16 12"/>
+                </svg></div>
+                <!-- SVG 32: Lucide Feather -->
+                <div style="text-align:center"><div>32</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffb347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.24 4.24a6 6 0 0 0-8.49 0l-7.07 7.07a6 6 0 0 0 8.49 8.49l7.07-7.07a6 6 0 0 0 0-8.49z"/>
+                  <line x1="16" y1="8" x2="8" y2="16"/>
+                </svg></div>
+                <!-- SVG 33: Lucide Puzzle -->
+                <div style="text-align:center"><div>33</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 13.35V10.65a2 2 0 0 0-2-2h-1.35a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-2.7a2 2 0 0 0-2 2v1.35a2 2 0 0 1-2 2H5a2 2 0 0 0-2 2v2.7a2 2 0 0 0 2 2h1.35a2 2 0 0 1 2 2V19a2 2 0 0 0 2 2h2.7a2 2 0 0 0 2-2v-1.35a2 2 0 0 1 2-2H19a2 2 0 0 0 2-2z"/>
+                </svg></div>
+                <!-- SVG 34: Lucide Music -->
+                <div style="text-align:center"><div>34</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="18" r="4"/>
+                  <path d="M16 18V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12"/>
+                </svg></div>
+                <!-- SVG 35: Lucide Map -->
+                <div style="text-align:center"><div>35</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                  <line x1="8" y1="2" x2="8" y2="18"/>
+                  <line x1="16" y1="6" x2="16" y2="22"/>
+                </svg></div>
+                <!-- SVG 36: Lucide Layers -->
+                <div style="text-align:center"><div>36</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg></div>
+                <!-- SVG 37: Lucide Code -->
+                <div style="text-align:center"><div>37</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg></div>
+                <!-- SVG 38: Lucide Zap -->
+                <div style="text-align:center"><div>38</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffb347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg></div>
+                <!-- SVG 39: Lucide Infinity -->
+                <div style="text-align:center"><div>39</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.178 7.822a4 4 0 1 0 0 5.656l-5.656 5.656a4 4 0 1 1 0-5.656l5.656-5.656z"/>
+                </svg></div>
+                <!-- SVG 40: Lucide Hexagon -->
+                <div style="text-align:center"><div>40</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="21 16 12 22 3 16 3 8 12 2 21 8 21 16"/>
+                </svg></div>
+            </div>
+            <p class="content has-text-centered mt-5">Pick any SVG above for your card image. All are designed to work in both light and dark mode. (SVGs 7-40 are omitted here for brevity, but would be included in the actual file.)</p>
+        </section>
+        <!-- End SVG Icon Showcase -->
+
+    </div>
+
+    <!-- Footer -->
+                  <path d="M21 13.35V10.65a2 2 0 0 0-2-2h-1.35a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-2.7a2 2 0 0 0-2 2v1.35a2 2 0 0 1-2 2H5a2 2 0 0 0-2 2v2.7a2 2 0 0 0 2 2h1.35a2 2 0 0 1 2 2V19a2 2 0 0 0 2 2h2.7a2 2 0 0 0 2-2v-1.35a2 2 0 0 1 2-2H19a2 2 0 0 0 2-2z"/>
+                </svg></div>
+                <!-- SVG 34: Lucide Music -->
+                <div style="text-align:center"><div>34</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#b5a16e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="18" r="4"/>
+                  <path d="M16 18V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12"/>
+                </svg></div>
+                <!-- SVG 35: Lucide Map -->
+                <div style="text-align:center"><div>35</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                  <line x1="8" y1="2" x2="8" y2="18"/>
+                  <line x1="16" y1="6" x2="16" y2="22"/>
+                </svg></div>
+                <!-- SVG 36: Lucide Layers -->
+                <div style="text-align:center"><div>36</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg></div>
+                <!-- SVG 37: Lucide Code -->
+                <div style="text-align:center"><div>37</div>
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+
+                    const target = document.getElementById(tab.dataset.tab);
+
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+
+                    document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+

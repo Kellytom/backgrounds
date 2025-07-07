@@ -1,0 +1,192 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphic Content | Hacker1 v1.0 - SVG Art & Sacred Geometry</title>
+    <meta name="description" content="SVG graphics from mathematical and spiritual concepts, featuring sacred geometry and data visualizations." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode graphic-background">
+    <div class="graphic-site">
+      <header class="hero graphic-hero">
+        <div class="hero-body">
+          <div class="container">
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href={`${import.meta.env.BASE_URL}`}>Home</a></li>
+                <li><a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Graphic</a></li>
+              </ul>
+            </nav>
+            
+            <h1 class="title is-3">Graphic Content</h1>
+            <h2 class="subtitle is-5">SVG Art & Sacred Geometry</h2>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="section">
+          <div class="content-showcase">
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div class="graphic-showcase">
+                  <h3>Sacred Geometry & Mathematical Art</h3>
+                  <div class="content graphic-sample">
+                    <div class="svg-preview">
+                      <h4>Featured Graphics</h4>
+                      <div class="graphic-grid">
+                        <div class="graphic-item">
+                          <div class="svg-placeholder">
+                            <span>Sacred Circle</span>
+                          </div>
+                          <p>Fibonacci spiral patterns</p>
+                        </div>
+                        <div class="graphic-item">
+                          <div class="svg-placeholder">
+                            <span>Tree of Life</span>
+                          </div>
+                          <p>Ancient wisdom symbols</p>
+                        </div>
+                        <div class="graphic-item">
+                          <div class="svg-placeholder">
+                            <span>Mandala</span>
+                          </div>
+                          <p>8-fold symmetry patterns</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p>
+                      This collection features SVG graphics generated from mathematical concepts 
+                      and spiritual symbolism. Each piece combines precise geometric principles 
+                      with meaningful visual representations of universal constants and sacred patterns.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-one-third">
+                <div class="navigation-panel">
+                  <h3>Navigation</h3>
+                  <div class="buttons is-vertical">
+                    <a href={`${import.meta.env.BASE_URL}finished-work/graphic-ch1`} class="button is-primary">Chapter 1</a>
+                    <a href={`${import.meta.env.BASE_URL}finished-work`} class="button is-light">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .graphic-site {
+    min-height: 100vh;
+  }
+
+  .graphic-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .graphic-background {
+    background: repeating-linear-gradient(
+      30deg,
+      #2A2A4A 0px,
+      #2A2A4A 2px,
+      #3A3A5A 2px,
+      #3A3A5A 3px
+    );
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .content-showcase {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .navigation-panel {
+    background: rgba(50, 50, 50, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-panel h3 {
+    color: #e8d5b7;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #6b8e65;
+    padding-bottom: 0.5rem;
+  }
+
+  .graphic-showcase h3 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #6b8e65;
+    padding-bottom: 0.5rem;
+  }
+
+  .graphic-sample {
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .graphic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .graphic-item {
+    text-align: center;
+  }
+
+  .svg-placeholder {
+    width: 100px;
+    height: 100px;
+    background: rgba(107, 142, 101, 0.2);
+    border: 2px solid #6b8e65;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem auto;
+    color: #6b8e65;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .graphic-sample h4 {
+    color: #e8d5b7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .graphic-sample p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+</style>

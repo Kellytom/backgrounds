@@ -1,0 +1,2780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Backgrounds v1.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">        <style>
+        /* RULE: No centering anywhere in this document. All text aligns left unless absolutely necessary. */
+        /* RULE: Blue, red, and green are reserved for accents and frames only, never for large backgrounds. */
+        /* RULE: Strong colors (blue, red, green) are reserved for borders and frames only, not backgrounds. */
+        /* RULE: All backgrounds must maintain sufficient contrast for accessibility and readability. */
+        :root {
+            /* Enhanced color variables for fine striped patterns */
+            --primary-bg: #0A0A0A;
+            --secondary-bg: #1a1616;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            
+            /* Fine striped pattern colors - Granite family */
+            --granite-dark-base: #2A2A2A;
+            --granite-dark-accent: #3A3A3A;
+            --granite-warm-base: #3A2A4A; /* More royal purple, less green */
+            --granite-warm-accent: #4A3A5A;
+            
+            /* Marble family - less brown, more neutral */
+            --marble-base: #3A3A3A;
+            --marble-accent: #4A4A4A;
+            --marble-rich-base: #4A4A4A;
+            --marble-rich-accent: #5A5A5A;
+            
+            /* Fabric family - more royal blueish */
+            --fabric-base: #2A2A4A;
+            --fabric-accent: #3A3A5A;
+            --fabric-warm-base: #2A2A4A;
+            --fabric-warm-accent: #3A3A5A;
+            
+            /* Stained glass family */
+            --glass-base: #1A2A4A;
+            --glass-accent: #2A3A5A;
+            --glass-deep-base: #1A2A3A;
+            --glass-deep-accent: #2A3A4A;
+            
+            /* Classical dark patterns */
+            --classical-navy-base: #1A1A3A;
+            --classical-navy-accent: #2A2A4A;
+            --classical-charcoal-base: #2A2A2A;
+            --classical-charcoal-accent: #3A2A2A;
+            --classical-burgundy-base: #3A1A1A;
+            --classical-burgundy-accent: #4A2A1A;
+            
+            /* Light Marble family - authentic marble whites with warm gold accents */
+            /* Based on famous Italian marble varieties: Carrara, Calacatta, Statuario */
+            --carrara-white-base: #F5F5F5; /* Pure Carrara marble white */
+            --carrara-warm-accent: #D4AF37; /* Classic gold accent */
+            --calacatta-white-base: #F8F8F6; /* Calacatta white with slight cream */
+            --calacatta-gold-accent: #DAA520; /* Calacatta's characteristic gold veining */
+            --statuario-white-base: #FAFAFA; /* Statuario pure white for sculptures */
+            --statuario-bronze-accent: #CD7F32; /* Warm bronze accent */
+            
+            /* Parchment/Paper family - authentic tans and light browns */
+            /* Colors inspired by aged parchment, antique paper, and natural browns */
+            --parchment-base: #F5DEB3; /* Classic parchment tan */
+            --parchment-accent: #DEB887; /* Darker parchment accent */
+            --aged-paper-base: #F4E4BC; /* Aged paper cream */
+            --aged-paper-accent: #D2B48C; /* Light brown accent */
+            --antique-base: #E6D3A3; /* Antique paper color */
+            --antique-accent: #CD853F; /* Medium brown accent */
+        }
+        
+        body {
+            background: rgba(25, 15, 20, 0.9); /* Dark brown purple with 90% opacity */
+            color: var(--text-primary);
+            font-family: 'Century Schoolbook', serif;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4; /* Reduced line height for tighter spacing */
+            letter-spacing: 0.05em; /* 105% letter spacing for improved readability */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 20px; /* Reduced from 40px */
+            font-size: 1.8rem; /* Reduced from 2.2rem */
+            font-weight: bold;
+            letter-spacing: 0.04em; /* 104% letter spacing for main headings */
+        }
+        
+        h2 {
+            color: var(--text-primary);
+            margin: 25px 0 12px 0; /* Reduced from 40px 0 20px 0 */
+            font-size: 1.3rem; /* Reduced from 1.6rem */
+            font-weight: bold;
+            border-bottom: 2px solid #444;
+            padding-bottom: 8px; /* Reduced from 10px */
+            letter-spacing: 0.03em; /* 103% letter spacing for section headings */
+        }
+        
+        h4 {
+            letter-spacing: 0.02em; /* 102% letter spacing for subsection headings */
+        }
+        
+        p {
+            letter-spacing: 0.01em; /* 101% letter spacing for paragraphs */
+        }
+        
+        h3 {
+            color: var(--text-primary);
+            margin: 20px 0 10px 0; /* Reduced from 30px 0 15px 0 */
+            font-size: 1.1rem; /* Reduced from 1.3rem */
+            font-weight: bold;
+        }
+        
+        
+        .highlight {
+            /* Using dark granite pattern instead of flat red/brown background */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(42, 26, 26, 0.8) 0px,
+                rgba(42, 26, 26, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 3px
+            );
+            border-left: 4px solid #8A5A5A; /* Muted red border */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+        }
+        
+        .solution {
+             border-left: 4px solid #8A8A8A; /* Neutral gray instead of green */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+        }
+         .solution-highlight {
+            /* Using warm granite pattern for proposed solutions */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(64, 58, 52, 0.7) 0px,
+                rgba(64, 58, 52, 0.7) 2px,
+                rgba(80, 74, 68, 0.7) 2px,
+                rgba(80, 74, 68, 0.7) 3px
+            );
+            border-left: 4px solid #8A8A8A; /* Neutral gray instead of green */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+        }
+             
+        /* Apply warm granite pattern to implementation sections - BASE TEXTURE */
+        .implementation-background {
+            /* Increased color vibrancy: add subtle gold accent and boost base color saturation */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(80, 60, 36, 0.75) 0px,   /* Warmer, more saturated base */
+                rgba(80, 60, 36, 0.75) 2px,
+ rgba(100, 80, 50, 0.66) 2px,  /* Stripe is closer to base, less contrast */
+    rgba(100, 80, 50, 0.66) 3px           );
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            color: var(--text-primary);
+        }
+
+        /* NEW PATTERN-BASED BACKGROUNDS - Replacing Gray Monotony */
+        
+        .solution-background {
+            /* Using subtle cool marble pattern for proposed solutions */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(52, 58, 68, 0.4) 0px,
+                rgba(52, 58, 68, 0.4) 1px,
+                rgba(62, 68, 78, 0.4) 1px,
+                rgba(62, 68, 78, 0.4) 3px
+            );
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            color: var(--text-primary);
+            border-left: 4px solid #5A7A5A; /* Muted green accent */
+        }
+        
+        .experimental-background {
+            /* Using fabric gold ripples pattern for experimental sections */
+            background: 
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(42, 42, 74, 0.4) 0px,
+                    rgba(42, 42, 74, 0.4) 2px,
+                    rgba(58, 58, 90, 0.4) 2px,
+                    rgba(58, 58, 90, 0.4) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(78, 68, 48, 0.2) 0px,
+                    rgba(78, 68, 48, 0.2) 1px,
+                    rgba(98, 88, 68, 0.2) 1px,
+                    rgba(98, 88, 68, 0.2) 5px
+                );
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            color: var(--text-primary);
+            border-left: 4px solid #8A7A5A; /* Golden accent */
+        }
+        
+        .technical-background {
+            /* Using damask weave pattern for technical specifications */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(42, 42, 74, 0.4) 0px,
+                rgba(42, 42, 74, 0.4) 1px,
+                rgba(58, 58, 90, 0.4) 1px,
+                rgba(58, 58, 90, 0.4) 4px
+            );
+            border-radius: 8px;
+            padding: 15px;
+            margin: 12px 0;
+            color: var(--text-primary);
+            border-left: 4px solid #6A6A9A; /* Royal blue accent */
+        }
+
+        .pattern-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px; /* Reduced from 20px */
+            margin: 15px 0; /* Reduced from 20px 0 */
+        }
+        
+        .pattern-card {
+
+            padding: 12px; /* Reduced from 15px */
+            border: 1px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .pattern-sample {
+            width: 100%;
+            height: 100px; /* Slightly reduced from 120px */
+            border-radius: 4px;
+            margin-bottom: 8px; /* Reduced from 10px */
+            position: relative;
+            border: 1px solid #444;
+        }
+        
+        .pattern-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            /* Clean bold text directly on dark patterns with strong shadow for visibility */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), -1px -1px 2px rgba(0, 0, 0, 0.8);
+            /* Remove background - text goes directly on pattern */
+        }
+        
+        /* Light pattern text for marble and parchment - dark text for light backgrounds */
+        .pattern-text-light {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #222;
+            font-weight: bold;
+            font-size: 0.9rem;
+            /* Strong shadow for dark text on light patterns */
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.7);
+            /* Remove background - text goes directly on pattern */
+        }
+        
+        .pattern-title {
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 4px; /* Reduced from 5px */
+        }
+        
+        .pattern-description {
+            color: var(--text-secondary);
+            font-size: 0.85rem; /* Slightly smaller */
+            line-height: 1.3; /* Reduced from 1.4 */
+            font-family: 'Roboto', sans-serif; /* Technical specs in sans-serif */
+            letter-spacing: 0.025em; /* 102.5% letter spacing for technical text */
+        }
+        
+        /* Large text areas use Garamond for better readability */
+        .large-text-area {
+            font-family: 'EB Garamond', serif;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Apply Garamond to implementation backgrounds with extensive text */
+        .implementation-background p,
+        .implementation-background ul,
+        .implementation-background li {
+            font-family: 'EB Garamond', serif;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Apply Garamond to solution and experimental backgrounds for large text */
+        .solution-background p,
+        .solution-background ul,
+        .solution-background li,
+        .experimental-background p,
+        .experimental-background ul,
+        .experimental-background li,
+        .technical-background p,
+        .technical-background ul,
+        .technical-background li {
+            font-family: 'EB Garamond', serif;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+        }
+        
+        .tech-specs {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.03em; /* Subtle letter spacing for tech specs */
+        }
+        
+        .calculation-details {
+            background: var(--secondary-bg);
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Century Schoolbook', serif;
+        }
+        
+        .calculation-details h4 {
+            color: var(--text-primary);
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .calculation-details div {
+            color: var(--text-secondary);
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; /* Reduced from 20px */
+            margin: 15px 0; /* Reduced from 20px 0 */
+        }
+        
+        .before-after {
+            /* Subtle granite pattern instead of gray background */
+            background: repeating-linear-gradient(
+                26.57deg,
+                rgba(40, 40, 40, 0.35) 0px,
+                rgba(40, 40, 40, 0.35) 1px,
+                rgba(50, 50, 50, 0.35) 1px,
+                rgba(50, 50, 50, 0.35) 2px
+            );
+            border-radius: 8px;
+            padding: 12px; /* Reduced from 15px */
+            border: 1px solid rgba(68, 68, 68, 0.4);
+        }
+        
+        .before {
+            border-left: 4px solid #8A5A5A; /* Muted red */
+        }
+        
+        .after {
+            border-left: 4px solid #5A7A5A; /* Muted green */
+        }
+        
+        code {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+      
+        /* TESTING PATTERNS - Enhanced visibility with doubled size and higher contrast */
+        
+        .test-expo-1 {
+            /* Ultra-softened crosshatch granite - DOUBLED SIZE, VERY LOW OPACITY */
+            background: 
+                repeating-linear-gradient(
+                    -18.43deg,
+                    rgba(60, 60, 60, 0.15) 0px,     /* ULTRA-SOFT crosshatch opacity */
+                    rgba(60, 60, 60, 0.15) 2px,     /* Doubled width: 1px → 2px */
+                    rgba(80, 80, 80, 0.12) 2px,     /* ULTRA-SOFT light crosshatch */
+                    rgba(80, 80, 80, 0.12) 8px      /* Doubled width: 4px → 8px */
+                ),
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(40, 40, 40, 0.6) 0px,      /* SOFTENED base layer */
+                    rgba(40, 40, 40, 0.6) 4px,      /* Doubled width: 2px → 4px */
+                    rgba(60, 60, 60, 0.6) 4px,      /* SOFTENED accent */
+                    rgba(60, 60, 60, 0.6) 6px       /* Doubled width: 3px → 6px */
+                );
+        }
+        
+        .test-expo-2 {
+            /* Ultra-softened marble crosshatch - DOUBLED SIZE, VERY LOW OPACITY */
+            background: 
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(80, 65, 55, 0.15) 0px,     /* ULTRA-SOFT crosshatch base */
+                    rgba(80, 65, 55, 0.15) 2px,     /* Doubled width */
+                    rgba(100, 85, 70, 0.12) 2px,    /* ULTRA-SOFT light crosshatch */
+                    rgba(100, 85, 70, 0.12) 10px    /* Doubled width */
+                ),
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(60, 45, 35, 0.6) 0px,      /* SOFTENED marble base */
+                    rgba(60, 45, 35, 0.6) 4px,      /* Doubled width */
+                    rgba(80, 65, 50, 0.6) 4px,      /* SOFTENED marble accent */
+                    rgba(80, 65, 50, 0.6) 6px       /* Doubled width */
+                );
+        }
+        
+        .test-expo-6 {
+            /* Ultra-softened deep granite with silver - DOUBLED SIZE, VERY LOW OPACITY */
+            background: 
+                repeating-linear-gradient(
+                    -53.13deg,
+                    rgba(120, 120, 120, 0.15) 0px,  /* ULTRA-SOFT silver crosshatch */
+                    rgba(120, 120, 120, 0.15) 2px,  /* Doubled width */
+                    rgba(140, 140, 140, 0.12) 2px,  /* ULTRA-SOFT bright silver */
+                    rgba(140, 140, 140, 0.12) 18px  /* Doubled width */
+                ),
+                repeating-linear-gradient(
+                    18.43deg,
+                    rgba(35, 35, 35, 0.6) 0px,      /* SOFTENED dark base */
+                    rgba(35, 35, 35, 0.6) 4px,      /* Doubled width */
+                    rgba(50, 50, 50, 0.6) 4px,      /* SOFTENED accent */
+                    rgba(50, 50, 50, 0.6) 6px       /* Doubled width */
+                );
+        }        
+        .test-fabric-crosshatch {
+            /* Ultra-softened fabric crosshatch - DOUBLED SIZE, VERY LOW OPACITY */
+            background: 
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(50, 50, 80, 0.15) 0px,     /* ULTRA-SOFT crosshatch */
+                    rgba(50, 50, 80, 0.15) 2px,     /* Doubled width */
+                    rgba(70, 70, 110, 0.12) 2px,    /* ULTRA-SOFT bright crosshatch */
+                    rgba(70, 70, 110, 0.12) 12px    /* Doubled width */
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(40, 40, 60, 0.6) 0px,      /* SOFTENED navy base */
+                    rgba(40, 40, 60, 0.6) 4px,      /* Doubled width */
+                    rgba(55, 55, 85, 0.6) 4px,      /* SOFTENED light navy */
+                    rgba(55, 55, 85, 0.6) 6px       /* Doubled width */
+                );
+        }
+
+        /* SOFTER GRADIENT EXPERIMENTS - Testing gradual transitions */
+        
+        .test-soft-1 {
+            /* Soft granite with gradual transitions - using intermediate color stops */
+            background: 
+                repeating-linear-gradient(
+                    -18.43deg,
+                    rgba(40, 40, 40, 0.2) 0px,      /* VERY LOW opacity crosshatch */
+                    rgba(50, 50, 50, 0.25) 1px,     /* Intermediate step */
+                    rgba(60, 60, 60, 0.3) 2px,      /* Peak crosshatch */
+                    rgba(50, 50, 50, 0.25) 3px,     /* Fade back */
+                    rgba(40, 40, 40, 0.2) 4px,      /* Return to base */
+                    transparent 4px,                 /* Gap for softer effect */
+                    transparent 8px
+                ),
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(30, 30, 30, 0.85) 0px,     /* Softer base opacity */
+                    rgba(35, 35, 35, 0.87) 2px,     /* Gradual increase */
+                    rgba(45, 45, 45, 0.9) 4px,      /* Peak */
+                    rgba(35, 35, 35, 0.87) 5px,     /* Gradual decrease */
+                    rgba(30, 30, 30, 0.85) 6px      /* Return to base */
+                );
+        }
+        
+        .test-soft-2 {
+            /* Ultra-soft marble with blur-like transitions */
+            background: 
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(70, 55, 45, 0.15) 0px,     /* Ultra-low opacity */
+                    rgba(80, 65, 50, 0.2) 1px,      /* Gentle rise */
+                    rgba(90, 75, 60, 0.25) 2px,     /* Soft peak */
+                    rgba(80, 65, 50, 0.2) 3px,      /* Gentle fall */
+                    rgba(70, 55, 45, 0.15) 4px,     /* Return */
+                    transparent 4px,                 /* Extended gap */
+                    transparent 12px
+                ),
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(45, 35, 25, 0.8) 0px,      /* Softer base */
+                    rgba(50, 40, 30, 0.82) 1px,     /* Micro-step 1 */
+                    rgba(55, 45, 35, 0.84) 2px,     /* Micro-step 2 */
+                    rgba(65, 50, 40, 0.86) 3px,     /* Micro-step 3 */
+                    rgba(75, 60, 45, 0.88) 4px,     /* Peak */
+                    rgba(65, 50, 40, 0.86) 5px,     /* Fade back */
+                    rgba(45, 35, 25, 0.8) 6px       /* Return to base */
+                );
+        }
+        
+        .test-soft-3 {
+            /* Extremely gradual silver granite with many intermediate steps */
+            background: 
+                repeating-linear-gradient(
+                    -53.13deg,
+                    rgba(80, 80, 85, 0.1) 0px,      /* Barely visible start */
+                    rgba(85, 85, 90, 0.12) 0.5px,   /* Micro-increment */
+                    rgba(90, 90, 95, 0.15) 1px,     /* Gentle rise */
+                    rgba(95, 95, 100, 0.18) 1.5px,  /* Continue rise */
+                    rgba(100, 100, 110, 0.2) 2px,   /* Soft peak */
+                    rgba(95, 95, 100, 0.18) 2.5px,  /* Begin fade */
+                    rgba(90, 90, 95, 0.15) 3px,     /* Continue fade */
+                    rgba(85, 85, 90, 0.12) 3.5px,   /* Almost gone */
+                    rgba(80, 80, 85, 0.1) 4px,      /* Return to base */
+                    transparent 4px,                 /* Large gap for gentleness */
+                    transparent 20px
+                ),
+                repeating-linear-gradient(
+                    18.43deg,
+                    rgba(20, 20, 20, 0.9) 0px,      /* Dark base */
+                    rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
+                    rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
+                    rgba(40, 40, 40, 0.94) 4px,     /* Peak */
+                    rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
+                    rgba(20, 20, 20, 0.9) 6px       /* Return */
+                );
+        }
+        
+        .test-soft-4 {
+            /* Feathered fabric with extended color stops */
+            background: 
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(35, 35, 65, 0.08) 0px,     /* Ultra-soft start */
+                    rgba(40, 40, 70, 0.12) 1px,     /* Gentle build */
+                    rgba(45, 45, 75, 0.16) 2px,     /* Continue */
+                    rgba(50, 50, 80, 0.2) 3px,      /* Soft peak */
+                    rgba(45, 45, 75, 0.16) 4px,     /* Start fade */
+                    rgba(40, 40, 70, 0.12) 5px,     /* Continue fade */
+                    rgba(35, 35, 65, 0.08) 6px,     /* Return to base */
+                    transparent 6px,                 /* Extended transparent area */
+                    transparent 16px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(25, 25, 45, 0.85) 0px,     /* Soft navy base */
+                    rgba(30, 30, 50, 0.86) 1px,     /* Gradual step */
+                    rgba(35, 35, 55, 0.87) 2px,     /* Continue */
+                    rgba(40, 40, 60, 0.88) 3px,     /* Build */
+                    rgba(45, 45, 65, 0.89) 4px,     /* Peak */
+                    rgba(40, 40, 60, 0.88) 5px,     /* Fade */
+                    rgba(25, 25, 45, 0.85) 6px      /* Return */
+                );
+        }
+       
+
+        /* Proposed anti-aliased patterns */
+                /* Deep-Stained-Glass-Effects: 3:4 slope ratio (36.87°) - GREENISH Stained Glass with crosshatch effect */
+        .Deep-Stained-Glass-Effects {
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 52, 40, 0.6) 0px,
+                    rgba(42, 52, 40, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(58, 68, 56, 0.4) 0px,
+                    rgba(58, 68, 56, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 4px
+                );
+        }
+        /* Granite family - various slope ratios */
+        .granite-3-4 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - most common anti-aliasing fix - BASE TEXTURE */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 2px,
+                rgba(66, 58, 50, 0.8) 3px
+            );
+        }
+        
+        .granite-4-3 {
+            /* 4:3 slope ratio (53.13°) - steeper angle, less vibrant, more muted purple-gray */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 50, 66, 0.65) 0px,
+                rgba(58, 50, 66, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 2px,
+                rgba(74, 66, 82, 0.65) 3px
+            );
+        }
+        
+        .granite-1-2 {
+            /* 3:4 slope ratio (36.87°) - WARM GRANITE - standard angle */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(48, 42, 36, 0.8) 0px,
+                rgba(48, 42, 36, 0.8) 1px,
+                rgba(66, 58, 50, 0.8) 1px,
+                rgba(66, 58, 50, 0.8) 2px
+            );
+        }
+        
+        .granite-2-3 {
+            /* 3:4 slope ratio (36.87°) - GREENISH GRANITE with crosshatch effect */
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(42, 52, 40, 0.6) 0px,
+                    rgba(42, 52, 40, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 2px,
+                    rgba(68, 78, 66, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(58, 68, 56, 0.4) 0px,
+                    rgba(58, 68, 56, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 1px,
+                    rgba(74, 84, 72, 0.4) 4px
+                );
+        }
+        
+        .muted-damask {
+            /* Muted damask for content backgrounds - subtle blue-gray tones */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(48, 52, 58, 0.8) 0px,
+                rgba(48, 52, 58, 0.8) 2px,
+                rgba(58, 62, 68, 0.8) 2px,
+                rgba(58, 62, 68, 0.8) 5px
+            );
+        }
+        
+        .muted-velvet {
+            /* Muted velvet - soft purple-gray for elegant content */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(52, 48, 58, 0.7) 0px,
+                rgba(52, 48, 58, 0.7) 2px,
+                rgba(62, 58, 68, 0.7) 2px,
+                rgba(62, 58, 68, 0.7) 3px
+            );
+        }
+        
+        .muted-burgundy {
+            /* Muted burgundy - warm wine tones for rich content */
+            background: repeating-linear-gradient(
+                33.69deg,
+                rgba(58, 45, 48, 0.7) 0px,
+                rgba(58, 45, 48, 0.7) 2px,
+                rgba(68, 55, 58, 0.7) 2px,
+                rgba(68, 55, 58, 0.7) 3px
+            );
+        }
+        
+        .muted-sage {
+            /* Muted sage green - natural calming tones */
+            background: repeating-linear-gradient(
+                26.57deg,
+                rgba(48, 58, 52, 0.7) 0px,
+                rgba(48, 58, 52, 0.7) 2px,
+                rgba(58, 68, 62, 0.7) 2px,
+                rgba(58, 68, 62, 0.7) 4px
+            );
+        }
+        
+        .muted-slate {
+            /* Muted slate blue - professional neutral */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(45, 52, 60, 0.7) 0px,
+                rgba(45, 52, 60, 0.7) 2px,
+                rgba(55, 62, 70, 0.7) 2px,
+                rgba(55, 62, 70, 0.7) 3px
+            );
+        }
+        
+        .muted-bronze {
+            /* Muted bronze - warm metallic undertones */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 52, 45, 0.7) 0px,
+                rgba(58, 52, 45, 0.7) 2px,
+                rgba(68, 62, 55, 0.7) 2px,
+                rgba(68, 62, 55, 0.7) 4px
+            );
+        }
+        
+        .muted-plum {
+            /* Muted plum - sophisticated purple-gray */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(55, 48, 60, 0.7) 0px,
+                rgba(55, 48, 60, 0.7) 2px,
+                rgba(65, 58, 70, 0.7) 2px,
+                rgba(65, 58, 70, 0.7) 3px
+            );
+        }
+        
+        .muted-warm-granite {
+            /* Muted warm granite - based on Gran-2 with reduced intensity */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(45, 35, 50, 0.6) 0px,
+                rgba(45, 35, 50, 0.6) 2px,
+                rgba(55, 45, 60, 0.6) 2px,
+                rgba(55, 45, 60, 0.6) 3px
+            );
+        }
+        
+        /* Marble family - COOL BLUE-GRAY - sophisticated neutral grays */
+        .marble-3-4 {
+            /* Base color with accent stripes every 3rd position - COOL MARBLE */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(52, 58, 68, 0.8) 0px,
+                rgba(52, 58, 68, 0.8) 2px,
+                rgba(68, 74, 84, 0.8) 2px,
+                rgba(68, 74, 84, 0.8) 3px
+            );
+        }
+        .Wood-3-4 {
+            /* Very dark brown wood grain: single angle, uniform pattern */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(35, 22, 10, 0.96) 0px,      /* Very deep brown */
+                rgba(35, 22, 10, 0.96) 2px,
+                rgba(55, 35, 15, 0.88) 2px,      /* Slightly lighter dark brown accent */
+                rgba(55, 35, 15, 0.88) 3px,
+                rgba(20, 12, 5, 0.85) 3px,       /* Almost black for grain */
+                rgba(20, 12, 5, 0.85) 4px
+            );
+        }
+       
+        .marble-4-3 {
+            /* Rich marble with 4:3 slope - COOL RICH MARBLE */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(68, 74, 84, 0.8) 0px,
+                rgba(68, 74, 84, 0.8) 2px,
+                rgba(84, 90, 105, 0.8) 2px,
+                rgba(84, 90, 105, 0.8) 3px
+            );
+        }
+        
+        .marble-1-3 {
+            /* Subtle marble with 1:3 slope - COOL SUBTLE MARBLE */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(52, 58, 68, 0.8) 0px,
+                rgba(52, 58, 68, 0.8) 2px,
+                rgba(68, 74, 84, 0.8) 2px,
+                rgba(68, 74, 84, 0.8) 3px
+            );
+        }
+        
+        /* Fabric family - more royal blueish */
+        .fabric-1-3 {
+            /* Damask: Deep blue-violet for classic look */
+            background: repeating-linear-gradient(
+                18.43deg,
+                rgba(44, 38, 70, 0.8) 0px,
+                rgba(44, 38, 70, 0.8) 2px,
+                rgba(68, 60, 110, 0.8) 2px,
+                rgba(68, 60, 110, 0.8) 3px
+            );
+        }
+        
+        .fabric-2-3 {
+            /* Brocade: Dark teal/greenish-blue for modern accent */
+            background: repeating-linear-gradient(
+                36.87deg,
+
+                rgba(26, 42, 74, 0.8) 0px,
+                rgba(26, 42, 74, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 2px,
+                    rgba(42, 58, 90, 0.8) 3px
+                );
+        }
+        
+        .fabric-3-4 {
+            /* Velvet: Deep plum for luxury contrast */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(60, 38, 70, 0.8) 0px,
+                rgba(60, 38, 70, 0.8) 2px,
+                rgba(90, 60, 110, 0.8) 2px,
+                rgba(90, 60, 110, 0.8) 3px
+            );
+        }
+        
+        /* Stained glass family - deep blues */
+        .glass-2-3 {
+            /* Deep stained glass with 3:4 slope */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(26, 42, 74, 0.8) 0px,
+                rgba(26, 42, 74, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 3px
+            );
+        }
+        
+        .glass-3-4 {
+            /* Rich stained glass with 3:4 slope */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(26, 42, 58, 0.8) 0px,
+                rgba(26, 42, 58, 0.8) 2px,
+                rgba(42, 58, 74, 0.8) 2px,
+                rgba(42, 58, 74, 0.8) 3px
+            );
+        }
+        
+        .glass-1-4 {
+            /* Subtle stained glass with 1:4 slope */
+            background: repeating-linear-gradient(
+                14.04deg,
+                rgba(26, 42, 74, 0.8) 0px,
+                rgba(26, 42, 74, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 2px,
+                rgba(42, 58, 90, 0.8) 3px
+            );
+        }
+        
+        /* Classical dark patterns */
+        .classical-navy {
+            /* Classical navy with 1:4 slope */
+            background: repeating-linear-gradient(
+                14.04deg,
+                rgba(26, 26, 58, 0.8) 0px,
+                rgba(26, 26, 58, 0.8) 2px,
+                rgba(42, 42, 74, 0.8) 2px,
+                rgba(42, 42, 74, 0.8) 3px
+            );
+        }
+        
+        .classical-charcoal {
+            /* Warm charcoal with 3:5 slope */
+            background: repeating-linear-gradient(
+                30.96deg,
+                rgba(42, 42, 42, 0.8) 0px,
+                rgba(42, 42, 42, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 2px,
+                rgba(58, 42, 42, 0.8) 3px
+            );
+        }
+        
+        .classical-burgundy {
+            /* Classical burgundy with 4:3 slope */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(58, 26, 26, 0.8) 0px,
+                rgba(58, 26, 26, 0.8) 2px,
+                rgba(74, 42, 26, 0.8) 2px,
+                rgba(74, 42, 26, 0.8) 3px
+            );
+        }
+        
+        /* Light Marble family - PATTERNS MOVED TO failed-design.html */
+        /* NOTE: These patterns had issues with veining visibility and were removed */
+        
+        /* Parchment/Paper family - PATTERNS MOVED TO failed-design.html */
+        /* NOTE: These patterns had issues with fiber visibility and were removed */
+        
+        /* Experimental combined patterns - multiple angles for visual interest */
+        /* These patterns layer two different striped gradients at different angles */
+        /* to create ripple effects and break up the monotony of single-angle patterns */
+        
+        .expo-1 {
+            /* Experimental warm granite with dual angles - creates crosshatch effect */
+            background: 
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(48, 42, 36, 0.6) 0px,
+                    rgba(48, 42, 36, 0.6) 2px,
+                    rgba(78, 68, 58, 0.6) 2px,
+                    rgba(78, 68, 58, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -18.43deg,
+                    rgba(66, 58, 50, 0.4) 0px,
+                    rgba(66, 58, 50, 0.4) 1px,
+                    rgba(86, 78, 68, 0.4) 1px,
+                    rgba(86, 78, 68, 0.4) 4px
+                );
+        }
+        
+        .expo-2 {
+            /* Experimental cool marble with warm secondary ripples */
+            background: 
+                repeating-linear-gradient(
+                    53.13deg,
+                    rgba(52, 58, 68, 0.6) 0px,
+                    rgba(52, 58, 68, 0.6) 2px,
+                    rgba(72, 78, 88, 0.6) 2px,
+                    rgba(72, 78, 88, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    14.04deg,
+                    rgba(88, 72, 58, 0.3) 0px,
+                    rgba(88, 72, 58, 0.3) 1px,
+                    rgba(108, 92, 78, 0.3) 1px,
+                    rgba(108, 92, 78, 0.3) 6px
+                );
+        }
+        
+        .expo-3 {
+            /* Experimental fabric with golden accent ripples */
+            background: 
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(42, 42, 74, 0.6) 0px,
+                    rgba(42, 42, 74, 0.6) 2px,
+                    rgba(58, 58, 90, 0.6) 2px,
+                    rgba(58, 58, 90, 0.6) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(78, 68, 48, 0.3) 0px,
+                    rgba(78, 68, 48, 0.3) 1px,
+                    rgba(98, 88, 68, 0.3) 1px,
+                    rgba(98, 88, 68, 0.3) 5px
+                );
+        }
+        
+        .expo-4 {
+            /* Experimental parchment with curved crosshatch - LIGHTENED FOR ACCESSIBILITY */
+            background: 
+                radial-gradient(ellipse 80px 12px at 35% 25%, rgba(230, 200, 160, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse 60px 10px at 65% 55%, rgba(210, 180, 140, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 90px 15px at 20% 75%, rgba(230, 200, 160, 0.3) 0%, transparent 50%),
+                rgba(250, 240, 210, 0.8);  /* LIGHTENED base from 244,228,188 to 250,240,210 */
+        }
+        
+        .expo-5 {
+            /* Experimental light marble with curved bronze ripples */
+            background: 
+                radial-gradient(ellipse 100px 20px at 25% 30%, rgba(205, 127, 50, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 80px 16px at 70% 60%, rgba(185, 107, 30, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse 120px 24px at 45% 80%, rgba(205, 127, 50, 0.3) 0%, transparent 50%),
+                rgba(248, 248, 246, 0.8);
+        }
+        
+        .expo-6 {
+            /* Experimental deep granite with silver highlights - less green, more neutral/warm */
+            background: 
+                repeating-linear-gradient(
+                    18.43deg,
+                    rgba(48, 42, 36, 0.7) 0px, /* less green, more neutral brown */
+                    rgba(48, 42, 36, 0.7) 2px,
+                    rgba(62, 58, 54, 0.7) 2px,
+                    rgba(62, 58, 54, 0.7) 3px
+                ),
+                repeating-linear-gradient(
+                    -53.13deg,
+                    rgba(108, 108, 108, 0.22) 0px,
+                    rgba(108, 108, 108, 0.22) 1px,
+                    rgba(140, 140, 140, 0.18) 1px,
+                    rgba(140, 140, 140, 0.18) 9px
+                );
+        }
+        
+        /* High contrast accessibility patterns */
+        .accessible-high-contrast {
+            /* High contrast with 3:4 slope for accessibility */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(20, 20, 20, 0.9) 0px,
+                rgba(20, 20, 20, 0.9) 2px,
+                rgba(60, 60, 60, 0.9) 2px,
+                rgba(60, 60, 60, 0.9) 3px
+            );
+        }
+        
+        .accessible-warm-contrast {
+            /* Warm high contrast with 4:3 slope */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(30, 20, 10, 0.9) 0px,
+                rgba(30, 20, 10, 0.9) 2px,
+                rgba(70, 50, 30, 0.9) 2px,
+                rgba(70, 50, 30, 0.9) 3px
+            );
+        }
+        
+        /* Ripple backgrounds - Dynamic patterns starting from corners */
+        /* NOTE: Computational cost is higher for ripple patterns due to multiple radial gradients */
+        /* Each pattern uses 3-4 radial gradients to create realistic ripple effects */
+        .ripple-granite-corners {
+            /* Granite ripples starting from top-left and bottom-right corners */
+            background: 
+                radial-gradient(ellipse 120px 20px at 15% 15%, rgba(58, 58, 58, 0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 100px 18px at 85% 85%, rgba(74, 74, 74, 0.5) 0%, transparent 70%),
+                radial-gradient(ellipse 80px 15px at 45% 25%, rgba(58, 58, 58, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 90px 16px at 75% 55%, rgba(74, 74, 74, 0.3) 0%, transparent 70%),
+                rgba(42, 42, 42, 0.8);
+        }
+        
+        .ripple-parchment-aged {
+            /* Aged parchment with corner-to-corner aging ripples - LIGHTENED FOR ACCESSIBILITY */
+            background: 
+                radial-gradient(ellipse 130px 30px at 5% 5%, rgba(235, 205, 165, 0.5) 0%, transparent 85%),
+                radial-gradient(ellipse 115px 28px at 95% 95%, rgba(240, 210, 170, 0.45) 0%, transparent 85%),
+                radial-gradient(ellipse 90px 22px at 25% 10%, rgba(235, 205, 165, 0.3) 0%, transparent 85%),
+                radial-gradient(ellipse 105px 25px at 75% 90%, rgba(240, 210, 170, 0.25) 0%, transparent 85%),
+                rgba(252, 245, 220, 0.9);  /* LIGHTENED base from 245,222,179 to 252,245,220 */
+        }
+        
+        .ripple-fabric-crosshatch {
+            /* Colorful fabric crosshatch with vibrant corner ripples - RIPPLE-2 */
+            background: 
+                /* Vibrant corner ripples with rich colors */
+                radial-gradient(ellipse 140px 35px at 5% 5%, rgba(85, 140, 180, 0.6) 0%, transparent 80%),
+                radial-gradient(ellipse 125px 32px at 95% 95%, rgba(180, 120, 85, 0.55) 0%, transparent 80%),
+                radial-gradient(ellipse 110px 28px at 25% 10%, rgba(140, 180, 110, 0.45) 0%, transparent 80%),
+                radial-gradient(ellipse 120px 30px at 75% 90%, rgba(160, 100, 140, 0.4) 0%, transparent 80%),
+                /* Rich fabric base with crosshatch */
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(45, 65, 85, 0.7) 0px,
+                    rgba(45, 65, 85, 0.7) 2px,
+                    rgba(65, 85, 105, 0.7) 2px,
+                    rgba(65, 85, 105, 0.7) 3px
+                ),
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(75, 55, 95, 0.4) 0px,
+                    rgba(75, 55, 95, 0.4) 1px,
+                    rgba(95, 75, 115, 0.4) 1px,
+                    rgba(95, 75, 115, 0.4) 4px
+                );
+        }
+        
+        /* NOTE: Light marble ripples pattern moved to failed-design.html due to veining issues */
+        
+        .note {
+            /* Using granite pattern instead of blue background per color restrictions */
+            background: repeating-linear-gradient(
+                36.87deg,
+                rgba(58, 58, 58, 0.7) 0px,
+                rgba(58, 58, 58, 0.7) 2px,
+                rgba(74, 74, 74, 0.7) 2px,
+                rgba(74, 74, 74, 0.7) 3px
+            );
+            border-left: 4px solid #8A8A8A; /* Neutral gray border */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+        
+        .warning {
+            /* Using dark granite pattern instead of flat red background */
+            background: repeating-linear-gradient(
+                53.13deg,
+                rgba(74, 42, 42, 0.8) 0px,
+                rgba(74, 42, 42, 0.8) 2px,
+                rgba(90, 58, 58, 0.8) 2px,
+                rgba(90, 58, 58, 0.8) 3px
+            );
+            border-left: 4px solid #8A5A5A; /* Muted red border */
+            padding: 12px; /* Reduced from 15px */
+            margin: 10px 0; /* Reduced from 15px 0 */
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+        
+        /* SOFTER GRADIENT EXPERIMENTS - Testing gradual transitions */
+        
+        .test-fabric-crosshatch {
+            /* Enhanced fabric crosshatch - DOUBLED SIZE, PROPER OPACITY LAYERING */
+            background: 
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(45, 45, 75, 0.3) 0px,      /* SEMI-TRANSPARENT crosshatch */
+                    rgba(45, 45, 75, 0.3) 2px,      /* Doubled width */
+                    rgba(100, 100, 140, 0.4) 2px,   /* SEMI-TRANSPARENT bright crosshatch */
+                    rgba(100, 100, 140, 0.4) 12px   /* Doubled width */
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(25, 25, 50, 0.9) 0px,      /* OPAQUE navy base underneath */
+                    rgba(25, 25, 50, 0.9) 4px,      /* Doubled width */
+                    rgba(80, 80, 120, 0.9) 4px,     /* OPAQUE light navy underneath */
+                    rgba(80, 80, 120, 0.9) 6px      /* Doubled width */
+                );
+        }
+        
+        .test-soft-1 {
+            /* Soft granite with gradual transitions - using intermediate color stops */
+            background: 
+                repeating-linear-gradient(
+                    -18.43deg,
+                    rgba(40, 40, 40, 0.2) 0px,      /* VERY LOW opacity crosshatch */
+                    rgba(50, 50, 50, 0.25) 1px,     /* Intermediate step */
+                    rgba(60, 60, 60, 0.3) 2px,      /* Peak crosshatch */
+                    rgba(50, 50, 50, 0.25) 3px,     /* Fade back */
+                    rgba(40, 40, 40, 0.2) 4px,      /* Return to base */
+                    transparent 4px,                 /* Gap for softer effect */
+                    transparent 8px
+                ),
+                repeating-linear-gradient(
+                    36.87deg,
+                    rgba(30, 30, 30, 0.85) 0px,     /* Softer base opacity */
+                    rgba(35, 35, 35, 0.87) 2px,     /* Gradual increase */
+                    rgba(45, 45, 45, 0.9) 4px,      /* Peak */
+                    rgba(35, 35, 35, 0.87) 5px,     /* Gradual decrease */
+                    rgba(30, 30, 30, 0.85) 6px      /* Return to base */
+                );
+        }
+        
+        .test-soft-2 {
+            /* Ultra-soft marble with blur-like transitions */
+            background: 
+                repeating-linear-gradient(
+                    -26.57deg,
+                    rgba(70, 55, 45, 0.15) 0px,     /* Ultra-low opacity */
+                    rgba(80, 65, 50, 0.2) 1px,      /* Gentle rise */
+                    rgba(90, 75, 60, 0.25) 2px,     /* Soft peak */
+                    rgba(80, 65, 50, 0.2) 3px,      /* Gentle fall */
+                    rgba(70, 55, 45, 0.15) 4px,     /* Return */
+                    transparent 4px,                 /* Extended gap */
+                    transparent 12px
+                ),
+                repeating-linear-gradient(
+                    33.69deg,
+                    rgba(45, 35, 25, 0.8) 0px,      /* Softer base */
+                    rgba(50, 40, 30, 0.82) 1px,     /* Micro-step 1 */
+                    rgba(55, 45, 35, 0.84) 2px,     /* Micro-step 2 */
+                    rgba(65, 50, 40, 0.86) 3px,     /* Micro-step 3 */
+                    rgba(75, 60, 45, 0.88) 4px,     /* Peak */
+                    rgba(65, 50, 40, 0.86) 5px,     /* Fade back */
+                    rgba(45, 35, 25, 0.8) 6px       /* Return to base */
+                );
+        }
+        
+        .test-soft-3 {
+            /* Extremely gradual silver granite with many intermediate steps */
+            background: 
+                repeating-linear-gradient(
+                    -53.13deg,
+                    rgba(80, 80, 85, 0.1) 0px,      /* Barely visible start */
+                    rgba(85, 85, 90, 0.12) 0.5px,   /* Micro-increment */
+                    rgba(90, 90, 95, 0.15) 1px,     /* Gentle rise */
+                    rgba(95, 95, 100, 0.18) 1.5px,  /* Continue rise */
+                    rgba(100, 100, 110, 0.2) 2px,   /* Soft peak */
+                    rgba(95, 95, 100, 0.18) 2.5px,  /* Begin fade */
+                    rgba(90, 90, 95, 0.15) 3px,     /* Continue fade */
+                    rgba(85, 85, 90, 0.12) 3.5px,   /* Almost gone */
+                    rgba(80, 80, 85, 0.1) 4px,      /* Return to base */
+                    transparent 4px,                 /* Large gap for gentleness */
+                    transparent 20px
+                ),
+                repeating-linear-gradient(
+                    18.43deg,
+                    rgba(20, 20, 20, 0.9) 0px,      /* Dark base */
+                    rgba(25, 25, 25, 0.91) 1px,     /* Tiny increment */
+                    rgba(30, 30, 30, 0.92) 2px,     /* Small rise */
+                    rgba(35, 35, 35, 0.93) 3px,     /* Continue */
+                    rgba(40, 40, 40, 0.94) 4px,     /* Peak */
+                    rgba(35, 35, 35, 0.93) 5px,     /* Fade back */
+                    rgba(20, 20, 20, 0.9) 6px       /* Return */
+                );
+        }
+        
+        .test-soft-4 {
+            /* Feathered fabric with extended color stops */
+            background: 
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(35, 35, 65, 0.08) 0px,     /* Ultra-soft start */
+                    rgba(40, 40, 70, 0.12) 1px,     /* Gentle build */
+                    rgba(45, 45, 75, 0.16) 2px,     /* Continue */
+                    rgba(50, 50, 80, 0.2) 3px,      /* Soft peak */
+                    rgba(45, 45, 75, 0.16) 4px,     /* Start fade */
+                    rgba(40, 40, 70, 0.12) 5px,     /* Continue fade */
+                    rgba(35, 35, 65, 0.08) 6px,     /* Return to base */
+                    transparent 6px,                 /* Extended transparent area */
+                    transparent 16px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(25, 25, 45, 0.85) 0px,     /* Soft navy base */
+                    rgba(30, 30, 50, 0.86) 1px,     /* Gradual step */
+                    rgba(35, 35, 55, 0.87) 2px,     /* Continue */
+                    rgba(40, 40, 60, 0.88) 3px,     /* Build */
+                    rgba(45, 45, 65, 0.89) 4px,     /* Peak */
+                    rgba(40, 40, 60, 0.88) 5px,     /* Fade */
+                    rgba(25, 25, 45, 0.85) 6px      /* Return */
+                );
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Mode Background Patterns v1.0 - Complete Collection</h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 25px;">
+             <strong>Latest Version:</strong> Comprehensive collection of anti-aliased fine striped patterns for dark mode backgrounds with all improvements and optimizations
+        </p>
+
+        <h2>1. Experimental Multi-Angle Patterns</h2>
+        
+        <div class="experimental-background">
+            <h4 style="color: #bfc3e6;">Breakthrough: Layered Stripe Patterns for Visual Interest</h4>
+            <p>Revolutionary approach combining two different striped gradients at contrasting angles to create dynamic ripple effects and break up the monotony of single-angle patterns. These experimental patterns solve the "boring background" problem by introducing subtle complexity while maintaining professional aesthetics.</p>
+            <!-- Experimental approach: Layer two gradients with different angles, colors, widths, and opacities
+                 - Primary gradient: Main pattern structure
+                 - Secondary gradient: Accent ripples with wider spacing and lower opacity
+                 - Creates visual texture that mimics natural stone and fabric variations -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample expo-1">
+                    <div class="pattern-text">Expo-1: Crosshatch Granite</div>
+                </div>
+                <div class="pattern-title">Expo-1: Enhanced Granite</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 36.87° gray base pattern<br>
+                    <strong class="tech-specs">Secondary:</strong> -18.43° lighter accent ripples<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 42,42,42 and 58,58,58)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Crosshatch texture, enhanced depth<br>
+                    <strong class="tech-specs">Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- EXPO-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-2">
+                    <div class="pattern-text">Expo-2: Warm Marble Ripples</div>
+                </div>
+                <div class="pattern-title">Expo-2: Marble with Warm Accents</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 53.13° marble base pattern<br>
+                    <strong class="tech-specs">Secondary:</strong> 14.04° warm brown ripples<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (PURE gray - 58,58,58 and 74,74,74)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Natural stone variation, warm highlights<br>
+                    <strong class="tech-specs">Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- EXPO-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-3">
+                    <div class="pattern-text">Expo-3: Fabric Gold Ripples</div>
+                </div>
+                <div class="pattern-title">Expo-3: Classical Fabric Enhancement</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 33.69° royal blue fabric base<br>
+                    <strong class="tech-specs">Secondary:</strong> -26.57° golden accent threads<br>
+                    <strong class="tech-specs">Gray Score:</strong> 25% (low gray, rich blue/gold)<br>
+                    <strong class="tech-specs">Text Use:</strong> EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Woven texture, metallic highlights<br>
+                    <strong class="tech-specs">Use:</strong> Premium fabric simulation with golden threads
+                </div>
+                
+                <!-- EXPO-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample expo-4">
+                    <div class="pattern-text-light">Expo-4: Parchment Crosshatch</div>
+                </div>
+                <div class="pattern-title">Expo-4: Enhanced Parchment</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> Curved parchment base<br>
+                    <strong class="tech-specs">Secondary:</strong> Curved brown fiber patterns<br>
+                    <strong class="tech-specs">Gray Score:</strong> 15% (warm parchment tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> EXCELLENT - Ideal for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Paper fiber texture, curved aging appearance<br>
+                    <strong class="tech-specs">Use:</strong> Document interfaces with authentic curved paper feel
+                </div>
+                
+                <!-- EXPO-4 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo-4-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-5">
+                    <div class="pattern-text-light">Expo-5: Marble Bronze Veins</div>
+                </div>
+                <div class="pattern-title">Expo-5: Light Marble with Bronze</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> Curved white marble base<br>
+                    <strong class="tech-specs">Secondary:</strong> Curved bronze veining<br>
+                    <strong class="tech-specs">Gray Score:</strong> 20% (white marble with bronze)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Natural curved marble veining, refined appearance<br>
+                    <strong class="tech-specs">Use:</strong> Premium light backgrounds with authentic curved veining
+                </div>
+                
+                <!-- EXPO-5 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo-5-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample expo-6">
+                    <div class="pattern-text">Expo-6: Deep Granite Silver</div>
+                </div>
+                <div class="pattern-title">Expo-6: Deep Granite with Silver</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary:</strong> 18.43° deep gray base<br>
+                    <strong class="tech-specs">Secondary:</strong> -53.13° silver highlights<br>
+                    <strong class="tech-specs">Gray Score:</strong> 85% (high gray/silver content)<br>
+                    <strong class="tech-specs">Text Use:</strong> ⚠️ DO NOT USE - Too gray for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Mineral sparkle, depth enhancement<br>
+                    <strong class="tech-specs">Use:</strong> Premium dark backgrounds with metallic accents (accent areas only)
+                </div>
+                
+                <!-- EXPO-6 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="expo-6-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Granite Pattern Family</h2>
+        
+        <div class="solution-highlight">
+            <h4 style="color: #e2e6f6;">Proposed Solution: Multiple Slope Ratios with Fine Stripes</h4>
+            <p>Replace single 45° granite pattern with a family of anti-aliased patterns using different slope ratios and 1-2px stripe widths.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample granite-3-4">
+                    <div class="pattern-text">Granite 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Gran-1: Classical Granite (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87° (most common anti-aliasing fix)<br>
+                    <strong class="tech-specs">Colors:</strong> PURE gray (42,42,42) and (58,58,58)<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (pure gray content)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- GRAN-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="gran-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample granite-4-3">
+                    <div class="pattern-text">Granite 4:3 Slope</div>
+                </div>
+                <div class="pattern-title">Gran-2: Warm Granite (4:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 53.13° (steeper angle)<br>
+                    <strong>Colors:</strong> Warm gray base with purple tint<br>
+                    <strong class="tech-specs">Gray Score:</strong> 70% (moderate gray with purple warmth)<br>
+                    <strong class="tech-specs">Text Use:</strong> ⚠️ MODERATE - Use carefully, getting too gray for large text areas<br>
+                    <strong>Stripes:</strong> 2px base, 1px accent<br>
+                    <strong>Use:</strong> Warmer interfaces, creative applications
+                </div>
+                
+                <!-- GRAN-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="gran-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample granite-1-2">
+                    <div class="pattern-text">Granite 1:2 Slope</div>
+                </div>
+                <div class="pattern-title">Gran-3: Subtle Granite (3:4)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 36.87° (standard angle)<br>
+                    <strong>Colors:</strong> PURE gray (42,42,42) and (58,58,58)<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (pure gray content)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong>Stripes:</strong> 1px equal width stripes<br>
+                    <strong>Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- GRAN-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="gran-3-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample granite-2-3">
+                    <div class="pattern-text">Granite 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Gran-4: Greenish Granite (3:4)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 36.87° with -26.57° crosshatch<br>
+                    <strong>Colors:</strong> Natural greenish stone tones with crosshatch texture<br>
+                    <strong class="tech-specs">Gray Score:</strong> <span id="gran-4-score">Calculating...</span><br>
+                    <strong class="tech-specs">Text Use:</strong> <span id="gran-4-recommendation">Calculating...</span><br>
+                    <strong>Stripes:</strong> 2px base, 1px accent with crosshatch overlay<br>
+                    <strong>Use:</strong> Natural stone texture backgrounds with enhanced depth
+                </div>
+                
+                <!-- GRAN-4 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="gran-4-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Marble Pattern Family</h2>
+        
+        <div class="solution-highlight">
+            <h4 style="color: #f2e6e0;">Enhanced Marble Patterns: Warmer, Darker Tones</h4>
+            <p>Premium dark marble patterns using warmer brown tones and anti-aliased slopes, enhanced with the new experimental multi-angle techniques.</p>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="before-after before">
+                <h4>Traditional Single-Angle Wood</h4>
+                <div class="pattern-sample Wood-3-4">
+                    <div class="pattern-text">Traditional Wood Pattern</div>
+                </div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Approach:</strong> Single angle, uniform pattern
+                </div>
+            </div>
+            
+            <div class="before-after after">
+                <h4 style="color: #e0cfc0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+            <h4 style="color: #f2e6e0;">Enhanced Multi-Angle Marble (Expo-2)</h4>
+                <div class="pattern-sample expo-2">
+                    <div class="pattern-text">Enhanced Marble Pattern</div>
+                </div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Improvements:</strong> Dual angles, warm ripples, natural variation
+                </div>
+            </div>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample marble-3-4">
+                    <div class="pattern-text">Marble 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Marb-1: Rich Marble (3:4)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 36.87°<br>
+                    <strong>Colors:</strong> Pure gray - NOT brown as incorrectly described<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (pure gray content - 58,58,58 and 74,74,74)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong>Stripes:</strong> Base color with accent every 3rd position<br>
+                    <strong>Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- MARB-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="marb-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample marble-4-3">
+                    <div class="pattern-text">Marble 4:3 Slope</div>
+                </div>
+                <div class="pattern-title">Marb-2: Elegant Marble (4:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 53.13°<br>
+                    <strong>Colors:</strong> Pure gray - NOT brown as incorrectly described<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (pure gray content - 74,74,74 and 90,90,90)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong>Stripes:</strong> 2px base, 1px accent<br>
+                    <strong>Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- MARB-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="marb-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample marble-1-3">
+                    <div class="pattern-text">Marble 1:3 Slope</div>
+                </div>
+                <div class="pattern-title">Marb-3: Subtle Marble (1:3)</div>
+                <div class="pattern-description">
+                    <strong>Angle:</strong> 18.43°<br>
+                    <strong>Colors:</strong> Pure gray - NOT brown as incorrectly described<br>
+                    <strong class="tech-specs">Gray Score:</strong> 100% (pure gray content - 58,58,58 and 74,74,74)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong>Stripes:</strong> Fine accent stripes<br>
+                    <strong>Use:</strong> Accent areas only - never for large text backgrounds
+                </div>
+                
+                <!-- MARB-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="marb-3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>4. Fabric Pattern Family</h2>
+        
+        <div class="technical-background">
+            <h4 style="color: #e0e6f2;">Refined Fabric Textures</h4>
+            <p>Refined fabric patterns inspired by classical textiles with various slopes and elegant color combinations suitable for dark mode interfaces.</p>
+            <!-- Updated from "Professional" to classical fabric terminology based on authentic textile names:
+                 Damask, Brocade, and Velvet represent traditional classical fabric weaving patterns -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample fabric-1-3">
+                    <div class="pattern-text">Navy Blue 1:3 Slope</div>
+                </div>
+                <div class="pattern-title">Fabr-1: Navy Blue Weave (1:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 18.43°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep navy blue base with subtle accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 30% (navy blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Base with thin accent every 3rd<br>
+                    <strong class="tech-specs">Use:</strong> Classical applications, refined interfaces<br>
+                    <!-- Navy Blue: Deep, classic blue for professional dark mode backgrounds -->
+                </div>
+                
+                <!-- FABR-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="fabr-1-calc">Calculating...</div>
+                </div>
+            </div>                <div class="pattern-card">
+                <div class="pattern-sample fabric-2-3">
+                    <div class="pattern-text">Damask 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Fabr-2: Damask Weave (3:4) - ACCENT TEXTURE</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep damask blue with elegant accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 28% (damask blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Accent sections, refined interfaces<br>
+                    <strong class="tech-specs">Type:</strong> ACCENT TEXTURE<br>
+                    <!-- Damask: Traditional luxury fabric with intricate woven patterns, often silk -->
+                </div>
+                
+                <!-- FABR-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="fabr-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample fabric-3-4">
+                    <div class="pattern-text">Velvet 3:4 Slope</div>
+                </div>
+                <div class="pattern-title">Fabr-3: Velvet Weave (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep royal blueish with elegant accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 25% (rich blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Classical stripe ratio<br>
+                    <strong class="tech-specs">Use:</strong> Premium dashboards, luxury interfaces<br>
+                    <!-- Velvet: Luxurious fabric with dense, soft pile, historically associated with nobility -->
+                </div>
+                
+                <!-- FABR-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="fabr-3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>5. Stained Glass Pattern Family</h2>
+        
+        <div class="solution Deep-Stained-Glass-Effects">
+            <h4 style="color: #e0e6f2;">Deep Stained Glass Effects</h4>
+            <p>Rich, deep blue stained glass patterns that maintain the aesthetic while being suitable for dark mode backgrounds. Blue is used here only for accent/framing, not large background areas.</p>
+            <!-- Note: Blue colors are intentionally reserved for stained glass accents and framing only,
+                 per requirements to avoid blue/red/green for large implementation backgrounds -->
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample glass-2-3">
+                    <div class="pattern-text">Stained Glass 3:4</div>
+                </div>
+                <div class="pattern-title">Glas-1: Deep Stained Glass (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 33.69°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep navy with rich blue accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 20% (deep blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> 2px base, 1px accent<br>
+                    <strong class="tech-specs">Use:</strong> Artistic applications, creative interfaces (accent only)<br>
+                </div>
+                
+                <!-- GLAS-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="glas-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample glass-3-4">
+                    <div class="pattern-text">Stained Glass 3:4</div>
+                </div>
+                <div class="pattern-title">Glas-2: Rich Stained Glass (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep blue-gray with blue accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 22% (deep blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Professional ratio<br>
+                    <strong class="tech-specs">Use:</strong> Premium backgrounds, refined themes (accent only)<br>
+                </div>
+                
+                <!-- GLAS-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="glas-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample glass-1-4">
+                    <div class="pattern-text">Stained Glass 1:4</div>
+                </div>
+                <div class="pattern-title">Glas-3: Subtle Stained Glass (1:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 14.04°<br>
+                    <strong class="tech-specs">Colors:</strong> Muted deep blue with subtle accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 24% (deep blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Thin accent stripes<br>
+                    <strong class="tech-specs">Use:</strong> Subtle backgrounds, understated elegance (accent only)<br>
+                </div>
+                
+                <!-- GLAS-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="glas-3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Classical Dark Patterns</h2>
+        
+        <div class="solution-background">
+            <h4 style="color: #f2e6e0;">New Classical Pattern Category</h4>
+            <p>Classical patterns specifically designed for classical dark mode interfaces with elegant color combinations.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample classical-navy">
+                    <div class="pattern-text">Classical Navy</div>
+                </div>
+                <div class="pattern-title">Clas-1: Classical Navy (1:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 14.04°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep navy with blue accent<br>
+                    <strong class="tech-specs">Gray Score:</strong> 35% (navy blue tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Subtle classical pattern<br>
+                    <strong class="tech-specs">Use:</strong> Classical dashboards, business applications
+                </div>
+                
+                <!-- CLAS-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="clas-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample classical-charcoal">
+                    <div class="pattern-text">Classical Charcoal</div>
+                </div>
+                <div class="pattern-title">Clas-2: Warm Charcoal (3:5)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 30.96°<br>
+                    <strong class="tech-specs">Colors:</strong> CHARCOAL IS GRAY - high gray content with slight brown tint<br>
+                    <strong class="tech-specs">Gray Score:</strong> 75% (charcoal = gray with brown warmth)<br>
+                    <strong class="tech-specs">Text Use:</strong> ⚠️ MODERATE - Use carefully, getting too gray for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Classical stripe ratio<br>
+                    <strong class="tech-specs">Use:</strong> Executive interfaces, premium classical tools (small areas only)
+                </div>
+                
+                <!-- CLAS-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="clas-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample classical-burgundy">
+                    <div class="pattern-text">Classical Burgundy</div>
+                </div>
+                <div class="pattern-title">Clas-3: Classical Burgundy (4:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 53.13°<br>
+                    <strong class="tech-specs">Colors:</strong> Deep burgundy with gold accent - NOT gray<br>
+                    <strong class="tech-specs">Gray Score:</strong> 30% (burgundy red tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Bold classical pattern<br>
+                    <strong class="tech-specs">Use:</strong> High-impact classical interfaces, luxury business apps
+                </div>
+                
+                <!-- CLAS-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="clas-3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>7. High-Contrast Accessibility Patterns</h2>
+        
+        <div class="solution-highlight">
+            <h4>Accessibility-Focused Patterns</h4>
+            <p>High-contrast patterns designed for accessibility while maintaining visual appeal and text readability.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample accessible-high-contrast">
+                    <div class="pattern-text">High Contrast Accessible</div>
+                </div>
+                <div class="pattern-title">Cont-1: High Contrast (3:4)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 36.87°<br>
+                    <strong class="tech-specs">Colors:</strong> High contrast black and gray<br>
+                    <strong class="tech-specs">Gray Score:</strong> 98% (high contrast grays)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 98% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Maximum contrast for accessibility<br>
+                    <strong class="tech-specs">Use:</strong> Accessibility-compliant interfaces (accent areas only)
+                </div>
+                
+                <!-- CONT-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="cont-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample accessible-warm-contrast">
+                    <div class="pattern-text">Warm High Contrast</div>
+                </div>
+                <div class="pattern-title">Cont-2: Warm High Contrast (4:3)</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Angle:</strong> 53.13°<br>
+                    <strong class="tech-specs">Colors:</strong> Warm brown with high contrast<br>
+                    <strong class="tech-specs">Gray Score:</strong> 65% (warm brown with contrast)<br>
+                    <strong class="tech-specs">Text Use:</strong> ⚠️ MODERATE - Use carefully, getting too gray for large text areas<br>
+                    <strong class="tech-specs">Stripes:</strong> Accessible contrast ratios<br>
+                    <strong class="tech-specs">Use:</strong> Warm accessible interfaces (small areas only)
+                </div>
+                
+                <!-- CONT-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="cont-2-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>8. Ripple Backgrounds</h2>
+        
+        <div class="solution-highlight">
+            <h4 style="color: #e2e6f6;">Dynamic Corner-Based Ripple Patterns</h4>
+            <p>Advanced ripple effects that start from two corners and spread diagonally across the background. These patterns create natural-looking variations while maintaining professional aesthetics. <strong>Note:</strong> Higher computational cost due to multiple radial gradient calculations.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample ripple-granite-corners">
+                    <div class="pattern-text">Granite Corner Ripples</div>
+                </div>
+                <div class="pattern-title">Ripple-1: Granite Corner Spread</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Origin:</strong> Top-left (15%,15%) and bottom-right (85%,85%)<br>
+                    <strong class="tech-specs">Colors:</strong> Granite grays with subtle variations<br>
+                    <strong class="tech-specs">Gray Score:</strong> 90% (granite base with gray ripples)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 90% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Natural stone texture with corner-to-corner flow<br>
+                    <strong class="tech-specs">Cost:</strong> 4 radial gradients + base color
+                </div>
+                
+                <!-- RIPPLE-1 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="ripple-1-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <!-- Ripple-2: Light Marble pattern moved to failed-design.html due to veining issues -->
+            
+            <div class="pattern-card">
+                <div class="pattern-sample ripple-fabric-crosshatch">
+                    <div class="pattern-text">Fabric Crosshatch Ripples</div>
+                </div>
+                <div class="pattern-title">Ripple-2: Fabric Cross-Flow</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Origin:</strong> All four corners with crosshatch pattern<br>
+                    <strong class="tech-specs">Colors:</strong> Deep fabric blues with texture variations<br>
+                    <strong class="tech-specs">Gray Score:</strong> 35% (fabric blue with gold ripples)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Rich fabric texture with dimensional depth<br>
+                    <strong class="tech-specs">Cost:</strong> 4 radial gradients + fabric base
+                </div>
+                
+                <!-- RIPPLE-2 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="ripple-2-calc">Calculating...</div>
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample ripple-parchment-aged">
+                    <div class="pattern-text-light">Aged Parchment Ripples</div>
+                </div>
+                <div class="pattern-title">Ripple-3: Parchment Age Flow</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Origin:</strong> Corner aging pattern (5%,5%) to (95%,95%)<br>
+                    <strong class="tech-specs">Colors:</strong> Aged parchment tans with natural variations<br>
+                    <strong class="tech-specs">Gray Score:</strong> 10% (parchment with bronze ripples)<br>
+                    <strong class="tech-specs">Text Use:</strong> ✅ EXCELLENT - Perfect for large text areas<br>
+                    <strong class="tech-specs">Effect:</strong> Antique paper with realistic aging patterns<br>
+                    <strong class="tech-specs">Cost:</strong> 4 radial gradients + parchment base
+                </div>
+                
+                <!-- RIPPLE-3 CALCULATION DETAILS -->
+                <div class="calculation-details">
+                    <h4>Calculation Details</h4>
+                    <div id="ripple3-calc">Calculating...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="problem-highlight">
+            <h4 style="color: #ffe6e6;">Computational Cost Notes for Ripple Patterns</h4>
+            <p><strong>Performance Impact:</strong> Ripple patterns require 4-5 CSS calculations per background (multiple radial gradients) compared to 1 calculation for simple striped patterns. Consider using ripple patterns sparingly or for accent areas rather than full-page backgrounds on performance-sensitive applications.</p>
+            <p><strong>Veining Cost:</strong> All curved veining patterns (marble, parchment) use angled radial gradients which require more processing than linear gradients. The realistic curved effects come at a computational cost that should be considered for mobile or low-performance devices.</p>
+        </div>
+
+        <h2>9. Muted Content Background Showcase</h2>
+        
+        <div class="solution-highlight">
+            <h4 style="color: #e2e6f6;">Muted Pattern Collection - For Large Text Areas</h4>
+            <p>Subtle, readable background patterns designed specifically for content sections with extensive text. All patterns use reduced opacity and muted color tones to ensure excellent readability while adding visual interest.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample muted-damask" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Damask - Blue-Gray</div>
+                </div>
+                <div class="pattern-title">Muted-1: Damask Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Subtle blue-gray tones<br>
+                    <strong>Angle:</strong> 53.13° (4:3 steep, anti-aliased)<br>
+                    <strong>Use:</strong> Technical documentation, implementation guides<br>
+                    <strong>Readability:</strong> Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-velvet" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Velvet - Purple-Gray</div>
+                </div>
+                <div class="pattern-title">Muted-2: Velvet Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Soft purple-gray elegance<br>
+                    <strong>Angle:</strong> 36.87° (classic)<br>
+                    <strong>Use:</strong> Summary sections, conclusions<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-burgundy" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Burgundy - Wine Tones</div>
+                </div>
+                <div class="pattern-title">Muted-3: Burgundy Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Warm wine undertones<br>
+                    <strong>Angle:</strong> 33.69° (balanced)<br>
+                    <strong>Use:</strong> Rich content, premium sections<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-sage" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Sage - Natural Green</div>
+                </div>
+                <div class="pattern-title">Muted-4: Sage Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Natural calming green<br>
+                    <strong>Angle:</strong> 26.57° (subtle)<br>
+                    <strong>Use:</strong> Natural themes, organic content<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-slate" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Slate - Professional Blue</div>
+                </div>
+                <div class="pattern-title">Muted-5: Slate Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Professional neutral blue<br>
+                    <strong>Angle:</strong> 53.13° (steep, distinctive)<br>
+                    <strong>Use:</strong> Corporate content, professional docs<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-bronze" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Bronze - Metallic Warm</div>
+                </div>
+                <div class="pattern-title">Muted-6: Bronze Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Warm metallic undertones<br>
+                    <strong>Angle:</strong> 53.13° (4:3 steep, anti-aliased)<br>
+                    <strong>Use:</strong> Warm technical content<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-plum" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Plum - Sophisticated Purple</div>
+                </div>
+                <div class="pattern-title">Muted-7: Plum Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Sophisticated purple-gray<br>
+                    <strong>Angle:</strong> 36.87° (classic)<br>
+                    <strong>Use:</strong> Elegant content, refined sections<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample muted-warm-granite" style="min-height: 120px;">
+                    <div class="pattern-text">Muted Warm Granite - Gran-2 Based</div>
+                </div>
+                <div class="pattern-title">Muted-8: Warm Granite Content Background</div>
+                <div class="pattern-description">
+                    <strong>Colors:</strong> Muted purple-warm tones (based on Gran-2)<br>
+                    <strong>Angle:</strong> 53.13° (steep, like Gran-2)<br>
+                    <strong>Use:</strong> Warm technical content, creative sections<br>
+                    <strong>Readability:</strong> ✅ Excellent for large text blocks
+                </div>
+            </div>
+        </div>
+
+        <h2>10. Implementation Guidelines</h2>
+        
+        <div class="solution muted-burgundy">
+            <h4>Anti-Aliasing Strategy</h4>
+            <p>All patterns use slope ratios other than 1:1 (45°) to prevent aliasing:</p>
+            <ul>
+                <li><strong>3:4 (36.87°)</strong> - Most common, excellent for professional interfaces</li>
+                <li><strong>4:3 (53.13°)</strong> - Steeper angle, good for variety</li>
+                <li><strong>1:2 (26.57°)</strong> - Shallow angle, subtle effect</li>
+                <li><strong>1:3 (18.43°)</strong> - Very subtle, minimal visual impact</li>
+                <li><strong>3:4 (36.87°)</strong> - Balanced angle, good for artistic applications</li>
+            </ul>
+        </div>
+        
+        <div class="solution muted-damask">
+            <h4>Color Strategy & Restrictions</h4>
+            <p><strong>Important:</strong> Blue and red colors are reserved for accents and framing only, NOT for large background areas like implementation guidelines or migration notes.</p>
+            <ul>
+                <li><strong>Blue Usage:</strong> Limited to stained glass patterns, accent borders, and small UI elements</li>
+                <li><strong>Red Usage:</strong> Limited to error states, warnings, and small accent elements</li>
+                <li><strong>Gray Backgrounds:</strong> Do not use gray backgrounds for large areas of text - use pattern-based backgrounds instead</li>
+                <li><strong>Large Backgrounds:</strong> Use granite, marble, fabric, parchment, or classical patterns only</li>
+                <li><strong>Implementation Areas:</strong> Avoid blue/red/green for documentation, guidelines, and migration sections</li>
+                <li><strong>Accent/Framing:</strong> Blue and red are appropriate for borders, highlights, and small decorative elements</li>
+            </ul>
+        </div>
+        
+        <div class="muted-burgundy">
+            <h4>5% Gray Score Threshold Rule</h4>
+            <p><strong>Critical Rule:</strong> Patterns with less than 5% distance from gray should NOT be used for large text areas.</p>
+            <ul>
+                <li><strong>5% Threshold:</strong> Minimum distance from pure gray required for readability</li>
+                <li><strong>✅ Safe (≥5%):</strong> Patterns have enough color variation for large text backgrounds</li>
+                <li><strong>❌ Unsafe (<5%):</strong> Too close to gray, restrict to accent areas only</li>
+                <li><strong>Conservative Approach:</strong> Ensures excellent readability and visual interest</li>
+                <li><strong>Real-Time Calculation:</strong> All scores calculated automatically using perc_g formula</li>
+                <li><strong>Accent Use:</strong> Patterns below 5% threshold can still be used for borders, dividers, and small UI elements</li>
+            </ul>
+        </div>
+        
+       <div class="muted-damask">
+            <h4>Color Harmony Principles</h4>
+            <ul>
+                <li><strong>Darker, Warmer Backgrounds:</strong> All patterns use darker base colors appropriate for dark mode</li>
+                <li><strong>Authentic Color Sources:</strong> Marble colors based on real Italian marble varieties</li>
+                <li><strong>Fabric Authenticity:</strong> Fabric patterns named after real luxury textiles (Damask, Brocade, Velvet)</li>
+                <li><strong>Complementary Accents:</strong> Accent colors are chosen to complement base colors</li>
+                <li><strong>Consistent Opacity:</strong> Dark patterns use 0.8 opacity, light patterns use 0.9 opacity</li>
+                <li><strong>Classical Color Palettes:</strong> Colors chosen for classical, business environments</li>
+            </ul>
+        </div>
+        
+         <div class=" muted-burgundy">
+            <h4>Stripe Width Strategy</h4>
+            <ul>
+                <li><strong>1px Stripes:</strong> For subtle effects and equal-width patterns</li>
+                <li><strong>2px Base + 1px Accent:</strong> Most common ratio for base-accent patterns</li>
+                <li><strong>Base Every 3rd Position:</strong> Creates elegant rhythm in patterns</li>
+                <li><strong>No Subpixel Widths:</strong> All measurements are whole pixels for crisp rendering</li>
+            </ul>
+        </div>
+
+        <h2>11. Next Steps</h2>
+        
+        <div class="implementation-background">
+            <h4>Implementation Phases</h4>
+            <p><strong>Note:</strong> Using granite base pattern for this implementation section to demonstrate practical application of our created patterns instead of prohibited color backgrounds.</p>
+            <ol>
+                <li><strong>Phase 1:</strong> Implement experimental multi-angle patterns (Expo-1 through Expo-6)</li>
+                <li><strong>Phase 2:</strong> Replace existing 4 texture classes with enhanced anti-aliased versions</li>
+                <li><strong>Phase 3:</strong> Add new Light Marble and Parchment/Paper pattern families</li>
+                <li><strong>Phase 4:</strong> Implement classical fabric patterns (Damask, Brocade, Velvet)</li>
+                <li><strong>Phase 5:</strong> Add classical and accessibility pattern families</li>
+                <li><strong>Phase  6:</strong> Implement systematic color variables and documentation</li>
+                <li><strong>Phase 7:</strong> Add responsive optimizations and performance improvements</li>
+            </ol>
+        </div>
+
+        <div class="muted-burgundy" style="margin-top: 40px; padding: 15px; color: var(--text-secondary);">
+            <h4>Summary</h4>
+            <p>This enhanced proposal demonstrates comprehensive improvements to fine striped patterns with anti-aliased slopes, authentic color sources, and classical fabric terminology. The new Light Marble, Parchment/Paper, and Ripple Background families provide elegant alternatives while maintaining professional aesthetics and accessibility standards. Blue, red, and green colors are strategically reserved for accents and framing only, never for large background areas.</p>
+            
+            <p><strong>Key Improvements:</strong></p>
+            <ul style="margin-top: 10px;">
+                <li>✓ 5% Gray Score Threshold for safe large text area usage</li>
+                <li>✓ Real-time calculation of gray distance using perc_g formula</li>
+                <li>✓ Experimental multi-angle patterns with visual interest and curved marble/parchment veining</li>
+                <li>✓ Dynamic ripple backgrounds starting from corners with natural flow patterns</li>
+                <li>✓ Authentic Italian marble varieties (Carrara, Calacatta, Statuario) with natural curved patterns</li>
+                <li>✓ Classical fabric terminology (Damask, Brocade, Velvet)</li>
+                <li>✓ Natural parchment and paper color families with curved fiber simulation</li>
+                <li>✓ Strategic blue/red/green color restrictions</li>
+                <li>✓ Anti-aliased slope ratios for smooth rendering</li>
+                <li>✓ Comprehensive documentation and computational cost analysis</li>
+                <li>✓ Complete removal of centered text layouts</li>
+            </ul>
+        </div>
+
+        <div class="granite-2-3" style="margin-top: 30px; padding: 20px; color: var(--text-primary);">
+            <h4>🏁 Conclusion</h4>
+            <p><strong>Mission Accomplished:</strong> This comprehensive dark mode background pattern system successfully transforms bland, gray backgrounds into rich, textured experiences while maintaining excellent readability and accessibility standards.</p>
+            
+            <p><strong>Key Achievements:</strong></p>
+            <ul>
+                <li>🎨 <strong>Visual Richness:</strong> 40+ unique patterns with authentic colors and textures</li>
+                <li>📊 <strong>Scientific Approach:</strong> Real-time gray score calculations with 5% threshold</li>
+                <li>🔧 <strong>Technical Excellence:</strong> Anti-aliased slopes, crosshatch effects, and optimized rendering</li>
+                <li>♿ <strong>Accessibility First:</strong> Every pattern tested for large text area readability</li>
+                <li>🎭 <strong>Authentic Design:</strong> Real marble varieties, classical fabric names, natural textures</li>
+                <li>💎 <strong>Innovation:</strong> Muted content backgrounds, ripple effects, and experimental patterns</li>
+            </ul>
+            
+            <p><strong>The Future is Textured:</strong> Dark mode interfaces no longer need to be monotonous. This pattern system proves that beautiful, readable, and accessible backgrounds are not only possible—they're essential for engaging user experiences.</p>
+            
+            <p style="text-align: center; margin-top: 20px; font-style: italic; color: #90EE90;">
+                "From gray monotony to textured elegance—<br>
+                Every pixel now tells a story."
+            </p>
+        </div>
+
+        <h2>14. Testing Section - Enhanced Crosshatch Visibility</h2>
+        
+        <div class="implementation-background">
+            <h4>Ultra-Softened Multi-Angle Pattern Testing</h4>
+            <p><strong>Final Update:</strong> Testing patterns with doubled size and ultra-low opacity for whisper-soft, barely-perceptible crosshatch effects with maximum elegance.</p>
+            
+            <div class="highlight">
+                <h4>⚠️ DESIGN DECISION: Enhanced Crosshatch Usage Restriction</h4>
+                <p><strong>Do not use enhanced crosshatch patterns from this section for large areas of text.</strong> These patterns are experimental and designed for testing visibility effects only. The enhanced crosshatch creates visual interference that can strain readers' eyes when applied to extensive text regions.</p>
+                <p><strong>Recommended usage:</strong> Small accent areas, borders, or decorative elements only.</p>
+                <p><strong>For large text areas:</strong> Use the standard patterns from sections 1-13 instead.</p>
+            </div>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample test-expo-1" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Test-1: Softened Crosshatch Granite</div>
+                </div>
+                <div class="pattern-title">Test-1: Ultra-Softened Crosshatch Granite</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 36.87° (doubled to 4px-6px)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -18.43° (doubled to 2px-8px)<br>
+                    <strong class="tech-specs">Gray Score:</strong> 65% (moderate gray, ultra-soft opacity)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 100% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Contrast:</strong> LOW - Ultra-soft gray (40,40,40) to Light (60,60,60)<br>
+                    <strong class="tech-specs">Opacity:</strong> Base 0.6, Crosshatch 0.12-0.15 (ultra-softened)<br>
+                    <strong class="tech-specs">Effect:</strong> Whisper-soft crosshatch pattern, subtle presence<br>
+                    <strong class="tech-specs">Type:</strong> BASE TEXTURE - TESTING ULTRA-SOFTENED
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample test-expo-2" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Test-2: Softened Marble Crosshatch</div>
+                </div>
+                <div class="pattern-title">Test-2: Softened Marble Crosshatch</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 33.69° (doubled to 4px-6px)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -26.57° (doubled to 2px-10px)<br>
+                    <strong class="tech-specs">Gray Score:</strong> 40% (warm brown marble tones)<br>
+                    <strong class="tech-specs">Text Use:</strong> ⚠️ MODERATE - 70% gray, use carefully for large text areas<br>
+                    <strong class="tech-specs">Contrast:</strong> MODERATE - Softer marble (50,35,25) to Light (100,80,60)<br>
+                    <strong class="tech-specs">Opacity:</strong> Base 0.6, Crosshatch 0.12-0.15 (ultra-softened)<br>
+                    <strong class="tech-specs">Effect:</strong> Gentle marble crosshatch, refined appearance<br>
+                    <strong class="tech-specs">Type:</strong> BASE TEXTURE - TESTING ULTRA-SOFTENED
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pattern-sample test-expo-6" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Test-6: Softened Silver Granite</div>
+                </div>
+                <div class="pattern-title">Test-3: Softened Deep Granite with Silver</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 18.43° (doubled to 4px-6px)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -53.13° (doubled to 2px-18px)<br>
+                    <strong class="tech-specs">Gray Score:</strong> 75% (moderate gray/silver content, ultra-soft)<br>
+                    <strong class="tech-specs">Text Use:</strong> ❌ DO NOT USE - 98% gray content, avoid for large text areas<br>
+                    <strong class="tech-specs">Contrast:</strong> MODERATE - Softer black (25,25,25) to Silver (150,150,150)<br>
+                    <strong class="tech-specs">Opacity:</strong> Base 0.6, Crosshatch 0.12-0.15 (ultra-softened)<br>
+                    <strong class="tech-specs">Effect:</strong> Refined silver highlights on deep granite<br>
+                    <strong class="tech-specs">Type:</strong> BASE TEXTURE - TESTING ULTRA-SOFTENED
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pattern-sample test-fabric-crosshatch" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Test-4: Softened Fabric Crosshatch</div>
+                </div>
+                <div class="pattern-title">Test-4: Softened Fabric Crosshatch</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 45° (doubled to 4px-6px)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -45° (doubled to 2px-12px)<br>
+                    <strong class="tech-specs">Contrast:</strong> MODERATE - Softer navy (30,30,50) to Light navy (65,65,100)<br>
+                    <strong class="tech-specs">Opacity:</strong> Base 0.8, Crosshatch 0.2-0.25 (softened)<br>
+                    <strong class="tech-specs">Effect:</strong> Refined 90° crosshatch pattern, balanced visibility<br>
+                    <strong class="tech-specs">Type:</strong> ACCENT TEXTURE - TESTING SOFTENED
+                </div>
+            </div>
+        </div>
+
+        <div class="implementation-background" style="margin-top: 30px;">
+            <h4>🆕 Soft Gradient Experiments - Exploring Gentler Transitions</h4>
+            <p><strong>New Approach:</strong> Testing ultra-soft gradients with intermediate color stops, micro-increments, and extended transparent areas for more natural, gradual transitions.</p>
+        </div>
+
+        <div class="pattern-showcase">
+            <div class="pattern-card">
+                <div class="pattern-sample test-soft-1" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Soft-1: Gradual Granite</div>
+                </div>
+                <div class="pattern-title">Soft-1: Gradual Granite Transitions</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 36.87° (0.85-0.9 opacity, gradual steps)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -18.43° (0.2-0.3 opacity, fade curves)<br>
+                    <strong class="tech-specs">Technique:</strong> Intermediate color stops with fade-in/fade-out<br>
+                    <strong class="tech-specs">Transparency:</strong> Extended transparent gaps (4px-8px)<br>
+                    <strong class="tech-specs">Effect:</strong> Soft, blurred appearance with natural transitions<br>
+                    <strong class="tech-specs">Type:</strong> ULTRA-SOFT TEXTURE EXPERIMENT
+                </div>
+            </div>
+            
+            <div class="pattern-card">
+                <div class="pattern-sample test-soft-2" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Soft-2: Blur-Like Marble</div>
+                </div>
+                <div class="pattern-title">Soft-2: Ultra-Soft Marble with Blur Effect</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 33.69° (0.8-0.88 opacity, micro-steps)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -26.57° (0.15-0.25 opacity, ultra-low)<br>
+                    <strong class="tech-specs">Technique:</strong> Ultra-low opacity with extended gaps<br>
+                    <strong class="tech-specs">Base Layer:</strong> Micro-steps (0.8 → 0.88 in 0.02 increments)<br>
+                    <strong class="tech-specs">Effect:</strong> Whisper-soft texture, almost imperceptible<br>
+                    <strong class="tech-specs">Type:</strong> FEATHERED TEXTURE EXPERIMENT
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pattern-sample test-soft-3" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Soft-3: Micro-Step Silver</div>
+                </div>
+                <div class="pattern-title">Soft-3: Micro-Increment Silver Granite</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 18.43° (0.9-0.94 opacity, micro-increments)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -53.13° (0.1-0.2 opacity, 8 micro-steps)<br>
+                    <strong class="tech-specs">Technique:</strong> 0.5px micro-steps with many intermediate colors<br>
+                    <strong class="tech-specs">Transparency:</strong> Massive gaps (4px-20px) for extreme softness<br>
+                    <strong class="tech-specs">Effect:</strong> Extremely gradual, almost atmospheric<br>
+                    <strong class="tech-specs">Type:</strong> ATMOSPHERIC TEXTURE EXPERIMENT
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pattern-sample test-soft-4" style="height: 120px;">
+                    <div class="pattern-text" style="color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Soft-4: Feathered Fabric</div>
+                </div>
+                <div class="pattern-title">Soft-4: Feathered Fabric with Extended Stops</div>
+                <div class="pattern-description">
+                    <strong class="tech-specs">Primary Angle:</strong> 45° (0.85-0.89 opacity, extended stops)<br>
+                    <strong class="tech-specs">Crosshatch Angle:</strong> -45° (0.08-0.2 opacity, ultra-gentle)<br>
+                    <strong class="tech-specs">Technique:</strong> Extended color stops with feathered edges<br>
+                    <strong class="tech-specs">Transparency:</strong> Large transparent areas (6px-16px)<br>
+                    <strong class="tech-specs">Effect:</strong> Soft fabric-like texture, barely perceptible<br>
+                    <strong class="tech-specs">Type:</strong> WHISPER-SOFT TEXTURE EXPERIMENT
+                </div>
+            </div>
+        </div>
+
+        <div class="implementation-background muted-slate" style="margin-top: 20px;">
+            <h4>Soft Gradient Analysis</h4>
+            <p><strong>Softening Techniques Tested:</strong></p>
+            <ul>
+                <li><strong>Intermediate Color Stops:</strong> Adding 0.5px and 1px micro-steps for smoother transitions</li>
+                <li><strong>Ultra-Low Opacity:</strong> Reducing crosshatch opacity to 0.08-0.2 range for whisper-soft effects</li>
+                <li><strong>Extended Transparent Areas:</strong> Large gaps (8px-20px) between pattern repeats</li>
+                <li><strong>Micro-Incremental Base Layers:</strong> 0.01-0.02 opacity steps instead of large jumps</li>
+                <li><strong>Fade-In/Fade-Out Curves:</strong> Gradual rise and fall instead of sharp transitions</li>
+            </ul>
+            
+            <p><strong>Comparison with Original Test Patterns:</strong></p>
+            <ul>
+                <li><strong>Original Tests:</strong> High contrast (0.3-0.4 opacity), sharp transitions, bold visibility</li>
+                <li><strong>Soft Tests:</strong> Low contrast (0.08-0.25 opacity), gradual transitions, subtle presence</li>
+                <li><strong>Use Cases:</strong> Soft patterns ideal for subtle backgrounds, original tests for accent areas</li>
+            </ul>
+        </div>
+
+        <div class="implementation-background" style="margin-top: 30px;">
+            <h4>Testing Results & Observations</h4>
+            <p><strong>Softened Visibility Modifications:</strong></p>
+            <ul>
+                <li><strong>Size Doubling:</strong> All stripe widths doubled (2px→4px, 1px→2px, etc.)</li>
+                <li><strong>Moderate Opacity Layering:</strong> Base layer moderate (0.8), crosshatch soft (0.2-0.25)</li>
+                <li><strong>Layer Order:</strong> Soft crosshatch ON TOP, moderate base underneath</li>
+                <li><strong>Pattern Height:</strong> Increased to 120px for better visibility</li>
+                <li><strong>Text Enhancement:</strong> White text with shadow for clear visibility</li>
+                <li><strong>Crosshatch Balance:</strong> Refined visibility through transparency</li>
+            </ul>
+            
+            <p><strong>Crosshatch Effect Analysis (Softened Opacity):</strong></p>
+            <ul>
+                <li><strong>Test-1:</strong> Base 36.87° (0.8 opacity) + Crosshatch -18.43° (0.2-0.25 opacity) = Refined diagonal crosshatch</li>
+                <li><strong>Test-2:</strong> Base 33.69° (0.8 opacity) + Crosshatch -26.57° (0.2-0.25 opacity) = Gentle marble crosshatch</li>
+                <li><strong>Test-6:</strong> Base 18.43° (0.8 opacity) + Silver -53.13° (0.2-0.25 opacity) = Refined silver highlights</li>
+                <li><strong>Test-4:</strong> Base 45° (0.8 opacity) + Crosshatch -45° (0.2-0.25 opacity) = Balanced 90° grid pattern</li>
+            </ul>
+            
+            <p><strong>Key Improvement:</strong> The crosshatch layer is now properly softened so you can see the base pattern underneath while maintaining elegant texture effects!</p>
+        </div>
+        
+        <!-- 
+        ====================================================================
+        📊 GRAY SCORE MAINTENANCE REMINDER
+        ====================================================================
+        
+        IMPORTANT: After modifying gray score overrides in the JavaScript above:
+        
+        1. RELOAD this page to see updated auto-calculated scores
+        2. CHECK pattern descriptions for accuracy 
+        3. RUN grayCalculator.displayResults() in browser console
+        4. UPDATE pattern-gray-scores.md with new values
+        5. RE-SORT the markdown table by updated scores
+        
+        The pattern-gray-scores.md file contains the master reference table
+        that must be manually updated whenever algorithm overrides change.
+        
+        Current Override Locations to Check:
+        - Line ~2240: grayOverrides object with manual score corrections
+        - Pattern descriptions: Auto-updated scores marked "(auto-calculated)"
+        
+        Quick Console Commands for Testing:
+        - grayCalculator.displayResults()              // See all calculated scores
+        - grayCalculator.calculatePatternGrayScore('Marb-3', cssString)  // Test specific pattern
+        
+        ====================================================================
+        -->
+    </div>
+
+    <script>
+        /**
+         * Clean, simplified Pattern Analyzer class
+         * Eliminates hardcoded arrays, brittle ID mappings, and global pollution
+         */
+        class PatternAnalyzer {
+            constructor() {
+                this.GRAY_THRESHOLD = 5; // 5% threshold for text use recommendations
+                this.results = new Map(); // Store results privately
+            }
+
+            /**
+             * Calculate gray score using the specified distance-from-gray formula
+             */
+            calculateGrayScore(r, g, b) {
+                const avg_g = (r + g + b) / 3;
+                const var_g = Math.abs(r - avg_g) + Math.abs(g - avg_g) + Math.abs(b - avg_g);
+                const perc_g = 100 * (var_g / 384);
+                
+                return {
+                    var_g: Math.round(var_g * 100) / 100,
+                    perc_g: Math.round(perc_g * 100) / 100
+                };
+            }
+
+            /**
+             * Extract RGB colors from CSS background-image style
+             */
+            extractColorsFromElement(patternElement) {
+                const computedStyle = window.getComputedStyle(patternElement);
+                const backgroundImage = computedStyle.backgroundImage;
+                
+                // Extract rgba/rgb values from computed style
+                const rgbaPattern = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*[\d.]+)?\s*\)/g;
+                const colors = [];
+                let match;
+                
+                while ((match = rgbaPattern.exec(backgroundImage)) !== null) {
+                    colors.push({
+                        r: parseInt(match[1]),
+                        g: parseInt(match[2]),
+                        b: parseInt(match[3])
+                    });
+                }
+                
+                // Remove duplicates - only keep unique RGB combinations
+                const uniqueColors = [];
+                const seen = new Set();
+                
+                colors.forEach(color => {
+                    const key = `${color.r},${color.g},${color.b}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        uniqueColors.push(color);
+                    }
+                });
+                
+                // Sort by RGB values to ensure consistent base/accent ordering
+                uniqueColors.sort((a, b) => {
+                    if (a.r !== b.r) return a.r - b.r;
+                    if (a.g !== b.g) return a.g - b.g;
+                    return a.b - b.b;
+                });
+                
+                // Return only the first 2 colors (base and accent)
+                return uniqueColors.slice(0, 2);
+            }
+
+            /**
+             * Calculate pattern score from extracted colors
+             */
+            calculatePatternScore(colors) {
+                if (colors.length === 0) return { perc_g: 0, colorDetails: [] };
+                
+                let totalPercG = 0;
+                const colorDetails = [];
+                
+                colors.forEach(color => {
+                    const result = this.calculateGrayScore(color.r, color.g, color.b);
+                    totalPercG += result.perc_g;
+                    colorDetails.push({
+                        rgb: `${color.r},${color.g},${color.b}`,
+                        var_g: result.var_g,
+                        perc_g: result.perc_g
+                    });
+                });
+                
+                return {
+                    perc_g: Math.round((totalPercG / colors.length) * 100) / 100,
+                    colorDetails: colorDetails
+                };
+            }
+
+            /**
+             * Generate text use recommendation
+             */
+            getTextUseRecommendation(perc_g) {
+                return perc_g >= this.GRAY_THRESHOLD 
+                    ? `OK - Safe for large text areas (${perc_g}% >= ${this.GRAY_THRESHOLD}% from gray)`
+                    : `DO NOT USE - Too close to gray for large text areas (${perc_g}% < ${this.GRAY_THRESHOLD}% from gray)`;
+            }
+
+            /**
+             * Find calculation element within a pattern card
+             */
+            findCalculationElement(patternCard) {
+                return patternCard.querySelector('.calculation-details div[id$="-calc"]');
+            }
+
+            /**
+             * Update calculation details display
+             */
+            updateCalculationDetails(calcElement, colors, result) {
+                if (!calcElement) return;
+                
+                let calcText = `<strong>Colors extracted from computed style:</strong><br><br>`;
+                calcText += `<strong>Individual Color Analysis:</strong><br>`;
+                
+                const colorLabels = ['Base Color', 'Accent Color'];
+                result.colorDetails.forEach((color, i) => {
+                    const label = colorLabels[i] || `Color ${i+1}`;
+                    calcText += `${label}: RGB(${color.rgb})<br>`;
+                    calcText += `&nbsp;&nbsp;• Variance: ${color.var_g}<br>`;
+                    calcText += `&nbsp;&nbsp;• Distance from gray: ${color.perc_g}%<br>`;
+                });
+                
+                calcText += `<br><strong>Pattern Average:</strong> ${result.perc_g}% distance from gray<br>`;
+                calcText += `<strong>Text Use:</strong> ${this.getTextUseRecommendation(result.perc_g)}`;
+                
+                calcElement.innerHTML = calcText;
+            }
+
+            /**
+             * Update pattern description with calculated values
+             */
+            updatePatternDescription(descriptionElement, result) {
+                if (!descriptionElement) return;
+                
+                let html = descriptionElement.innerHTML;
+                
+                // Update Gray Score
+                const grayScoreText = `${result.perc_g}% distance from gray (REAL VALUE)`;
+                if (html.includes('Gray Score:')) {
+                    html = html.replace(/(<strong[^>]*>Gray Score:<\/strong>)[^<]*(<br>)/gi, `$1 ${grayScoreText}$2`);
+                }
+                
+                // Update Text Use recommendation
+                const textUseText = this.getTextUseRecommendation(result.perc_g);
+                if (html.includes('Text Use:')) {
+                    html = html.replace(/(<strong[^>]*>Text Use:<\/strong>)[^<]*(<br>)/gi, `$1 ${textUseText}$2`);
+                }
+                
+                descriptionElement.innerHTML = html;
+            }
+
+            /**
+             * Analyze a single pattern card
+             */
+            analyzePatternCard(patternCard, index) {
+                try {
+                    const patternSample = patternCard.querySelector('.pattern-sample');
+                    const patternDescription = patternCard.querySelector('.pattern-description');
+                    const calcElement = this.findCalculationElement(patternCard);
+                    
+                    if (!patternSample) return;
+                    
+                    const colors = this.extractColorsFromElement(patternSample);
+                    const result = this.calculatePatternScore(colors);
+                    
+                    // Store result
+                    this.results.set(index, result);
+                    
+                    // Update UI elements
+                    this.updateCalculationDetails(calcElement, colors, result);
+                    this.updatePatternDescription(patternDescription, result);
+                    
+                } catch (error) {
+                    console.warn(`Error analyzing pattern card ${index}:`, error);
+                }
+            }
+
+            /**
+             * Analyze all pattern cards in the document
+             */
+            analyzeAllPatterns() {
+                const patternCards = document.querySelectorAll('.pattern-card');
+                patternCards.forEach((card, index) => {
+                    this.analyzePatternCard(card, index);
+                });
+                
+                console.log(`Analyzed ${patternCards.length} patterns`);
+                return this.results;
+            }
+
+            /**
+             * Get results for debugging (replaces global patternPercGValues)
+             */
+            getResults() {
+                return this.results;
+            }
+        }
+
+        // Initialize analyzer when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const analyzer = new PatternAnalyzer();
+            const results = analyzer.analyzeAllPatterns();
+            
+            // Make results available for debugging (replaces window.patternPercGValues)
+            window.patternAnalyzer = analyzer;
+            window.getPatternResults = () => analyzer.getResults();
+        });
+    </script>
+</body>
+</html>
+
+<!-- OLD CODE COMMENTED OUT - DO NOT DELETE
+            // For colors like (58, 58, 58), range = 0, so saturation = 0, gray score = 100%
+            let saturation;
+            if (max === 0) {
+                saturation = 0; // Pure black
+            } else if (range === 0) {
+                saturation = 0; // Perfect gray (R=G=B)
+            } else {
+                saturation = (range / max) * 100;
+            }
+            
+            // Gray score: low saturation = high gray score
+            // Pure gray (R=G=B) has 0% saturation = 100% gray score
+            // Colorful values have high saturation = low gray score
+            const grayScore = Math.max(0, 100 - saturation);
+            
+            // Debug logging for problematic colors
+            if (r === g && g === b) {
+                console.log(`DEBUG: Perfect gray (${r}, ${g}, ${b}) -> Gray Score: ${grayScore}%`);
+            }
+            
+            return {
+                grayScore: grayScore,
+                brightness: brightness,
+                saturation: saturation,
+                range: range
+            };
+        }
+            
+            /**
+             * Extract colors from CSS background string
+             */
+            extractColorsFromCSS(cssString) {
+                const colors = [];
+                
+                // Match rgba() patterns
+                const rgbaMatches = cssString.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)/g);
+                if (rgbaMatches) {
+                    rgbaMatches.forEach(match => {
+                        const values = match.match(/(\d+(?:\.\d+)?)/g);
+                        if (values && values.length >= 3) {
+                            const r = parseInt(values[0]);
+                            const g = parseInt(values[1]); 
+                            const b = parseInt(values[2]);
+                            const a = values[3] ? parseFloat(values[3]) : 1.0;
+                            colors.push({ r, g, b, a, source: match });
+                        }
+                    });
+                }
+                
+                // Match hex colors
+                const hexMatches = cssString.match(/#[0-9a-fA-F]{3,6}/g);
+                if (hexMatches) {
+                    hexMatches.forEach(hex => {
+                        const r = parseInt(hex.slice(1, 3), 16);
+                        const g = parseInt(hex.slice(3, 5), 16);
+                        const b = parseInt(hex.slice(5, 7), 16);
+                        colors.push({ r, g, b, a: 1.0, source: hex });
+                    });
+                }
+                
+                return colors;
+            }
+            
+            /**
+             * Calculate gray score for a complete pattern
+             */
+            calculatePatternGrayScore(patternName, cssString) {
+                const colors = this.extractColorsFromCSS(cssString);
+                
+                if (colors.length === 0) {
+                    return { score: 0, analysis: 'No colors found' };
+                }
+                
+                let totalWeightedGrayScore = 0;
+                let totalWeight = 0;
+                const colorAnalysis = [];
+                
+                colors.forEach(color => {
+                    const analysis = this.calculateColorGrayness(color.r, color.g, color.b);
+                    
+                    // Weight by opacity - more opaque colors have more influence
+                    const weight = color.a;
+                    
+                    totalWeightedGrayScore += analysis.grayScore * weight;
+                    totalWeight += weight;
+                    
+                    colorAnalysis.push({
+                        color: color.source,
+                        rgb: `${color.r}, ${color.g}, ${color.b}`,
+                        opacity: color.a,
+                        grayScore: Math.round(analysis.grayScore),
+                        saturation: Math.round(analysis.saturation),
+                        brightness: Math.round(analysis.brightness),
+                        weight: Math.round(weight * 100) / 100
+                    });
+                });
+                
+                const finalScore = totalWeight > 0 ? totalWeightedGrayScore / totalWeight : 0;
+                
+                return {
+                    score: Math.round(finalScore),
+                    colors: colorAnalysis,
+                    analysis: `Analyzed ${colors.length} colors with total weight ${Math.round(totalWeight * 100)/100}`
+                };
+            }
+            
+            /**
+             * Analyze all patterns in the document
+             */
+            analyzeAllPatterns() {
+                const results = new Map();
+                
+                // Define pattern examples to analyze
+                const patternExamples = {
+                    'Expo-1 Enhanced Granite': `
+                        repeating-linear-gradient(
+                            36.87deg,
+                            rgba(42, 42, 42, 0.8) 0px,
+                            rgba(42, 42, 42, 0.8) 2px,
+                            rgba(58, 58, 58, 0.8) 2px,
+                            rgba(58, 58, 58, 0.8) 3px
+                        )
+                    `,
+                    'Expo-2 Marble with Warm Accents': `
+                        repeating-linear-gradient(
+                            36.87deg,
+                            rgba(58, 58, 58, 0.7) 0px,
+                            rgba(58, 58, 58, 0.7) 2px,
+                            rgba(74, 74, 74, 0.7) 2px,
+                            rgba(74, 74, 74, 0.7) 3px
+                        )
+                    `,
+                    'Expo-3 Classical Fabric Enhancement': `
+                        repeating-linear-gradient(
+                            33.69deg,
+                            rgba(42, 42, 74, 0.6) 0px,
+                            rgba(42, 42, 74, 0.6) 2px,
+                            rgba(58, 58, 90, 0.6) 2px,
+                            rgba(58, 58, 90, 0.6) 3px
+                        )
+                    `,
+                    'Expo-4 Enhanced Parchment': `
+                        repeating-linear-gradient(
+                            36.87deg,
+                            rgba(245, 222, 179, 0.8) 0px,
+                            rgba(245, 222, 179, 0.8) 2px,
+                            rgba(222, 184, 135, 0.8) 2px,
+                            rgba(222, 184, 135, 0.8) 3px
+                        )
+                    `,
+                    'Gran-3 Subtle Granite (1:2)': `
+                        repeating-linear-gradient(
+                            26.57deg,
+                            rgba(42, 42, 42, 0.5) 0px,
+                            rgba(42, 42, 42, 0.5) 2px,
+                            rgba(58, 58, 58, 0.5) 2px,
+                            rgba(58, 58, 58, 0.5) 3px
+                        )
+                    `
+                };
+                
+                // Analyze each pattern
+                Object.entries(patternExamples).forEach(([name, css]) => {
+                    const result = this.calculatePatternGrayScore(name, css);
+                    results.set(name, result);
+                });
+                
+                return results;
+            }
+            
+            /**
+             * Display results in console for debugging
+             */
+            displayResults() {
+                console.log('=== GRAY SCORE ANALYSIS RESULTS ===');
+                const results = this.analyzeAllPatterns();
+                
+                results.forEach((result, patternName) => {
+                    console.log(`\n${patternName}:`);
+                    console.log(`  Gray Score: ${result.score}%`);
+                    console.log(`  Analysis: ${result.analysis}`);
+                    
+                    if (result.colors) {
+                        console.log(`  Color Breakdown:`);
+                        result.colors.forEach(color => {
+                            console.log(`    ${color.color} -> Gray: ${color.grayScore}%, Sat: ${color.saturation}%, Weight: ${color.weight}`);
+                        });
+                    }
+                });
+                
+                return results;
+            }
+        }
+        
+    </script>
+</body>
+</html>

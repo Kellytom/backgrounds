@@ -1,0 +1,71 @@
+[
+  {
+    "id": "golden_ratio_visualization",
+    "title": "Golden Ratio Rectangles",
+    "data": [
+      {"x": 0, "y": 0, "width": 89, "height": 55, "ratio": 1.618},
+      {"x": 89, "y": 0, "width": 55, "height": 55, "ratio": 1.618},
+      {"x": 89, "y": 55, "width": 34, "height": 21, "ratio": 1.619},
+      {"x": 123, "y": 55, "width": 21, "height": 21, "ratio": 1.0},
+      {"x": 123, "y": 76, "width": 13, "height": 8, "ratio": 1.625}
+    ],
+    "description": "Visual representation of the golden ratio through nested rectangles",
+    "category": "mathematical",
+    "type": "rectangles"
+  },
+  {
+    "id": "prime_number_spiral",
+    "title": "Prime Number Spiral",
+    "data": [
+      {"angle": 0, "radius": 2, "value": 2, "isPrime": true},
+      {"angle": 60, "radius": 3, "value": 3, "isPrime": true},
+      {"angle": 120, "radius": 5, "value": 5, "isPrime": true},
+      {"angle": 180, "radius": 7, "value": 7, "isPrime": true},
+      {"angle": 240, "radius": 11, "value": 11, "isPrime": true},
+      {"angle": 300, "radius": 13, "value": 13, "isPrime": true},
+      {"angle": 360, "radius": 17, "value": 17, "isPrime": true},
+      {"angle": 420, "radius": 19, "value": 19, "isPrime": true},
+      {"angle": 480, "radius": 23, "value": 23, "isPrime": true},
+      {"angle": 540, "radius": 29, "value": 29, "isPrime": true}
+    ],
+    "description": "Spiral visualization of prime numbers in polar coordinates",
+    "category": "mathematical",
+    "type": "spiral"
+  },
+  {
+    "id": "scripture_word_frequency",
+    "title": "Scripture Word Frequency",
+    "data": [
+      {"word": "Lord", "count": 150, "book": "Psalms"},
+      {"word": "God", "count": 120, "book": "Psalms"},
+      {"word": "love", "count": 85, "book": "1 John"},
+      {"word": "faith", "count": 70, "book": "Hebrews"},
+      {"word": "wisdom", "count": 60, "book": "Proverbs"},
+      {"word": "peace", "count": 55, "book": "Isaiah"},
+      {"word": "joy", "count": 45, "book": "Philippians"},
+      {"word": "hope", "count": 40, "book": "Romans"},
+      {"word": "truth", "count": 35, "book": "John"},
+      {"word": "light", "count": 30, "book": "1 John"}
+    ],
+    "description": "Word frequency analysis of key terms in scripture",
+    "category": "text-analysis",
+    "type": "bar-chart"
+  },
+  {
+    "id": "classical_literature_timeline",
+    "title": "Classical Literature Timeline",
+    "data": [
+      {"year": -800, "author": "Homer", "work": "The Iliad", "era": "Ancient"},
+      {"year": -400, "author": "Sophocles", "work": "Oedipus Rex", "era": "Classical"},
+      {"year": 1300, "author": "Dante", "work": "Divine Comedy", "era": "Medieval"},
+      {"year": 1600, "author": "Shakespeare", "work": "Hamlet", "era": "Renaissance"},
+      {"year": 1667, "author": "Milton", "work": "Paradise Lost", "era": "Baroque"},
+      {"year": 1813, "author": "Austen", "work": "Pride and Prejudice", "era": "Romantic"},
+      {"year": 1859, "author": "Dickens", "work": "A Tale of Two Cities", "era": "Victorian"},
+      {"year": 1925, "author": "Fitzgerald", "work": "The Great Gatsby", "era": "Modern"}
+    ],
+    "description": "Timeline of major works in classical literature",
+    "category": "literature",
+    "type": "timeline"
+  }
+]

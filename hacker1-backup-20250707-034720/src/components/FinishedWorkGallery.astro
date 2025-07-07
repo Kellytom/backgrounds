@@ -1,0 +1,269 @@
+---
+import WrittenContent from './WrittenContent.astro';
+import GraphicDisplay from './GraphicDisplay.astro';
+import Navbar from './Navbar.astro';
+
+const subcategories = [
+  {
+    name: 'Written',
+    description: 'Text content including scripture, classics, and literary works',
+    link: `${import.meta.env.BASE_URL}finished-work/written`,
+    icon: '📜'
+  },
+  {
+    name: 'Graphic',
+    description: 'SVG graphics generated from mathematical and spiritual concepts',
+    link: `${import.meta.env.BASE_URL}finished-work/graphic`,
+    icon: '🎨'
+  },
+  {
+    name: 'Two-D',
+    description: 'D3.js visualizations and two-dimensional data representations',
+    link: `${import.meta.env.BASE_URL}finished-work/two-d`,
+    icon: '📊'
+  },
+  {
+    name: 'Three-D',
+    description: 'Three.js 3D models and scientific visualizations',
+    link: `${import.meta.env.BASE_URL}finished-work/three-d`,
+    icon: '🧊'
+  },
+  {
+    name: 'Action',
+    description: 'Interactive game-like experiences and animations',
+    link: `${import.meta.env.BASE_URL}finished-work/action`,
+    icon: '🎮'
+  }
+];
+
+// Sample content for preview
+const sampleWritten = [
+  {
+    title: "The Lord is My Shepherd",
+    content: "The Lord is my shepherd; I shall not want. He maketh me to lie down in green pastures...",
+    source: "Psalm 23:1 (KJV)"
+  },
+  {
+    title: "To Be or Not to Be", 
+    content: "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer...",
+    source: "Hamlet - William Shakespeare"
+  }
+];
+
+const sampleGraphics = [
+  {
+    title: "Sacred Circle",
+    svgPath: `${import.meta.env.BASE_URL}assets/svgs/sacred-circle.svg`,
+    description: "A perfect circle representing unity and infinity"
+  },
+  {
+    title: "Fibonacci Spiral",
+    svgPath: `${import.meta.env.BASE_URL}assets/svgs/fibonacci-spiral.svg`, 
+    description: "The golden spiral found throughout nature"
+  }
+];
+---
+
+<div class="finished-work-gallery">
+  <header class="gallery-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <ul>
+          <li><a href={`${import.meta.env.BASE_URL}`}>Home</a></li>
+          <li class="is-active"><a href="#" aria-current="page">Finished Work</a></li>
+        </ul>
+      </nav>
+      
+      <h1 class="title is-1">Finished Work Gallery</h1>
+      <h2 class="subtitle is-3">Completed projects and portfolio showcase</h2>
+      
+      <blockquote class="hero-quote">
+        "Whatever you do, work at it with all your heart, as working for the Lord, not for human masters." - Colossians 3:23
+      </blockquote>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="content implementation-background">
+        <h2>About the Gallery</h2>
+        <p>
+          This gallery showcases completed works across five distinct categories, each representing different aspects of digital creation and expression. From sacred texts to interactive experiences, each piece reflects both technical skill and spiritual insight.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Browse Categories</h2>
+      <div class="columns is-multiline">
+        {subcategories.map(category => (
+          <div class="column is-one-quarter-desktop is-half-tablet">
+            <div class="card category-card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <span class="icon is-large" style="font-size: 2rem;">{category.icon}</span>
+                  </div>
+                  <div class="media-content">
+                    <h3 class="title is-4">{category.name}</h3>
+                  </div>
+                </div>
+                
+                <div class="content">
+                  <p>{category.description}</p>
+                  <div class="buttons">
+                    <a href={category.link} class="button is-primary">
+                      View {category.name}
+                    </a>
+                    <a href={`${category.link}-ch1`} class="button is-light">
+                      Chapter 1
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Featured Content</h2>
+      
+      <div class="columns">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-header-title">Recent Written Works</h3>
+            </div>
+            <div class="card-content solution-background">
+              {sampleWritten.map(item => (
+                <div class="written-preview">
+                  <h4>{item.title}</h4>
+                  <p>{item.content}</p>
+                  <cite>— {item.source}</cite>
+                </div>
+              ))}
+              <a href={`${import.meta.env.BASE_URL}finished-work/written`} class="button is-link">View All Written Works</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-header-title">Recent Graphics</h3>
+            </div>
+            <div class="card-content experimental-background">
+              {sampleGraphics.map(graphic => (
+                <div class="graphic-preview">
+                  <h4>{graphic.title}</h4>
+                  <p>{graphic.description}</p>
+                  <div class="svg-placeholder" style="width: 100%; height: 100px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+                    SVG: {graphic.title}
+                  </div>
+                </div>
+              ))}
+              <a href={`${import.meta.env.BASE_URL}finished-work/graphic`} class="button is-info">View All Graphics</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="content solution-background">
+        <h2>Gallery Philosophy</h2>
+        <p>
+          "In the beginning was the Word, and the Word was with God, and the Word was God." - John 1:1
+        </p>
+        <p>
+          Each work in this gallery begins with intention and purpose. Whether through the written word, visual design, mathematical visualization, 3D modeling, or interactive experience, we seek to create meaningful connections between technology and truth, between art and spirit.
+        </p>
+        
+        <h3>Our Creative Process:</h3>
+        <ul>
+          <li><strong>Inspiration:</strong> Drawing from scripture, classics, and natural patterns</li>
+          <li><strong>Implementation:</strong> Using modern technologies (D3.js, Three.js, SVG, WebGL)</li>
+          <li><strong>Integration:</strong> Combining technical excellence with meaningful content</li>
+          <li><strong>Iteration:</strong> Continuous refinement based on feedback and prayer</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section">
+    <div class="container">
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <a href={`${import.meta.env.BASE_URL}`} class="button">← Back to Central Site</a>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href={`${import.meta.env.BASE_URL}finished-work/written`} class="button is-primary">Start with Written Works →</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<!-- Add the custom floating bottom navbar -->
+<Navbar />
+
+<style>
+  .finished-work-gallery {
+    min-height: 100vh;
+  }
+
+  .gallery-header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .hero-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-left: 4px solid #D4AF37;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .category-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .written-preview, .graphic-preview {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .written-preview:last-of-type, .graphic-preview:last-of-type {
+    border-bottom: none;
+  }
+
+  cite {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two-D Visualizations | Hacker1 v1.0 - D3.js Data Art</title>
+    <meta name="description" content="Two-dimensional visualizations using D3.js for data representations and interactive charts." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode two-d-background">
+    <div class="two-d-site">
+      <header class="hero two-d-hero">
+        <div class="hero-body">
+          <div class="container">
+            <nav class="breadcrumb">
+              <ul>
+                <li><a href={`${import.meta.env.BASE_URL}`}>Home</a></li>
+                <li><a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Two-D</a></li>
+              </ul>
+            </nav>
+            
+            <h1 class="title is-3">Two-D Visualizations</h1>
+            <h2 class="subtitle is-5">D3.js Data Representations</h2>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="section">
+          <div class="content-showcase">
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div class="two-d-showcase">
+                  <h3>Interactive Data Visualizations</h3>
+                  <div class="content two-d-sample">
+                    <div class="viz-preview">
+                      <h4>Featured Visualizations</h4>
+                      <div class="viz-grid">
+                        <div class="viz-item">
+                          <div class="viz-placeholder">
+                            <span>Scripture Word Frequency</span>
+                          </div>
+                          <p>Interactive word clouds</p>
+                        </div>
+                        <div class="viz-item">
+                          <div class="viz-placeholder">
+                            <span>Literature Timeline</span>
+                          </div>
+                          <p>Historical progression charts</p>
+                        </div>
+                        <div class="viz-item">
+                          <div class="viz-placeholder">
+                            <span>Mathematical Patterns</span>
+                          </div>
+                          <p>Golden ratio visualizations</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p>
+                      This collection showcases D3.js-powered visualizations that transform 
+                      complex data into meaningful, interactive representations. Each visualization 
+                      combines aesthetic appeal with functional insights, making data exploration 
+                      both beautiful and informative.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-one-third">
+                <div class="navigation-panel">
+                  <h3>Navigation</h3>
+                  <div class="buttons is-vertical">
+                    <a href={`${import.meta.env.BASE_URL}finished-work/two-d-ch1`} class="button is-primary">Chapter 1</a>
+                    <a href={`${import.meta.env.BASE_URL}finished-work`} class="button is-light">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .two-d-site {
+    min-height: 100vh;
+  }
+
+  .two-d-hero {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .two-d-background {
+    background: repeating-linear-gradient(
+      60deg,
+      #1A2A4A 0px,
+      #1A2A4A 2px,
+      #2A3A5A 2px,
+      #2A3A5A 3px
+    );
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  .content-showcase {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .navigation-panel {
+    background: rgba(50, 50, 50, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-panel h3 {
+    color: #e8d5b7;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #5a7a9a;
+    padding-bottom: 0.5rem;
+  }
+
+  .two-d-showcase h3 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #5a7a9a;
+    padding-bottom: 0.5rem;
+  }
+
+  .two-d-sample {
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .viz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .viz-item {
+    text-align: center;
+  }
+
+  .viz-placeholder {
+    width: 180px;
+    height: 120px;
+    background: rgba(90, 122, 154, 0.2);
+    border: 2px solid #5a7a9a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem auto;
+    color: #5a7a9a;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .two-d-sample h4 {
+    color: #e8d5b7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .two-d-sample p {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+</style>

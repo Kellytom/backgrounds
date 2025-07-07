@@ -1,0 +1,300 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphic Content - Chapter 1 | Hacker1 v1.0</title>
+    <meta name="description" content="Chapter 1: Sacred Geometry - Foundation principles of visual design and mathematical beauty." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode graphic-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work/graphic`}>Graphic</a> → 
+        Chapter 1
+      </nav>
+      
+      <h1>Graphic Content - Chapter 1: Sacred Geometry</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>The Mathematics of Creation</h2>
+        <p>
+          "He has made everything beautiful in its time." - Ecclesiastes 3:11
+        </p>
+        <p>
+          Sacred geometry reveals the divine patterns underlying all creation. From the 
+          golden ratio found in flower petals to the spiral of galaxies, mathematics 
+          expresses the mind of God through visual beauty and structural harmony.
+        </p>
+        
+        <blockquote class="highlight">
+          "Great are the works of the Lord; they are pondered by all who delight in them." - Psalm 111:2
+        </blockquote>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>SVG as Digital Scripture</h2>
+        <p>
+          Just as medieval illuminated manuscripts combined text and image to glorify God, 
+          we use SVG graphics to create digital illuminations that reveal spiritual truths 
+          through mathematical precision and artistic beauty.
+        </p>
+        
+        <h3>Core Design Principles:</h3>
+        <ul>
+          <li>Golden ratio proportions reflecting divine harmony</li>
+          <li>Fibonacci sequences echoing natural growth patterns</li>
+          <li>Circular forms representing unity and eternity</li>
+          <li>Spiral patterns showing spiritual progression</li>
+        </ul>
+
+        <h3>Featured Geometric Forms:</h3>
+        <div class="geometry-showcase">
+          <div class="geometry-item">
+            <div class="svg-demo">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#D4AF37" stroke-width="3" opacity="0.8"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#8A5A5A" stroke-width="2" opacity="0.6"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="#5A7A5A" stroke-width="2" opacity="0.6"/>
+                <circle cx="100" cy="100" r="20" fill="none" stroke="#7A5A7A" stroke-width="2" opacity="0.6"/>
+              </svg>
+            </div>
+            <h4>Sacred Circles</h4>
+            <p>Concentric circles representing the eternal nature of God and the expanding ripples of divine love.</p>
+          </div>
+          
+          <div class="geometry-item">
+            <div class="svg-demo">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <path d="M 100 20 Q 150 50 180 100 Q 150 150 100 180 Q 50 150 20 100 Q 50 50 100 20" 
+                      fill="none" stroke="#8A5A5A" stroke-width="3" opacity="0.8"/>
+                <path d="M 100 40 Q 130 60 160 100 Q 130 140 100 160 Q 70 140 40 100 Q 70 60 100 40" 
+                      fill="none" stroke="#D4AF37" stroke-width="2" opacity="0.6"/>
+              </svg>
+            </div>
+            <h4>Fibonacci Spiral</h4>
+            <p>The golden spiral found throughout creation, from nautilus shells to galaxy arms.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Color as Spiritual Language</h2>
+        <p>
+          Colors in sacred art carry deep meaning. Gold represents divine glory, blue 
+          signifies heavenly wisdom, red embodies divine love, and green speaks of 
+          life and growth. Our color palettes are chosen not just for aesthetics, 
+          but for their spiritual significance.
+        </p>
+        
+        <h3>Sacred Color Palette:</h3>
+        <div class="color-showcase">
+          <div class="color-item">
+            <div class="color-swatch" style="background: #D4AF37;"></div>
+            <span>Divine Gold - Glory and Majesty</span>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #4A6FA5;"></div>
+            <span>Heavenly Blue - Wisdom and Truth</span>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #8B4A5A;"></div>
+            <span>Sacred Red - Love and Sacrifice</span>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #5A7A5A;"></div>
+            <span>Life Green - Growth and Renewal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-section">
+        <div class="nav-buttons">
+          <a href={`${import.meta.env.BASE_URL}finished-work/written-ch1`} class="button is-light">← Previous: Written Chapter 1</a>
+          <a href={`${import.meta.env.BASE_URL}finished-work/two-d-ch1`} class="button is-primary">Next: Two-D Chapter 1 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  h1 {
+    color: #e8d5b7;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+
+  .content-section h2 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .content-section h3 {
+    color: #d4af37;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h4 {
+    color: #e8d5b7;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .highlight {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #d4af37;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .geometry-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .geometry-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+    text-align: center;
+  }
+
+  .svg-demo {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .color-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+  }
+
+  .color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .navigation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .button.is-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-primary {
+    background: #8b7355;
+    color: white;
+    border: 1px solid #8b7355;
+  }
+
+  .button.is-primary:hover {
+    background: #a0845f;
+  }
+
+  /* Add padding to body to prevent navbar overlap */
+  body {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+
+    .geometry-showcase {
+      grid-template-columns: 1fr;
+    }
+    
+    .color-showcase {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

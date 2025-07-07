@@ -1,0 +1,435 @@
+---
+import Navbar from '../../components/Navbar.astro';
+import '../../styles/main.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Action Experiences - Chapter 1 | Hacker1 v1.0</title>
+    <meta name="description" content="Chapter 1: Interactive Parables - Foundation principles of game-like experiences and meaningful interaction design." />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Century+Schoolbook&family=Roboto:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="dark-mode action-background">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work`}>Finished Work</a> → 
+        <a href={`${import.meta.env.BASE_URL}finished-work/action`}>Action</a> → 
+        Chapter 1
+      </nav>
+      
+      <h1>Action Experiences - Chapter 1: Interactive Parables</h1>
+      
+      <div class="content-section implementation-background">
+        <h2>Learning Through Engagement</h2>
+        <p>
+          "Come, follow me," Jesus said, "and I will send you out to fish for people." - Matthew 4:19
+        </p>
+        <p>
+          Just as Jesus taught through parables and hands-on experiences, we create interactive 
+          experiences that teach through engagement. Action-based learning transforms abstract 
+          concepts into memorable, meaningful encounters that stick with users long after 
+          the experience ends.
+        </p>
+        
+        <blockquote class="highlight">
+          "Tell me and I forget, teach me and I may remember, involve me and I learn." - Benjamin Franklin
+        </blockquote>
+      </div>
+
+      <div class="content-section solution-background">
+        <h2>Game Design as Ministry</h2>
+        <p>
+          Interactive experiences can be powerful ministry tools, creating safe spaces for 
+          exploration, learning, and growth. Like the parables that made complex spiritual 
+          truths accessible, well-designed interactions make abstract concepts tangible 
+          and meaningful.
+        </p>
+        
+        <h3>Core Design Principles:</h3>
+        <ul>
+          <li>Purpose-driven gameplay with meaningful outcomes</li>
+          <li>Progressive challenge that builds confidence</li>
+          <li>Narrative that reinforces spiritual truths</li>
+          <li>Accessibility ensuring all can participate</li>
+        </ul>
+
+        <h3>Featured Experience Types:</h3>
+        <div class="experience-showcase">
+          <div class="experience-item">
+            <div class="experience-demo">
+              <div class="game-preview puzzle">
+                <div class="puzzle-piece active"></div>
+                <div class="puzzle-piece"></div>
+                <div class="puzzle-piece"></div>
+                <div class="puzzle-piece active"></div>
+              </div>
+            </div>
+            <h4>Scripture Puzzles</h4>
+            <p>Interactive puzzles that reveal biblical truths through problem-solving and discovery.</p>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-demo">
+              <div class="game-preview journey">
+                <div class="path">
+                  <div class="step completed"></div>
+                  <div class="step current"></div>
+                  <div class="step"></div>
+                  <div class="step"></div>
+                </div>
+              </div>
+            </div>
+            <h4>Spiritual Journeys</h4>
+            <p>Guided interactive experiences that mirror spiritual growth and transformation.</p>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-demo">
+              <div class="game-preview builder">
+                <div class="building-blocks">
+                  <div class="block foundation"></div>
+                  <div class="block wall"></div>
+                  <div class="block wall"></div>
+                  <div class="block roof"></div>
+                </div>
+              </div>
+            </div>
+            <h4>Faith Builders</h4>
+            <p>Construction and building experiences that teach about foundations and growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section experimental-background">
+        <h2>Technology for Transformation</h2>
+        <p>
+          "Therefore, if anyone is in Christ, the new creation has come: The old has gone, 
+          the new is here!" - 2 Corinthians 5:17. Interactive technology can facilitate 
+          transformation by providing safe spaces for experimentation, failure, and growth.
+        </p>
+        
+        <h3>Technical Implementation:</h3>
+        <div class="technical-features">
+          <div class="tech-item">
+            <h4>Canvas-Based Interactions</h4>
+            <p>HTML5 Canvas for smooth animations and custom drawing interactions that respond to user input.</p>
+          </div>
+          <div class="tech-item">
+            <h4>WebGL Graphics</h4>
+            <p>Hardware-accelerated graphics for complex visual effects and smooth performance.</p>
+          </div>
+          <div class="tech-item">
+            <h4>Audio Integration</h4>
+            <p>Meaningful sound design that enhances the spiritual atmosphere and provides feedback.</p>
+          </div>
+          <div class="tech-item">
+            <h4>Progress Tracking</h4>
+            <p>Local storage systems that remember user progress and encourage continued engagement.</p>
+          </div>
+        </div>
+
+        <h3>Accessibility Focus:</h3>
+        <div class="accessibility-features">
+          <div class="access-item">
+            <h4>Keyboard Navigation</h4>
+            <p>Full keyboard support ensuring experiences work for users with motor difficulties.</p>
+          </div>
+          <div class="access-item">
+            <h4>Screen Reader Support</h4>
+            <p>Semantic markup and ARIA labels making content accessible to visually impaired users.</p>
+          </div>
+          <div class="access-item">
+            <h4>Cognitive Accessibility</h4>
+            <p>Clear instructions, consistent interfaces, and adjustable difficulty levels.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-section">
+        <div class="nav-buttons">
+          <a href={`${import.meta.env.BASE_URL}finished-work/three-d-ch1`} class="button is-light">← Previous: Three-D Chapter 1</a>
+          <a href={`${import.meta.env.BASE_URL}finished-work/written-ch1`} class="button is-primary">Back to Written Chapter 1 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the custom floating bottom navbar -->
+    <Navbar />
+  </body>
+</html>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: white;
+  }
+
+  h1 {
+    color: #e8d5b7;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #f0f0f0;
+  }
+
+  .content-section h2 {
+    color: #e8d5b7;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #8b7355;
+    padding-bottom: 0.5rem;
+  }
+
+  .content-section h3 {
+    color: #d4af37;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h4 {
+    color: #e8d5b7;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .highlight {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #d4af37;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  .experience-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .experience-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+    text-align: center;
+  }
+
+  .experience-demo {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+  }
+
+  .game-preview {
+    width: 80px;
+    height: 80px;
+    position: relative;
+  }
+
+  .puzzle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .puzzle-piece {
+    background: rgba(138, 90, 90, 0.3);
+    border: 2px solid #8A5A5A;
+    border-radius: 4px;
+  }
+
+  .puzzle-piece.active {
+    background: rgba(212, 175, 55, 0.5);
+    border-color: #D4AF37;
+    animation: pulse 2s infinite;
+  }
+
+  .journey {
+    padding: 20px 0;
+  }
+
+  .path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .step {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(138, 90, 90, 0.3);
+    border: 2px solid #8A5A5A;
+    position: relative;
+  }
+
+  .step.completed {
+    background: rgba(90, 122, 90, 0.5);
+    border-color: #5A7A5A;
+  }
+
+  .step.current {
+    background: rgba(212, 175, 55, 0.5);
+    border-color: #D4AF37;
+    animation: pulse 2s infinite;
+  }
+
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 15px;
+    height: 2px;
+    background: #8A5A5A;
+    transform: translateY(-50%);
+  }
+
+  .builder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+  }
+
+  .building-blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .block {
+    margin: 1px 0;
+    border-radius: 2px;
+  }
+
+  .block.foundation {
+    width: 60px;
+    height: 12px;
+    background: rgba(90, 122, 90, 0.5);
+    border: 2px solid #5A7A5A;
+  }
+
+  .block.wall {
+    width: 40px;
+    height: 15px;
+    background: rgba(138, 90, 90, 0.4);
+    border: 2px solid #8A5A5A;
+  }
+
+  .block.roof {
+    width: 50px;
+    height: 10px;
+    background: rgba(212, 175, 55, 0.5);
+    border: 2px solid #D4AF37;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+
+  .technical-features, .accessibility-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-item, .access-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b7355;
+  }
+
+  .navigation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .button.is-light {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button.is-primary {
+    background: #8b7355;
+    color: white;
+    border: 1px solid #8b7355;
+  }
+
+  .button.is-primary:hover {
+    background: #a0845f;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Add padding to body to prevent navbar overlap */
+  body {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+
+    .experience-showcase, .technical-features, .accessibility-features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

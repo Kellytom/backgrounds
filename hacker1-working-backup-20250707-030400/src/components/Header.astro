@@ -1,0 +1,215 @@
+---
+// Custom header that replaces the default Starlight header
+// This version integrates Starlight's search with our custom navbar
+import { Icon } from '@astrojs/starlight/components';
+import Search from '@astrojs/starlight/components/Search.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+
+// Define dropdown menus
+const mainDropdown = [
+  { text: 'Starlight Showcase', href: `${import.meta.env.BASE_URL}starlight-showcase/` },
+  { text: 'DaisyUI Showcase', href: `${import.meta.env.BASE_URL}daisyui-showcase/` },
+  { text: 'CSS Guide', href: `${import.meta.env.BASE_URL}starlight-css-guide/` },
+];
+
+const guideDropdown = [
+  { text: 'Example Guide', href: `${import.meta.env.BASE_URL}guides/example/` },
+];
+
+const demoDropdown = [
+  { text: 'Backgrounds', href: `${import.meta.env.BASE_URL}backgrounds` },
+  { text: 'Bulma Demo', href: `${import.meta.env.BASE_URL}bulma` },
+  { text: 'Markdown Demo', href: `${import.meta.env.BASE_URL}markdown-demo` },
+];
+---
+
+<!-- Navbar with Starlight search integration -->
+<nav class="custom-navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a href={`${import.meta.env.BASE_URL}`}>
+        <Icon name="star" size="1.2em" />
+        <span>Hacker1</span>
+      </a>
+    </div>
+    <div class="navbar-center">
+      <div class="navbar-menu">
+        <!-- Main Documentation Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Documentation</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {mainDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Guides Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Guides</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {guideDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Demo Pages Dropdown -->
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <span>Demo Pages</span>
+            <Icon name="down-caret" size="1em" />
+          </button>
+          <div class="dropdown-content">
+            {demoDropdown.map((item) => (
+              <a href={item.href}>{item.text}</a>
+            ))}
+          </div>
+        </div>
+
+        <a href={`${import.meta.env.BASE_URL}reference/example/`}>Reference</a>
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <div class="search-container">
+        <Search />
+      </div>
+      <ThemeSelect />
+    </div>
+  </div>
+</nav>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--sl-color-text);
+    font-size: var(--sl-text-base);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--sl-color-bg);
+    min-width: 180px;
+    box-shadow: var(--sl-shadow-md);
+    z-index: 1000;
+    border-radius: 0.25rem;
+    border: 1px solid var(--sl-color-hairline);
+  }
+
+  .dropdown-content a {
+    color: var(--sl-color-text);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--sl-color-gray-2);
+    color: var(--sl-color-text-accent);
+  }
+
+  /* Navbar container styling */
+  .custom-navbar {
+    position: relative;
+    z-index: 1000;
+    border-bottom: 1px solid var(--sl-color-hairline);
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .navbar-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .navbar-menu a {
+    color: var(--sl-color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .navbar-menu a:hover {
+    color: var(--sl-color-text-accent);
+  }
+
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .search-container {
+    min-width: 200px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-center {
+      display: none;
+    }
+    
+    .navbar-container {
+      justify-content: space-between;
+    }
+  }
+
+  /* Override Starlight search styles to fit our navbar */
+  :global(.search-container .search) {
+    position: relative;
+    z-index: 1001;
+  }
+  
+  :global(.search-container .search input) {
+    border: none;
+  }
+</style>
