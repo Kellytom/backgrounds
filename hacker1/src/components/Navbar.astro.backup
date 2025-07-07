@@ -119,11 +119,10 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
   background: rgba(26, 26, 26, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0;
+  padding: 0.5rem 0;
   z-index: 9999;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
 }
 
 .navbar-container {
@@ -148,10 +147,10 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 .brand-link {
   color: #fff !important;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   background: rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -169,7 +168,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 
 .menu-items-wrapper {
   display: flex;
-  gap: 0.8rem;
+  gap: 1.5rem;
   align-items: center;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -185,12 +184,11 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
   color: #ccc;
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
   font-weight: 500;
   white-space: nowrap;
   flex-shrink: 0;
-  font-size: 0.85rem;
 }
 
 .nav-item:hover {
@@ -210,10 +208,10 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
   border: none;
   color: #ccc;
   cursor: pointer;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: inherit;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
@@ -276,7 +274,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1rem;
   position: relative;
   z-index: 10000;
   flex-shrink: 0;
@@ -284,7 +282,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 
 /* Search and theme components styling */
 .search-container {
-  min-width: 150px;
+  min-width: 200px;
   position: relative;
   z-index: 10001;
 }
@@ -321,8 +319,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
   background: transparent;
   color: #fff;
   border: none;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
 }
 
 .search-container :global(.search input::placeholder) {
@@ -339,9 +336,9 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   color: #fff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   z-index: 10001;
   position: relative;
 }
@@ -353,7 +350,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 
 /* Add padding to body to prevent content overlap */
 :global(body) {
-  padding-top: 60px !important;
+  padding-top: 80px !important;
   padding-bottom: 20px !important;
 }
 
