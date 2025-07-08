@@ -1,0 +1,18 @@
+/* Starlight Section - Starlight documentation theme */
+/* This CSS is isolated to .starlight-section to avoid conflicts */
+
+.starlight-section {
+  /* Let Starlight handle its own styling */
+  /* Just ensure navbar compatibility */
+  padding-top: 60px; /* Account for fixed navbar */
+}
+
+/* Ensure Starlight sidebars work with our navbar */
+.starlight-section .sidebar {
+  top: 60px !important;
+  height: calc(100vh - 60px) !important;
+}
+
+.starlight-section .main-frame {
+  padding-top: 0 !important; /* Since we already have global padding-top */
+}

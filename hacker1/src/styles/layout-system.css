@@ -1,0 +1,84 @@
+/* Layout Management System for Hacker1 Site */
+/* This file manages which styles are applied to which sections */
+
+/* SECTION-BASED CSS ARCHITECTURE */
+/* Each section gets its own styling approach without conflicts */
+
+/* Reset global styles only for specific sections */
+.pale-frames-section {
+  /* Override dark theme for pale sections */
+  background: transparent !important;
+  color: initial !important;
+}
+
+.pale-frames-section * {
+  /* Reset all inherited colors for pale sections */
+  color: inherit !important;
+}
+
+/* Starlight sections get their own isolated styles */
+.starlight-section {
+  /* Ensure Starlight styles don't leak */
+  isolation: isolate;
+}
+
+/* Dark design sections maintain the main theme */
+.dark-section {
+  /* Use main.css variables and styles */
+  background: var(--primary-bg, #0A0A0A);
+  color: var(--text-primary, #E8E8E8);
+}
+
+/* Bulma sections get isolated Bulma styles */
+.bulma-section {
+  /* Bulma gets priority in its sections */
+  isolation: isolate;
+}
+
+/* Demo sections for showcasing different approaches */
+.demo-section {
+  /* Each demo can have its own approach */
+  isolation: isolate;
+}
+
+/* Layout containers for different page types */
+.layout-pale {
+  /* For pale/light themed pages */
+  background: #f8f9fa;
+  color: #333;
+  min-height: 100vh;
+}
+
+.layout-dark {
+  /* For dark themed pages */
+  background: var(--primary-bg, #0A0A0A);
+  color: var(--text-primary, #E8E8E8);
+  min-height: 100vh;
+}
+
+.layout-starlight {
+  /* For Starlight pages */
+  /* Let Starlight handle its own styling */
+}
+
+.layout-bulma {
+  /* For Bulma pages */
+  /* Let Bulma handle its own styling */
+}
+
+/* Utility classes for section-specific resets */
+.reset-colors {
+  color: initial !important;
+  background: initial !important;
+}
+
+.reset-colors * {
+  color: inherit !important;
+  background: inherit !important;
+}
+
+/* Navigation consistency across all sections */
+.custom-navbar {
+  /* Navbar styles remain consistent across all sections */
+  z-index: 10000 !important;
+}

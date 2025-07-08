@@ -1,0 +1,101 @@
+/* Frames Pale Section - Isolated CSS */
+/* This file contains all styles specific to the pale frames section */
+
+/* Reset any global dark theme interference for this section only */
+.frames-pale-section {
+  /* Ensure this section gets its own styling context */
+  isolation: isolate;
+}
+
+/* Frames container styles */
+.frames-pale-section .frames-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Account for navbar */
+  font-family: 'Georgia', serif;
+  color: #333;
+  max-width: none;
+}
+
+/* Card styles for Bible quote frames */
+.frames-pale-section .card {
+  width: 90%;
+  margin-bottom: 40px;
+  padding: 30px 30px 45px 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.frames-pale-section .inner-card {
+  padding: 20px;
+  border: 2pt solid white;
+  position: relative;
+  z-index: 1;
+}
+
+.frames-pale-section .inner-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #ccc;
+  z-index: -1;
+  transform: translateZ(-1px);
+  box-shadow: 
+    inset 0 5px 8px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.3),
+    inset 3px 0 5px rgba(255, 255, 255, 0.2),
+    inset -3px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.frames-pale-section .quote {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 0;
+  color: #333;
+}
+
+.frames-pale-section .reference {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.frames-pale-section .italic {
+  font-style: italic;
+}
+
+/* Pastel colors - scoped to this section only */
+.frames-pale-section .border-pale-blue { background-color: #e6f0fa; }
+.frames-pale-section .border-pale-green { background-color: #e8f5e9; }
+.frames-pale-section .border-pale-tan { background-color: #f5f5dc; }
+.frames-pale-section .border-pale-yellow { background-color: #fffde7; }
+.frames-pale-section .border-pale-purple { background-color: #f3e5f5; }
+.frames-pale-section .bg-pale-blue { background-color: #e3f2fd; }
+.frames-pale-section .bg-pale-green { background-color: #f1f8e9; }
+.frames-pale-section .bg-pale-tan { background-color: #faf0e6; }
+.frames-pale-section .bg-pale-yellow { background-color: #fff9c4; }
+.frames-pale-section .bg-pale-purple { background-color: #ede7f6; }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .frames-pale-section .quote {
+    font-size: 1em;
+  }
+  .frames-pale-section .reference {
+    font-size: 0.8em;
+  }
+  .frames-pale-section .card {
+    padding: 20px 20px 30px 20px;
+  }
+  .frames-pale-section .inner-card {
+    padding: 15px;
+  }
+}
