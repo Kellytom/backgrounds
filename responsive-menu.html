@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Menu with Submenus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    nav {
+      background: #222;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu > li {
+      position: relative;
+    }
+    .menu > li > a {
+      display: block;
+      padding: 1em 1.5em;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .menu > li > a:hover,
+    .menu > li:focus-within > a {
+      background: #444;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #333;
+      min-width: 180px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      z-index: 1000;
+    }
+    .submenu li a {
+      display: block;
+      padding: 0.75em 1.5em;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .submenu li a:hover {
+      background: #555;
+    }
+    .menu > li:hover .submenu,
+    .menu > li:focus-within .submenu {
+      display: block;
+    }
+    /* Responsive styles */
+    @media (max-width: 800px) {
+      .menu {
+        flex-direction: column;
+      }
+      .menu > li {
+        width: 100%;
+      }
+      .submenu {
+        position: static;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="/menu1">Menu 1</a>
+        <ul class="submenu">
+          <li><a href="/menu1/sub1">Submenu 1-1</a></li>
+          <li><a href="/menu1/sub2">Submenu 1-2</a></li>
+          <li><a href="/menu1/sub3">Submenu 1-3</a></li>
+          <li><a href="/menu1/sub4">Submenu 1-4</a></li>
+          <li><a href="/menu1/sub5">Submenu 1-5</a></li>
+        </ul>
+      </li>
+      <li><a href="/menu2">Menu 2</a>
+        <ul class="submenu">
+          <li><a href="/menu2/sub1">Submenu 2-1</a></li>
+          <li><a href="/menu2/sub2">Submenu 2-2</a></li>
+          <li><a href="/menu2/sub3">Submenu 2-3</a></li>
+          <li><a href="/menu2/sub4">Submenu 2-4</a></li>
+          <li><a href="/menu2/sub5">Submenu 2-5</a></li>
+        </ul>
+      </li>
+      <li><a href="/menu3">Menu 3</a>
+        <ul class="submenu">
+          <li><a href="/menu3/sub1">Submenu 3-1</a></li>
+          <li><a href="/menu3/sub2">Submenu 3-2</a></li>
+          <li><a href="/menu3/sub3">Submenu 3-3</a></li>
+          <li><a href="/menu3/sub4">Submenu 3-4</a></li>
+          <li><a href="/menu3/sub5">Submenu 3-5</a></li>
+        </ul>
+      </li>
+      <li><a href="/menu4">Menu 4</a>
+        <ul class="submenu">
+          <li><a href="/menu4/sub1">Submenu 4-1</a></li>
+          <li><a href="/menu4/sub2">Submenu 4-2</a></li>
+          <li><a href="/menu4/sub3">Submenu 4-3</a></li>
+          <li><a href="/menu4/sub4">Submenu 4-4</a></li>
+          <li><a href="/menu4/sub5">Submenu 4-5</a></li>
+        </ul>
+      </li>
+      <li><a href="/menu5">Menu 5</a>
+        <ul class="submenu">
+          <li><a href="/menu5/sub1">Submenu 5-1</a></li>
+          <li><a href="/menu5/sub2">Submenu 5-2</a></li>
+          <li><a href="/menu5/sub3">Submenu 5-3</a></li>
+          <li><a href="/menu5/sub4">Submenu 5-4</a></li>
+          <li><a href="/menu5/sub5">Submenu 5-5</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
