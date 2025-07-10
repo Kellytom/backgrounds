@@ -1,498 +1,417 @@
 ---
-import {
-  Astronav,
-  MenuItems,
-  MenuIcon,
-  Dropdown,
-  DropdownItems,
-  DropdownSubmenu,
-  StickyHeader,
-} from "astro-navbar";
+title: "FF2: Responsive Menu Demo"
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FF2 Astro-Navbar Demo - Hacker1 Site</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Essential hidden class for astro-navbar */
-        .hidden {
-            display: none;
-        }
-        
-        /* FORCE HORIZONTAL LAYOUT - override all conflicts */
-        .astronav-items {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-        }
-        
-        .astronav-items ul {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            list-style: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        
-        .astronav-items li {
-            display: inline-block !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        
-        /* FIX DROPDOWN VISIBILITY - Remove "hidden" class when dropdown is open */
-        .astronav-dropdown[open] .dropdown-toggle {
-            display: block !important;
-        }
-        
-        .astronav-dropdown.open .dropdown-toggle {
-            display: block !important;
-        }
-        
-        /* Initially hide dropdown items */
-        .dropdown-toggle {
-            display: none;
-        }
-        
-        /* Show dropdown when open */
-        .astronav-dropdown[aria-expanded="true"] .dropdown-toggle {
-            display: block !important;
-        }
-        
-        /* Submenu positioning and visibility */
-        .astronav-dropdown-submenu[open] .dropdown-toggle,
-        .astronav-dropdown-submenu.open .dropdown-toggle,
-        .astronav-dropdown-submenu[aria-expanded="true"] .dropdown-toggle {
-            display: block !important;
-        }
-        
-        body {
-            margin: 0;
-            font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        }
-        
-        .demo-content {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .comparison-note {
-            background-color: #f0f8ff;
-            border-left: 4px solid #3273dc;
-            padding: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .feature-list {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-        }
-        
-        .code-preview {
-            background-color: #2b2b2b;
-            color: #f8f8f2;
-            padding: 1rem;
-            border-radius: 6px;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-        }
-        
-        /* Custom styling for the astro-navbar */
-        .navbar-container {
-            background-color: #363636;
-            color: white;
-        }
-        
-        .navbar-container a {
-            color: #b5b5b5;
-            text-decoration: none;
-            padding: 0.5rem 0.75rem;
-            display: block;
-            border-radius: 4px;
-            transition: color 0.2s ease;
-        }
-        
-        .navbar-container a:hover {
-            color: white;
-            background-color: #4a4a4a;
-        }
-        
-        .navbar-container button {
-            color: #b5b5b5;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem 0.75rem;
-            border-radius: 4px;
-            transition: color 0.2s ease;
-        }
-        
-        .navbar-container button:hover {
-            color: white;
-            background-color: #4a4a4a;
-        }
-        
-        /* Dropdown styling */
-        .dropdown-menu {
-            background-color: white;
-            border-radius: 6px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e5e9;
-            min-width: 180px;
-        }
-        
-        .dropdown-menu a {
-            color: #363636;
-            padding: 0.75rem 1rem;
-            border-radius: 0;
-        }
-        
-        .dropdown-menu a:hover {
-            background-color: #f5f5f5;
-            color: #363636;
-        }
-    </style>
-</head>
-<body>
-    <!-- Factory-Fresh Astro-Navbar WITHOUT StickyHeader to avoid conflicts -->
-    <nav class="navbar-container bg-gray-800 border-b border-gray-700">
-        <div class="flex justify-between items-center p-5 mx-auto container">
-            <Astronav closeOnClick>
-                <!-- Logo and Menu in same horizontal line -->
-                <div class="flex items-center justify-between w-full">
-                    <a href="/" class="text-xl font-bold text-white">FF2 Hacker1</a>
-                    
-                    <!-- HORIZONTAL MENU ITEMS IN SAME LINE AS LOGO -->
-                    <MenuItems class="flex items-center">
-                        <ul class="flex items-center space-x-6">
-                            <li class="inline-block">
-                                <a href="/" class="text-white hover:text-gray-300 px-3 py-2">Home</a>
-                            </li>
-                            <li class="inline-block">
-                                <a href="/about" class="text-white hover:text-gray-300 px-3 py-2">About</a>
-                            </li>
-                            <li class="inline-block relative">
-                                <Dropdown class="group">
-                                    <button class="flex items-center gap-1 text-white hover:text-gray-300 px-3 py-2">
-                                        <span>Designs</span>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke-width="3"
-                                            stroke="currentColor"
-                                            class="w-3 h-3 group-open:rotate-180 transition-transform">
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-                                        </svg>
-                                    </button>
-                                    <DropdownItems class="dropdown-toggle">
-                                        <div class="absolute top-full left-0 bg-white w-56 border shadow-lg rounded-lg p-3 dropdown-menu z-50 mt-2">
-                                            <ul class="space-y-2">
-                                                <li>
-                                                    <a href="/designs/light" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🌞 Light Theme</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/designs/dark" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🌙 Dark Theme</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/designs/marble" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🪨 Marble Patterns</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/designs/stripes" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">📏 Stripe Patterns</a>
-                                                </li>
-                                                <li>
-                                                    <DropdownSubmenu class="group/submenu relative">
-                                                        <button class="flex w-full items-center justify-between text-left text-gray-700 hover:bg-gray-100 p-2 rounded">
-                                                            <span>🎨 Pattern Gallery</span>
-                                                            <svg
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                fill="none"
-                                                                viewBox="0 0 24 24"
-                                                                stroke-width="3"
-                                                                stroke="currentColor"
-                                                                class="w-3 h-3 group-open/submenu:rotate-180 transition-transform">
-                                                                <path
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"
-                                                                    d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <DropdownItems class="dropdown-toggle">
-                                                            <ul class="absolute bg-white top-0 left-full w-48 border shadow-lg rounded-lg p-2 dropdown-menu ml-1 z-50">
-                                                                <li>
-                                                                    <a href="/designs/patterns/geometric" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🔷 Geometric</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/designs/patterns/organic" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🌿 Organic</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/designs/patterns/abstract" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">🎭 Abstract</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/designs/patterns/vintage" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">📼 Vintage</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/designs/patterns/modern" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">✨ Modern</a>
-                                                                </li>
-                                                            </ul>
-                                                        </DropdownItems>
-                                                    </DropdownSubmenu>
-                                                </li>
-                                                <li>
-                                                    <a href="/designs/archives" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">📂 Archives</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/designs/favorites" class="block text-gray-700 hover:bg-gray-100 p-2 rounded">⭐ Favorites</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </DropdownItems>
-                                </Dropdown>
-                            </li>
-                            <li class="inline-block">
-                                <a href="/blog" class="text-white hover:text-gray-300 px-3 py-2">Blog</a>
-                            </li>
-                            <li class="inline-block">
-                                <a href="/contact" class="text-white hover:text-gray-300 px-3 py-2">Contact</a>
-                            </li>
-                        </ul>
-                    </MenuItems>
-                </div>
-            </Astronav>
-        </div>
-    </nav>
-    
-    <main class="demo-content">
-        <div class="container">
-            <h1 class="title is-2">FF2: Official Astro-Navbar Demo</h1>
-            <p class="subtitle">Using the professional <code>astro-navbar</code> package from GitHub</p>
-            
-            <div class="comparison-note">
-                <h2 class="title is-4">🚀 Factory-Fresh #2</h2>
-                <p>This navbar is built using the official <strong>astro-navbar</strong> package by Surjith S M. It's a battle-tested, production-ready component used by thousands of developers.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/surjithctly/astro-navbar" target="_blank" class="text-blue-600 underline">surjithctly/astro-navbar</a></p>
-            </div>
+<!-- Responsive Menu with Submenus (from template) -->
+<nav class="navbar-bar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <span class="navbar-brand">Hacker1</span>
+    </div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <!-- Move mode-select and search-form into menu for mobile -->
+    <ul class="menu" id="main-menu">
+      <li class="mobile-only">
+        <select class="mode-select" aria-label="Theme mode">
+          <option value="light">Light</option>
+          <option value="sunset">Sunset</option>
+          <option value="dark">Dark</option>
+          <option value="system">System</option>
+        </select>
+      </li>
+      <li class="mobile-only">
+        <form class="search-form" role="search">
+          <input type="search" placeholder="Search..." aria-label="Search" />
+        </form>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>Designs</span>
+        </button>
+        <ul class="submenu dropdown-menu">
+          <li><a href="/backgrounds" class="dropdown-item">Backgrounds</a></li>
+          <li><a href="/daisyui-showcase" class="dropdown-item">DaisyUI</a></li>
+          <li><a href="/starlight-css-guide" class="dropdown-item">CSS Guide</a></li>
+          <li><a href="/bulma" class="dropdown-item">Bulma Demo</a></li>
+          <li><a href="/ff2-navbar-demo" class="dropdown-item">🚀 FF2 Navbar Demo</a></li>
+          <li><a href="/frames" class="dropdown-item">Frames</a></li>
+          <li><a href="/frames-pale" class="dropdown-item">Frames Pale</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>Menu 2</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="/menu2/sub1">Submenu 2-1</a></li>
+          <li><a href="/menu2/sub2">Submenu 2-2</a></li>
+          <li><a href="/menu2/sub3">Submenu 2-3</a></li>
+          <li><a href="/menu2/sub4">Submenu 2-4</a></li>
+          <li><a href="/menu2/sub5">Submenu 2-5</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>Menu 3</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="/menu3/sub1">Submenu 3-1</a></li>
+          <li><a href="/menu3/sub2">Submenu 3-2</a></li>
+          <li><a href="/menu3/sub3">Submenu 3-3</a></li>
+          <li><a href="/menu3/sub4">Submenu 3-4</a></li>
+          <li><a href="/menu3/sub5">Submenu 3-5</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>Menu 4</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="/menu4/sub1">Submenu 4-1</a></li>
+          <li><a href="/menu4/sub2">Submenu 4-2</a></li>
+          <li><a href="/menu4/sub3">Submenu 4-3</a></li>
+          <li><a href="/menu4/sub4">Submenu 4-4</a></li>
+          <li><a href="/menu4/sub5">Submenu 4-5</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>Menu 5</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="/menu5/sub1">Submenu 5-1</a></li>
+          <li><a href="/menu5/sub2">Submenu 5-2</a></li>
+          <li><a href="/menu5/sub3">Submenu 5-3</a></li>
+          <li><a href="/menu5/sub4">Submenu 5-4</a></li>
+          <li><a href="/menu5/sub5">Submenu 5-5</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="dropdown-toggle" tabindex="0">
+          <span>...</span>
+        </button>
+        <ul class="submenu">
+          <li><a href="#future">future expansion</a></li>
+          <li><a href="#experimental">experimental</a></li>
+          <li><a href="#untested">untested</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-            <div class="columns">
-                <div class="column is-half">
-                    <div class="feature-list">
-                        <h3 class="title is-5">✅ Professional Features</h3>
-                        <ul>
-                            <li>✓ Official package (10k+ weekly downloads)</li>
-                            <li>✓ Sticky header with scroll effects</li>
-                            <li>✓ Multi-level dropdown menus</li>
-                            <li>✓ Mobile-responsive design</li>
-                            <li>✓ Accessibility (ARIA attributes)</li>
-                            <li>✓ TypeScript support</li>
-                            <li>✓ Headless architecture</li>
-                            <li>✓ Close-on-click functionality</li>
-                            <li>✓ Smooth animations</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="column is-half">
-                    <div class="feature-list">
-                        <h3 class="title is-5">🎯 Key Advantages</h3>
-                        <ul>
-                            <li>✓ Zero configuration needed</li>
-                            <li>✓ Works out of the box</li>
-                            <li>✓ Maintained by the community</li>
-                            <li>✓ Regular updates and bug fixes</li>
-                            <li>✓ Extensive documentation</li>
-                            <li>✓ Live demos available</li>
-                            <li>✓ Tailwind CSS compatible</li>
-                            <li>✓ Framework agnostic styling</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<main style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+  <h1>Welcome to the FF2 Navbar Demo</h1>
+  <p>This is a demonstration page for the responsive menu with submenus. The navigation bar above should allow you to open submenus by clicking any menu item, both on desktop and mobile.</p>
+  <section>
+    <h2>Sample Content</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, eu consectetur nisl nisi euismod nisi.</p>
+    <p>Scroll down to see how the submenus overlay this content when opened.</p>
+    <div style="height: 600px; background: #eaeaea; border-radius: 8px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; font-size: 1.2em; color: #555;">
+      Placeholder block for overlay test
+    </div>
+    <p>End of demo content.</p>
+  </section>
+</main>
 
-            <section class="section">
-                <h2 class="title is-3">Testing the Advanced Features</h2>
-                <div class="content">
-                    <ol>
-                        <li><strong>Sticky Header:</strong>
-                            <ul>
-                                <li>Scroll down this page to see the header become more compact</li>
-                                <li>Notice the background blur effect when scrolled</li>
-                                <li>The header maintains visibility at the top</li>
-                            </ul>
-                        </li>
-                        <li><strong>Multi-level Dropdowns:</strong>
-                            <ul>
-                                <li>Hover over "Designs" to see the main dropdown</li>
-                                <li>Hover over "Pattern Gallery" to see the submenu</li>
-                                <li>Notice the smooth animations and proper positioning</li>
-                            </ul>
-                        </li>
-                        <li><strong>Mobile Experience:</strong>
-                            <ul>
-                                <li>Resize to mobile view (&lt; 1024px)</li>
-                                <li>Tap the menu icon to open the mobile menu</li>
-                                <li>Tap menu items to auto-close (closeOnClick)</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-            </section>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+.navbar-bar {
+  width: 100%;
+  background: #222;
+  box-sizing: border-box;
+}
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: .2rem;
+  letter-spacing: 1px;
+}
+.menu {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.menu > li {
+  min-width: 0;
+}
+.dropdown {
+  position: relative;
+}
+.menu > li > a {
+  display: block;
+  padding: .5em .55em;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.menu > li > a:hover,
+.menu > li:focus-within > a {
+  background: #444;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font: inherit;
+  padding: 1em 1.5em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+  background: #444;
+}
+.submenu li a {
+  display: block;
+  padding: 0.75em 1.5em;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.submenu li a:hover {
+  background: #555;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+.search-form input[type="search"] {
+  width: 90px;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: none;
+  font-size: 1em;
+  outline: none;
+}
+.search-form input[type="search"]:focus,
+.search-form input[type="search"]:not(:placeholder-shown) {
+  width: 180px;
+}
+.mode-select {
+  padding: 0.2em 0.7em;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.95em;
+  background: #444;
+  color: #fff;
+  height: 2em;
+  min-width: 80px;
+  line-height: 1.2;
+  margin: 0 0.5em 0 0.5em;
+  transition: background 0.3s;
+}
+.mode-select option {
+  color: #222;
+  background: #fff;
+}
+body[data-theme="dark"] .mode-select,
+body[data-theme="dark"] .mode-select option {
+  color: #fff;
+  background: #222;
+}
+body[data-theme="sunset"] .mode-select,
+body[data-theme="sunset"] .mode-select option {
+  color: #5a3a1b;
+  background: #f5e6d3;
+}
+body[data-theme="dark"] {
+  background: rgba(34,34,34,0.8);
+}
+body[data-theme="sunset"] {
+  background: #f5e6d3;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  cursor: pointer;
+  margin-left: 1em;
+  z-index: 2000;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 28px;
+  background: #fff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 800px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .navbar-right {
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #222;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    z-index: 1500;
+  }
+  .menu.menu-open {
+    display: flex;
+  }
+  .navbar-container {
+    position: relative;
+  }
+  .submenu {
+    position: static;
+    display: none;
+    background: #333;
+    min-width: 0;
+    box-shadow: none;
+    margin-left: 1.5em;
+    padding-left: 0.5em;
+  }
+  .dropdown.open > .submenu {
+    display: block;
+  }
+  .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 1em 1em;
+  }
+  .mobile-only {
+    display: block;
+    width: 100%;
+    padding: 0.5em 1em;
+  }
+  .mode-select, .search-form {
+    width: 100%;
+    margin: 0.5em 0;
+  }
+}
+@media (min-width: 801px) {
+  .mobile-only {
+    display: none !important;
+  }
+  .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #333;
+    min-width: 180px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+  }
+  /* Removed hover/focus logic for desktop submenus */
+  .dropdown.open > .submenu {
+    display: block;
+  }
+}
+</style>
 
-            <section class="section">
-                <h2 class="title is-3">Implementation Details</h2>
-                
-                <div class="content">
-                    <h4 class="title is-5">1. Package Installation</h4>
-                    <div class="code-preview">
-{`npm install astro-navbar
-# or
-pnpm add astro-navbar`}
-                    </div>
-
-                    <h4 class="title is-5">2. Component Structure</h4>
-                    <div class="code-preview">
-{`---
-import {
-  Astronav,
-  MenuItems,
-  MenuIcon,
-  Dropdown,
-  DropdownItems,
-  DropdownSubmenu,
-  StickyHeader,
-} from "astro-navbar";
----
-
-<StickyHeader>
-  <Astronav closeOnClick>
-    <MenuIcon />
-    <MenuItems>
-      <Dropdown>
-        <DropdownItems>
-          <DropdownSubmenu>
-            <!-- Nested menus -->
-          </DropdownSubmenu>
-        </DropdownItems>
-      </Dropdown>
-    </MenuItems>
-  </Astronav>
-</StickyHeader>`}
-                    </div>
-
-                    <h4 class="title is-5">3. Key Components</h4>
-                    <ul>
-                        <li><strong>StickyHeader:</strong> Adds scroll-based styling changes</li>
-                        <li><strong>Astronav:</strong> Main navigation wrapper with event handling</li>
-                        <li><strong>MenuIcon:</strong> Mobile hamburger menu with open/close states</li>
-                        <li><strong>MenuItems:</strong> Container for navigation items</li>
-                        <li><strong>Dropdown:</strong> Creates dropdown functionality</li>
-                        <li><strong>DropdownSubmenu:</strong> Enables multi-level nested menus</li>
-                    </ul>
-
-                    <h4 class="title is-5">4. Built-in Features</h4>
-                    <ul>
-                        <li><strong>Accessibility:</strong> Automatic ARIA attributes</li>
-                        <li><strong>Mobile Support:</strong> Touch-friendly interactions</li>
-                        <li><strong>Keyboard Navigation:</strong> Tab and Enter support</li>
-                        <li><strong>Click Outside:</strong> Automatic dropdown closing</li>
-                        <li><strong>Smooth Animations:</strong> CSS transitions for state changes</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="title is-3">Comparison with Other Approaches</h2>
-                <div class="comparison-note">
-                    <h3 class="title is-5">vs. Custom Implementation (Your Current Navbar)</h3>
-                    <div class="columns">
-                        <div class="column">
-                            <h4><strong>Custom Navbar Issues:</strong></h4>
-                            <ul>
-                                <li>Complex CSS conflicts</li>
-                                <li>Manual event handling bugs</li>
-                                <li>Accessibility gaps</li>
-                                <li>Mobile responsiveness issues</li>
-                                <li>Browser compatibility problems</li>
-                                <li>Maintenance overhead</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h4><strong>Astro-Navbar Benefits:</strong></h4>
-                            <ul>
-                                <li>Production-tested reliability</li>
-                                <li>Built-in accessibility</li>
-                                <li>Comprehensive mobile support</li>
-                                <li>Cross-browser compatibility</li>
-                                <li>Regular updates and fixes</li>
-                                <li>Community support</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <h3 class="title is-5">vs. Standard Bulma Navbar (FF1)</h3>
-                    <div class="columns">
-                        <div class="column">
-                            <h4><strong>Bulma Limitations:</strong></h4>
-                            <ul>
-                                <li>Basic dropdown functionality</li>
-                                <li>No sticky header support</li>
-                                <li>Limited nesting capabilities</li>
-                                <li>Manual JavaScript required</li>
-                                <li>Less modern interaction patterns</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h4><strong>Astro-Navbar Advantages:</strong></h4>
-                            <ul>
-                                <li>Advanced multi-level dropdowns</li>
-                                <li>Built-in sticky header</li>
-                                <li>Modern interaction patterns</li>
-                                <li>Zero JavaScript configuration</li>
-                                <li>More flexible styling options</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="title is-3">Recommendation</h2>
-                <div class="content">
-                    <div class="notification is-success">
-                        <h4 class="title is-5">🎯 Best Choice for Production</h4>
-                        <p>The <strong>astro-navbar</strong> package is the recommended solution for your navigation needs because:</p>
-                        <ol>
-                            <li><strong>Professional Quality:</strong> Used in production by thousands of sites</li>
-                            <li><strong>Zero Debugging:</strong> No CSS conflicts or JavaScript bugs to fix</li>
-                            <li><strong>Future-Proof:</strong> Regular updates and community maintenance</li>
-                            <li><strong>Feature Complete:</strong> Everything you need for modern navigation</li>
-                            <li><strong>Developer Experience:</strong> Easy to implement and customize</li>
-                        </ol>
-                        <p><strong>Action:</strong> Replace your custom navbar with this astro-navbar implementation for immediate improvement and long-term stability.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Scrollable content to test sticky header -->
-            <section class="section" style="height: 1000px; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); display: flex; align-items: center; justify-content: center;">
-                <div class="has-text-centered">
-                    <h3 class="title is-4">Scroll Test Area</h3>
-                    <p>Scroll up and down to test the sticky header behavior</p>
-                    <p>Notice how the header changes opacity and size when scrolling</p>
-                </div>
-            </section>
-        </div>
-    </main>
-</body>
-</html>
+<script>
+// Hamburger menu toggle (vanilla JS)
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('main-menu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', function() {
+      const isOpen = menu.classList.toggle('menu-open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+  // Light/Dark/Sunset mode switcher
+  const modeSelect = document.querySelector('.mode-select');
+  function setTheme(theme: string) {
+    document.body.setAttribute('data-theme', theme);
+  }
+  if (modeSelect) {
+    modeSelect.addEventListener('change', function(e) {
+      const target = e.target as HTMLSelectElement | null;
+      if (target) setTheme(target.value);
+    });
+    // Set initial theme
+    if ((modeSelect as HTMLSelectElement).value) {
+      setTheme((modeSelect as HTMLSelectElement).value);
+    }
+  }
+  // Mobile/Desktop submenu toggle
+  function isMobile() {
+    return window.innerWidth <= 800;
+  }
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown.open').forEach(function(el) {
+      el.classList.remove('open');
+    });
+  }
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  console.log('Dropdown toggles found:', dropdownToggles.length);
+  dropdownToggles.forEach(function(btn, idx) {
+    console.log('Attaching event to dropdown-toggle', idx, btn);
+    btn.addEventListener('click', function(e) {
+      console.log('Dropdown-toggle clicked:', btn, 'Mobile:', isMobile());
+      e.preventDefault();
+      const parent = btn.parentElement;
+      if (parent && parent.classList.contains('open')) {
+        parent.classList.remove('open');
+        console.log('Dropdown closed');
+      } else if (parent) {
+        closeAllDropdowns();
+        parent.classList.add('open');
+        console.log('Dropdown opened');
+      }
+    });
+  });
+  // Optional: close dropdowns when resizing to desktop
+  window.addEventListener('resize', function() {
+    if (!isMobile()) closeAllDropdowns();
+  });
+});
+</script>
