@@ -1,0 +1,296 @@
+---
+// Standard Astro Navbar Component
+// This is a factory-fresh navbar using standard Astro practices
+// Based on official Astro documentation and best practices
+
+export interface Props {
+  title?: string;
+}
+
+const { title = "Hacker1 Site" } = Astro.props;
+
+// Define navigation items
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about/" },
+  { name: "Blog", href: "/blog/" },
+  { 
+    name: "Designs", 
+    href: "#",
+    dropdown: [
+      { name: "Light Theme", href: "/designs/light/" },
+      { name: "Dark Theme", href: "/designs/dark/" },
+      { name: "Pattern Gallery", href: "/designs/patterns/" },
+      { name: "Archives", href: "/designs/archives/" }
+    ]
+  },
+  { name: "Contact", href: "/contact/" }
+];
+
+// Get current path for active state
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item brand-title" href="/">
+      {title}
+    </a>
+    
+    <!-- Mobile hamburger menu -->
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar-menu" class="navbar-menu">
+    <div class="navbar-start">
+      {navItems.map((item) => {
+        if (item.dropdown) {
+          return (
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href={item.href}>
+                {item.name}
+              </a>
+              <div class="navbar-dropdown">
+                {item.dropdown.map((dropdownItem) => (
+                  <a 
+                    class={`navbar-item ${currentPath === dropdownItem.href ? 'is-active' : ''}`}
+                    href={dropdownItem.href}
+                  >
+                    {dropdownItem.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <a 
+              class={`navbar-item ${currentPath === item.href ? 'is-active' : ''}`}
+              href={item.href}
+            >
+              {item.name}
+            </a>
+          );
+        }
+      })}
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Standard Bulma-based navbar styles with minimal customization */
+  .navbar {
+    background-color: #363636;
+    min-height: 3.25rem;
+    position: relative;
+    z-index: 30;
+  }
+
+  .navbar-brand {
+    align-items: stretch;
+    display: flex;
+    flex-shrink: 0;
+    min-height: 3.25rem;
+  }
+
+  .navbar-item {
+    color: #b5b5b5;
+    display: block;
+    line-height: 1.5;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .navbar-item:hover,
+  .navbar-item.is-active {
+    background-color: #4a4a4a;
+    color: white;
+  }
+
+  .brand-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .navbar-menu {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  .navbar-start {
+    align-items: stretch;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+
+  /* Dropdown styles */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .navbar-link {
+    color: #b5b5b5;
+    cursor: pointer;
+    display: block;
+    line-height: 1.5;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .navbar-link:hover {
+    background-color: #4a4a4a;
+    color: white;
+  }
+
+  .navbar-dropdown {
+    background-color: white;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top: 2px solid #dbdbdb;
+    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
+    display: none;
+    font-size: 0.875rem;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+  }
+
+  .navbar-dropdown .navbar-item {
+    color: #4a4a4a;
+    padding: 0.375rem 1rem;
+    white-space: nowrap;
+  }
+
+  .navbar-dropdown .navbar-item:hover {
+    background-color: #f5f5f5;
+    color: #363636;
+  }
+
+  .navbar-dropdown .navbar-item.is-active {
+    background-color: #3273dc;
+    color: white;
+  }
+
+  /* Show dropdown on hover */
+  .has-dropdown.is-hoverable:hover .navbar-dropdown {
+    display: block;
+  }
+
+  /* Mobile styles */
+  .navbar-burger {
+    color: #b5b5b5;
+    cursor: pointer;
+    display: none;
+    height: 3.25rem;
+    position: relative;
+    width: 3.25rem;
+  }
+
+  .navbar-burger span {
+    background-color: currentColor;
+    display: block;
+    height: 1px;
+    left: calc(50% - 8px);
+    position: absolute;
+    transform-origin: center;
+    transition-duration: 86ms;
+    transition-property: background-color, opacity, transform;
+    transition-timing-function: ease-out;
+    width: 16px;
+  }
+
+  .navbar-burger span:nth-child(1) {
+    top: calc(50% - 6px);
+  }
+
+  .navbar-burger span:nth-child(2) {
+    top: calc(50% - 1px);
+  }
+
+  .navbar-burger span:nth-child(3) {
+    top: calc(50% + 4px);
+  }
+
+  .navbar-burger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 1023px) {
+    .navbar-burger {
+      display: block;
+    }
+
+    .navbar-menu {
+      background-color: #363636;
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+      display: none;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 100%;
+    }
+
+    .navbar-menu.is-active {
+      display: block;
+    }
+
+    .navbar-start {
+      flex-direction: column;
+    }
+
+    .has-dropdown .navbar-dropdown {
+      display: none;
+      position: static;
+      box-shadow: none;
+      border-top: none;
+      background-color: #4a4a4a;
+    }
+
+    .has-dropdown.is-active .navbar-dropdown {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    if (burgers.length > 0) {
+      burgers.forEach(el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const targetElement = document.getElementById(target);
+
+          el.classList.toggle('is-active');
+          targetElement?.classList.toggle('is-active');
+        });
+      });
+    }
+
+    // Mobile dropdown toggle
+    const dropdowns = Array.prototype.slice.call(document.querySelectorAll('.has-dropdown'), 0);
+    
+    dropdowns.forEach(dropdown => {
+      const link = dropdown.querySelector('.navbar-link');
+      link?.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1023) {
+          e.preventDefault();
+          dropdown.classList.toggle('is-active');
+        }
+      });
+    });
+  });
+</script>

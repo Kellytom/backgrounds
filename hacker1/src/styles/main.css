@@ -1,5 +1,8 @@
 /* Hacker1 Main Styles - Dark Mode with Fine Striped Patterns */
 
+/* IMPORTANT: Bulma CSS import causes conflicts with custom navbar component
+   The .navbar-brand and related Bulma styles override custom astro-navbar styling.
+   Custom overrides are added at the bottom of this file to resolve conflicts. */
 @import 'bulma/css/bulma.min.css';
 
 /* RULE: No centering anywhere in this document. All text aligns left unless absolutely necessary. */
@@ -354,6 +357,34 @@ ul, ol {
 /* Content sections */
 .content-section {
     margin: 2rem 0;
+}
+
+/* Override Bulma navbar styles to prevent conflicts with custom navbar */
+.custom-navbar .navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.custom-navbar .navbar-brand .brand-link {
+  padding: 0.2rem 0.4rem !important;
+  line-height: normal !important;
+}
+
+/* Ensure Bulma's navbar styles don't interfere with our custom navbar */
+.custom-navbar * {
+  box-sizing: border-box !important;
+}
+
+.custom-navbar .navbar-container :global(.astronav) {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  height: 40px !important;
+  width: 100% !important;
 }
 
 /* Responsive design */

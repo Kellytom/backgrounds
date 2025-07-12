@@ -1,0 +1,233 @@
+---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  DropdownSubmenu
+} from "astro-navbar";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF2 Working Dropdown Demo</title>
+    <style>
+        .hidden { display: none; }
+        
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .navbar {
+            background: #2d3748;
+            padding: 1rem 2rem;
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .astronav-items {
+            display: flex !important;
+        }
+        
+        .astronav-items ul {
+            display: flex !important;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        
+        .astronav-items li {
+            position: relative;
+        }
+        
+        .astronav-items a,
+        .astronav-items button {
+            color: #cbd5e0;
+            text-decoration: none;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .astronav-items a:hover,
+        .astronav-items button:hover {
+            color: white;
+            background: #4a5568;
+        }
+        
+        /* Dropdown */
+        .dropdown-toggle {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            z-index: 50;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .astronav-dropdown[open] .dropdown-toggle,
+        .astronav-dropdown.open .dropdown-toggle {
+            display: block !important;
+        }
+        
+        .dropdown-toggle a {
+            color: #2d3748 !important;
+            padding: 0.75rem 1rem !important;
+            display: block !important;
+            border-radius: 0 !important;
+        }
+        
+        .dropdown-toggle a:hover {
+            background: #f7fafc !important;
+        }
+        
+        /* Submenu */
+        .astronav-dropdown-submenu .dropdown-toggle {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: 0;
+            margin-left: 0.5rem;
+        }
+        
+        .astronav-dropdown-submenu[open] .dropdown-toggle,
+        .astronav-dropdown-submenu.open .dropdown-toggle {
+            display: block !important;
+        }
+        
+        .content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <Astronav closeOnClick>
+                <div class="navbar-content">
+                    <a href="/" class="logo">FF2 Demo</a>
+                    
+                    <MenuItems>
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
+                            <li>
+                                <Dropdown>
+                                    <button>
+                                        <span>Designs</span>
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M7 10l5 5 5-5z"/>
+                                        </svg>
+                                    </button>
+                                    <DropdownItems class="dropdown-toggle">
+                                        <ul>
+                                            <li><a href="/designs/light">Light Theme</a></li>
+                                            <li><a href="/designs/dark">Dark Theme</a></li>
+                                            <li><a href="/designs/marble">Marble Patterns</a></li>
+                                            <li><a href="/designs/stripes">Stripe Patterns</a></li>
+                                            <li>
+                                                <DropdownSubmenu>
+                                                    <button>
+                                                        <span>Pattern Gallery</span>
+                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                                            <path d="M9 7l5 5-5 5V7z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <DropdownItems class="dropdown-toggle">
+                                                        <ul>
+                                                            <li><a href="/patterns/geometric">Geometric Patterns</a></li>
+                                                            <li><a href="/patterns/organic">Organic Shapes</a></li>
+                                                            <li><a href="/patterns/abstract">Abstract Art</a></li>
+                                                            <li><a href="/patterns/vintage">Vintage Style</a></li>
+                                                            <li><a href="/patterns/modern">Modern Minimal</a></li>
+                                                        </ul>
+                                                    </DropdownItems>
+                                                </DropdownSubmenu>
+                                            </li>
+                                            <li><a href="/designs/archives">Design Archives</a></li>
+                                            <li><a href="/designs/favorites">User Favorites</a></li>
+                                        </ul>
+                                    </DropdownItems>
+                                </Dropdown>
+                            </li>
+                            <li>
+                                <a href="/blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                    </MenuItems>
+                </div>
+            </Astronav>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <h1>Working Dropdown Test</h1>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li><strong>Click "Designs"</strong> - You should see a dropdown with 7 items</li>
+            <li><strong>Click "Pattern Gallery"</strong> - You should see a submenu with 5 items</li>
+            <li>If nothing happens, the astro-navbar JavaScript isn't loading</li>
+        </ol>
+        
+        <h2>What Should Work</h2>
+        <ul>
+            <li>Horizontal menu: FF2 Demo | Home | About | Designs | Blog | Contact</li>
+            <li>Click "Designs" button to see dropdown</li>
+            <li>Click "Pattern Gallery" to see submenu</li>
+            <li>Down arrows should be visible</li>
+        </ul>
+        
+        <h2>Troubleshooting</h2>
+        <p>If the dropdown still doesn't work:</p>
+        <ul>
+            <li>The astro-navbar package may have installation issues</li>
+            <li>JavaScript may not be loading in the browser</li>
+            <li>Check browser console for errors</li>
+        </ul>
+    </div>
+</body>
+</html>

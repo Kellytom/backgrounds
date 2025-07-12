@@ -1,0 +1,188 @@
+---
+import StandardNavbar from '../components/StandardNavbar.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Navbar Demo - Hacker1 Site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        }
+        
+        .demo-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .comparison-note {
+            background-color: #f0f8ff;
+            border-left: 4px solid #3273dc;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-list {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .code-preview {
+            background-color: #2b2b2b;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Standard Factory-Fresh Navbar -->
+    <StandardNavbar title="Factory-Fresh Demo" />
+    
+    <main class="demo-content">
+        <div class="container">
+            <h1 class="title is-2">Factory-Fresh Standard Navbar Demo</h1>
+            <p class="subtitle">A clean, professional navigation component using standard Astro practices</p>
+            
+            <div class="comparison-note">
+                <h2 class="title is-4">🎯 Purpose of This Demo</h2>
+                <p>This page demonstrates a <strong>factory-fresh, standard Astro navbar</strong> that follows official Astro documentation and best practices. Compare this to your custom navbar to see the differences in behavior and styling.</p>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="feature-list">
+                        <h3 class="title is-5">✅ Standard Features Working</h3>
+                        <ul>
+                            <li>✓ Clean hover states (gray → white text)</li>
+                            <li>✓ Dropdown appears on hover (desktop)</li>
+                            <li>✓ Dropdown toggles on click (mobile)</li>
+                            <li>✓ Mobile hamburger menu</li>
+                            <li>✓ Active page highlighting</li>
+                            <li>✓ Proper z-index layering</li>
+                            <li>✓ No unexpected movement or flickering</li>
+                            <li>✓ Standard Bulma styling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="column is-half">
+                    <div class="feature-list">
+                        <h3 class="title is-5">🚫 Removed Fancy Effects</h3>
+                        <ul>
+                            <li>✗ No complex CSS transitions</li>
+                            <li>✗ No background color animations</li>
+                            <li>✗ No transform effects</li>
+                            <li>✗ No gradient backgrounds</li>
+                            <li>✗ No shadow animations</li>
+                            <li>✗ No custom grid layouts</li>
+                            <li>✗ No unnecessary complexity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2 class="title is-3">How to Test the Navigation</h2>
+                <div class="content">
+                    <ol>
+                        <li><strong>Desktop Testing:</strong>
+                            <ul>
+                                <li>Hover over "Designs" to see the dropdown menu appear</li>
+                                <li>Move your mouse away to see it disappear</li>
+                                <li>Notice the clean hover states on all nav items</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mobile Testing:</strong>
+                            <ul>
+                                <li>Resize your browser window to mobile size (&lt; 1024px)</li>
+                                <li>Click the hamburger menu (three lines) to toggle the mobile menu</li>
+                                <li>Click "Designs" in mobile view to toggle the dropdown</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="title is-3">Key Technical Differences</h2>
+                
+                <div class="content">
+                    <h4 class="title is-5">1. Component Structure</h4>
+                    <div class="code-preview">
+{`<!-- Uses standard Astro props interface -->
+export interface Props {
+  title?: string;
+}
+
+<!-- Clean data structure for navigation -->
+const navItems = [
+  { name: "Home", href: "/" },
+  { 
+    name: "Designs", 
+    href: "#",
+    dropdown: [...] 
+  }
+];`}
+                    </div>
+
+                    <h4 class="title is-5">2. CSS Approach</h4>
+                    <p>This component uses <strong>standard Bulma classes</strong> with minimal customization:</p>
+                    <ul>
+                        <li>Standard <code>.navbar</code>, <code>.navbar-item</code>, <code>.navbar-dropdown</code> structure</li>
+                        <li>Simple hover states: background color + text color changes only</li>
+                        <li>No complex animations or transitions</li>
+                        <li>Proper z-index management for dropdown layering</li>
+                    </ul>
+
+                    <h4 class="title is-5">3. JavaScript Behavior</h4>
+                    <p>Minimal, standard JavaScript for:</p>
+                    <ul>
+                        <li>Mobile hamburger menu toggle</li>
+                        <li>Mobile dropdown toggle (click-based)</li>
+                        <li>Desktop dropdown (CSS hover-based)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="title is-3">Comparison with Your Custom Navbar</h2>
+                <div class="comparison-note">
+                    <p><strong>To compare:</strong></p>
+                    <ol>
+                        <li>Open your main site with the custom Navbar.astro</li>
+                        <li>Open this demo page in another tab</li>
+                        <li>Test the "Designs" dropdown on both pages</li>
+                        <li>Notice the differences in behavior, smoothness, and reliability</li>
+                    </ol>
+                    <p>The standard navbar should feel more predictable and professional, while your custom one might have unexpected behaviors due to the complex CSS we identified.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="title is-3">Next Steps</h2>
+                <div class="content">
+                    <p>Based on this comparison, you can:</p>
+                    <ol>
+                        <li><strong>Replace your custom navbar</strong> with this standard version</li>
+                        <li><strong>Use this as a reference</strong> to further simplify your existing navbar</li>
+                        <li><strong>Adopt the patterns</strong> shown here for reliable navigation behavior</li>
+                    </ol>
+                    
+                    <p>The key is to prioritize <strong>functionality and user experience</strong> over fancy visual effects that can break the user interface.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
